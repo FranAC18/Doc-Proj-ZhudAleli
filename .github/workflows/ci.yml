@@ -1,0 +1,44 @@
+name: Quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  agent-lab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install optional agent lab
+        working-directory: tools/agent-lab
+        run: python -m pip install -e ".[dev]"
+
+      - name: Run agent lab tests
+        working-directory: tools/agent-lab
+        run: pytest -q
+
+  repository-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Reject tracked secret files
+        shell: bash
+        run: |
+          if git ls-files | grep -E '(^|/)(\.env|.*\.sqlite3|.*\.db)$'; then
+            echo "Se encontraron archivos sensibles o bases locales versionadas."
+            exit 1
+          fi
+
+      - name: Check whitespace in the current commit
+        run: git show --check --format= HEAD

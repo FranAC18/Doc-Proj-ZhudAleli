@@ -1,0 +1,7 @@
+# Configuración compartida y segura del proyecto. El modelo y el proveedor se eligen en la
+# configuración local del usuario; Codex ignora esos campos en la configuración del proyecto.
+
+[agents]
+max_threads = 3
+max_depth = 1
+interrupt_message = true

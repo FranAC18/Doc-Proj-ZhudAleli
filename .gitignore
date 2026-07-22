@@ -1,0 +1,31 @@
+.env
+data/
+.agent/
+.venv/
+.deps/
+.pytest_cache/
+*.sqlite3
+*.db
+*.log
+dist/
+build/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Estado local de Obsidian y motores de IA
+.obsidian/workspace*.json
+.obsidian/cache/
+.obsidian/plugins/
+.obsidian/community-plugins.json
+.kimi-code/local.toml
+.kimi-code/mcp.json
+.specify/feature.json
+
+# Artefactos de la futura aplicación
+media/
+staticfiles/
