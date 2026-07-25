@@ -24,3 +24,12 @@ Un agente puede redactar una propuesta, pero no cambiarla a `confirmed`.
 
 Consulta [[../architecture/FUENTES-DE-VERDAD|Fuentes de verdad]] y
 [[../traceability/MATRIZ-TRAZABILIDAD|Matriz de trazabilidad]].
+
+## Línea base actual
+
+[[CAT-REQ-001|CAT-REQ-001 v1.0]] es el catálogo canónico aprobado el 2026-07-22. Registra
+57 requisitos `confirmed`, 2 `proposed` y 12 `superseded`, además de las decisiones de detalle
+que deben cerrarse en las specs correspondientes.
+
+[[proposals/2026-07-22-catalogo-revisado-requisitos-r3|CAT-REQ-001-R3]] queda como antecedente
+histórico `superseded`; no debe editarse para cambiar la línea base vigente.

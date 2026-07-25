@@ -18,7 +18,8 @@ specs/001-nombre-corto/
 
 - `draft`: generado y todavía incompleto.
 - `proposed`: listo para discusión, no autorizado para implementar.
-- `confirmed`: validado por las personas indicadas; permite planificar/implementar.
+- `confirmed`: validado por las personas indicadas; permite planificar. Implementar requiere
+  además plan y tareas aprobados, análisis de coherencia y las puertas del proyecto superadas.
 - `implemented`: integrado con pruebas, pendiente de validación final si aplica.
 - `validated`: evidencia de aceptación registrada.
 - `superseded`: reemplazado por una revisión enlazada.

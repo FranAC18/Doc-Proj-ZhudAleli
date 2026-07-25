@@ -3,7 +3,7 @@ title: Dashboard del proyecto de tesis
 type: dashboard
 status: in-progress
 project: tesis-zhud-aleli
-updated: 2026-07-21
+updated: 2026-07-25
 ---
 
 # Dashboard del proyecto
@@ -17,13 +17,14 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Estado actual
 
-- Fase: levantamiento y validación de requisitos.
+- Fase: levantamiento y validación de requisitos; primera línea base aprobada.
 - Último sprint cerrado: [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
 - Arnés portable: Codex validado como motor principal; Kimi/GLM son alternativas opcionales.
 - Constitución: aprobada por el tesista; la comparación con otros motores es opcional.
 - Aplicación Django: no creada ni instalada como aplicación del proyecto.
 - Base de datos PostgreSQL: no creada ni configurada.
-- Requisitos: deben levantarse y validarse con la organización.
+- Requisitos: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0]] aprobado con 57 IDs
+  `confirmed`, 2 `proposed` y 12 `superseded`.
 - Diseño visual: criterios propuestos; identidad y prototipo pendientes de validación.
 - Código de producción: todavía no iniciado.
 
@@ -47,6 +48,13 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
 - [[../decisions/ADR-0001-base-del-proyecto|Decisión técnica inicial]].
 - [[../requirements/README|Cómo documentar requisitos]].
+- [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0 aprobado]].
+- [[../requirements/proposals/2026-07-22-catalogo-revisado-requisitos-r3|CAT-REQ-001-R3 histórico]].
+- [[../evidence/fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3|Fuente del tesista registrada]].
+- [[../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1|Validación humana del catálogo]].
+- [[../bitacora/checkpoints/2026-07-22-catalogo-r3-para-validacion|Checkpoint de preparación de R3]].
+- [[../bitacora/checkpoints/2026-07-22-validacion-cat-req-001-v1|Checkpoint de validación de CAT-REQ-001]].
+- [[../bitacora/checkpoints/2026-07-25-versionado-fase-i-y-factibilidad-acceso|Versionado de Fase I y factibilidad de la primera spec]].
 - [[02-evaluacion-documentos|Evaluación de documentos previos]].
 - [[../metodologia/METODOLOGIA-BASE|Metodología base]].
 - [[../sprints/ROADMAP-ANTEPROYECTO|Roadmap oficial de sprints]].
@@ -65,11 +73,14 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Iniciar el levantamiento de requisitos y convertir únicamente los requisitos validados en
-especificaciones propuestas. Kimi y GLM son opcionales. Django y PostgreSQL solo comenzarán
-cuando existan especificaciones aprobadas y diseño técnico suficiente.
+Seleccionar la siguiente capacidad `confirmed` según el
+[[../sprints/ROADMAP-ANTEPROYECTO|roadmap oficial]], comenzando por Sprint 1, y crear su spec.
+Las decisiones P que afecten permisos, datos, dinero o experiencia deben cerrarse durante la
+aclaración o excluirse expresamente de esa spec. `RF-COS-001` y `RNF-OPS-001` no pasan a
+implementación mientras continúen `proposed`; Django y PostgreSQL siguen sin crearse hasta
+aprobar la primera spec, su plan y sus tareas.
 
 ## Regla de avance
 
-Sprint 0 está cerrado con evidencia y confirmación humana. Cada fase siguiente conserva sus
-propias puertas de aprobación antes de implementar.
+Sprint 0 está cerrado y CAT-REQ-001 v1.0 ya tiene confirmación humana. Cada spec, plan y
+porción de implementación conserva sus propias puertas de aprobación.

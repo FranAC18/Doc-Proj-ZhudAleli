@@ -87,11 +87,19 @@ entorno. Contenedores pueden mejorar reproducibilidad, pero no deben bloquear el
 local. La plataforma final se elige después de conocer conectividad, presupuesto, respaldos
 y acceso de la organización.
 
-## Decisiones todavía abiertas
+## Bases funcionales confirmadas
 
-- Denominación legal y perfiles reales.
-- Alcance de ventas y cuentas por cobrar.
-- Variables y correcciones del secado.
-- Auditoría requerida y política de retención.
-- Reportes prioritarios y formato de exportación.
-- Despliegue, respaldos y operación con conectividad real.
+- Nombre visible del Comité y perfiles Directiva, Socia operaria y Visitante.
+- Encargada como asignación temporal de producción o feria/venta.
+- Ventas, cuentas por cobrar, valor base, excedente y pagos parciales dentro del alcance.
+- Variables mínimas de secado y auditoría de correcciones.
+- Reportes prioritarios descargables en PDF.
+
+## Decisiones técnicas todavía abiertas
+
+- Ubicar ventas, gastos y cuentas por cobrar dentro de `traceability` o en una app de dominio
+  separada, según cohesión y tamaño confirmados por las specs.
+- Política de retención, desactivación y borrado por dominio.
+- Catálogos, unidades, formación de lotes y reglas detalladas de conciliación.
+- Despliegue, respaldos y nivel de operación ante pérdida de conectividad.
+- Filtros, gráficos, generación de PDF y almacenamiento del logo autorizado.

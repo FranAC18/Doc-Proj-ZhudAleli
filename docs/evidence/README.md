@@ -15,3 +15,8 @@ datos personales. No guardes bases de datos reales ni logs completos sin depurac
 
 Una descripción de “pruebas pasaron” sin comando, resultado y versión no basta para cerrar un
 criterio.
+
+## Fase I
+
+- [[fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3|Respuestas del tesista para CAT-REQ-001-R3]].
+- [[fase-i/2026-07-22-validacion-cat-req-001-v1|Validación humana de CAT-REQ-001 v1.0]].

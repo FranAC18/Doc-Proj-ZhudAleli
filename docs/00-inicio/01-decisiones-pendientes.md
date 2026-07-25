@@ -1,12 +1,16 @@
 ---
 title: Decisiones pendientes del proyecto
 type: decision-log
-status: completed
+status: in-progress
+updated: 2026-07-22
 ---
 
 # Decisiones pendientes
 
-Estas decisiones deben resolverse antes de convertir el contexto en requisitos definitivos.
+Las decisiones D-001 a D-010 permitieron construir la primera línea base. Esta nota también
+mantiene las decisiones de detalle P-01 a P-12 de
+[[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0]]. El catálogo ya está aprobado; cada P
+bloquea únicamente la parte de una spec indicada.
 
 ## D-001 - Denominación legal
 
@@ -149,3 +153,25 @@ Estas decisiones deben resolverse antes de convertir el contexto en requisitos d
 - Confirmó: tesista, 2026-07-21.
 - Estado: confirmado funcionalmente; el diseño técnico de formularios y reportes queda para la
   especificación.
+
+## Decisiones de detalle abiertas de CAT-REQ-001 v1.0
+
+| ID | Tema | Estado | Puerta afectada |
+|---|---|---|---|
+| P-01 | Matriz cargo por operación y acceso de soporte | `open` | Spec de permisos y operaciones sensibles |
+| P-02 | Duración del QR, habilitación de fases y delegación | `open` | Spec de asistencia antes del QR |
+| P-03 | Consecuencias y autoridad sobre faltas | `open` | Sanciones; no bloquea asistencia básica |
+| P-04 | Presentaciones, unidades, conversiones y plantas | `open` | Fórmulas y movimientos que conviertan unidades |
+| P-05 | Mezclas, divisiones, bajas y cierres excepcionales | `open` | Excepciones de lotes |
+| P-06 | Fórmula de costo completo | `open` | Mantiene `RF-COS-001` en `proposed` |
+| P-07 | Distribución del excedente compartido | `open` | Distribución; no bloquea registrar ventas |
+| P-08 | Umbrales y valores de descuentos | `open` | Activación de políticas de `RF-VEN-005` |
+| P-09 | Devoluciones, pérdidas, anulaciones y sobrepagos | `open` | Ajustes monetarios automáticos |
+| P-10 | Procedimiento operativo de contingencia | `open` | Flujo final de feria sin Internet |
+| P-11 | Política y responsables de respaldos | `open` | Mantiene `RNF-OPS-001` en `proposed` |
+| P-12 | Contenido y publicadores autorizados | `open` | Publicación de contenido final |
+
+El detalle de cada pregunta, su tratamiento y los requisitos relacionados está en
+[[../requirements/CAT-REQ-001#Decisiones de detalle abiertas|CAT-REQ-001]]. Cuando una P se
+resuelva, registrar fecha, participantes, fuente y efecto sobre las specs; no editar solo la
+tabla sin evidencia.

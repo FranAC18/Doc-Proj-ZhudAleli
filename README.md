@@ -10,16 +10,19 @@ trabajan sobre esos mismos contratos.
 
 ## Estado actual
 
-- Etapa: preparación técnica y documental, fuera de los cinco sprints oficiales.
+- Etapa: Fase I, levantamiento y validación de requisitos.
+- Sprint 0: cerrado con evidencia y commit inicial.
 - Aplicación Django: todavía no creada.
 - Flujo portable: skills de Spec Kit 0.13.2 en `.agents/skills/`, descubiertas por Codex y
   Kimi Code sin mantener dos copias.
 - Contexto del anteproyecto: resumido en `agents/tesis/PROJECT_CONTEXT.md`.
-- Decisiones de campo: pendientes en `docs/00-inicio/01-decisiones-pendientes.md`.
+- Decisiones D-001 a D-010: revisadas funcionalmente; los recorridos se validan en Fase I.
+- Requisitos: CAT-REQ-001 v1.0 es la línea base aprobada, con 57 requisitos `confirmed`,
+  2 `proposed` y 12 `superseded`, en `docs/requirements/CAT-REQ-001.md`.
 - Arnés Python anterior: conservado únicamente como laboratorio en `tools/agent-lab/`.
 
-No se debe ejecutar una implementación completa mientras el requisito y sus criterios de
-aceptación sigan sin validar.
+No se implementa una funcionalidad hasta que su spec concreta esté confirmada y existan
+plan y tareas aprobados con sus puertas de calidad satisfechas.
 
 ## Arquitectura de trabajo
 
@@ -104,14 +107,16 @@ historia de Git.
 Con Codex, las skills se invocan como `$speckit-*`; con Kimi Code, como
 `/skill:speckit-*`.
 
-1. Crear una especificación: `speckit-specify`.
-2. Resolver ambigüedades: `speckit-clarify`.
-3. Confirmar el requisito con el tesista y, cuando corresponda, con la organización.
-4. Crear el plan técnico: `speckit-plan`.
-5. Generar tareas: `speckit-tasks`.
-6. Revisar coherencia: `speckit-analyze`.
-7. Implementar una porción verificable: `speckit-implement`.
-8. Ejecutar pruebas, revisar el diff y guardar evidencia.
+1. Registrar una propuesta en `docs/requirements/proposals/`.
+2. Validar el requisito con el tesista y, cuando corresponda, con la organización.
+3. Crear la spec en borrador: `speckit-specify`.
+4. Resolver ambigüedades: `speckit-clarify`.
+5. Confirmar humanamente la spec y registrar la evidencia.
+6. Crear el plan técnico: `speckit-plan`.
+7. Generar tareas: `speckit-tasks`.
+8. Revisar coherencia: `speckit-analyze`.
+9. Implementar una porción verificable: `speckit-implement`.
+10. Ejecutar pruebas, revisar el diff y guardar evidencia.
 
 Las plantillas adaptadas a la tesis están en `.specify/templates/overrides/`. No reemplazan
 la validación humana ni convierten propuestas en requisitos aprobados.

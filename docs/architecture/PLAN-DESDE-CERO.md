@@ -80,10 +80,11 @@ No se crean modelos de negocio especulativos para “adelantar trabajo”.
 visitantes ven contenido público aprobado.
 
 - Usuario, membresía y estados de acceso.
-- Login, logout, recuperación definida y cambio de contraseña.
+- Login, logout, cambio y recuperación de contraseña únicamente según la spec aprobada.
 - Grupos/permisos según matriz validada.
 - Gestión mínima de usuarias por la directiva autorizada.
-- Página pública y navegación diferenciada.
+- Shell público mínimo y navegación diferenciada; la gestión y publicación final pertenecen
+  al Sprint 5.
 - Pruebas positivas/negativas, sesión, CSRF y accesibilidad del flujo.
 
 **Demo**: cada perfil completa su recorrido y recibe denegación correcta en operaciones no
@@ -123,7 +124,8 @@ movimiento de inventario con los datos confirmados.
 - Transacciones, unidades, redondeo y prohibición de saldos inválidos.
 - Pruebas de trazabilidad completa, correcciones, concurrencia e integridad.
 
-Ventas y cuentas por cobrar solo entran si D-002 y D-010 quedan aprobadas dentro del alcance.
+Ventas y cuentas por cobrar forman parte del alcance confirmado por D-002 y D-010; sus
+recorridos, permisos y datos se concretarán en las especificaciones aprobadas.
 
 ## Sprint 5 — Reportes y gestión de información
 
@@ -133,7 +135,7 @@ fórmula, periodo y fuente entendibles.
 - Filtros y resúmenes de asistencia, producción e inventario confirmados.
 - Totales derivados de datos operativos, sin duplicación silenciosa.
 - Exportación únicamente en formatos necesarios.
-- Página pública final si D-009 la mantiene en alcance.
+- Página pública final con el contenido y los publicadores que se aprueben al resolver P-12.
 - Pruebas de fórmulas, permisos, periodos, zonas horarias y conjuntos vacíos.
 
 ## Fase IV — Evaluación
