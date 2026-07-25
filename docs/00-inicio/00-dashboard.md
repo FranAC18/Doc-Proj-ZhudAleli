@@ -52,6 +52,7 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../requirements/proposals/2026-07-22-catalogo-revisado-requisitos-r3|CAT-REQ-001-R3 histórico]].
 - [[../evidence/fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3|Fuente del tesista registrada]].
 - [[../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1|Validación humana del catálogo]].
+- [[../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|Acta de Levantamiento de requisitos 1.0]].
 - [[../bitacora/checkpoints/2026-07-22-catalogo-r3-para-validacion|Checkpoint de preparación de R3]].
 - [[../bitacora/checkpoints/2026-07-22-validacion-cat-req-001-v1|Checkpoint de validación de CAT-REQ-001]].
 - [[../bitacora/checkpoints/2026-07-25-versionado-fase-i-y-factibilidad-acceso|Versionado de Fase I y factibilidad de la primera spec]].
@@ -73,12 +74,12 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Seleccionar la siguiente capacidad `confirmed` según el
-[[../sprints/ROADMAP-ANTEPROYECTO|roadmap oficial]], comenzando por Sprint 1, y crear su spec.
-Las decisiones P que afecten permisos, datos, dinero o experiencia deben cerrarse durante la
-aclaración o excluirse expresamente de esa spec. `RF-COS-001` y `RNF-OPS-001` no pasan a
-implementación mientras continúen `proposed`; Django y PostgreSQL siguen sin crearse hasta
-aprobar la primera spec, su plan y sus tareas.
+Crear la spec en borrador `001-acceso-usuarias-internas` para `RF-ACC-001` y los RNF
+aplicables, según
+[[../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|ACT-REQ-001]]. La spec debe
+incorporar las aclaraciones de acceso, excluir `RF-ACC-002` a `RF-ACC-004` y recibir
+confirmación humana antes del plan. Django y PostgreSQL siguen sin crearse hasta aprobar la
+spec, su plan y sus tareas.
 
 ## Regla de avance
 

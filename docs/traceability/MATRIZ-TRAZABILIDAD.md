@@ -2,7 +2,7 @@
 title: Matriz de trazabilidad del proyecto
 type: traceability
 status: in-progress
-date: 2026-07-22
+date: 2026-07-25
 tags:
   - proyecto/tesis
   - tipo/trazabilidad
@@ -31,6 +31,7 @@ especificación es confirmada y se actualiza al implementar, probar y validar.
 |---|---|---|---|---|---|---|---|---|---|
 | [[../requirements/CAT-REQ-001|CAT-REQ-001]] | F1-F9; tesista, organización y presidenta; Levantamiento de requisitos 1.0 | Pendiente por funcionalidad | Fase I | D-001 a D-010; P-01 a P-12 visibles | — | — | [[../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1]] | Completitud y pertinencia | Línea base `confirmed`: 57 IDs; 2 `proposed`; 12 `superseded` |
 | [[../requirements/proposals/2026-07-22-catalogo-revisado-requisitos-r3|CAT-REQ-001-R3]] | F1-F9; propuesta previa | — | Fase I | Sustituido por CAT-REQ-001 | — | — | [[../evidence/fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3]] | Completitud y pertinencia | `superseded` |
+| `RF-ACC-001` | CAT-REQ-001; tesista; D-011 | Pendiente: `001-acceso-usuarias-internas` | S1 | Opción A y aclaraciones iniciales aprobadas | — | — | [[../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0]] | Completitud y pertinencia | `confirmed`; autorizado para preparar spec |
 
 ## Reglas
 

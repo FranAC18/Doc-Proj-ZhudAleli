@@ -2,7 +2,7 @@
 title: Decisiones pendientes del proyecto
 type: decision-log
 status: in-progress
-updated: 2026-07-22
+updated: 2026-07-25
 ---
 
 # Decisiones pendientes
@@ -153,6 +153,24 @@ bloquea únicamente la parte de una spec indicada.
 - Confirmó: tesista, 2026-07-21.
 - Estado: confirmado funcionalmente; el diseño técnico de formularios y reportes queda para la
   especificación.
+
+## D-011 - Acceso inicial y primera cuenta
+
+- Pregunta: ¿cómo inicia sesión una usuaria y qué incluye la primera porción de acceso?
+- Decisión: la usuaria inicia sesión con un nombre de usuario (`username`).
+- Primera cuenta: se almacenará en la base de datos y se entregará cuando el sistema esté
+  funcional.
+- Cambio de contraseña: incluido en la primera porción.
+- Destino posterior: dashboard privado de bienvenida con las opciones disponibles.
+- Alcance: opción A, limitada a `RF-ACC-001` y RNF aplicables; no completa Sprint 1.
+- Confirmó: tesista, 2026-07-25.
+- Evidencia:
+  [[../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|ACT-REQ-001]].
+- Recomendación técnica: crear la cuenta con mecanismos Django, guardar solo el hash,
+  entregar una credencial temporal por un canal seguro y solicitar cambio inicial.
+- Pendiente: identificar la persona o cargo receptor, el canal de entrega y el tiempo de
+  inactividad. P-01 continúa abierta.
+- Estado: confirmado para preparar la spec; los detalles técnicos se aprueban en el plan.
 
 ## Decisiones de detalle abiertas de CAT-REQ-001 v1.0
 

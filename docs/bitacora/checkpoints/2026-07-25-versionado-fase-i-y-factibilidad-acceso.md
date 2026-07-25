@@ -5,12 +5,15 @@ status: completed
 date: 2026-07-25
 sprint: fase-i
 module: acceso
-recommendation_status: proposed
-git_scope: local-commit-only
+recommendation_status: accepted
+approved_by: tesista
+approved: 2026-07-25
+git_scope: push-and-merge-authorized
 related:
   - "[[../../requirements/CAT-REQ-001]]"
   - "[[2026-07-22-validacion-cat-req-001-v1]]"
   - "[[../../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1]]"
+  - "[[../../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0]]"
   - "[[../../00-inicio/01-decisiones-pendientes]]"
   - "[[../../traceability/MATRIZ-TRAZABILIDAD]]"
   - "[[../../architecture/PLAN-DESDE-CERO]]"
@@ -32,8 +35,8 @@ por una porción mínima de acceso frente a intentar todo el Sprint 1 en una sol
 ## Autorización y alcance
 
 - El tesista autorizó el uso de Git y agentes especializados en esta sesión.
-- El alcance de Git se limita a revisión, staging y commit local.
-- No se autorizó `push`, `merge`, `rebase` ni reescritura de historia.
+- En esta sesión el tesista autorizó además `push` y `merge`.
+- No se autorizó `rebase`, force-push ni reescritura de historia.
 - El agente raíz fue el único escritor; requisitos, arquitectura y revisión trabajaron en
   lectura.
 - El cambio local de zoom en `.obsidian/graph.json` se conservó, pero quedó fuera del commit
@@ -56,10 +59,11 @@ por una porción mínima de acceso frente a intentar todo el Sprint 1 en una sol
 | A | `RF-ACC-001` y RNF aplicables | Alta después de spec, aclaración, confirmación, plan y tareas | Medio-bajo |
 | B | `RF-ACC-001` a `RF-ACC-004` en una sola spec | Baja hoy; media tras resolver dependencias | Alto |
 
-## Recomendación propuesta
+## Recomendación aceptada
 
 Preparar primero una spec limitada a `RF-ACC-001`, sin declarar completado el Sprint 1.
-Esta recomendación no aprueba la spec ni autoriza implementación.
+El tesista aceptó esta recomendación el 2026-07-25. La aceptación autoriza preparar la spec,
+pero no autoriza todavía implementación.
 
 El corte mínimo debería cubrir:
 
@@ -94,11 +98,16 @@ CI, una plantilla Bootstrap accesible y pruebas de sesión y autorización.
 
 ## Preguntas para la futura aclaración
 
-1. ¿Qué identificador utilizará la usuaria para iniciar sesión?
-2. ¿Cómo se creará y entregará la primera cuenta activa?
-3. ¿El cambio de contraseña forma parte de esta primera porción?
-4. ¿Cuál es el destino privado mínimo después del inicio de sesión?
-5. ¿Qué comportamiento de sesión debe validarse por el uso de equipos compartidos?
+1. Identificador: `username`.
+2. Primera cuenta: se almacenará en la base de datos y se entregará cuando el sistema esté
+   funcional.
+3. Cambio de contraseña: incluido.
+4. Destino privado: dashboard de bienvenida con opciones disponibles.
+5. Comportamiento de sesión: se conserva como decisión de diseño pendiente; se recomienda
+   no usar “recordarme” y validar el tiempo de inactividad en equipos compartidos.
+
+La aprobación y sus límites están formalizados en
+[[../../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|ACT-REQ-001]].
 
 ## Correcciones integradas antes del versionado
 

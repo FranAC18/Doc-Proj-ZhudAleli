@@ -15,6 +15,7 @@ related:
   - "[[../../requirements/CAT-REQ-001]]"
   - "[[../../requirements/proposals/2026-07-22-catalogo-revisado-requisitos-r3]]"
   - "[[../../00-inicio/01-decisiones-pendientes]]"
+  - "[[2026-07-25-acta-levantamiento-requisitos-1-0]]"
 tags:
   - proyecto/tesis
   - tipo/evidencia
@@ -32,6 +33,9 @@ tags:
 - Fuente o acta declarada: **Levantamiento de requisitos 1.0**.
 - Medio registrado: instrucción humana recibida en la sesión de trabajo del repositorio.
 - Archivo externo del acta: no fue adjuntado en esta sesión.
+- Formalización interna posterior:
+  [[2026-07-25-acta-levantamiento-requisitos-1-0|ACT-REQ-001]], generada desde las
+  declaraciones registradas y sin atribuir una firma externa.
 
 ## Decisión recibida
 
