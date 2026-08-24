@@ -3,7 +3,7 @@ title: Dashboard del proyecto de tesis
 type: dashboard
 status: in-progress
 project: tesis-zhud-aleli
-updated: 2026-07-25
+updated: 2026-08-24
 ---
 
 # Dashboard del proyecto
@@ -17,16 +17,25 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Estado actual
 
-- Fase: levantamiento y validación de requisitos; primera línea base aprobada.
+- Fase: preparación técnica del Sprint 1 sobre la línea base aprobada.
 - Último sprint cerrado: [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
 - Arnés portable: Codex validado como motor principal; Kimi/GLM son alternativas opcionales.
 - Constitución: aprobada por el tesista; la comparación con otros motores es opcional.
 - Aplicación Django: no creada ni instalada como aplicación del proyecto.
-- Base de datos PostgreSQL: no creada ni configurada.
+- Base de datos PostgreSQL: servicio local instalado y activo; falta crear la base de desarrollo
+  del proyecto Django cuando exista `manage.py`.
 - Requisitos: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0]] aprobado con 57 IDs
   `confirmed`, 2 `proposed` y 12 `superseded`.
+- Primera especificación: [[../../specs/001-acceso-usuarias-internas/spec|SPEC-001 — Acceso
+  de usuarias internas]] en `confirmed`.
+- Plan técnico: [[../../specs/001-acceso-usuarias-internas/plan|Plan de SPEC-001]] `approved`
+  por el tesista el 2026-08-24; `tasks.md` generado y análisis de coherencia realizado.
+- Estructura raíz: [[../decisions/ADR-0003-estructura-raiz-aplicacion-django|ADR-0003]]
+  aceptada; Django se desarrollará directamente en la raíz del repositorio.
 - Diseño visual: criterios propuestos; identidad y prototipo pendientes de validación.
 - Código de producción: todavía no iniciado.
+- Entorno: Python 3.12, `uv` y PostgreSQL disponibles; la ruta de los clientes PostgreSQL debe
+  quedar documentada o incorporarse al entorno reproducible del proyecto.
 
 ## Arquitectura y proceso
 
@@ -56,6 +65,17 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../bitacora/checkpoints/2026-07-22-catalogo-r3-para-validacion|Checkpoint de preparación de R3]].
 - [[../bitacora/checkpoints/2026-07-22-validacion-cat-req-001-v1|Checkpoint de validación de CAT-REQ-001]].
 - [[../bitacora/checkpoints/2026-07-25-versionado-fase-i-y-factibilidad-acceso|Versionado de Fase I y factibilidad de la primera spec]].
+- [[../bitacora/checkpoints/2026-07-25-preparacion-spec-001-acceso|Preparación de SPEC-001]].
+- [[../../specs/001-acceso-usuarias-internas/spec|SPEC-001 — Acceso de usuarias internas]].
+- [[../../specs/001-acceso-usuarias-internas/plan|Plan técnico de SPEC-001]].
+- [[../../specs/001-acceso-usuarias-internas/research|Investigación técnica de SPEC-001]].
+- [[../../specs/001-acceso-usuarias-internas/data-model|Modelo de datos de SPEC-001]].
+- [[../../specs/001-acceso-usuarias-internas/contracts/http|Contrato HTTP de SPEC-001]].
+- [[../../specs/001-acceso-usuarias-internas/quickstart|Guía de verificación de SPEC-001]].
+- [[../bitacora/checkpoints/2026-07-25-plan-spec-001-borrador|Checkpoint del plan de
+  SPEC-001]].
+- [[../decisions/ADR-0003-estructura-raiz-aplicacion-django|ADR-0003 — Estructura raíz para
+  Django y agentes]].
 - [[02-evaluacion-documentos|Evaluación de documentos previos]].
 - [[../metodologia/METODOLOGIA-BASE|Metodología base]].
 - [[../sprints/ROADMAP-ANTEPROYECTO|Roadmap oficial de sprints]].
@@ -66,6 +86,8 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Reglas y contexto del agente
 
+- [[../../ONBOARDING-IA|Guía rápida de Onboarding para cualquier IA]].
+- [[GUIA-CAMBIO-DE-IA|Guía de cambio de motor o IA]].
 - [[../../AGENTS|Contrato común del repositorio]].
 - Constitución de ingeniería: fuente del agente en `.specify/memory/constitution.md`; revisarla desde VS Code.
 - [[../../agents/tesis/AGENT|Reglas del agente de desarrollo]].
@@ -74,12 +96,9 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Crear la spec en borrador `001-acceso-usuarias-internas` para `RF-ACC-001` y los RNF
-aplicables, según
-[[../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|ACT-REQ-001]]. La spec debe
-incorporar las aclaraciones de acceso, excluir `RF-ACC-002` a `RF-ACC-004` y recibir
-confirmación humana antes del plan. Django y PostgreSQL siguen sin crearse hasta aprobar la
-spec, su plan y sus tareas.
+Corregir y aprobar la consistencia final de `tasks.md`, documentar el entorno reproducible y
+comenzar T013–T015. La implementación de S1 se limita a `accounts` y acceso; no se crean apps
+ni reglas operativas de sprints futuros.
 
 ## Regla de avance
 

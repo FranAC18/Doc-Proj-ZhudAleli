@@ -6,6 +6,26 @@ Obsidian es la memoria documental persistente del proyecto. El agente puede crea
 enlazar notas dentro del vault, pero debe conservar la diferencia entre una propuesta y una
 decisión aprobada.
 
+## Límite del vault y escritura controlada
+
+El vault es la raíz del repositorio `F:\Tesis\App Tesis`. No se consideran documentación
+del proyecto los archivos creados fuera de esa raíz ni las salidas temporales de una terminal,
+IDE, proveedor o modelo.
+
+La ubicación canónica es:
+
+- `docs/bitacora/`: sesiones y checkpoints.
+- `docs/requirements/`: requisitos y propuestas.
+- `docs/decisions/`: ADR y decisiones propuestas.
+- `docs/evidence/`: evidencia reproducible y anonimizada.
+- `docs/architecture/`, `docs/ui/`, `docs/sprints/` y `docs/traceability/`: diseño y gobierno.
+- `specs/<id-funcionalidad>/`: especificación y artefactos técnicos de la funcionalidad.
+- `agents/tesis/`: contexto y políticas estables.
+
+Los agentes `requirements`, `architect`, `ux` y `reviewer` son de lectura y propuesta. No
+escriben archivos ni crean notas por su cuenta. El agente raíz es el único que registra sus
+resultados, usando estas rutas y sin sobrescribir notas aprobadas.
+
 ## Tipos de notas
 
 - `session`: resumen de una sesión de trabajo.

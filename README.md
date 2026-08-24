@@ -10,7 +10,7 @@ trabajan sobre esos mismos contratos.
 
 ## Estado actual
 
-- Etapa: Fase I, levantamiento y validación de requisitos.
+- Etapa: preparación técnica del Sprint 1, después de la validación de requisitos.
 - Sprint 0: cerrado con evidencia y commit inicial.
 - Aplicación Django: todavía no creada.
 - Flujo portable: skills de Spec Kit 0.13.2 en `.agents/skills/`, descubiertas por Codex y
@@ -20,6 +20,11 @@ trabajan sobre esos mismos contratos.
 - Requisitos: CAT-REQ-001 v1.0 es la línea base aprobada, con 57 requisitos `confirmed`,
   2 `proposed` y 12 `superseded`, en `docs/requirements/CAT-REQ-001.md`.
 - Arnés Python anterior: conservado únicamente como laboratorio en `tools/agent-lab/`.
+
+Toda la documentación visible en Obsidian permanece dentro de la raíz del repositorio. Las
+notas de trabajo se guardan en `docs/bitacora/`, las especificaciones en `specs/` y el
+contexto estable en `agents/tesis/`; el laboratorio y la configuración de agentes no son
+fuentes documentales del proyecto.
 
 No se implementa una funcionalidad hasta que su spec concreta esté confirmada y existan
 plan y tareas aprobados con sus puertas de calidad satisfechas.
@@ -43,6 +48,7 @@ usan los agentes. Las conversaciones de una IA no son fuente de verdad del proye
 
 Documentos principales:
 
+- `ONBOARDING-IA.md`: guía de contexto rápido para iniciar sesión con cualquier IA.
 - `AGENTS.md`: contrato común para cualquier agente.
 - `.specify/memory/constitution.md`: principios y puertas de calidad.
 - `docs/architecture/ARQUITECTURA-OBJETIVO.md`: arquitectura de la aplicación.
@@ -57,7 +63,7 @@ Documentos principales:
 |---|---|---|
 | Desarrollo principal | Codex app o Codex CLI | `AGENTS.md`, specs, tareas, pruebas y documentación |
 | Alternativa con Kimi | Kimi Code CLI con Kimi K3 | Los mismos artefactos y skills de Spec Kit |
-| Alternativa con GLM | Kimi Code CLI con GLM-5.2 por protocolo OpenAI compatible | Los mismos artefactos; cambia solo la configuración local |
+| Alternativa con GLM | Kimi Code CLI con una versión elegida explícitamente | Los mismos artefactos; cambia solo la configuración local |
 
 Los modelos no se fijan dentro del repositorio. Las claves y la configuración de proveedor
 son locales para evitar credenciales en Git y permitir que cada motor herede el modelo
@@ -87,15 +93,17 @@ En PowerShell:
 .\scripts\agent.ps1 kimi
 ```
 
-Para usar GLM-5.2 sin guardar la clave en archivos:
+Para usar opcionalmente un modelo GLM sin guardar la clave en archivos:
 
 ```bash
 export ZAI_API_KEY="tu-clave-local"
+export GLM_MODEL="modelo-disponible"
 ./scripts/agent.sh glm
 ```
 
 ```powershell
 $env:ZAI_API_KEY = "tu-clave-local"
+$env:GLM_MODEL = "modelo-disponible"
 .\scripts\agent.ps1 glm
 ```
 

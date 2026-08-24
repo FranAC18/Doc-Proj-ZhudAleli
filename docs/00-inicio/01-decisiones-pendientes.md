@@ -168,9 +168,16 @@ bloquea únicamente la parte de una spec indicada.
   [[../evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|ACT-REQ-001]].
 - Recomendación técnica: crear la cuenta con mecanismos Django, guardar solo el hash,
   entregar una credencial temporal por un canal seguro y solicitar cambio inicial.
-- Pendiente: identificar la persona o cargo receptor, el canal de entrega y el tiempo de
-  inactividad. P-01 continúa abierta.
-- Estado: confirmado para preparar la spec; los detalles técnicos se aprueban en el plan.
+- Decisiones complementarias del 2026-07-25:
+  - cambio obligatorio de la credencial temporal antes de usar el dashboard;
+  - cierre de sesión después de 30 minutos sin actividad;
+  - entrega presencial a una representante designada por la Directiva.
+- P-01 continúa abierta para administración de cuentas, cargos y operaciones; no bloquea
+  `RF-ACC-001`.
+- Estado: SPEC-001 confirmada; planificación autorizada. Los detalles técnicos se aprueban
+  en el plan.
+- Evidencia:
+  [[../evidence/fase-i/2026-07-25-confirmacion-spec-001|Confirmación de SPEC-001 y ADR-0003]].
 
 ## Decisiones de detalle abiertas de CAT-REQ-001 v1.0
 

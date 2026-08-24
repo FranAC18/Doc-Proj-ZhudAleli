@@ -10,8 +10,8 @@ El arnés, los agentes y la documentación existen para servir a esa aplicación
 
 1. Lee este archivo.
 2. Lee `.specify/memory/constitution.md`.
-3. Lee `agents/tesis/AGENT.md`, `PROJECT_CONTEXT.md`, `KNOWLEDGE_POLICY.md` y
-   `OBSIDIAN_POLICY.md`.
+3. Lee `agents/tesis/AGENT.md`, `agents/tesis/PROJECT_CONTEXT.md`,
+   `agents/tesis/KNOWLEDGE_POLICY.md` y `agents/tesis/OBSIDIAN_POLICY.md`.
 4. Lee `docs/00-inicio/00-dashboard.md` y el sprint actual.
 5. Si existe una funcionalidad activa, lee todo su directorio en `specs/`, incluido
    `spec.md`, `plan.md` y `tasks.md`.
@@ -132,6 +132,18 @@ Git disponible.
 ## Obsidian y tesis
 
 La raíz es también el vault. Guarda conocimiento estable en Markdown, con YAML y Wikilinks.
+
+### Ubicación canónica de documentos
+
+- `docs/`: bitácora, decisiones, evidencias, requisitos, arquitectura, UX, sprints y trazabilidad.
+- `specs/<id-funcionalidad>/`: spec, plan, tareas, contratos, modelo de datos y quickstart de cada funcionalidad.
+- `agents/tesis/`: contexto estable del dominio y políticas del agente; no es una carpeta de notas de sesión.
+- `.codex/`, `.agents/`, `tools/` y `evals/`: configuración, skills, laboratorio y evaluación; no son destinos de documentación del proyecto.
+
+Todo Markdown generado por el trabajo debe quedar dentro de esta raíz. Las notas de sesión y
+checkpoints se guardan en `docs/bitacora/`; las propuestas en sus carpetas `docs/.../proposals/`.
+Un agente especializado no escribe directamente documentos aprobados: entrega un informe al
+agente raíz, que registra la nota en la ubicación canónica.
 
 - Propuestas de requisito: `docs/requirements/proposals/`, estado `proposed`.
 - Especificación aprobada y plan: `specs/<id-funcionalidad>/`.
