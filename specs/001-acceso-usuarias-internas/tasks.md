@@ -96,8 +96,9 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
       `admin.py` (sin exponer datos en Admin) y `decorators.py` → `makemigrations` no muestra
       errores.
 - [ ] T017 [implementer] Definir `accounts.User(AbstractUser)` con
-      `must_change_password=True` y `normalize_username` (NFKC, strip, casefold) en
-      `apps/accounts/models.py` → pruebas unitarias en `apps/accounts/tests/test_models.py`.
+      `must_change_password=True`, nombres ASCII controlados (letras, números, punto, guion y
+      guion bajo) y `normalize_username` en `apps/accounts/models.py` → pruebas unitarias en
+      `apps/accounts/tests/test_models.py`.
 - [ ] T018 [implementer] Configurar `AUTH_USER_MODEL = "accounts.User"` en
       `config/settings/base.py` y la restricción funcional PostgreSQL
       `accounts_user_username_canon_uniq` sobre `Lower(Trim("username"))` → migración

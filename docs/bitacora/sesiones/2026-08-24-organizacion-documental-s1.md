@@ -25,8 +25,8 @@ condiciones iniciales de reproducibilidad del entorno.
 
 ## Confirmaciones del tesista
 
-- Los nombres de usuario se limitarán a una forma sencilla y controlada para evitar diferencias
-  entre la normalización de Python y PostgreSQL.
+- Los nombres de usuario se limitarán a caracteres ASCII controlados —letras, números, punto,
+  guion y guion bajo— para evitar diferencias entre la normalización de Python y PostgreSQL.
 - PostgreSQL ya está instalado; el servicio local está activo.
 - Sprint 1 implementará únicamente `accounts` y acceso.
 - La documentación y los artefactos deben permanecer organizados dentro del vault raíz.

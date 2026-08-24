@@ -96,10 +96,11 @@ No se requiere excepción a la constitución ni un ADR adicional para implementa
 
 - `accounts.User` hereda de `AbstractUser` y agrega únicamente
   `must_change_password: bool`, con valor inicial seguro `True`.
-- El nombre de usuario se normaliza con NFKC, eliminación de espacios en extremos y
-  `casefold()` en un único método reutilizado por la creación controlada y el formulario de
-  acceso. Una restricción funcional de PostgreSQL sobre `Lower(Trim(username))` impide
-  duplicados canónicos aunque una escritura futura omita el formulario.
+- El nombre de usuario acepta únicamente caracteres ASCII controlados (letras, números, punto,
+  guion y guion bajo), elimina espacios externos y se almacena en minúsculas mediante un único
+  método reutilizado por la creación controlada y el formulario de acceso. Una restricción
+  funcional de PostgreSQL sobre `Lower(Trim(username))` impide duplicados canónicos aunque una
+  escritura futura omita el formulario.
 - `AUTH_USER_MODEL = "accounts.User"` se configura antes de ejecutar cualquier migración y
   el modelo se crea en `apps/accounts/migrations/0001_initial.py`.
 - Las contraseñas se almacenan solo mediante los hashers de Django. No existe una entidad

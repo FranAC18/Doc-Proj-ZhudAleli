@@ -61,7 +61,8 @@ parte del [[plan|plan aprobado]]; no son implementación.
 
 ### DTR-004 — Nombre de usuario canónico
 
-- **Decisión propuesta**: aplicar NFKC, quitar espacios externos y usar `casefold()` mediante
+- **Decisión propuesta**: aceptar solo caracteres ASCII controlados (letras, números, punto,
+  guion y guion bajo), quitar espacios externos y almacenar en minúsculas mediante
   `User.normalize_username()` en la creación controlada y el acceso. Añadir
   `UniqueConstraint(Lower(Trim("username")))` para impedir colisiones aunque una escritura
   futura omita la normalización.
@@ -70,8 +71,8 @@ parte del [[plan|plan aprobado]]; no son implementación.
 - **Alternativas consideradas**: un backend de autenticación propio aumenta superficie de
   seguridad; `CIText` o una colación especial agregan requisitos de PostgreSQL; confiar
   únicamente en formularios permite duplicados por escrituras directas.
-- **Riesgo residual**: `casefold()` de Python y `lower()` de PostgreSQL no son idénticos para
-  todo Unicode. Se almacena siempre la forma Python y se prueban NFKC, `ñ` y acentos.
+- **Riesgo resuelto para esta porción**: se excluye Unicode del identificador de acceso; la
+  política ASCII hace compatible la forma almacenada con `Lower(Trim("username"))` de PostgreSQL.
 
 ### DTR-005 — Sesiones nativas con vencimiento deslizante
 

@@ -27,7 +27,7 @@ Hereda los campos y comportamiento de `django.contrib.auth.models.AbstractUser`.
 | Campo relevante | Tipo | Regla |
 |---|---|---|
 | `id` | clave primaria | identificador interno; no se muestra en el acceso |
-| `username` | texto, máximo heredado | obligatorio, almacenado canónicamente en minúsculas y sin espacios externos |
+| `username` | texto, máximo heredado | obligatorio, solo ASCII controlado, almacenado en minúsculas y sin espacios externos |
 | `password` | hash Django | nunca contiene ni expone la contraseña original |
 | `is_active` | booleano | solo `True` puede autenticarse con el backend predeterminado |
 | `is_staff` | booleano | `False` para la primera cuenta; el Admin no es parte del recorrido |
@@ -43,8 +43,8 @@ por compatibilidad de Django, pero no modelan aún los cargos de la organizació
 ### Invariantes
 
 1. `AUTH_USER_MODEL` apunta a `accounts.User` antes de la primera migración.
-2. El valor canónico de `username` es
-   `NFKC(valor).strip().casefold()`.
+2. El valor canónico de `username` elimina espacios externos, valida caracteres ASCII
+   controlados (letras, números, punto, guion y guion bajo) y se almacena en minúsculas.
 3. No pueden coexistir dos usuarios cuyo
    `Lower(Trim(username))` sea igual.
 4. La contraseña se asigna con `set_password()` o el administrador de usuarios; nunca por
@@ -63,8 +63,8 @@ por compatibilidad de Django, pero no modelan aún los cargos de la organizació
 - Se añade una restricción funcional de unicidad PostgreSQL:
   `Lower(Trim("username"))`, con nombre estable
   `accounts_user_username_canon_uniq`.
-- La restricción y la normalización se prueban sobre PostgreSQL; no se da por válido un
-  resultado solo en SQLite.
+- La restricción, la validación ASCII y la normalización se prueban sobre PostgreSQL; no se da
+  por válido un resultado solo en SQLite.
 
 ## Entidad nativa `django_session`
 
