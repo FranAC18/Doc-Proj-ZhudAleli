@@ -1,10 +1,11 @@
 ---
-title: Rutas universales de hosts, proveedores y modelos
+title: Rutas universales de tareas, agentes y perfiles de modelo
 type: architecture
 status: proposed
-date: 2026-08-24
+date: 2026-08-25
 related:
   - "[[CONTRATO-UNIVERSAL-ORQUESTADORES]]"
+  - "[[../context/context-index]]"
   - "[[../bitacora/ESTADO-ACTIVO]]"
 tags:
   - proyecto/tesis
@@ -12,47 +13,55 @@ tags:
   - modulo/transversal
 ---
 
-# Rutas universales de hosts, proveedores y modelos
+# Rutas universales de tareas, agentes y perfiles de modelo
 
-La configuración ejecutable está en `tools/agent-routes.toml`. Esta nota explica la política
-para el tesista y para los hosts.
-
-## Ruta por rol
-
-| Rol | Primario | Fallback manual | Motivo |
-|---|---|---|---|
-| `coordinator` | Codex | Antigravity + Gemini Pro | Mantener gobierno y decisiones en el host de referencia |
-| `requirements` | Codex | Antigravity + `gemini-3.7-flash` | Contrastar fuentes y mantener trazabilidad |
-| `architect` | Antigravity + `gemini-3.1-pro` | Codex | Análisis profundo aprovechando Google AI Pro |
-| `ux` | Antigravity + `gemini-3.5-flash` | Codex | Revisar recorridos y accesibilidad |
-| `implementer` | OpenChamber + OpenCode Go + `deepseek-v4` | Antigravity + `gemini-3.6-flash` | Código rutinario con el menor costo disponible |
-| `reviewer` | Codex | Antigravity + `gemini-3.1-pro` | Revisión independiente y control de riesgos |
-| `documenter` | Antigravity + `gemini-3.1-pro` | Codex | Redacción del vault usando la cuota disponible |
-| `git-manager` | Codex | OpenCode con autorización | La puerta de commit permanece humana |
-
-## Reglas de uso
-
-1. La ruta indica una preferencia, no una autorización para cambiar alcance.
-2. El fallback se activa manualmente después de registrar un handoff `partially-complete`.
-3. El host siguiente debe conservar la tarea, branch/worktree, rutas y pruebas originales.
-4. `opencode-go/<modelo>` identifica una ruta de OpenCode Go; para este proyecto se propone
-   `deepseek-v4`, pero debe confirmarse que aparezca en el catálogo de OpenCode Go antes de
-   ejecutarlo. No se sustituye por un proveedor OpenAI sin verificar autenticación y endpoint.
-5. Antigravity puede mostrar variantes locales con nivel de esfuerzo; esas variantes no se
-   versionan como IDs universales ni se reutilizan como prueba de acceso a la API de Google.
-6. Los IDs Gemini universales confirmados para este proyecto son `gemini-3.7-flash`,
-   `gemini-3.6-flash`, `gemini-3.5-flash` y `gemini-3.1-pro`. Si la herramienta no muestra uno
-   de ellos o requiere un alias local, se detiene y se registra el bloqueo; no se inventa un
-   alias.
-
-## Qué ocurre al cambiar de cuota
-
-El cambio es a nivel de tarea:
+La configuración ejecutable está en `tools/agent-routes.toml`. La relación estable es:
 
 ```text
-error de cuota → detener host → handoff → abrir ruta fallback → leer handoff → continuar
+tipo de tarea → agente → perfil de capacidad → modelo seleccionado por el host
 ```
 
-No se promete failover invisible de una conversación porque Codex, Antigravity y OpenCode Go
-gestionan autenticación, sesiones y límites por superficies distintas. La continuidad real
-proviene de los archivos versionados del vault.
+El repositorio no fija IDs de modelos ni proveedores concretos. Eso evita duplicar nombres,
+forzar cuotas o convertir un alias de OpenCode Go, Codex o Antigravity en una afirmación de
+disponibilidad. El perfil es una exigencia de capacidad; el runtime debe resolver el modelo real.
+
+## Tipos mínimos
+
+| Tipo | Agente | Riesgo | Perfil | Revisión |
+|---|---|---:|---|---|
+| `architecture` | `architect` | Alto | `reasoning_max` | Obligatoria |
+| `planning` | `architect` | Alto | `reasoning_max` | Obligatoria |
+| `implementation` | `implementer` | Medio | `coding_efficient` | Obligatoria |
+| `frontend` | `frontend` | Medio | `frontend_strong` | Obligatoria |
+| `debugging` | `implementer` | Alto | `coding_efficient` | Obligatoria |
+| `research` | `researcher` | Bajo | `research_efficient` | Opcional |
+| `review` | `reviewer` | Alto | `reasoning_max` | Independiente |
+| `documentation` | `documenter` | Bajo | `documentation_economy` | Obligatoria |
+
+## Perfiles
+
+- `reasoning_max`: razonamiento profundo, contexto largo y salida estructurada.
+- `coding_efficient`: edición acotada, uso de herramientas y salida estructurada.
+- `frontend_strong`: implementación UI, revisión visual y accesibilidad.
+- `research_efficient`: investigación focalizada y citas o fuentes trazables.
+- `documentation_economy`: redacción estructurada con el menor coste razonable.
+
+Los nombres anteriores son perfiles internos, no IDs de modelos. El modelo concreto se elige
+en el host y se verifica con el catálogo y las credenciales disponibles en ese entorno.
+
+## Hosts
+
+OpenCode es el mecanismo nativo para los agentes y comandos de proyecto. Codex conserva sus
+adaptadores en `.codex/agents/`. OpenChamber es una interfaz sobre OpenCode y no aparece como
+fuente de configuración ni como requisito de ejecución.
+
+## Cambio de cuota o modelo
+
+```text
+fallo de disponibilidad → detener la ejecución → registrar handoff → elegir otro modelo
+compatible con el mismo perfil → leer el estado → continuar
+```
+
+El cambio de modelo no cambia la tarea, el alcance, las fuentes de verdad ni los criterios de
+terminado. Si no existe un modelo disponible que cumpla el perfil, la tarea queda bloqueada y
+se documenta el motivo; no se inventa un identificador.

@@ -13,6 +13,8 @@ def test_universal_contract_has_canonical_roles_and_host_adapters():
         "docs/architecture/RUTAS-MODELOS-IA.md",
         "docs/templates/PLANTILLA-HANDOFF-UNIVERSAL.md",
         "docs/bitacora/ESTADO-ACTIVO.md",
+        "docs/context/context-index.md",
+        "docs/context/feature-index.md",
         ".agents/rules/00-zhud-aleli-context.md",
         ".agents/rules/10-zhud-aleli-handoff.md",
         ".agents/skills/zhud-aleli-context/SKILL.md",
@@ -30,6 +32,8 @@ def test_universal_contract_has_canonical_roles_and_host_adapters():
         "reviewer",
         "documenter",
         "git-manager",
+        "frontend",
+        "researcher",
     )
 
     missing = [path for path in required if not (PROJECT_ROOT / path).is_file()]
@@ -54,16 +58,43 @@ def test_universal_contract_has_canonical_roles_and_host_adapters():
         for lane in ("primary", "fallback"):
             assert {"host", "provider", "model"} <= set(route[lane])
 
+    config = tomllib.load((PROJECT_ROOT / "tools" / "agent-routes.toml").open("rb"))
+    assert {
+        "architecture",
+        "planning",
+        "implementation",
+        "frontend",
+        "debugging",
+        "research",
+        "review",
+        "documentation",
+    } == set(config["task_types"])
+    assert {
+        "reasoning_max",
+        "coding_efficient",
+        "frontend_strong",
+        "research_efficient",
+        "documentation_economy",
+    } <= set(config["model_profiles"])
+    for command in ("route", "architect", "implement", "frontend", "review", "research"):
+        command_file = PROJECT_ROOT / ".opencode" / "commands" / f"{command}.md"
+        assert command_file.is_file()
+        assert "$ARGUMENTS" in command_file.read_text(encoding="utf-8")
+
     selected_models = {
         lane["model"]
         for route in routes.values()
         for lane in (route["primary"], route["fallback"])
     }
     assert {
-        "gemini-3.7-flash",
-        "gemini-3.6-flash",
-        "gemini-3.5-flash",
-        "gemini-3.1-pro",
+        "reasoning_max",
+        "coding_efficient",
+        "frontend_strong",
+        "research_efficient",
+        "documentation_economy",
     } <= selected_models
-    assert "gemini-3.1-pro-high" not in selected_models
-    assert "gemini-3.5-flash-medium" not in selected_models
+    assert "openchamber" not in {
+        lane["host"]
+        for route in routes.values()
+        for lane in (route["primary"], route["fallback"])
+    }

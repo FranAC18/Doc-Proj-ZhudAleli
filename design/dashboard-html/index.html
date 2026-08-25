@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SaaS Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Base</span>
+      </div>
+
+      <nav class="menu" aria-label="Sidebar navigation">
+        <a class="menu-item menu-item-active" href="#">
+          <img src="assets/icon-grid.svg" alt="" aria-hidden="true">
+          <span>Dashboard</span>
+        </a>
+        <a class="menu-item" href="#">
+          <img src="assets/icon-users.svg" alt="" aria-hidden="true">
+          <span>Audience</span>
+        </a>
+        <a class="menu-item" href="#">
+          <img src="assets/icon-folder.svg" alt="" aria-hidden="true">
+          <span>Projects</span>
+        </a>
+        <a class="menu-item" href="#">
+          <img src="assets/icon-cart.svg" alt="" aria-hidden="true">
+          <span>Orders</span>
+        </a>
+        <a class="menu-item" href="#">
+          <img src="assets/icon-message.svg" alt="" aria-hidden="true">
+          <span>Messages</span>
+        </a>
+        <a class="menu-item" href="#">
+          <img src="assets/icon-settings.svg" alt="" aria-hidden="true">
+          <span>Settings</span>
+        </a>
+        <a class="menu-item" href="#">
+          <img src="assets/icon-help.svg" alt="" aria-hidden="true">
+          <span>Support</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <h2>Storage</h2>
+        <p>6.8 GB of 10 GB used</p>
+        <div class="progress-track">
+          <span class="progress-fill"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Base / Dashboard</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" aria-label="Search"><img src="assets/icon-search.svg" alt=""></button>
+          <button class="icon-btn" aria-label="Notifications"><img src="assets/icon-bell.svg" alt=""></button>
+          <div class="avatar"></div>
+        </div>
+      </header>
+
+      <section class="kpis" aria-label="Key statistics">
+        <article class="kpi-card">
+          <h2>Users</h2>
+          <p class="kpi-value">1,750</p>
+          <p class="kpi-meta up">+12% from yesterday</p>
+        </article>
+        <article class="kpi-card">
+          <h2>Orders</h2>
+          <p class="kpi-value">398</p>
+          <p class="kpi-meta up">+8% this week</p>
+        </article>
+        <article class="kpi-card">
+          <h2>Revenue</h2>
+          <p class="kpi-value">$14,820</p>
+          <p class="kpi-meta down">-2.1% today</p>
+        </article>
+        <article class="kpi-card">
+          <h2>Growth</h2>
+          <p class="kpi-value">63%</p>
+          <p class="kpi-meta up">+4.8% this month</p>
+        </article>
+        <article class="kpi-card">
+          <h2>Avg. Value</h2>
+          <p class="kpi-value">$39.7</p>
+          <p class="kpi-meta up">+1.9% trend</p>
+        </article>
+      </section>
+
+      <section class="analytics-grid">
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Revenue</h2>
+            <button class="quiet-btn">Monthly</button>
+          </div>
+          <div class="line-chart" role="img" aria-label="Revenue line chart for Jan to Dec">
+            <svg viewBox="0 0 680 260" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#6fa5ff"></stop>
+                  <stop offset="100%" stop-color="#c869ff"></stop>
+                </linearGradient>
+              </defs>
+              <g class="chart-grid-lines">
+                <line x1="0" y1="40" x2="680" y2="40"></line>
+                <line x1="0" y1="90" x2="680" y2="90"></line>
+                <line x1="0" y1="140" x2="680" y2="140"></line>
+                <line x1="0" y1="190" x2="680" y2="190"></line>
+                <line x1="0" y1="240" x2="680" y2="240"></line>
+              </g>
+              <polyline class="line-series" points="10,150 70,175 130,120 190,165 250,95 310,170 370,110 430,195 490,150 550,100 610,115 670,70"></polyline>
+              <circle cx="370" cy="110" r="6" class="chart-point"></circle>
+            </svg>
+            <div class="tooltip-tag">$3,219</div>
+            <div class="months">
+              <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+              <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel panel-donut">
+          <div class="panel-head">
+            <h2>Sales Distribution</h2>
+            <button class="icon-btn icon-btn-small" aria-label="More options"><img src="assets/icon-more.svg" alt=""></button>
+          </div>
+          <div class="donut-wrap" role="img" aria-label="Sales distribution chart">
+            <div class="donut-chart">
+              <div class="donut-center">
+                <strong>80%</strong>
+                <span>Total sales</span>
+              </div>
+            </div>
+          </div>
+          <ul class="legend">
+            <li><span class="dot dot-blue"></span> Website</li>
+            <li><span class="dot dot-yellow"></span> Marketplace</li>
+            <li><span class="dot dot-orange"></span> Offline</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Recent Orders</h2>
+            <a href="#" class="table-link">View all</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tracking ID</th>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#457815</td>
+                  <td>Running shoes</td>
+                  <td>1</td>
+                  <td>$120.00</td>
+                  <td><span class="pill">Delivered</span></td>
+                </tr>
+                <tr>
+                  <td>#457816</td>
+                  <td>Sports watch</td>
+                  <td>2</td>
+                  <td>$280.00</td>
+                  <td><span class="pill pill-progress">Shipped</span></td>
+                </tr>
+                <tr>
+                  <td>#457817</td>
+                  <td>Backpack</td>
+                  <td>1</td>
+                  <td>$75.00</td>
+                  <td><span class="pill pill-warn">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Top Selling Products</h2>
+            <a href="#" class="table-link">More</a>
+          </div>
+          <ul class="product-list">
+            <li>
+              <div class="product-icon product-a" aria-hidden="true"></div>
+              <div>
+                <strong>Nike Air Max Runner</strong>
+                <p>245 sales</p>
+              </div>
+              <span class="stars">★★★★★</span>
+            </li>
+            <li>
+              <div class="product-icon product-b" aria-hidden="true"></div>
+              <div>
+                <strong>Classic Daypack</strong>
+                <p>198 sales</p>
+              </div>
+              <span class="stars">★★★★☆</span>
+            </li>
+            <li>
+              <div class="product-icon product-c" aria-hidden="true"></div>
+              <div>
+                <strong>Smart Pulse Watch</strong>
+                <p>166 sales</p>
+              </div>
+              <span class="stars">★★★★☆</span>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <aside class="messages-panel">
+      <div class="panel-head">
+        <h2>Messages</h2>
+        <a href="#" class="table-link">View all</a>
+      </div>
+      <ul class="message-list">
+        <li>
+          <div class="msg-avatar avatar-a"></div>
+          <div>
+            <strong>Esther Boyd</strong>
+            <p>Can we update the weekly targets?</p>
+          </div>
+        </li>
+        <li>
+          <div class="msg-avatar avatar-b"></div>
+          <div>
+            <strong>Robert Barnes</strong>
+            <p>Order #457816 has been shipped.</p>
+          </div>
+        </li>
+        <li>
+          <div class="msg-avatar avatar-c"></div>
+          <div>
+            <strong>Jacob Carter</strong>
+            <p>Nice dashboard improvements.</p>
+          </div>
+        </li>
+        <li>
+          <div class="msg-avatar avatar-d"></div>
+          <div>
+            <strong>Rylee Vance</strong>
+            <p>Please review Q3 revenue notes.</p>
+          </div>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>

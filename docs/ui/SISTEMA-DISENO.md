@@ -34,18 +34,40 @@ decoración sin contexto y autorización.
 
 ## Dirección visual provisional
 
-| Token | Valor provisional | Uso |
+| Token | Valor | Uso |
 |---|---|---|
-| `--color-brand-700` | `#285B4D` | encabezados, acciones principales |
-| `--color-brand-100` | `#E6F1EC` | fondos de énfasis suave |
-| `--color-accent-500` | `#C8872B` | detalles y estados de atención |
-| `--color-surface` | `#FFFDF8` | fondo cálido principal |
-| `--color-text` | `#17231F` | texto principal |
-| `--color-muted` | `#5E6D67` | texto secundario con contraste verificado |
-| `--color-danger` | `#B42318` | errores y acciones destructivas |
+| `--primary` | `#B32276` | Marca, acciones principales, enlaces |
+| `--primary-hover` | `#961961` | Hover y foco de acciones principales |
+| `--primary-soft` | `#FBEDF9` | Fondos de énfasis suave de marca |
+| `--accent-purple` | `#8A2BE2` | Acento secundario (detalles) |
+| `--accent-blue` | `#4589FF` | Estado informativo |
+| `--accent-yellow` | `#F8BE39` | Estado de atención (indicadores no textuales o texto oscuro) |
+| `--accent-orange` | `#FF7A59` | Estado de advertencia |
+| `--accent-cyan` | `#14B8A6` | Estado de éxito (indicadores) |
+| `--bg-body` | `#FAF7FB` | Fondo general de página |
+| `--bg-surface` | `#FFFFFF` | Tarjetas y superficies principales |
+| `--bg-input` | `#F4EDF5` | Fondo de campos de formulario |
+| `--border-light` | `#F0E6EF` | Bordes suaves |
+| `--text-title` | `#1F1422` | Títulos y encabezados principales |
+| `--text-body` | `#594D5D` | Texto general de párrafos |
+| `--text-secondary` | `#6B616D` | Texto secundario accesible (contraste AA verificado) |
+| `--text-muted` | `#9F93A3` | Solo decorativo (contraste < 4.5:1, no para texto informativo) |
+| `--danger` | `#B31A4F` | Errores y acciones destructivas |
+| `--danger-soft` | `#FCECF2` | Fondo de alertas de error |
 
-Antes de consolidarlos se verificará contraste WCAG AA y se compararán con la identidad real.
-La tipografía inicial será la pila del sistema para evitar descargas y mejorar velocidad.
+La identidad visual es una **propuesta** tomada de la maqueta de referencia y validada con los componentes de `design/style-guide/`. Se confirmará con la organización antes de fijarla como definitiva.
+
+### Tipografía y rendimiento
+
+- **Familia principal**: `Poppins`, con respaldo en `"Segoe UI", system-ui, -apple-system, Roboto, sans-serif`.
+- **Rendimiento y funcionamiento sin conexión (`RNF-CON-001`)**: En producción y despliegue Django, las fuentes deben servirse localmente desde `static/vendor/fonts/` (o la carpeta local correspondiente) para eliminar dependencias obligatorias hacia Google Fonts CDN y soportar conectividad inestable.
+
+### Geometría, espaciado y objetivos táctiles
+
+- **Espaciado (`--space-1..7`)**: 4, 8, 12, 16, 20, 24, 32 px.
+- **Radios (`--radius-sm/md/lg/pill`)**: 10, 18, 24, 999 px.
+- **Objetivo táctil (`--touch-target`)**: mínimo 44 × 44 px en controles interactivos.
+- **Sombras**: `--card-shadow: 0 4px 20px rgba(36, 17, 38, 0.03)` y `--card-hover-shadow: 0 10px 30px rgba(179, 34, 118, 0.07)`.
 
 ## Shell responsivo propuesto
 

@@ -1,10 +1,15 @@
 ---
-description: Revisa arquitectura, datos, permisos, transacciones y decisiones sin implementar.
+description: Revisa arquitectura y registra solo propuestas arquitectónicas autorizadas; no implementa código.
 mode: subagent
 permission:
-  edit: deny
+  edit:
+    "*": deny
+    "docs/architecture/proposals/**": allow
+    "docs/decisions/proposals/**": allow
   bash: ask
+  task: deny
 ---
 
-Lee y cumple `agents/tesis/roles/architect.md`. Entrega hallazgos y propuestas al coordinador;
-no conviertas una recomendación en decisión aceptada.
+Lee `docs/context/context-index.md`, el índice de la funcionalidad si aplica y cumple
+`agents/tesis/roles/architect.md`. Entrega hallazgos y propuestas al coordinador; no conviertas
+una recomendación en decisión aceptada y no edites código.

@@ -17,10 +17,12 @@ no debe redefinir el alcance ni relajar estas restricciones.
 | Rol | Contrato | Escritura | Handoff principal |
 |---|---|---|---|
 | `requirements` | [[requirements]] | No | `coordinator` |
-| `architect` | [[architect]] | No | `coordinator` |
+| `architect` | [[architect]] | Solo propuestas arquitectónicas autorizadas | `coordinator` |
 | `ux` | [[ux]] | No | `coordinator` |
+| `frontend` | [[frontend]] | UI asignada | `reviewer` |
 | `implementer` | [[implementer]] | Código asignado | `reviewer` |
 | `reviewer` | [[reviewer]] | No | `coordinator` |
+| `researcher` | [[researcher]] | Solo propuestas documentales autorizadas | `coordinator` |
 | `documenter` | [[documenter]] | Documentación operativa permitida | `git-manager` / `coordinator` |
 | `git-manager` | [[git-manager]] | Índice y commit autorizado | `documenter` |
 

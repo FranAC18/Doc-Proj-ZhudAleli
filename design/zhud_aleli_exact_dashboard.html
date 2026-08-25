@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhud Alelí — Admin Panel & Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Zhud Alelí Brand Colors */
+      --primary: #b32276;
+      --primary-hover: #961961;
+      --primary-soft: #fbedf9;
+      --primary-glow: rgba(179, 34, 118, 0.2);
+
+      --accent-purple: #8A2BE2;
+      --accent-purple-soft: #f2e6fc;
+
+      /* Acentos secundarios inspirados en UI dashboard */
+      --accent-blue-soft: #eaf2ff;
+      --accent-blue: #4589ff;
+      --accent-yellow-soft: #fef7e6;
+      --accent-yellow: #f8be39;
+      --accent-orange-soft: #ffefe8;
+      --accent-orange: #ff7a59;
+      --accent-cyan-soft: #e5f9f6;
+      --accent-cyan: #14b8a6;
+
+      /* Superficies Sólidas (Sin glassmorphism) */
+      --bg-body: #faf7fb;         /* Blanco pastel uniforme */
+      --bg-surface: #ffffff;      /* Tarjetas blanco puro */
+      --bg-input: #f4edf5;        /* Inputs grises/pasteles suaves de las imágenes */
+      --bg-hover: #f7eff8;
+
+      /* Textos */
+      --text-title: #1f1422;
+      --text-body: #594d5d;
+      --text-muted: #9f93a3;
+      --border-light: #f0e6ef;
+
+      /* Sombras muy suaves y limpias */
+      --card-shadow: 0 4px 20px rgba(36, 17, 38, 0.03);
+      --card-hover-shadow: 0 10px 30px rgba(179, 34, 118, 0.07);
+
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-body);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ================= SIDEBAR ================= */
+    .sidebar {
+      width: 90px;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 0 24px 0;
+      position: fixed;
+      top: 0; bottom: 0; left: 0;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      background-color: var(--primary);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 16px var(--primary-glow);
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+      flex: 1;
+    }
+
+    .nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      text-decoration: none;
+    }
+
+    .nav-btn:hover {
+      color: var(--primary);
+      background-color: var(--primary-soft);
+    }
+
+    .nav-btn.active {
+      background-color: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .nav-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    .nav-badge-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 7px;
+      height: 7px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      border: 2px solid var(--bg-surface);
+    }
+
+    .user-profile-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--accent-purple-soft);
+      color: var(--accent-purple);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 2px solid var(--border-light);
+      margin-top: auto;
+      transition: var(--transition);
+    }
+
+    .user-profile-btn:hover {
+      transform: scale(1.05);
+      border-color: var(--primary);
+    }
+
+    /* ================= CONTENEDOR PRINCIPAL ================= */
+    .main-content {
+      margin-left: 90px;
+      flex: 1;
+      padding: 36px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 1440px;
+    }
+
+    /* Topbar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    .date-filter-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .date-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-title);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--card-shadow);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .date-pill:hover {
+      border-color: var(--primary);
+    }
+
+    .date-pill svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-muted);
+      stroke-width: 2.5;
+    }
+
+    /* ================= STAT CARDS ================= */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--border-light);
+    }
+
+    .stat-icon-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-icon-circle svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    .stat-number {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-title);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ================= GRID DE REPORTES & ANALYTICS ================= */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-title);
+    }
+
+    .more-btn {
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .more-btn:hover {
+      color: var(--primary);
+    }
+
+    /* Reports Chart SVG */
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 240px;
+    }
+
+    .tooltip-tag {
+      position: absolute;
+      top: 60px;
+      left: 45%;
+      background: #1e1322;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.72rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
+
+    .tooltip-tag span {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    /* Analytics Donut */
+    .donut-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .donut-center-text {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .donut-center-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-title);
+      line-height: 1;
+    }
+
+    .donut-center-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .legend-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-body);
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ================= TABLA DE PEDIDOS & TOP SELLING ================= */
+    .table-clean {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .table-clean th {
+      text-align: left;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .table-clean td {
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-title);
+      vertical-align: middle;
+    }
+
+    .table-clean tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-clean tr {
+      transition: var(--transition);
+    }
+
+    .table-clean tr:hover {
+      background-color: var(--bg-hover);
+    }
+
+    .product-cell {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .product-thumb {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .product-thumb svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+
+    .pill-count {
+      display: inline-block;
+      background: #e6f9f6;
+      color: #0d9488;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+    }
+
+    /* Top Selling Products List */
+    .top-products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .top-product-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .top-product-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: var(--accent-blue-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+      flex-shrink: 0;
+    }
+
+    .item-icon-box.purple {
+      background: var(--accent-purple-soft);
+      color: var(--accent-purple);
+    }
+
+    .item-info h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-title);
+      margin-bottom: 2px;
+    }
+
+    .stars-row {
+      display: flex;
+      gap: 2px;
+      color: var(--accent-yellow);
+      margin-bottom: 4px;
+    }
+
+    .item-price {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-title);
+    }
+
+    /* ================= MODALES FLOTANTES (UI EXACTA DE REFERENCIA) ================= */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(31, 20, 34, 0.35);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .modal-box {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 40px rgba(36, 17, 38, 0.12);
+      animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    .btn-close-round {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-close-round:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Tipos de Selector en Píldora (Event / Reminder / Task) */
+    .tab-pills {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab-pill-btn {
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-body);
+      transition: var(--transition);
+    }
+
+    .tab-pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    /* Inputs Sólidos de las imágenes */
+    .input-clean {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid transparent;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      color: var(--text-title);
+      outline: none;
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+
+    .input-clean:focus {
+      background: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-soft);
+    }
+
+    /* Acciones del Modal */
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn-pill {
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-pill-light {
+      background: transparent;
+      color: var(--text-muted);
+    }
+
+    .btn-pill-light:hover {
+      color: var(--text-title);
+      background: var(--bg-input);
+    }
+
+    .btn-pill-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .btn-pill-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="brand-logo">
+      <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+    </div>
+
+    <nav class="nav-list">
+      <a class="nav-btn active">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      </a>
+      <a class="nav-btn">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      </a>
+      <a class="nav-btn" id="btnOpenEvent">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      </a>
+      <a class="nav-btn">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+      </a>
+      <a class="nav-btn">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span class="nav-badge-dot"></span>
+      </a>
+      <a class="nav-btn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </a>
+    </nav>
+
+    <div class="user-profile-btn" title="Perfil Zhud Alelí">
+      ZA
+    </div>
+  </aside>
+
+  <!-- ================= CONTENIDO PRINCIPAL ================= -->
+  <main class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h1 class="topbar-title">Dashboard</h1>
+      <div class="date-filter-group">
+        <div class="date-pill">
+          <span>10-08-2026</span>
+          <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="date-pill">
+          <span>24-08-2026</span>
+          <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Stat Cards Horizontales -->
+    <div class="stats-row">
+      <!-- 1 -->
+      <div class="stat-card">
+        <div class="stat-icon-circle" style="background: var(--primary-soft); color: var(--primary);">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        </div>
+        <div>
+          <div class="stat-number">178+</div>
+          <div class="stat-label">Save Products</div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="stat-card">
+        <div class="stat-icon-circle" style="background: var(--accent-yellow-soft); color: var(--accent-yellow);">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        </div>
+        <div>
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Stock Products</div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="stat-card">
+        <div class="stat-icon-circle" style="background: var(--accent-orange-soft); color: var(--accent-orange);">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </div>
+        <div>
+          <div class="stat-number">190+</div>
+          <div class="stat-label">Sales Products</div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="stat-card">
+        <div class="stat-icon-circle" style="background: var(--accent-purple-soft); color: var(--accent-purple);">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        </div>
+        <div>
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Job Application</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila Media: Reports (Gráfica de Curva) & Analytics (Dona) -->
+    <div class="grid-2col">
+
+      <!-- Reports -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Reports</div>
+          <div class="more-btn">
+            <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <!-- Tooltip Sales -->
+          <div class="tooltip-tag">
+            Sales
+            <span>2,678</span>
+          </div>
+
+          <!-- SVG Curva Suave idéntica a la imagen de referencia -->
+          <svg viewBox="0 0 650 200" style="width: 100%; height: 100%; overflow: visible;">
+            <defs>
+              <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#4589ff" />
+                <stop offset="50%" stop-color="#b32276" />
+                <stop offset="100%" stop-color="#8A2BE2" />
+              </linearGradient>
+              <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#b32276" stop-opacity="0.12" />
+                <stop offset="100%" stop-color="#b32276" stop-opacity="0.0" />
+              </linearGradient>
+            </defs>
+
+            <!-- Líneas de Guía -->
+            <line x1="0" y1="30" x2="650" y2="30" stroke="#f4edf5" stroke-dasharray="4 4" />
+            <line x1="0" y1="80" x2="650" y2="80" stroke="#f4edf5" stroke-dasharray="4 4" />
+            <line x1="0" y1="130" x2="650" y2="130" stroke="#f4edf5" stroke-dasharray="4 4" />
+            <line x1="0" y1="180" x2="650" y2="180" stroke="#f4edf5" />
+
+            <!-- Área Rellena -->
+            <path d="M 10 100 C 70 140, 100 70, 150 70 C 180 70, 200 100, 230 100 C 260 100, 280 80, 310 80 C 340 80, 360 145, 390 145 C 420 145, 450 110, 480 110 C 510 110, 530 65, 560 65 C 590 65, 620 90, 640 60 L 640 180 L 10 180 Z" fill="url(#areaGradient)" />
+
+            <!-- Trazo Curva Principal -->
+            <path d="M 10 100 C 70 140, 100 70, 150 70 C 180 70, 200 100, 230 100 C 260 100, 280 80, 310 80 C 340 80, 360 145, 390 145 C 420 145, 450 110, 480 110 C 510 110, 530 65, 560 65 C 590 65, 620 90, 640 60" fill="none" stroke="url(#curveGradient)" stroke-width="4.5" stroke-linecap="round" />
+
+            <!-- Puntos Clave Circulares -->
+            <circle cx="150" cy="70" r="5" fill="#ffffff" stroke="#b32276" stroke-width="3" />
+            <circle cx="230" cy="100" r="5" fill="#ffffff" stroke="#b32276" stroke-width="3" />
+            <circle cx="310" cy="80" r="5" fill="#ffffff" stroke="#b32276" stroke-width="3" />
+            <circle cx="480" cy="110" r="5" fill="#ffffff" stroke="#8A2BE2" stroke-width="3" />
+            <circle cx="560" cy="65" r="5" fill="#ffffff" stroke="#8A2BE2" stroke-width="3" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Analytics Donut -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Analytics</div>
+          <div class="more-btn">
+            <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+          </div>
+        </div>
+
+        <div class="donut-wrapper">
+          <svg width="190" height="190" viewBox="0 0 42 42">
+            <!-- Segmento 1: Base / Fondo sutil -->
+          <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f4edf5" stroke-width="5.5"></circle>
+
+            <!-- Segmento Primario (Zhud Alelí #b32276) 55% -->
+          <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="var(--primary)" stroke-width="5.5" stroke-dasharray="55 45" stroke-dashoffset="25" stroke-linecap="round"></circle>
+
+            <!-- Segmento Amarillo (Distribute) 25% -->
+            <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="var(--accent-yellow)" stroke-width="5.5" stroke-dasharray="25 75" stroke-dashoffset="70" stroke-linecap="round"></circle>
+
+            <!-- Segmento Naranja (Return) 15% -->
+            <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="var(--accent-orange)" stroke-width="5.5" stroke-dasharray="15 85" stroke-dashoffset="45" stroke-linecap="round"></circle>
+          </svg>
+
+          <div class="donut-center-text">
+            <h3>80%</h3>
+            <p>Transactions</p>
+          </div>
+        </div>
+
+        <div class="legend-row">
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--primary);"></span>
+            <span>Sale</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--accent-yellow);"></span>
+            <span>Distribute</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--accent-orange);"></span>
+            <span>Return</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Fila Inferior: Recent Orders Table & Top Selling Products -->
+    <div class="grid-2col">
+
+      <!-- Tabla de Pedidos -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Recent Orders</div>
+          <div class="more-btn">
+            <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+          </div>
+        </div>
+
+        <table class="table-clean">
+          <thead>
+            <tr>
+              <th>Tracking no</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Total Order</th>
+              <th>Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.82rem;">#876364</td>
+              <td>
+                <div class="product-cell">
+                  <div class="product-thumb" style="background: var(--primary-soft); color: var(--primary);">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                  </div>
+                  <span>Camera Lens</span>
+                </div>
+              </td>
+              <td>$178</td>
+              <td><span class="pill-count">325</span></td>
+              <td style="font-weight: 600;">$1,46,660</td>
+            </tr>
+
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.82rem;">#876368</td>
+              <td>
+                <div class="product-cell">
+                  <div class="product-thumb" style="background: var(--accent-purple-soft); color: var(--accent-purple);">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+                  </div>
+                  <span>Black Sleep Dress</span>
+                </div>
+              </td>
+              <td>$14</td>
+              <td><span class="pill-count">53</span></td>
+              <td style="font-weight: 600;">$46,660</td>
+            </tr>
+
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.82rem;">#876412</td>
+              <td>
+                <div class="product-cell">
+                  <div class="product-thumb" style="background: var(--accent-orange-soft); color: var(--accent-orange);">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 0a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-6 14h12"></path></svg>
+                  </div>
+                  <span>Argan Oil</span>
+                </div>
+              </td>
+              <td>$21</td>
+              <td><span class="pill-count">78</span></td>
+              <td style="font-weight: 600;">$3,46,676</td>
+            </tr>
+
+            <tr>
+              <td style="color: var(--text-muted); font-size: 0.82rem;">#876621</td>
+              <td>
+                <div class="product-cell">
+                  <div class="product-thumb" style="background: var(--accent-yellow-soft); color: var(--accent-yellow);">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 7 .5-5 4.5 1.5 7-6.5-4-6.5 4L7 13 2 8.5l7-.5z"></path></svg>
+                  </div>
+                  <span>EAU DE Parfum</span>
+                </div>
+              </td>
+              <td>$32</td>
+              <td><span class="pill-count">98</span></td>
+              <td style="font-weight: 600;">$3,46,981</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top Selling Products -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Top selling Products</div>
+          <div class="more-btn">
+            <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+          </div>
+        </div>
+
+        <div class="top-products-list">
+
+          <div class="top-product-item">
+            <div class="item-icon-box">
+              <svg style="width: 28px; height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <div class="item-info">
+              <h4>NIKE Shoes Black Pattern</h4>
+              <div class="stars-row">
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <div class="item-price">$87</div>
+            </div>
+          </div>
+
+          <div class="top-product-item">
+            <div class="item-icon-box purple">
+              <svg style="width: 28px; height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <div class="item-info">
+              <h4>iPhone 12 Pro Max</h4>
+              <div class="stars-row">
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <div class="item-price">$987</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= MODAL: CREATE EVENT (RÉPLICA EXACTA) ================= -->
+  <div class="modal-backdrop" id="eventModal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h3 class="modal-title">Create an Event</h3>
+        <button class="btn-close-round" id="btnCloseEvent">
+          <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="tab-pills">
+        <button class="tab-pill-btn active">Event</button>
+        <button class="tab-pill-btn">Reminder</button>
+        <button class="tab-pill-btn">Task</button>
+      </div>
+
+      <input type="text" class="input-clean" placeholder="Add title">
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px; font-size: 0.88rem;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--accent-orange-soft); color: var(--accent-orange); display: flex; align-items: center; justify-content: center;">
+          <svg style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div>
+          <div style="font-weight: 600; color: var(--text-title);">Thursday, August 27 &nbsp; 12:00pm - 1:00pm</div>
+          <div style="color: var(--primary); font-size: 0.8rem; font-weight: 500; cursor: pointer;">Find a time</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-pill btn-pill-light" id="btnCancelEvent">Close</button>
+        <button class="btn-pill btn-pill-primary" onclick="alert('Evento creado exitosamente.'); document.getElementById('eventModal').classList.remove('active');">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const eventModal = document.getElementById('eventModal');
+    const btnOpenEvent = document.getElementById('btnOpenEvent');
+    const btnCloseEvent = document.getElementById('btnCloseEvent');
+    const btnCancelEvent = document.getElementById('btnCancelEvent');
+
+    btnOpenEvent.addEventListener('click', () => {
+      eventModal.classList.add('active');
+    });
+
+    const closeModals = () => {
+      eventModal.classList.remove('active');
+    };
+
+    btnCloseEvent.addEventListener('click', closeModals);
+    btnCancelEvent.addEventListener('click', closeModals);
+    eventModal.addEventListener('click', (e) => {
+      if(e.target === eventModal) closeModals();
+    });
+  </script>
+</body>
+</html>
