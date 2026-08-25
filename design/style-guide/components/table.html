@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabla y estado vacío — Sistema de diseño Zhud Alelí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container-page">
+  <h1>Tabla responsiva y estado vacío</h1>
+
+  <section class="section" aria-labelledby="t-tabla">
+    <h2 id="t-tabla">Tabla responsiva</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Tabla de lotes">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Lote</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lote 01</td>
+            <td>Manzanilla</td>
+            <td><span class="badge badge--success">Completado</span></td>
+            <td>2026-08-20</td>
+          </tr>
+          <tr>
+            <td>Lote 02</td>
+            <td>Menta</td>
+            <td><span class="badge badge--info">En proceso</span></td>
+            <td>2026-08-22</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>En móvil la tabla se desplaza horizontalmente dentro del área de scroll.</p>
+  </section>
+
+  <section class="section" aria-labelledby="t-vacio">
+    <h2 id="t-vacio">Estado vacío</h2>
+    <div class="empty-state">
+      <span class="empty-state__icon" aria-hidden="true">◌</span>
+      <h3>No hay lotes registrados</h3>
+      <p>Cuando registres un lote, aparecerá aquí con su estado.</p>
+      <button class="btn btn--primary" type="button">Registrar primer lote</button>
+    </div>
+  </section>
+</div>
+</body>
+</html>

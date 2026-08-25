@@ -4,195 +4,82 @@
 
 Construir una aplicación web funcional, clara y verificable para la gestión organizacional
 y la trazabilidad productiva del Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud.
-El arnés, los agentes y la documentación existen para servir a esa aplicación.
+Este archivo es el contrato corto que Codex y otros hosts descubren automáticamente; la
+documentación detallada se recupera bajo demanda.
 
-## Lectura obligatoria antes de trabajar
+## Inicio de una tarea
 
-1. Lee este archivo.
-2. Lee `.specify/memory/constitution.md`.
-3. Lee `agents/tesis/AGENT.md`, `agents/tesis/PROJECT_CONTEXT.md`,
-   `agents/tesis/KNOWLEDGE_POLICY.md` y `agents/tesis/OBSIDIAN_POLICY.md`.
-4. Lee `agents/tesis/roles/README.md`, `docs/00-inicio/00-dashboard.md`,
-   `docs/bitacora/ESTADO-ACTIVO.md` y el sprint actual.
-5. Si existe una funcionalidad activa, lee todo su directorio en `specs/`, incluido
-   `spec.md`, `plan.md` y `tasks.md`.
-6. Inspecciona el código, las pruebas y el estado de Git antes de proponer cambios.
+1. Confirma que la raíz contiene este archivo y `.specify/memory/constitution.md` y que
+   también es la raíz del vault de Obsidian.
+2. Lee [`docs/context/context-index.md`](docs/context/context-index.md).
+3. Lee [`docs/bitacora/ESTADO-ACTIVO.md`](docs/bitacora/ESTADO-ACTIVO.md) y confirma rama,
+   `HEAD`, tarea y rutas permitidas antes de escribir.
+4. Clasifica la solicitud según `task_types` en `tools/agent-routes.toml`.
+5. Carga solamente el contexto indicado por esa clasificación. No leas todo `docs/`, todo
+   `.specify/` ni todo el directorio de una funcionalidad por defecto.
 
-No cargues todo el repositorio sin necesidad. Empieza por estos índices y sigue sus enlaces.
+## Recuperación selectiva
+
+- Arquitectura o planificación: constitución, índice, arquitectura/ADR relevantes y la
+  funcionalidad activa indicada por `docs/context/feature-index.md`.
+- Implementación: `tasks.md`, secciones relevantes de `spec.md`, código y pruebas; contratos
+  y modelo de datos únicamente cuando la tarea los toca.
+- Frontend: reglas UI, componentes, archivos visuales y criterios de accesibilidad relevantes.
+- Investigación: solo las fuentes necesarias para la pregunta.
+- Revisión: diff, archivos modificados, contratos, pruebas y reglas aplicables.
+- Documentación: la plantilla o fuente concreta y las rutas autorizadas del documenter.
+
+Las skills completas se leen únicamente cuando se seleccionan. Los MOCs, auditorías antiguas,
+propuestas e historial son referencias, no contexto inicial.
 
 ## Fuentes de verdad
 
 En caso de conflicto, aplica este orden y muestra la discrepancia:
 
-1. Requisitos validados con la organización y evidencia de campo identificada.
-2. Anteproyecto aprobado y decisiones confirmadas por el tesista/directora.
-3. Especificaciones aprobadas en `specs/` y ADR aceptados en `docs/decisions/`.
-4. Código, migraciones y pruebas del repositorio.
-5. Documentación oficial vigente.
-6. Propuestas del agente, siempre con estado `proposed`.
+1. requisitos validados y evidencia de campo;
+2. especificaciones y ADR aprobados;
+3. código, migraciones y pruebas;
+4. documentación oficial vigente;
+5. propuestas e historial;
+6. conversación o memoria como contexto auxiliar.
 
-Una conversación, una inferencia o un borrador de IA nunca aprueban un requisito.
+Una conversación, inferencia o propuesta de IA nunca aprueba un requisito.
 
-## Estado actual
+## Gobernanza y límites
 
-La aplicación Django todavía no existe. Mientras el Sprint 0 no esté cerrado, solo se puede
-trabajar en preparación, requisitos, diseño, evaluación del arnés y documentación. No se
-debe presentar código de demostración como si fuera la aplicación funcional.
+- La constitución es obligatoria para decisiones de arquitectura, permisos, seguridad,
+  planificación y puertas de implementación.
+- Los roles canónicos viven en `agents/tesis/roles/`; `.codex/agents/` y `.opencode/agents/`
+  son adaptadores del host, no fuentes paralelas.
+- Un solo escritor por archivo y por worktree. Los agentes hijos reciben tarea, requisito,
+  rutas permitidas y prueba esperada; no hay delegación recursiva.
+- `reviewer` es read-only. `architect` solo puede registrar propuestas en rutas autorizadas.
+  `implementer` modifica únicamente una tarea asignada.
+- No se aprueban requisitos, decisiones ni alcance desde una conversación.
+- No hagas `commit`, `push`, `merge`, `rebase`, `reset`, `clean` ni cambies la identidad Git
+  sin autorización explícita del tesista.
+- No guardes secretos, datos personales innecesarios ni bases locales en Git.
+- No ejecutes `speckit-implement` sobre una especificación no aprobada.
 
-## Flujo obligatorio por funcionalidad
+## Arquitectura de producto
 
-1. Especificar el problema, actor, fuente, alcance y criterios de aceptación.
-2. Resolver las ambigüedades que cambien alcance, seguridad, datos o experiencia de uso.
-3. Obtener confirmación humana y cambiar el estado de la especificación.
-4. Diseñar arquitectura, datos, permisos, interfaz y estrategia de pruebas.
-5. Dividir el trabajo en tareas pequeñas con rutas y criterios verificables.
-6. Implementar una porción vertical mínima en una rama o worktree propio.
-7. Ejecutar verificaciones, revisar permisos y revisar el diff.
-8. Entregar al `documenter` un handoff `pre_commit` con archivos, pruebas, hallazgos y pendientes.
-9. Solicitar al `git-manager` la validación del diff y autorización explícita antes del commit.
-10. Después del commit, entregar al `documenter` el hash real para registrar la evidencia `post_commit`.
-11. Actualizar trazabilidad y proponer el cierre humano de la tarea.
+La aplicación futura usa Python, Django, PostgreSQL, Bootstrap 5 y plantillas MTV en un
+monolito modular. La aplicación Django todavía no existe; los artefactos de diseño o laboratorio
+no deben presentarse como aplicación funcional. Las reglas de autorización viven en backend y
+las operaciones con varias entidades usan transacciones.
 
-No ejecutes `speckit-implement` sobre una especificación sin aprobar.
+## Documentación y continuidad
 
-## Trabajo multiagente
+- El vault es la raíz del repositorio; los documentos estables van en `docs/` y las specs en
+  `specs/<id>/`.
+- El estado operativo se conserva en `docs/bitacora/ESTADO-ACTIVO.md`; el detalle de pausas y
+  handoffs va en `docs/bitacora/checkpoints/`.
+- No sobrescribas notas aprobadas. Las propuestas usan estado `proposed` y sus rutas autorizadas.
+- Antes de cerrar una tarea ejecuta verificaciones proporcionales, revisa el diff y ejecuta
+  `git diff --check` cuando exista un repositorio Git.
 
-Usa agentes especializados únicamente cuando el usuario autorice trabajo multiagente en la
-solicitud actual y existan frentes realmente independientes. Roles disponibles en
-`.codex/agents/`:
+## Host
 
-- `requirements`: analiza fuentes y redacta propuestas; no aprueba requisitos.
-- `architect`: revisa arquitectura, datos y decisiones; no implementa.
-- `ux`: diseña y revisa flujos e interfaz; no inventa identidad visual aprobada.
-- `implementer`: modifica solo la tarea y los archivos asignados.
-- `reviewer`: revisa comportamiento, seguridad, pruebas y trazabilidad sin editar.
-- `documenter`: registra documentación operativa en rutas permitidas; no modifica documentos aprobados.
-- `git-manager`: valida, crea commits y realiza push a ramas o main únicamente con autorización explícita del tesista; no realiza push automático ni reescribe historia.
-
-La fuente canónica de responsabilidades y límites está en `agents/tesis/roles/`. Los archivos
-de `.codex/agents/`, `.opencode/agents/` y `.agents/rules/` son adaptadores del host: pueden
-añadir formato o permisos específicos, pero no pueden relajar el contrato canónico.
-
-Reglas de coordinación:
-
-- Un solo agente escritor por archivo y por worktree.
-- El agente raíz integra resultados y es el único que actualiza dashboard, sprint y matriz
-  global durante una ejecución multiagente.
-- Los agentes hijos reciben el ID de requisito, la tarea, las rutas permitidas y la prueba
-  esperada; no se les entrega un objetivo abierto como “hacer todo el módulo”.
-- No hay delegación recursiva ni fusiones automáticas.
-- Un reporte de agente no sustituye pruebas ni revisión del diff.
-
-### Cambio de host o proveedor
-
-Codex, Antigravity, OpenCode y OpenChamber pueden trabajar sobre el mismo proyecto, pero no
-son escritores concurrentes. Antes de cambiar de herramienta:
-
-1. detén el host actual;
-2. conserva o registra el estado en `docs/bitacora/checkpoints/` usando la plantilla universal;
-3. confirma rama, `git status` y rutas modificadas;
-4. abre el siguiente host desde la raíz del vault;
-5. lee el handoff antes de escribir y conserva `allowed_paths`/`forbidden_paths`;
-6. continúa la misma tarea, sin importar una instrucción nueva que cambie el alcance.
-
-Un cambio de cuota no se resuelve transfiriendo la memoria privada de una conversación. Se
-resuelve transfiriendo el estado versionado de la tarea.
-
-## Arquitectura de implementación
-
-- Stack aprobado: Python, Django, PostgreSQL, Bootstrap 5 y arquitectura MTV.
-- Estilo: monolito modular; cada app representa una capacidad del dominio.
-- Usa vistas, formularios y plantillas Django como primera opción. JavaScript adicional debe
-  resolver una interacción concreta y conservar degradación razonable.
-- Crea un usuario personalizado antes de la primera migración de producción.
-- Usa transacciones para operaciones que cambien varias entidades.
-- Para inventario, lotes y pesajes registra movimientos; no reemplaces historia con un
-  número mutable sin evidencia.
-- Las reglas de autorización viven en backend y tienen pruebas negativas.
-- No agregues capas, repositorios, microservicios, colas o una SPA sin necesidad demostrada
-  y ADR aceptado.
-
-## Interfaz y experiencia
-
-- Diseña primero para móvil y conectividad limitada.
-- Usa Bootstrap 5 con componentes propios y tokens consistentes; evita páginas genéricas de
-  administración como interfaz principal para las usuarias.
-- Controles táctiles amplios, texto claro, etiquetas visibles e icono acompañado de texto.
-- Contraste AA, navegación por teclado y mensajes de error que indiquen cómo corregir.
-- No uses solo color para comunicar estado.
-- Prueba los recorridos críticos con los perfiles reales y registra evidencia de validación.
-
-## Git y GitHub
-
-- `main` es estable. Trabaja en una rama por tarea o sprint.
-- Revisa `git status`, rama y diff antes y después del cambio.
-- No hagas `commit`, `push`, `merge`, `rebase`, force-push ni borres historia sin solicitud
-  explícita del tesista. El rol `git-manager` o la IA en sesión pueden crear commits y ejecutar
-  `git push` a la rama correspondiente (o `main`) únicamente tras recibir autorización e
-  instrucción explícita del tesista para dicha acción. Queda prohibido todo push automático.
-- Usa la identidad Git del tesista. No agregues `Co-authored-by` de IA salvo solicitud.
-- No cambies `user.name` ni `user.email`.
-- No mezcles archivos ajenos a la tarea ni reviertas cambios existentes del usuario.
-- Nunca incluyas secretos, bases locales, datos personales o artefactos generados.
-
-## Verificación
-
-Ejecuta solo comandos que correspondan al estado real del repositorio y reporta el resultado.
-Cuando exista la aplicación Django, el mínimo será:
-
-```bash
-python manage.py check
-python manage.py makemigrations --check --dry-run
-python manage.py test
-```
-
-Para el laboratorio opcional actual:
-
-```bash
-pytest -q tools/agent-lab/tests
-```
-
-Antes de cerrar cualquier tarea ejecuta además `git diff --check` cuando haya un repositorio
-Git disponible.
-
-## Obsidian y tesis
-
-La raíz es también el vault. Guarda conocimiento estable en Markdown, con YAML y Wikilinks.
-
-### Ubicación canónica de documentos
-
-- `docs/`: bitácora, decisiones, evidencias, requisitos, arquitectura, UX, sprints y trazabilidad.
-- `specs/<id-funcionalidad>/`: spec, plan, tareas, contratos, modelo de datos y quickstart de cada funcionalidad.
-- `agents/tesis/`: contexto estable del dominio y políticas del agente; no es una carpeta de notas de sesión.
-- `.codex/`, `.agents/`, `tools/` y `evals/`: configuración, skills, laboratorio y evaluación; no son destinos de documentación del proyecto.
-
-Todo Markdown generado por el trabajo debe quedar dentro de esta raíz. Las notas de sesión y
-checkpoints se guardan en `docs/bitacora/`; las propuestas en sus carpetas `docs/.../proposals/`.
-El `documenter` es el escritor delegado para sesiones, checkpoints, evidencias y propuestas;
-no escribe directamente documentos aprobados. El agente raíz conserva la responsabilidad de
-dashboard, sprint, matriz global, specs confirmadas y decisiones aceptadas.
-
-- Propuestas de requisito: `docs/requirements/proposals/`, estado `proposed`.
-- Especificación aprobada y plan: `specs/<id-funcionalidad>/`.
-- Decisiones: `docs/decisions/` mediante ADR.
-- Sesiones y checkpoints: `docs/bitacora/`.
-- Evidencias: `docs/evidence/`, sin datos personales innecesarios.
-- Trazabilidad global: `docs/traceability/MATRIZ-TRAZABILIDAD.md`.
-
-No sobrescribas notas aprobadas. Si un nombre ya existe, crea una versión identificable o
-detén la escritura y solicita decisión.
-
-Interpreta `checkpoint`, `pausa aquí`, `cierra sesión` y `terminamos` según
-`agents/tesis/OBSIDIAN_POLICY.md`.
-
-## Definición de terminado
-
-Una tarea solo está `completed` cuando:
-
-- satisface criterios de aceptación identificados;
-- tiene pruebas relevantes, incluidas autorización y casos negativos cuando aplican;
-- migraciones y validaciones pasan;
-- la interfaz fue revisada en los tamaños acordados;
-- el diff no contiene cambios accidentales;
-- documentación, ADR y matriz de trazabilidad están alineados;
-- existe evidencia enlazada y no quedan bloqueos ocultos.
+Codex, OpenCode, Kimi, Antigravity y OpenChamber comparten estos artefactos versionados.
+OpenChamber es únicamente una interfaz sobre OpenCode; agentes, comandos, permisos y perfiles
+de modelo pertenecen a los mecanismos nativos de Codex/OpenCode.

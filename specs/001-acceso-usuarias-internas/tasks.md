@@ -34,8 +34,9 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
       propuesta, no identidad aprobada) → la página abre en navegador y lista todos los
       elementos.
 - [ ] T002 [P] [agente-raiz] Documentar tokens en `design/style-guide/tokens.html`: paleta
-      provisional, tipografía de pila del sistema, espaciado, radios y estados de color con
-      contraste AA verificado → tabla de contraste con resultados WCAG AA.
+      provisional, tipografía Poppins (con respaldo del sistema y requisito de distribución
+      local), espaciado, radios y estados de color con contraste AA verificado → tabla de
+      contraste con resultados WCAG AA.
 - [ ] T003 [P] [agente-raiz] Crear componentes Bootstrap en `design/style-guide/components/`:
       botones (primario, secundario, enlace, destructivo con focus/disabled/loading), campos,
       tarjetas, badges con texto+icono, tabla responsiva, estado vacío, resumen de errores,

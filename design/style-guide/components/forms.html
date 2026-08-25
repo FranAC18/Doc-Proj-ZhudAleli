@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campos — Sistema de diseño Zhud Alelí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container-page">
+  <h1>Campos</h1>
+  <p>Etiqueta persistente, ayuda contextual, unidad junto al valor y error recuperable.</p>
+
+  <section class="section" aria-labelledby="f-texto">
+    <h2 id="f-texto">Texto</h2>
+    <form onsubmit="return false">
+      <div class="field">
+        <label for="nombre">Nombre de usuaria</label>
+        <input id="nombre" name="nombre" type="text" value="María Zhunio" autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="usuario">Usuario interno</label>
+        <input id="usuario" name="usuario" type="text" value="mzhunio" autocomplete="username">
+        <span class="field-hint">Letras, números, punto, guion o guion bajo.</span>
+      </div>
+      <div class="field">
+        <label for="clave">Contraseña</label>
+        <input id="clave" name="clave" type="password" autocomplete="current-password">
+        <span class="field-hint">Al menos 8 caracteres, con una letra y un número.</span>
+      </div>
+    </form>
+  </section>
+
+  <section class="section" aria-labelledby="f-numero">
+    <h2 id="f-numero">Número con unidad</h2>
+    <div class="field">
+      <label for="peso">Peso de la hoja</label>
+      <div class="input-group">
+        <div class="field">
+          <input id="peso" name="peso" type="number" inputmode="decimal" step="0.01" value="12.50">
+        </div>
+        <span class="input-group__suffix">kg</span>
+      </div>
+      <span class="field-hint">Se redondea a 2 decimales.</span>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="f-error">
+    <h2 id="f-error">Error de campo</h2>
+    <form onsubmit="return false">
+      <div class="error-summary" role="alert">
+        <span class="error-summary__icon" aria-hidden="true">!</span>
+        <div>
+          <h3>Revisa los datos e inténtalo de nuevo</h3>
+          <ul>
+            <li><a href="#usuario2">El usuario ya está en uso.</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="field">
+        <label for="usuario2">Usuario interno</label>
+        <input id="usuario2" name="usuario2" type="text" value="mzhunio" aria-invalid="true" aria-describedby="usuario2-error">
+        <span class="field-error" id="usuario2-error">El usuario «mzhunio» ya está en uso. Prueba con otro.</span>
+      </div>
+    </form>
+  </section>
+</div>
+</body>
+</html>

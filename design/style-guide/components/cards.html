@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarjetas y badges — Sistema de diseño Zhud Alelí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container-page">
+  <h1>Tarjetas y badges</h1>
+
+  <section class="section" aria-labelledby="c-tarjeta">
+    <h2 id="c-tarjeta">Tarjeta de actividad</h2>
+    <div class="card">
+      <div class="card__meta">
+        <span class="badge badge--success"><span class="badge__dot" aria-hidden="true"></span> Secado activo</span>
+        <span>Zhu Zhud · Lote 12</span>
+      </div>
+      <h3 class="card__title">Secado de planta medicinal</h3>
+      <p>Promedio de merma por tandas registradas. Metadatos esenciales de la operación.</p>
+      <div class="card__action">
+        <button class="btn btn--secondary" type="button">Ver detalle</button>
+        <button class="btn btn--primary" type="button">Registrar pesaje</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="c-badge">
+    <h2 id="c-badge">Badges de estado (texto + icono, nunca color solo)</h2>
+    <div class="stack">
+      <div>
+        <span class="badge badge--brand"><span class="badge__dot" aria-hidden="true"></span> Activa</span>
+        <span class="badge badge--success"><span class="badge__dot" aria-hidden="true"></span> Completado</span>
+        <span class="badge badge--info"><span class="badge__dot" aria-hidden="true"></span> En proceso</span>
+      </div>
+      <div>
+        <span class="badge badge--muted"><span class="badge__dot" aria-hidden="true"></span> Pausada</span>
+        <span class="badge badge--attention"><span class="badge__dot" aria-hidden="true"></span> Requiere revisión</span>
+        <span class="badge badge--danger"><span class="badge__dot" aria-hidden="true"></span> Fallida</span>
+      </div>
+    </div>
+    <p>El estado se comunica con texto, icono de punto y color de fondo. No depende solo del color.</p>
+  </section>
+
+  <section class="section" aria-labelledby="c-grid">
+    <h2 id="c-grid">Cuadrícula de tarjetas</h2>
+    <div class="stack stack--cols">
+      <div class="card">
+        <span class="badge badge--brand">S1</span>
+        <h3 class="card__title">Lote A</h3>
+        <p class="card__meta">12 kg secos</p>
+      </div>
+      <div class="card">
+        <span class="badge badge--muted">S1</span>
+        <h3 class="card__title">Lote B</h3>
+        <p class="card__meta">Pendiente de pesaje</p>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botones — Sistema de diseño Zhud Alelí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container-page">
+  <h1>Botones</h1>
+  <p>Acciones principales, secundarias, enlace y destructivas; estados focus, disabled y loading.</p>
+
+  <section class="section" aria-labelledby="b-primario">
+    <h2 id="b-primario">Primario</h2>
+    <div class="actions-row">
+      <button class="btn btn--primary" type="button">Ingresar</button>
+      <button class="btn btn--primary" type="button" disabled>Ingresar (disabled)</button>
+      <button class="btn btn--primary btn--loading" type="button" disabled>Ingresando</button>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-secundario">
+    <h2 id="b-secundario">Secundario</h2>
+    <div class="actions-row">
+      <button class="btn btn--secondary" type="button">Cancelar</button>
+      <button class="btn btn--secondary" type="button" disabled>Cancelar (disabled)</button>
+      <button class="btn btn--secondary btn--loading" type="button" disabled>Esperando</button>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-enlace">
+    <h2 id="b-enlace">Enlace</h2>
+    <div class="actions-row">
+      <button class="btn btn--link" type="button">Olvidé mi contraseña</button>
+      <a class="btn btn--link" href="#">Restablecer edición</a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-destructivo">
+    <h2 id="b-destructivo">Destructivo</h2>
+    <div class="actions-row">
+      <button class="btn btn--danger" type="button">Eliminar lote</button>
+      <button class="btn btn--danger-outline" type="button">Retirar socia</button>
+      <button class="btn btn--danger" type="button" disabled>Eliminar (disabled)</button>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-foco">
+    <h2 id="b-foco">Foco visible</h2>
+    <p>Navega con <kbd>Tab</kbd> sobre los botones: el contorno ámbar indica qué elemento recibe el foco.</p>
+  </section>
+</div>
+</body>
+</html>

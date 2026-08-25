@@ -1,88 +1,200 @@
-# Rutas económicas y de continuidad del arnés universal.
-# Este archivo no contiene credenciales y no inicia hosts automáticamente.
-# Si una cuota se agota, se registra un handoff y se usa la ruta fallback.
+# Routing declarativo del arnés universal.
+#
+# TASK TYPE -> AGENT -> MODEL PROFILE. Los perfiles describen capacidades, no identificadores
+# concretos. El proveedor y el modelo real se seleccionan en el host y no se duplican aquí ni
+# en los adaptadores de Codex/OpenCode.
 
 [meta]
-version = 1
-continuity = "manual-handoff"
-source_of_truth = "docs/architecture/RUTAS-MODELOS-IA.md"
+version = 2
+source_of_truth = "docs/context/context-index.md"
+model_selection = "runtime-selected"
+route_command = "/route"
 
+[model_profiles.reasoning_max]
+selection = "host-selected"
+capabilities = ["reasoning", "long-context", "structured-output"]
+fallback = "host-selected"
+
+[model_profiles.coding_efficient]
+selection = "host-selected"
+capabilities = ["coding", "tool-use", "structured-output"]
+fallback = "host-selected"
+
+[model_profiles.frontend_strong]
+selection = "host-selected"
+capabilities = ["coding", "ui-review", "accessibility"]
+fallback = "host-selected"
+
+[model_profiles.research_efficient]
+selection = "host-selected"
+capabilities = ["research", "long-context", "citations"]
+fallback = "host-selected"
+
+[model_profiles.documentation_economy]
+selection = "host-selected"
+capabilities = ["writing", "structured-output"]
+fallback = "host-selected"
+
+[task_types.architecture]
+agent = "architect"
+risk = "high"
+reasoning = "maximum"
+model_profile = "reasoning_max"
+context = ["constitution", "relevant architecture docs", "relevant ADRs", "active task"]
+review = "required"
+delegation = "coordinator-only"
+
+[task_types.planning]
+agent = "architect"
+risk = "high"
+reasoning = "high"
+model_profile = "reasoning_max"
+context = ["validated requirements", "constitution", "architecture", "active feature index"]
+review = "required"
+delegation = "coordinator-only"
+
+[task_types.implementation]
+agent = "implementer"
+risk = "medium"
+reasoning = "coding"
+model_profile = "coding_efficient"
+context = ["tasks", "relevant spec", "relevant code", "relevant tests"]
+review = "required"
+delegation = "coordinator-only"
+
+[task_types.frontend]
+agent = "frontend"
+risk = "medium"
+reasoning = "coding"
+model_profile = "frontend_strong"
+context = ["UI rules", "relevant components", "UI specification", "relevant assets"]
+review = "required"
+delegation = "coordinator-only"
+
+[task_types.debugging]
+agent = "implementer"
+risk = "high"
+reasoning = "high"
+model_profile = "coding_efficient"
+context = ["symptom", "changed files", "relevant tests", "relevant contracts"]
+review = "required"
+delegation = "coordinator-only"
+
+[task_types.research]
+agent = "researcher"
+risk = "low"
+reasoning = "focused"
+model_profile = "research_efficient"
+context = ["question", "only required sources"]
+review = "optional"
+delegation = "none"
+
+[task_types.review]
+agent = "reviewer"
+risk = "high"
+reasoning = "maximum"
+model_profile = "reasoning_max"
+context = ["diff", "changed files", "contracts", "tests", "relevant rules"]
+review = "independent"
+delegation = "none"
+
+[task_types.documentation]
+agent = "documenter"
+risk = "low"
+reasoning = "focused"
+model_profile = "documentation_economy"
+context = ["source document", "template", "operational state"]
+review = "required"
+delegation = "none"
+
+# Compatibilidad con el contrato universal anterior. Los valores de model son perfiles, no
+# nombres de proveedores ni IDs de modelos. OpenChamber no aparece como host de configuración.
 [routes.coordinator.primary]
 host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
-
+provider = "runtime"
+model = "reasoning_max"
 [routes.coordinator.fallback]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.1-pro"
+host = "opencode"
+provider = "runtime"
+model = "reasoning_max"
 
 [routes.requirements.primary]
-host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
-
+host = "opencode"
+provider = "runtime"
+model = "research_efficient"
 [routes.requirements.fallback]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.7-flash"
+host = "codex"
+provider = "runtime"
+model = "research_efficient"
 
 [routes.architect.primary]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.1-pro"
-
+host = "opencode"
+provider = "runtime"
+model = "reasoning_max"
 [routes.architect.fallback]
 host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
+provider = "runtime"
+model = "reasoning_max"
 
 [routes.ux.primary]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.5-flash"
-
+host = "opencode"
+provider = "runtime"
+model = "frontend_strong"
 [routes.ux.fallback]
 host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
+provider = "runtime"
+model = "frontend_strong"
+
+[routes.frontend.primary]
+host = "opencode"
+provider = "runtime"
+model = "frontend_strong"
+[routes.frontend.fallback]
+host = "codex"
+provider = "runtime"
+model = "frontend_strong"
 
 [routes.implementer.primary]
-host = "openchamber"
-provider = "opencode-go"
-model = "deepseek-v4"
-
+host = "opencode"
+provider = "runtime"
+model = "coding_efficient"
 [routes.implementer.fallback]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.6-flash"
+host = "codex"
+provider = "runtime"
+model = "coding_efficient"
+
+[routes.researcher.primary]
+host = "opencode"
+provider = "runtime"
+model = "research_efficient"
+[routes.researcher.fallback]
+host = "codex"
+provider = "runtime"
+model = "research_efficient"
 
 [routes.reviewer.primary]
-host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
-
+host = "opencode"
+provider = "runtime"
+model = "reasoning_max"
 [routes.reviewer.fallback]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.1-pro"
+host = "codex"
+provider = "runtime"
+model = "reasoning_max"
 
 [routes.documenter.primary]
-host = "antigravity"
-provider = "google-ai-pro"
-model = "gemini-3.1-pro"
-
+host = "opencode"
+provider = "runtime"
+model = "documentation_economy"
 [routes.documenter.fallback]
 host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
+provider = "runtime"
+model = "documentation_economy"
 
 [routes.git-manager.primary]
 host = "codex"
-provider = "codex-plan"
-model = "selected-in-host"
-
+provider = "runtime"
+model = "reasoning_max"
 [routes.git-manager.fallback]
 host = "opencode"
-provider = "opencode-go"
-model = "selected-in-host"
+provider = "runtime"
+model = "reasoning_max"

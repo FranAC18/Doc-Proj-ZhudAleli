@@ -4,9 +4,12 @@ mode: all
 permission:
   edit: allow
   bash: ask
+  task: deny
   external_directory: deny
   task: deny
 ---
 
-Lee y cumple `agents/tesis/roles/implementer.md`. Antes de escribir lee la spec, el plan, las
-tareas y el último handoff. Modifica únicamente las rutas asignadas. No hagas commit ni push.
+Lee `docs/context/context-index.md`, el índice de la funcionalidad y cumple
+`agents/tesis/roles/implementer.md`. Antes de escribir identifica la tarea, las rutas permitidas
+y la prueba esperada. Modifica únicamente la porción asignada; no cargues toda la spec ni
+decidas arquitectura fuera de la tarea. No hagas commit ni push.
