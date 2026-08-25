@@ -19,8 +19,9 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 - Fase: preparación técnica del Sprint 1 sobre la línea base aprobada.
 - Último sprint cerrado: [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
-- Arnés portable: contrato universal en implementación; Codex, OpenCode/OpenChamber y
-  Antigravity comparten la fuente versionada y sus adaptadores propios.
+- Arnés portable: contrato universal implementado; Codex, OpenCode/OpenChamber y Antigravity
+  comparten la fuente versionada y sus adaptadores propios. Smoke test multi-host **pasado**:
+  [[../evidence/S0/2026-08-24-smoke-test-contrato-universal|Smoke test del contrato universal]].
 - Codex conserva la coordinación, revisión, documenter y git-manager; OpenChamber ejecuta
   OpenCode Go y Antigravity usa Gemini mediante Google AI Pro.
 - Aplicación Django: no creada ni instalada como aplicación del proyecto.
@@ -56,6 +57,7 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../traceability/MATRIZ-TRAZABILIDAD|Matriz de trazabilidad]].
 - [[../evidence/S0/2026-07-21-verificacion-base-v3|Verificación técnica de la base v3]].
 - [[../evidence/S0/2026-07-21-smoke-test-codex|Smoke test de Codex para Sprint 0]].
+- [[../evidence/S0/2026-08-24-smoke-test-contrato-universal|Smoke test del contrato universal de orquestadores]].
 - [[../evidence/S0/2026-07-21-verificacion-cierre-sprint-0|Verificación final de Sprint 0]].
 
 ## Documentos de inicio
@@ -102,9 +104,10 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Revisar el contrato universal con una sesión real de Codex, Antigravity y OpenChamber; después
-continuar las tareas aprobadas de SPEC-001. La implementación de S1 se limita a `accounts` y
-acceso; no se crean apps ni reglas operativas de sprints futuros.
+Confirmar con el tesista la selección concreta de modelos y cuotas por host (en uso
+`opencode:big-pickle` vs `deepseek-v4` propuesto en `RUTAS-MODELOS-IA.md`); después continuar las
+tareas aprobadas de `SPEC-001` (Fase 1: diseño sin Django). La implementación de S1 se limita a
+`accounts` y acceso; no se crean apps ni reglas operativas de sprints futuros.
 
 ## Regla de avance
 

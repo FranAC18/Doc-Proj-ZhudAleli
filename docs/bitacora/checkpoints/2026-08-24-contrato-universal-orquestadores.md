@@ -1,7 +1,7 @@
 ---
 title: Checkpoint - contrato universal de orquestadores
 type: checkpoint
-status: partially-complete
+status: completed
 date: 2026-08-24
 task_id: HARNESS-UNIVERSAL-001
 requirement_ids: []
@@ -80,18 +80,34 @@ Hechos verificados en esta sesión:
 - El commit real del contrato es `62dadf58c56a33874d5b6e37949bd0a4b5845977`.
 - La referencia local `origin/codex/001-acceso-usuarias-internas` coincide con ese hash.
 
+## Smoke test terminado (2026-08-24)
+
+Se ejecutó una sesión real de humo read-only con Codex, Antigravity y OpenCode/OpenChamber sobre
+la raíz `F:\Tesis\App Tesis`. Los tres resolvieron la raíz como vault, leyeron este checkpoint y
+respetaron el escritor único. Evidencia:
+`docs/evidence/S0/2026-08-24-smoke-test-contrato-universal.md`.
+
+- `tools/validate-universal.py --json`: OK (0 faltantes, sin errores de rutas).
+- `tools/agent-lab/tests/test_universal_contract.py`: 1 passed.
+- `opencode agent list`: roles universales detectados.
+- `git status --short --branch`: `## main...origin/main` (limpio). `git diff --check`: sin errores.
+
+Guardarraíl verificado: un intento de Codex se abrió en `F:\Prácticas\Tarjetas digitales\scriptQr`
+(raíz ajena); en lugar de escribir, reportó el bloqueo y no generó artefactos, cumpliendo el
+contrato de inicio. Se reabrió con `scripts/agent.ps1 codex` desde la raíz y pasó.
+
 ## Pendiente
 
-- Ejecutar una sesión real de humo con Codex, Antigravity y OpenChamber, leyendo este checkpoint
-  desde cada host y comprobando que cada uno respete el escritor único.
-- Revisar con el tesista la selección concreta de modelos y cuotas en cada herramienta.
+- Confirmar con el tesista la selección concreta de modelos y cuotas por host (`opencode:big-pickle`
+  en uso vs `deepseek-v4` propuesto en `RUTAS-MODELOS-IA.md`; las variantes Gemini locales de
+  Antigravity no se versionan como IDs universales).
 
 ## Próxima acción
 
-El reviewer debe leer el contrato y ejecutar la prueba de humo sin modificar los archivos. Si la
-prueba pasa, el coordinador puede cambiar este checkpoint a `completed` y registrar la evidencia
-de los tres hosts. El commit ya tiene hash real; no debe crearse otro commit solo para repetir
-esta evidencia sin revisar antes el diff pendiente.
+Estando el smoke test satisfecho, el coordinador conserva: (1) la confirmación de modelos/cuotas
+con el tesista y (2) la continuación con las tareas aprobadas de `SPEC-001` (Fase 1: diseño sin
+Django). No se crea otro commit solo para repetir esta evidencia; se revisa el diff pendiente con
+el `git-manager` antes de cualquier commit.
 
 ## Nota sobre cambios preexistentes
 
