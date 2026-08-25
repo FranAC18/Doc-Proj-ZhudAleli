@@ -1,10 +1,33 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet("codex", "kimi", "glm", "help")]
+    [ValidateSet("codex", "kimi", "glm", "opencode", "openchamber", "antigravity", "status", "help")]
     [string]$Profile = "help"
 )
 
 $ErrorActionPreference = "Stop"
+
+$ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+Set-Location $ProjectRoot
+
+function Assert-UniversalRoot {
+    if (-not (Test-Path (Join-Path $ProjectRoot "AGENTS.md"))) {
+        throw "La raíz universal no contiene AGENTS.md: $ProjectRoot"
+    }
+    if (-not (Test-Path (Join-Path $ProjectRoot ".specify\memory\constitution.md"))) {
+        throw "La raíz universal no contiene la constitución: $ProjectRoot"
+    }
+}
+
+function Validate-UniversalContract {
+    Assert-UniversalRoot
+    $validator = Join-Path $ProjectRoot "tools\validate-universal.py"
+    if (Get-Command python -ErrorAction SilentlyContinue) {
+        & python $validator
+        if ($LASTEXITCODE -ne 0) {
+            throw "El contrato universal no está completo. Revisa el informe anterior."
+        }
+    }
+}
 
 function Assert-Command([string]$Name) {
     if (-not (Get-Command $Name -ErrorAction SilentlyContinue)) {
@@ -14,16 +37,19 @@ function Assert-Command([string]$Name) {
 
 switch ($Profile) {
     "codex" {
+        Validate-UniversalContract
         Assert-Command "codex"
         & codex
         exit $LASTEXITCODE
     }
     "kimi" {
+        Validate-UniversalContract
         Assert-Command "kimi"
         & kimi
         exit $LASTEXITCODE
     }
     "glm" {
+        Validate-UniversalContract
         Assert-Command "kimi"
         if ([string]::IsNullOrWhiteSpace($env:ZAI_API_KEY)) {
             throw "Define ZAI_API_KEY en la sesión. La clave no se leerá desde archivos del proyecto."
@@ -70,11 +96,38 @@ switch ($Profile) {
         }
         exit $exitCode
     }
+    "opencode" {
+        Validate-UniversalContract
+        Assert-Command "opencode"
+        & opencode
+        exit $LASTEXITCODE
+    }
+    "openchamber" {
+        Validate-UniversalContract
+        Assert-Command "openchamber"
+        & openchamber
+        exit $LASTEXITCODE
+    }
+    "antigravity" {
+        Validate-UniversalContract
+        Assert-Command "agy"
+        & agy
+        exit $LASTEXITCODE
+    }
+    "status" {
+        Assert-UniversalRoot
+        & python (Join-Path $ProjectRoot "tools\validate-universal.py")
+        exit $LASTEXITCODE
+    }
     default {
-        Write-Host "Uso: .\scripts\agent.ps1 <codex|kimi|glm>"
+        Write-Host "Uso: .\scripts\agent.ps1 <codex|kimi|glm|opencode|openchamber|antigravity|status>"
         Write-Host "  codex  Inicia Codex CLI."
         Write-Host "  kimi   Inicia Kimi Code con su configuración local."
         Write-Host "  glm    Perfil opcional; requiere ZAI_API_KEY y GLM_MODEL."
+        Write-Host "  opencode      Inicia OpenCode en la raíz universal."
+        Write-Host "  openchamber   Inicia OpenChamber sobre OpenCode."
+        Write-Host "  antigravity   Inicia Antigravity CLI (agy) en la raíz universal."
+        Write-Host "  status        Valida raíz, hosts y contratos universales."
         Write-Host "El script no modifica Git ni guarda credenciales."
     }
 }

@@ -21,3 +21,4 @@ criterio.
 - [[fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3|Respuestas del tesista para CAT-REQ-001-R3]].
 - [[fase-i/2026-07-22-validacion-cat-req-001-v1|Validación humana de CAT-REQ-001 v1.0]].
 - [[fase-i/2026-07-25-acta-levantamiento-requisitos-1-0|Acta de Levantamiento de requisitos 1.0 y opción A]].
+- [[fase-i/2026-07-25-confirmacion-spec-001|Confirmación de SPEC-001 y ADR-0003]].

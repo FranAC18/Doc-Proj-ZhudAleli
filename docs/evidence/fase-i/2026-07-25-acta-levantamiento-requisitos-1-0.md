@@ -71,9 +71,7 @@ delimitado en la línea base y no se consideran resueltas por esta acta.
 
 ## Decisiones confirmadas en esta sesión
 
-1. Se aprueba el plan documentado en
-   [[../../bitacora/checkpoints/2026-07-25-versionado-fase-i-y-factibilidad-acceso|el
-   checkpoint de factibilidad]].
+1. Se aprueba el plan documentado en [[../../bitacora/checkpoints/2026-07-25-versionado-fase-i-y-factibilidad-acceso]].
 2. Se acepta la **opción A**: preparar primero una spec limitada a `RF-ACC-001` y los
    requisitos no funcionales aplicables.
 3. La usuaria utilizará un **nombre de usuario (`username`)** para iniciar sesión.

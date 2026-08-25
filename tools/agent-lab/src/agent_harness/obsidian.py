@@ -3,12 +3,18 @@ from pathlib import Path
 import re
 from typing import Any
 
+from .paths import resolve_vault_dir
+
 
 class ObsidianStore:
     """Puente seguro y pequeño entre el arnés y un vault Markdown."""
 
-    def __init__(self, vault_dir: str):
-        self.root = Path(vault_dir).resolve()
+    def __init__(self, vault_dir: str, *, project_root: str | Path | None = None):
+        if project_root is not None:
+            project = Path(project_root).resolve()
+            self.root = resolve_vault_dir(vault_dir, project)
+        else:
+            self.root = Path(vault_dir).resolve()
         self.root.mkdir(parents=True, exist_ok=True)
 
     def _path(self, relative_path: str) -> Path:

@@ -6,11 +6,13 @@ Indígenas “Tránsito Amaguaña” de Zhud y su unidad productiva Zhud Alelí.
 El objetivo de este repositorio es construir la aplicación, no construir otro asistente de
 programación. Los requisitos, planes, tareas, pruebas, decisiones y evidencias viven en
 archivos versionados; Codex, Codex CLI, Kimi Code o GLM son motores intercambiables que
-trabajan sobre esos mismos contratos.
+trabajan sobre esos mismos contratos. Codex, Antigravity con Gemini y OpenCode/OpenChamber
+pueden alternarse mediante el contrato universal de orquestadores, sin convertir la sesión
+privada de una herramienta en fuente de verdad.
 
 ## Estado actual
 
-- Etapa: Fase I, levantamiento y validación de requisitos.
+- Etapa: preparación técnica del Sprint 1, después de la validación de requisitos.
 - Sprint 0: cerrado con evidencia y commit inicial.
 - Aplicación Django: todavía no creada.
 - Flujo portable: skills de Spec Kit 0.13.2 en `.agents/skills/`, descubiertas por Codex y
@@ -20,6 +22,11 @@ trabajan sobre esos mismos contratos.
 - Requisitos: CAT-REQ-001 v1.0 es la línea base aprobada, con 57 requisitos `confirmed`,
   2 `proposed` y 12 `superseded`, en `docs/requirements/CAT-REQ-001.md`.
 - Arnés Python anterior: conservado únicamente como laboratorio en `tools/agent-lab/`.
+
+Toda la documentación visible en Obsidian permanece dentro de la raíz del repositorio. Las
+notas de trabajo se guardan en `docs/bitacora/`, las especificaciones en `specs/` y el
+contexto estable en `agents/tesis/`; el laboratorio y la configuración de agentes no son
+fuentes documentales del proyecto.
 
 No se implementa una funcionalidad hasta que su spec concreta esté confirmada y existan
 plan y tareas aprobados con sus puertas de calidad satisfechas.
@@ -43,10 +50,17 @@ usan los agentes. Las conversaciones de una IA no son fuente de verdad del proye
 
 Documentos principales:
 
+- `ONBOARDING-IA.md`: guía de contexto rápido para iniciar sesión con cualquier IA.
 - `AGENTS.md`: contrato común para cualquier agente.
 - `.specify/memory/constitution.md`: principios y puertas de calidad.
 - `docs/architecture/ARQUITECTURA-OBJETIVO.md`: arquitectura de la aplicación.
 - `docs/architecture/PORTABILIDAD-IA.md`: cómo cambiar de motor o modelo.
+- `docs/architecture/CONTRATO-UNIVERSAL-ORQUESTADORES.md`: reglas comunes para cambiar de host
+  sin perder contexto.
+- `docs/architecture/RUTAS-MODELOS-IA.md`: rutas recomendadas por rol y proveedor.
+- `docs/bitacora/ESTADO-ACTIVO.md`: estado que debe leer el siguiente host.
+- `agents/tesis/roles/`: contratos canónicos de requirements, architect, ux, implementer,
+  reviewer, documenter y git-manager.
 - `docs/architecture/PLAN-DESDE-CERO.md`: plan completo de construcción.
 - `docs/traceability/MATRIZ-TRAZABILIDAD.md`: vínculo entre tesis, requisitos y evidencia.
 - `docs/ui/SISTEMA-DISENO.md`: reglas para una interfaz bonita, clara y accesible.
@@ -57,7 +71,7 @@ Documentos principales:
 |---|---|---|
 | Desarrollo principal | Codex app o Codex CLI | `AGENTS.md`, specs, tareas, pruebas y documentación |
 | Alternativa con Kimi | Kimi Code CLI con Kimi K3 | Los mismos artefactos y skills de Spec Kit |
-| Alternativa con GLM | Kimi Code CLI con GLM-5.2 por protocolo OpenAI compatible | Los mismos artefactos; cambia solo la configuración local |
+| Alternativa con GLM | Kimi Code CLI con una versión elegida explícitamente | Los mismos artefactos; cambia solo la configuración local |
 
 Los modelos no se fijan dentro del repositorio. Las claves y la configuración de proveedor
 son locales para evitar credenciales en Git y permitir que cada motor herede el modelo
@@ -78,6 +92,8 @@ conservar la historia y revisar el cambio en una rama.
 ```bash
 ./scripts/agent.sh codex
 ./scripts/agent.sh kimi
+./scripts/agent.sh antigravity
+./scripts/agent.sh openchamber
 ```
 
 En PowerShell:
@@ -85,22 +101,34 @@ En PowerShell:
 ```powershell
 .\scripts\agent.ps1 codex
 .\scripts\agent.ps1 kimi
+.\scripts\agent.ps1 antigravity
+.\scripts\agent.ps1 openchamber
 ```
 
-Para usar GLM-5.2 sin guardar la clave en archivos:
+Antes de cambiar de herramienta, ejecuta `status`, registra el handoff de la tarea y abre el
+siguiente host desde esta misma raíz. Si PowerShell bloquea scripts no firmados, usa una
+ejecución temporal sin cambiar la política global:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\agent.ps1 status
+```
+
+Para usar opcionalmente un modelo GLM sin guardar la clave en archivos:
 
 ```bash
 export ZAI_API_KEY="tu-clave-local"
+export GLM_MODEL="modelo-disponible"
 ./scripts/agent.sh glm
 ```
 
 ```powershell
 $env:ZAI_API_KEY = "tu-clave-local"
+$env:GLM_MODEL = "modelo-disponible"
 .\scripts\agent.ps1 glm
 ```
 
-Los scripts solo seleccionan el motor. No hacen `commit`, `push`, `merge` ni modifican la
-historia de Git.
+Los scripts solo validan la raíz y seleccionan el motor. No hacen `commit`, `push`, `merge` ni
+modifican la historia de Git.
 
 ## Flujo de una funcionalidad
 

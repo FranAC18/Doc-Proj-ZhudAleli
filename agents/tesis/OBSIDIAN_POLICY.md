@@ -6,6 +6,33 @@ Obsidian es la memoria documental persistente del proyecto. El agente puede crea
 enlazar notas dentro del vault, pero debe conservar la diferencia entre una propuesta y una
 decisión aprobada.
 
+## Límite del vault y escritura controlada
+
+El vault es la raíz del repositorio `F:\Tesis\App Tesis`. No se consideran documentación
+del proyecto los archivos creados fuera de esa raíz ni las salidas temporales de una terminal,
+IDE, proveedor o modelo.
+
+La ubicación canónica es:
+
+- `docs/bitacora/`: sesiones y checkpoints.
+- `docs/requirements/`: requisitos y propuestas.
+- `docs/decisions/`: ADR y decisiones propuestas.
+- `docs/evidence/`: evidencia reproducible y anonimizada.
+- `docs/architecture/`, `docs/ui/`, `docs/sprints/` y `docs/traceability/`: diseño y gobierno.
+- `specs/<id-funcionalidad>/`: especificación y artefactos técnicos de la funcionalidad.
+- `agents/tesis/`: contexto y políticas estables.
+
+Los agentes `requirements`, `architect`, `ux` y `reviewer` son de lectura y propuesta. El
+`documenter` es el único escritor delegado para documentación operativa, usando solo las
+rutas permitidas y sin sobrescribir notas aprobadas. El agente raíz conserva la responsabilidad
+de dashboard, sprint, matriz global, specs confirmadas y decisiones aceptadas.
+
+Los hosts Codex, OpenCode/OpenChamber y Antigravity comparten los mismos Markdown, pero sus
+archivos internos no son intercambiables automáticamente. La fuente canónica de roles está en
+`agents/tesis/roles/`; los cambios de host deben usar un handoff en
+`docs/bitacora/checkpoints/`. Obsidian visualiza ese estado persistido y no depende del
+historial privado de ningún modelo.
+
 ## Tipos de notas
 
 - `session`: resumen de una sesión de trabajo.
@@ -20,6 +47,7 @@ decisión aprobada.
 - Resúmenes de sesión.
 - Pendientes detectados.
 - Errores técnicos reproducibles.
+- Checkpoints y evidencias de una tarea después de pruebas y revisión.
 - Requisitos en carpeta `docs/requirements/proposals/` con estado `proposed`.
 - Decisiones en carpeta `docs/decisions/proposals/` con estado `proposed`.
 

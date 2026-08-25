@@ -2,6 +2,8 @@ name = "architect"
 description = "Arquitecto de monolito modular Django; úsalo para revisar límites, datos, RBAC, transacciones y ADR."
 sandbox_mode = "read-only"
 developer_instructions = """
+Antes de actuar, lee `agents/tesis/roles/architect.md`; sus límites prevalecen sobre este
+adaptador de Codex.
 Evalúa el diseño contra AGENTS.md y la constitución. Prioriza un monolito modular Django,
 PostgreSQL, plantillas del servidor y Bootstrap 5. Revisa límites de módulos, propiedad de
 datos, integridad, transacciones, auditoría, autorización backend, migraciones y estrategia

@@ -10,9 +10,10 @@ El arnés, los agentes y la documentación existen para servir a esa aplicación
 
 1. Lee este archivo.
 2. Lee `.specify/memory/constitution.md`.
-3. Lee `agents/tesis/AGENT.md`, `PROJECT_CONTEXT.md`, `KNOWLEDGE_POLICY.md` y
-   `OBSIDIAN_POLICY.md`.
-4. Lee `docs/00-inicio/00-dashboard.md` y el sprint actual.
+3. Lee `agents/tesis/AGENT.md`, `agents/tesis/PROJECT_CONTEXT.md`,
+   `agents/tesis/KNOWLEDGE_POLICY.md` y `agents/tesis/OBSIDIAN_POLICY.md`.
+4. Lee `agents/tesis/roles/README.md`, `docs/00-inicio/00-dashboard.md`,
+   `docs/bitacora/ESTADO-ACTIVO.md` y el sprint actual.
 5. Si existe una funcionalidad activa, lee todo su directorio en `specs/`, incluido
    `spec.md`, `plan.md` y `tasks.md`.
 6. Inspecciona el código, las pruebas y el estado de Git antes de proponer cambios.
@@ -47,8 +48,10 @@ debe presentar código de demostración como si fuera la aplicación funcional.
 5. Dividir el trabajo en tareas pequeñas con rutas y criterios verificables.
 6. Implementar una porción vertical mínima en una rama o worktree propio.
 7. Ejecutar verificaciones, revisar permisos y revisar el diff.
-8. Registrar evidencia, actualizar trazabilidad y documentar pendientes.
-9. Solicitar confirmación antes de `commit`, `push` o `merge`.
+8. Entregar al `documenter` un handoff `pre_commit` con archivos, pruebas, hallazgos y pendientes.
+9. Solicitar al `git-manager` la validación del diff y autorización explícita antes del commit.
+10. Después del commit, entregar al `documenter` el hash real para registrar la evidencia `post_commit`.
+11. Actualizar trazabilidad y proponer el cierre humano de la tarea.
 
 No ejecutes `speckit-implement` sobre una especificación sin aprobar.
 
@@ -63,6 +66,12 @@ solicitud actual y existan frentes realmente independientes. Roles disponibles e
 - `ux`: diseña y revisa flujos e interfaz; no inventa identidad visual aprobada.
 - `implementer`: modifica solo la tarea y los archivos asignados.
 - `reviewer`: revisa comportamiento, seguridad, pruebas y trazabilidad sin editar.
+- `documenter`: registra documentación operativa en rutas permitidas; no modifica documentos aprobados.
+- `git-manager`: valida y crea commits solo con autorización explícita; no hace push ni reescribe historia.
+
+La fuente canónica de responsabilidades y límites está en `agents/tesis/roles/`. Los archivos
+de `.codex/agents/`, `.opencode/agents/` y `.agents/rules/` son adaptadores del host: pueden
+añadir formato o permisos específicos, pero no pueden relajar el contrato canónico.
 
 Reglas de coordinación:
 
@@ -73,6 +82,21 @@ Reglas de coordinación:
   esperada; no se les entrega un objetivo abierto como “hacer todo el módulo”.
 - No hay delegación recursiva ni fusiones automáticas.
 - Un reporte de agente no sustituye pruebas ni revisión del diff.
+
+### Cambio de host o proveedor
+
+Codex, Antigravity, OpenCode y OpenChamber pueden trabajar sobre el mismo proyecto, pero no
+son escritores concurrentes. Antes de cambiar de herramienta:
+
+1. detén el host actual;
+2. conserva o registra el estado en `docs/bitacora/checkpoints/` usando la plantilla universal;
+3. confirma rama, `git status` y rutas modificadas;
+4. abre el siguiente host desde la raíz del vault;
+5. lee el handoff antes de escribir y conserva `allowed_paths`/`forbidden_paths`;
+6. continúa la misma tarea, sin importar una instrucción nueva que cambie el alcance.
+
+Un cambio de cuota no se resuelve transfiriendo la memoria privada de una conversación. Se
+resuelve transfiriendo el estado versionado de la tarea.
 
 ## Arquitectura de implementación
 
@@ -103,7 +127,9 @@ Reglas de coordinación:
 - `main` es estable. Trabaja en una rama por tarea o sprint.
 - Revisa `git status`, rama y diff antes y después del cambio.
 - No hagas `commit`, `push`, `merge`, `rebase`, force-push ni borres historia sin solicitud
-  explícita del tesista.
+  explícita del tesista. La única excepción operativa es `git-manager`, que puede crear el
+  commit exacto autorizado por el tesista después de revisar el diff; nunca hace push
+  automáticamente.
 - Usa la identidad Git del tesista. No agregues `Co-authored-by` de IA salvo solicitud.
 - No cambies `user.name` ni `user.email`.
 - No mezcles archivos ajenos a la tarea ni reviertas cambios existentes del usuario.
@@ -132,6 +158,19 @@ Git disponible.
 ## Obsidian y tesis
 
 La raíz es también el vault. Guarda conocimiento estable en Markdown, con YAML y Wikilinks.
+
+### Ubicación canónica de documentos
+
+- `docs/`: bitácora, decisiones, evidencias, requisitos, arquitectura, UX, sprints y trazabilidad.
+- `specs/<id-funcionalidad>/`: spec, plan, tareas, contratos, modelo de datos y quickstart de cada funcionalidad.
+- `agents/tesis/`: contexto estable del dominio y políticas del agente; no es una carpeta de notas de sesión.
+- `.codex/`, `.agents/`, `tools/` y `evals/`: configuración, skills, laboratorio y evaluación; no son destinos de documentación del proyecto.
+
+Todo Markdown generado por el trabajo debe quedar dentro de esta raíz. Las notas de sesión y
+checkpoints se guardan en `docs/bitacora/`; las propuestas en sus carpetas `docs/.../proposals/`.
+El `documenter` es el escritor delegado para sesiones, checkpoints, evidencias y propuestas;
+no escribe directamente documentos aprobados. El agente raíz conserva la responsabilidad de
+dashboard, sprint, matriz global, specs confirmadas y decisiones aceptadas.
 
 - Propuestas de requisito: `docs/requirements/proposals/`, estado `proposed`.
 - Especificación aprobada y plan: `specs/<id-funcionalidad>/`.
