@@ -13,6 +13,7 @@ def test_openai_adapter_contract(monkeypatch):
     adapter = OpenAIAdapter(api_key="test-key", model_name="gpt-5.6-luna")
     assert adapter.provider_name == "openai"
     assert ModelCapability.TOOL_CALLING in adapter.capabilities
+    assert adapter.verified_capabilities <= adapter.declared_capabilities
 
     mock_response = {
         "choices": [
@@ -57,6 +58,7 @@ def test_deepseek_adapter_extracts_reasoning(monkeypatch):
     adapter = DeepSeekAdapter(api_key="test-key", model_name="deepseek-v4")
     assert adapter.provider_name == "deepseek"
     assert ModelCapability.REASONING_TOKENS in adapter.capabilities
+    assert adapter.verified_capabilities <= adapter.declared_capabilities
 
     mock_response = {
         "choices": [
@@ -93,7 +95,9 @@ def test_deepseek_adapter_extracts_reasoning(monkeypatch):
 def test_glm_adapter_contract(monkeypatch):
     adapter = GLMAdapter(api_key="test-key", model_name="glm-5.2")
     assert adapter.provider_name == "glm"
-    assert ModelCapability.EXTENDED_CONTEXT_1M in adapter.capabilities
+    assert ModelCapability.EXTENDED_CONTEXT_1M in adapter.declared_capabilities
+    assert ModelCapability.EXTENDED_CONTEXT_1M not in adapter.capabilities
+    assert adapter.verified_capabilities <= adapter.declared_capabilities
 
     mock_response = {
         "choices": [
@@ -121,7 +125,9 @@ def test_glm_adapter_contract(monkeypatch):
 def test_gemini_adapter_contract(monkeypatch):
     adapter = GeminiAdapter(api_key="test-key", model_name="gemini-2.5-pro")
     assert adapter.provider_name == "google"
-    assert ModelCapability.VISION in adapter.capabilities
+    assert ModelCapability.VISION in adapter.declared_capabilities
+    assert ModelCapability.VISION not in adapter.capabilities
+    assert adapter.verified_capabilities <= adapter.declared_capabilities
 
     mock_response = {
         "candidates": [

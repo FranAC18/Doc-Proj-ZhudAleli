@@ -26,9 +26,11 @@ def main() -> None:
         print("\nModelos registrados en el Model Router:")
         print("-" * 65)
         for m in router.get_registered_models():
-            caps = ", ".join(m["capabilities"])
+            declared = ", ".join(m["declared_capabilities"])
+            verified = ", ".join(m["verified_capabilities"])
             print(f"• Clave: {m['key']:<22} | Proveedor: {m['provider']:<8} | Modelo: {m['model_id']}")
-            print(f"  Capacidades: {caps}\n")
+            print(f"  Declaradas: {declared}")
+            print(f"  Verificadas: {verified}\n")
         return
 
     if args.telemetry:

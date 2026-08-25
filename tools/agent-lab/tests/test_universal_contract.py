@@ -48,7 +48,7 @@ def test_universal_contract_has_canonical_roles_and_host_adapters():
 
     with (PROJECT_ROOT / "tools" / "agent-routes.toml").open("rb") as handle:
         routes = tomllib.load(handle)["routes"]
-    expected_routes = set(role_names) - {"git-manager"} | {"git_manager", "coordinator"}
+    expected_routes = set(role_names) | {"coordinator"}
     assert set(routes) == expected_routes
     for route in routes.values():
         for lane in ("primary", "fallback"):

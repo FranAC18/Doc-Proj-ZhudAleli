@@ -7,12 +7,12 @@ task_id: HARNESS-UNIVERSAL-001
 requirement_ids: []
 sprint: Sprint 0 - Arnés y documentación
 module: transversal
-phase: validation
+phase: post_commit
 writer: coordinator
 handoff_to: reviewer
 branch: codex/001-acceso-usuarias-internas
-commit: pending
-commit_hash: null
+commit: 62dadf5
+commit_hash: 62dadf58c56a33874d5b6e37949bd0a4b5845977
 allowed_paths:
   - AGENTS.md
   - agents/tesis/roles/**
@@ -77,23 +77,24 @@ Hechos verificados en esta sesión:
   `requirements`, `reviewer` y `ux`.
 - La raíz detectada es `F:\Tesis\App Tesis`, el vault coincide y la rama actual es
   `codex/001-acceso-usuarias-internas`.
+- El commit real del contrato es `62dadf58c56a33874d5b6e37949bd0a4b5845977`.
+- La referencia local `origin/codex/001-acceso-usuarias-internas` coincide con ese hash.
 
 ## Pendiente
 
 - Ejecutar una sesión real de humo con Codex, Antigravity y OpenChamber, leyendo este checkpoint
   desde cada host y comprobando que cada uno respete el escritor único.
 - Revisar con el tesista la selección concreta de modelos y cuotas en cada herramienta.
-- Autorizar y realizar el commit separado de esta documentación y configuración.
 
 ## Próxima acción
 
 El reviewer debe leer el contrato y ejecutar la prueba de humo sin modificar los archivos. Si la
-prueba pasa, el coordinador prepara el cierre documental y solicita autorización humana para el
-commit. Después del hash real, documenter agrega el estado `post_commit` en este mismo checkpoint
-o en una continuación versionada.
+prueba pasa, el coordinador puede cambiar este checkpoint a `completed` y registrar la evidencia
+de los tres hosts. El commit ya tiene hash real; no debe crearse otro commit solo para repetir
+esta evidencia sin revisar antes el diff pendiente.
 
 ## Nota sobre cambios preexistentes
 
-El worktree ya contenía modificaciones del laboratorio Python y documentación anteriores a este
-checkpoint. Este registro describe únicamente la implementación del contrato universal y no
-autoriza a descartar ni mezclar cambios ajenos.
+El worktree contenía modificaciones del laboratorio Python y documentación que fueron incluidas
+en el commit `62dadf5`. El cambio local posterior de `.obsidian/graph.json` no forma parte de este
+checkpoint ni debe mezclarse automáticamente con la siguiente tarea.

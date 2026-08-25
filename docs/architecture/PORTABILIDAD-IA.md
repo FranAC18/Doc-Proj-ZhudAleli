@@ -47,19 +47,25 @@ CapabilityValidator (Verifica tool_calling, reasoning, etc.)
  └── GeminiAdapter    (Google GenAI nativo)
 ```
 
-## Matriz de Capacidades de Modelos
+## Matriz de capacidades del adaptador
 
-| Modelo / Clave | Proveedor | Contexto | Tool Calling | Parallel Tools | Reasoning Tokens | Structured Output |
-| :--- | :--- | ---: | :---: | :---: | :---: | :---: |
-| `gpt-5.6-luna` | `openai` | 200k | Nativo | Sí | Sí | Strict JSON |
-| `gpt-5.6-sol` | `openai` | 200k | Nativo | Sí | Sí | Strict JSON |
-| `deepseek-v4` | `deepseek` | 128k | Nativo | Seguro (False) | Sí (`reasoning_content`) | JSON Schema |
-| `glm-5.2` | `glm` | 1M | Nativo | Sí | Sí | JSON Mode |
-| `gemini-2.5-pro` | `google` | 1M - 2M | Nativo | Sí | Sí | Strict Schema |
-| `gemini-3.7-flash` | `google` | Por verificar | Por verificar | Por verificar | Por verificar | Por verificar |
-| `gemini-3.6-flash` | `google` | Por verificar | Por verificar | Por verificar | Por verificar | Por verificar |
-| `gemini-3.5-flash` | `google` | Por verificar | Por verificar | Por verificar | Por verificar | Por verificar |
-| `gemini-3.1-pro` | `google` | Por verificar | Por verificar | Por verificar | Por verificar | Por verificar |
+El laboratorio separa dos conceptos para no confundir documentación del proveedor con
+evidencia reproducible:
+
+- `declared_capabilities`: capacidades declaradas por el adaptador o esperadas del proveedor;
+  no habilitan por sí solas una ruta operativa.
+- `verified_capabilities`: capacidades respaldadas por la implementación y las pruebas locales;
+  son las únicas que usa `ModelRouter` y `CapabilityValidator` para seleccionar un modelo.
+
+| Adaptador | Declaradas | Verificadas localmente | Disponibilidad del modelo/API |
+| :--- | :--- | :--- | :--- |
+| OpenAI | tool calling, parallel tools, structured output, JSON schema, system messages, reasoning, streaming | tool calling, system messages | Por verificar con credencial y endpoint reales |
+| DeepSeek | tool calling, structured output, JSON schema, system messages, reasoning, contexto 100k, streaming | tool calling, system messages, reasoning | `deepseek-v4` debe confirmarse en el catálogo del proveedor |
+| GLM | tool calling, parallel tools, structured output, system messages, reasoning, contexto 1M, streaming | tool calling, system messages | Por verificar con credencial y endpoint reales |
+| Gemini | tool calling, parallel tools, structured output, JSON schema, system messages, reasoning, visión, contexto 1M, streaming | tool calling, system messages | Los IDs Gemini 3.x deben probarse mediante el canal elegido |
+
+La propiedad histórica `capabilities` permanece como alias de `verified_capabilities` para
+compatibilidad, pero no vuelve a declarar las capacidades no verificadas como disponibles.
 
 ## Uso del CLI Multi-Modelo
 

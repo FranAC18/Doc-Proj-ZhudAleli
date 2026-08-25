@@ -96,7 +96,7 @@ def validate(root: Path) -> dict[str, object]:
                 "implementer",
                 "reviewer",
                 "documenter",
-                "git_manager",
+                "git-manager",
             }:
                 route_error = "Las rutas no cubren exactamente los roles universales."
             else:

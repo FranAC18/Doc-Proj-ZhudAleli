@@ -32,7 +32,7 @@ class GLMAdapter(BaseHTTPAdapter):
         return "glm"
 
     @property
-    def capabilities(self) -> set[ModelCapability]:
+    def declared_capabilities(self) -> set[ModelCapability]:
         return {
             ModelCapability.TOOL_CALLING,
             ModelCapability.PARALLEL_TOOL_CALLING,
@@ -41,6 +41,13 @@ class GLMAdapter(BaseHTTPAdapter):
             ModelCapability.REASONING_TOKENS,
             ModelCapability.EXTENDED_CONTEXT_1M,
             ModelCapability.STREAMING,
+        }
+
+    @property
+    def verified_capabilities(self) -> set[ModelCapability]:
+        return {
+            ModelCapability.TOOL_CALLING,
+            ModelCapability.SYSTEM_MESSAGES,
         }
 
     def _format_messages(self, messages: list[Message]) -> list[dict[str, Any]]:

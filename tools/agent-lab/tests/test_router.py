@@ -52,6 +52,10 @@ def test_router_registration_and_resolution():
     assert resolved.model_id == "m1"
     assert resolved.provider_name == "p1"
 
+    listing = router.get_registered_models()[0]
+    assert listing["declared_capabilities"] == listing["verified_capabilities"]
+    assert listing["capabilities"] == listing["verified_capabilities"]
+
 
 def test_capability_validator_accepts_compatible():
     adapter = DummyAdapter("m1", "p1", {ModelCapability.TOOL_CALLING, ModelCapability.STRUCTURED_OUTPUTS})

@@ -34,6 +34,11 @@ class ModelRouter:
                 "key": key,
                 "model_id": adapter.model_id,
                 "provider": adapter.provider_name,
+                "declared_capabilities": sorted(
+                    c.value for c in getattr(adapter, "declared_capabilities", adapter.capabilities)
+                ),
+                "verified_capabilities": sorted(c.value for c in adapter.capabilities),
+                # Compatibilidad hacia atrás: las decisiones operativas usan las verificadas.
                 "capabilities": sorted(c.value for c in adapter.capabilities),
             }
             for key, adapter in sorted(self._registry.items())

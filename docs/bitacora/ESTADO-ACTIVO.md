@@ -5,9 +5,9 @@ status: ready
 project: tesis-zhud-aleli
 updated: 2026-08-24
 active_task: null
-last_handoff: null
-last_commit: c6df8f5
-next_action: Seleccionar una tarea aprobada y crear su handoff universal
+last_handoff: "[[checkpoints/2026-08-24-contrato-universal-orquestadores]]"
+last_commit: 62dadf5
+next_action: Ejecutar smoke test real del contrato con Codex, Antigravity y OpenChamber
 tags:
   - proyecto/tesis
   - tipo/checkpoint
@@ -25,8 +25,9 @@ antes de trabajar. El detalle de cada tarea vive en su checkpoint dentro de
 - La aplicación Django todavía no existe.
 - La primera funcionalidad aprobada es `SPEC-001` y su implementación continúa limitada a
   `accounts` y acceso.
-- Los cambios locales del arnés y del contrato universal permanecen pendientes de revisión y
-  commit.
+- El arnés y el contrato universal están registrados en el commit `62dadf5`.
+- El smoke test real entre hosts todavía está pendiente; el checkpoint relacionado conserva ese
+  estado como `partially-complete`.
 
 ## Cómo actualizarlo
 

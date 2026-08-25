@@ -49,8 +49,18 @@ class ModelAdapter(Protocol):
         ...
 
     @property
+    def declared_capabilities(self) -> set[ModelCapability]:
+        """Capacidades declaradas por el proveedor o el adaptador."""
+        ...
+
+    @property
+    def verified_capabilities(self) -> set[ModelCapability]:
+        """Capacidades respaldadas por implementación y pruebas locales."""
+        ...
+
+    @property
     def capabilities(self) -> set[ModelCapability]:
-        """Conjunto de capacidades soportadas por este modelo/adaptador."""
+        """Alias seguro: las decisiones de enrutamiento usan capacidades verificadas."""
         ...
 
     def complete(
@@ -90,6 +100,11 @@ class BaseHTTPAdapter:
     @property
     def model_id(self) -> str:
         return self.model_name
+
+    @property
+    def capabilities(self) -> set[ModelCapability]:
+        """Compatibilidad: expone solo las capacidades verificadas al router."""
+        return self.verified_capabilities
 
     def _handle_http_error(self, exc: Exception, status_code: int | None = None) -> None:
         """Mapea excepciones HTTP a errores de dominio normalizados."""

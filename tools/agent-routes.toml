@@ -77,12 +77,12 @@ host = "codex"
 provider = "codex-plan"
 model = "selected-in-host"
 
-[routes.git_manager.primary]
+[routes.git-manager.primary]
 host = "codex"
 provider = "codex-plan"
 model = "selected-in-host"
 
-[routes.git_manager.fallback]
+[routes.git-manager.fallback]
 host = "opencode"
 provider = "opencode-go"
 model = "selected-in-host"

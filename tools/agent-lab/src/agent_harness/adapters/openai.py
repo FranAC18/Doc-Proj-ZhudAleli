@@ -33,7 +33,7 @@ class OpenAIAdapter(BaseHTTPAdapter):
         return "openai"
 
     @property
-    def capabilities(self) -> set[ModelCapability]:
+    def declared_capabilities(self) -> set[ModelCapability]:
         return {
             ModelCapability.TOOL_CALLING,
             ModelCapability.PARALLEL_TOOL_CALLING,
@@ -42,6 +42,13 @@ class OpenAIAdapter(BaseHTTPAdapter):
             ModelCapability.SYSTEM_MESSAGES,
             ModelCapability.REASONING_TOKENS,
             ModelCapability.STREAMING,
+        }
+
+    @property
+    def verified_capabilities(self) -> set[ModelCapability]:
+        return {
+            ModelCapability.TOOL_CALLING,
+            ModelCapability.SYSTEM_MESSAGES,
         }
 
     def _format_messages(self, messages: list[Message]) -> list[dict[str, Any]]:

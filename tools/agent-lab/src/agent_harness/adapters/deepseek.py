@@ -34,7 +34,7 @@ class DeepSeekAdapter(BaseHTTPAdapter):
         return "deepseek"
 
     @property
-    def capabilities(self) -> set[ModelCapability]:
+    def declared_capabilities(self) -> set[ModelCapability]:
         return {
             ModelCapability.TOOL_CALLING,
             ModelCapability.STRUCTURED_OUTPUTS,
@@ -43,6 +43,14 @@ class DeepSeekAdapter(BaseHTTPAdapter):
             ModelCapability.REASONING_TOKENS,
             ModelCapability.EXTENDED_CONTEXT_100K,
             ModelCapability.STREAMING,
+        }
+
+    @property
+    def verified_capabilities(self) -> set[ModelCapability]:
+        return {
+            ModelCapability.TOOL_CALLING,
+            ModelCapability.SYSTEM_MESSAGES,
+            ModelCapability.REASONING_TOKENS,
         }
 
     def _format_messages(self, messages: list[Message]) -> list[dict[str, Any]]:

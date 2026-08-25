@@ -33,7 +33,7 @@ class GeminiAdapter(BaseHTTPAdapter):
         return "google"
 
     @property
-    def capabilities(self) -> set[ModelCapability]:
+    def declared_capabilities(self) -> set[ModelCapability]:
         return {
             ModelCapability.TOOL_CALLING,
             ModelCapability.PARALLEL_TOOL_CALLING,
@@ -44,6 +44,13 @@ class GeminiAdapter(BaseHTTPAdapter):
             ModelCapability.VISION,
             ModelCapability.EXTENDED_CONTEXT_1M,
             ModelCapability.STREAMING,
+        }
+
+    @property
+    def verified_capabilities(self) -> set[ModelCapability]:
+        return {
+            ModelCapability.TOOL_CALLING,
+            ModelCapability.SYSTEM_MESSAGES,
         }
 
     def _convert_tools_to_declarations(self, tools: list[dict[str, Any]]) -> list[dict[str, Any]]:
