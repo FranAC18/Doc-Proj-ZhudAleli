@@ -19,8 +19,10 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 - Fase: preparación técnica del Sprint 1 sobre la línea base aprobada.
 - Último sprint cerrado: [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
-- Arnés portable: Codex validado como motor principal; Kimi/GLM son alternativas opcionales.
-- Constitución: aprobada por el tesista; la comparación con otros motores es opcional.
+- Arnés portable: contrato universal en implementación; Codex, OpenCode/OpenChamber y
+  Antigravity comparten la fuente versionada y sus adaptadores propios.
+- Codex conserva la coordinación, revisión, documenter y git-manager; OpenChamber ejecuta
+  OpenCode Go y Antigravity usa Gemini mediante Google AI Pro.
 - Aplicación Django: no creada ni instalada como aplicación del proyecto.
 - Base de datos PostgreSQL: servicio local instalado y activo; falta crear la base de desarrollo
   del proyecto Django cuando exista `manage.py`.
@@ -43,6 +45,10 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../architecture/ARQUITECTURA-OBJETIVO|Arquitectura objetivo]].
 - [[../architecture/PORTABILIDAD-IA|Portabilidad de motores y modelos]].
 - [[../architecture/FLUJO-MULTIAGENTE|Flujo multiagente]].
+- [[../architecture/CONTRATO-UNIVERSAL-ORQUESTADORES|Contrato universal de orquestadores]].
+- [[../architecture/RUTAS-MODELOS-IA|Rutas universales de hosts y modelos]].
+- [[../bitacora/ESTADO-ACTIVO|Estado activo de continuidad]].
+- [[../../agents/tesis/roles/README|Contratos canónicos de roles]].
 - [[../architecture/FUENTES-DE-VERDAD|Fuentes de verdad]].
 - [[../architecture/REFERENTES-GITHUB|Repositorios de referencia]].
 - [[../decisions/ADR-0002-arnes-portable-de-ia|ADR del arnés portable]].
@@ -96,9 +102,9 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Corregir y aprobar la consistencia final de `tasks.md`, documentar el entorno reproducible y
-comenzar T013–T015. La implementación de S1 se limita a `accounts` y acceso; no se crean apps
-ni reglas operativas de sprints futuros.
+Revisar el contrato universal con una sesión real de Codex, Antigravity y OpenChamber; después
+continuar las tareas aprobadas de SPEC-001. La implementación de S1 se limita a `accounts` y
+acceso; no se crean apps ni reglas operativas de sprints futuros.
 
 ## Regla de avance
 

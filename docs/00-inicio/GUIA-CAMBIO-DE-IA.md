@@ -2,11 +2,13 @@
 title: Guía de cambio de IA y onboarding de modelos
 type: guide
 status: confirmed
-date: 2026-08-15
+date: 2026-08-24
 related:
   - "[[../../AGENTS]]"
   - "[[../../ONBOARDING-IA]]"
   - "[[../architecture/PORTABILIDAD-IA]]"
+  - "[[../architecture/CONTRATO-UNIVERSAL-ORQUESTADORES]]"
+  - "[[../bitacora/ESTADO-ACTIVO]]"
 tags:
   - proyecto/tesis
   - tipo/guia
@@ -28,26 +30,39 @@ Al abrir el proyecto con una nueva IA o en una nueva ventana de chat, pega este 
 
 ```text
 Actúa como ingeniero de software y asistente de tesis para el proyecto Zhud Alelí.
-Lee obligatoriamente `ONBOARDING-IA.md` y `AGENTS.md` para situarte en el contexto actual, estado del sprint y reglas de operación antes de responder.
-Indica en qué fase nos encontramos y cuál es el próximo paso permitido.
+Resuelve la raíz buscando `AGENTS.md` y `.specify/memory/constitution.md` hacia arriba.
+Lee `AGENTS.md`, la constitución, `agents/tesis/roles/README.md`,
+`docs/00-inicio/00-dashboard.md`, `docs/bitacora/ESTADO-ACTIVO.md` y el último handoff
+relacionado antes de responder. Indica la fase, el escritor permitido, la rama, el estado de
+Git, lo verificado y el próximo paso permitido. No escribas si no puedes resolver la raíz.
 ```
 
 ## 3. Comandos de Lanzamiento por Motor
-
-### OpenCode
-```bash
-opencode --model gpt-5.6-luna
-opencode --model deepseek/deepseek-v4
-```
 
 ### Codex CLI
 ```powershell
 .\scripts\agent.ps1 codex
 ```
 
+### OpenCode y OpenChamber
+```powershell
+.\scripts\agent.ps1 opencode
+.\scripts\agent.ps1 openchamber
+```
+
+### Antigravity con Gemini
+```powershell
+.\scripts\agent.ps1 antigravity
+```
+
 ### Kimi Code CLI
 ```powershell
 .\scripts\agent.ps1 kimi
+```
+
+### Validar raíz y hosts
+```powershell
+.\scripts\agent.ps1 status
 ```
 
 ### Arnés Autónomo Python (Laboratorio)
@@ -57,3 +72,19 @@ opencode --model deepseek/deepseek-v4
 & "f:\Tesis\App Tesis\tools\agent-lab\.venv\Scripts\python.exe" -m agent_harness.cli --model gemini-2.5-pro
 & "f:\Tesis\App Tesis\tools\agent-lab\.venv\Scripts\python.exe" -m agent_harness.cli --model glm-5.2
 ```
+
+El laboratorio Python no inicia ni cambia sesiones de Codex, Antigravity, OpenCode u
+OpenChamber. Solo prueba adaptadores y rutas de modelos configuradas para ese laboratorio.
+
+## 4. Cambio seguro entre herramientas
+
+1. Termina o detén el host actual.
+2. Ejecuta `status` y registra un handoff desde
+   `docs/templates/PLANTILLA-HANDOFF-UNIVERSAL.md` en `docs/bitacora/checkpoints/`.
+3. Conserva la misma tarea, branch/worktree, `allowed_paths` y `next_action`.
+4. Abre el siguiente host desde la raíz del repositorio.
+5. Lee el handoff antes de escribir.
+6. Mantén un solo escritor activo por worktree.
+
+El cambio de cuota se maneja a nivel de tarea. No se intenta continuar el historial privado de
+una conversación en otro proveedor.

@@ -1,8 +1,10 @@
 from datetime import datetime, timezone
-from pathlib import Path
 import json
+from pathlib import Path
 import sqlite3
 from typing import Any
+
+from .telemetry import ExecutionTrace
 
 
 def utc_now() -> str:
@@ -54,6 +56,23 @@ class MemoryStore:
             user_id TEXT NOT NULL,
             event_type TEXT NOT NULL,
             payload TEXT NOT NULL,
+            created_at TEXT NOT NULL
+        );
+        CREATE TABLE IF NOT EXISTS telemetry (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            trace_id TEXT NOT NULL,
+            run_id TEXT NOT NULL,
+            agent_name TEXT NOT NULL,
+            provider TEXT NOT NULL,
+            model_name TEXT NOT NULL,
+            latency_ms REAL NOT NULL,
+            input_tokens INTEGER NOT NULL,
+            output_tokens INTEGER NOT NULL,
+            reasoning_tokens INTEGER NOT NULL,
+            estimated_cost_usd REAL NOT NULL,
+            tool_calls_count INTEGER NOT NULL,
+            status TEXT NOT NULL,
+            error_message TEXT,
             created_at TEXT NOT NULL
         );
         """)
@@ -134,6 +153,52 @@ class MemoryStore:
             (user_id, event_type, json.dumps(payload, ensure_ascii=False), utc_now()),
         )
         self.db.commit()
+
+    def record_telemetry(self, trace: ExecutionTrace) -> None:
+        self.db.execute(
+            """
+            INSERT INTO telemetry(
+                trace_id, run_id, agent_name, provider, model_name,
+                latency_ms, input_tokens, output_tokens, reasoning_tokens,
+                estimated_cost_usd, tool_calls_count, status, error_message, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                trace.trace_id,
+                trace.run_id,
+                trace.agent_name,
+                trace.provider,
+                trace.model_name,
+                trace.latency_ms,
+                trace.input_tokens,
+                trace.output_tokens,
+                trace.reasoning_tokens,
+                trace.estimated_cost_usd,
+                trace.tool_calls_count,
+                trace.status,
+                trace.error_message,
+                trace.timestamp_utc,
+            ),
+        )
+        self.db.commit()
+
+    def get_telemetry_summary(self) -> list[dict[str, Any]]:
+        rows = self.db.execute(
+            """
+            SELECT
+                provider,
+                model_name,
+                COUNT(*) as total_calls,
+                ROUND(AVG(latency_ms), 2) as avg_latency_ms,
+                SUM(input_tokens) as total_input_tokens,
+                SUM(output_tokens) as total_output_tokens,
+                ROUND(SUM(estimated_cost_usd), 4) as total_cost_usd
+            FROM telemetry
+            GROUP BY provider, model_name
+            ORDER BY total_calls DESC
+            """
+        ).fetchall()
+        return [dict(row) for row in rows]
 
     def close(self) -> None:
         self.db.close()

@@ -19,11 +19,18 @@ Este MOC conecta la configuración real del arnés con sus notas de Obsidian.
 | Capa | Ubicación | Función |
 |---|---|---|
 | Roles host | `.codex/agents/` | Define responsabilidades, permisos y límites de agentes. |
+| Roles canónicos | `agents/tesis/roles/` | Fuente común de responsabilidades, rutas y handoffs. |
+| Adaptación OpenCode | `.opencode/agents/` | Perfiles que apuntan a los contratos canónicos. |
+| Adaptación Antigravity | `.agents/rules/` | Reglas de contexto y continuidad del workspace. |
 | Skills Spec Kit | `.agents/skills/` | Define flujos de especificación, planificación, tareas y revisión. |
 | Laboratorio Python | `tools/agent-lab/` | Experimenta con modelos, memoria, herramientas y persistencia. |
 | Vault | `docs/`, `specs/` y `agents/tesis/` | Conserva conocimiento, decisiones, evidencias y artefactos. |
 
 El laboratorio Python no carga automáticamente los TOML de `.codex/agents/` ni las skills de `.agents/skills/`. La relación entre ambas capas es documental hasta que exista una integración explícita.
+
+El laboratorio de modelos tampoco cambia de host por sí solo. La continuidad entre Codex,
+Antigravity y OpenChamber se hace mediante `docs/bitacora/checkpoints/` y la plantilla de
+handoff universal.
 
 ## Agentes
 
@@ -32,6 +39,8 @@ El laboratorio Python no carga automáticamente los TOML de `.codex/agents/` ni 
 - [[agente-ux]] — Revisión UX/UI.
 - [[agente-implementer]] — Implementación acotada.
 - [[agente-reviewer]] — Revisión independiente.
+- [[agente-documenter]] — Redacción documental del vault.
+- [[agente-git-manager]] — Gestión de commits autorizados.
 
 ## Skills
 
@@ -51,5 +60,8 @@ El laboratorio Python no carga automáticamente los TOML de `.codex/agents/` ni 
 - [[auditoria-agentes-skills-2026-08-24]]
 - [[FLUJO-MULTIAGENTE]]
 - [[FUENTES-DE-VERDAD]]
+- [[CONTRATO-UNIVERSAL-ORQUESTADORES]]
+- [[../bitacora/ESTADO-ACTIVO]]
+- [[../../agents/tesis/roles/README]]
 - [[ADR-0002-arnes-portable-de-ia]]
 - [[ADR-0004-capa-abstraccion-modelos-ia]]

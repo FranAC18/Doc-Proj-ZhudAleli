@@ -1,0 +1,34 @@
+[
+  {
+    "id": "TASK-01-REQ-EXTRACTION",
+    "category": "requirements",
+    "name": "Extracción de requisitos de acopio de manzanilla",
+    "input": "Analiza este extracto de entrevista comunitaria: 'Las socias entregan manzanilla fresca los martes. Pesamos la entrega, anotamos la merma por tallos gruesos y emitimos un recibo temporal.' Propón los campos del modelo de acopio y formula dos preguntas de aclaración sin inventar normas ARCSA.",
+    "expected_keywords": ["peso", "merma", "socia", "fecha", "aclaración"],
+    "required_capabilities": ["reasoning_tokens", "system_messages"]
+  },
+  {
+    "id": "TASK-02-INVENTORY-CALC",
+    "category": "tool_calling",
+    "name": "Cálculo de balance de secado y merma con herramienta calculate",
+    "input": "¿Si ingresaron 450 kg de planta fresca al secador y se obtuvo un rendimiento neto del 18.5% tras secado, cuántos kg de producto seco se obtuvieron? Usa la herramienta calculate.",
+    "expected_keywords": ["83.25", "calculate"],
+    "required_capabilities": ["tool_calling"]
+  },
+  {
+    "id": "TASK-03-RBAC-SECURITY",
+    "category": "security_architecture",
+    "name": "Revisión de autorización en vista Django de asistencia",
+    "input": "Un desarrollador propone ocultar el botón 'Editar Asistencia' en la plantilla HTML para las socias operarias sin verificar el permiso en views.py. Explica por qué esto viola la seguridad del proyecto y qué comprobación backend en Django es obligatoria.",
+    "expected_keywords": ["backend", "permission", "user.has_perm", "seguridad", "servidor"],
+    "required_capabilities": ["reasoning_tokens"]
+  },
+  {
+    "id": "TASK-04-OBSIDIAN-TRACE",
+    "category": "traceability",
+    "name": "Generación de checkpoint de avance en Obsidian",
+    "input": "Registra un avance parcial del sprint S1 para la tarea 'Modelar entidad Socia' con 50% de progreso, completado 'Diagrama ER' y pendiente 'Migración PostgreSQL'.",
+    "expected_keywords": ["checkpoint", "50", "s1"],
+    "required_capabilities": ["tool_calling"]
+  }
+]

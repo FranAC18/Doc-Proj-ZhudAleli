@@ -31,14 +31,15 @@ Indica en qué fase nos encontramos y cuál es el próximo paso permitido.
 
 ---
 
-## 3. Estado Actual del Repositorio (Al 15 de Agosto de 2026)
+## 3. Estado Actual del Repositorio (Al 24 de Agosto de 2026)
 
 * **Fase Actual**: Fase I — Levantamiento, especificación y diseño técnico de la primera funcionalidad.
 * **Sprint 0 (Preparación)**: **CERRADO** con evidencia y validación técnica.
 * **Catálogo de Requisitos**: [`docs/requirements/CAT-REQ-001.md`](file:///f:/Tesis/App%20Tesis/docs/requirements/CAT-REQ-001.md) versión 1.0 aprobada (57 requisitos confirmados).
-* **Primera Funcionalidad**: [`specs/001-acceso-usuarias-internas/`](file:///f:/Tesis/App%20Tesis/specs/001-acceso-usuarias-internas/) con spec `confirmed` y plan `approved` (2026-08-24); listo para generar tareas de implementación.
+* **Primera Funcionalidad**: [`specs/001-acceso-usuarias-internas/`](file:///f:/Tesis/App%20Tesis/specs/001-acceso-usuarias-internas/) con spec `confirmed`, plan `approved` y `tasks.md` generado (2026-08-24); pendiente de ejecutar las puertas previas a la implementación.
 * **Aplicación Django**: **Aún no creada**. No asumas que Django ya está configurado ni generes código de producción hasta que las tareas (`tasks.md`) estén aprobadas.
 * **Arnés de IA (`tools/agent-lab/`)**: Completamente migrado a arquitectura multi-modelo agnóstica con enrutador dinámico (`ModelRouter`), adaptadores (OpenAI, DeepSeek, GLM, Gemini) y telemetría SQLite.
+* **Contrato universal**: Roles canónicos en `agents/tesis/roles/`, handoffs en `docs/bitacora/checkpoints/`, adaptadores para Codex/OpenCode/Antigravity y validación en `tools/validate-universal.py`.
 
 ---
 
@@ -85,15 +86,30 @@ Para no sobrecargar tu contexto, lee los archivos en este orden estricto:
 
 | Entorno / Motor | Cómo se inicializa | Dónde lee contexto |
 | :--- | :--- | :--- |
-| **OpenCode** | `opencode --model <modelo>` | Lee `.agents/skills/`, `AGENTS.md` y `ONBOARDING-IA.md` automáticamente. |
-| **Codex App / CLI** | `.\scripts\agent.ps1 codex` | Lee `.codex/agents/*.toml`, `.agents/skills/` y `AGENTS.md`. |
+| **Codex App / CLI** | `.\scripts\agent.ps1 codex` | Usa `.codex/agents/`, contratos canónicos, `AGENTS.md`, skills y handoffs. |
+| **OpenCode** | `.\scripts\agent.ps1 opencode` | Usa `.opencode/agents/`, `AGENTS.md`, `.agents/skills/` y handoffs. |
+| **OpenChamber** | `.\scripts\agent.ps1 openchamber` | Interfaz visual sobre OpenCode; conserva su configuración y sesiones de OpenCode. |
 | **Kimi Code CLI** | `.\scripts\agent.ps1 kimi` | Descubre `.agents/skills/` y comandos `/skill:speckit-*`. |
-| **Antigravity / Cursor / VS Code** | Abrir la carpeta raíz del workspace | Carga las skills de Spec Kit y reglas rectoras. |
+| **Antigravity CLI** | `.\scripts\agent.ps1 antigravity` | Usa `AGENTS.md`, `.agents/rules/`, `.agents/skills/` y handoffs; Gemini se autentica en el host. |
 | **Arnés Python Autónomo** | `python -m agent_harness.cli --model <nombre>` | Ejecuta agentes con memoria SQLite y puente a Obsidian. |
+
+Ningún host debe asumirse como lector automático de `ONBOARDING-IA.md`. El archivo sirve como
+índice humano; el contrato operativo común es `AGENTS.md` y los handoffs versionados.
+
+## 7. Contrato universal de continuidad
+
+Lee `docs/architecture/CONTRATO-UNIVERSAL-ORQUESTADORES.md`,
+`docs/bitacora/ESTADO-ACTIVO.md` y el último checkpoint de la tarea antes de cambiar de
+modelo o herramienta.
+
+El flujo es secuencial: un único escritor por worktree. Si una cuota se agota, registra
+`partially-complete`, `commit: pending`, archivos, pruebas, pendientes y `next_action`; luego
+abre el siguiente host desde la raíz y continúa la misma tarea. No se transfiere memoria
+privada de una conversación.
 
 ---
 
-## 7. Flujo de Trabajo para una Funcionalidad (Spec Kit)
+## 8. Flujo de Trabajo para una Funcionalidad (Spec Kit)
 
 Cuando se trabaje en una nueva funcionalidad, sigue el ciclo estándar de GitHub Spec Kit (invocable como `$speckit-*` o `/skill:speckit-*`):
 
@@ -107,7 +123,7 @@ Cuando se trabaje en una nueva funcionalidad, sigue el ciclo estándar de GitHub
 
 ---
 
-## 8. Comandos de Verificación Técnica
+## 9. Comandos de Verificación Técnica
 
 Antes de dar por terminada cualquier sesión o tarea, ejecuta:
 
@@ -126,7 +142,7 @@ python manage.py test
 
 ---
 
-## 9. Próximo Paso Permitido en el Proyecto
+## 10. Próximo Paso Permitido en el Proyecto
 
 * **Estado Actual**: Plan técnico de [`specs/001-acceso-usuarias-internas/plan.md`](file:///f:/Tesis/App%20Tesis/specs/001-acceso-usuarias-internas/plan.md) `approved` por el tesista.
-* **Acción Inmediata**: Ejecutar `speckit-tasks` y `speckit-analyze` para generar las tareas de implementación de SPEC-001, preparar la estructura inicial del proyecto Django y localizar/instalar PostgreSQL.
+* **Acción Inmediata**: Revisar el contrato universal en una sesión real de Codex, Antigravity y OpenChamber; después ejecutar las tareas aprobadas de SPEC-001. No se instala Django ni se crea código de producción antes de superar sus puertas.

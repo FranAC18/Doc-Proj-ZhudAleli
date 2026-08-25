@@ -6,7 +6,9 @@ Indígenas “Tránsito Amaguaña” de Zhud y su unidad productiva Zhud Alelí.
 El objetivo de este repositorio es construir la aplicación, no construir otro asistente de
 programación. Los requisitos, planes, tareas, pruebas, decisiones y evidencias viven en
 archivos versionados; Codex, Codex CLI, Kimi Code o GLM son motores intercambiables que
-trabajan sobre esos mismos contratos.
+trabajan sobre esos mismos contratos. Codex, Antigravity con Gemini y OpenCode/OpenChamber
+pueden alternarse mediante el contrato universal de orquestadores, sin convertir la sesión
+privada de una herramienta en fuente de verdad.
 
 ## Estado actual
 
@@ -53,6 +55,12 @@ Documentos principales:
 - `.specify/memory/constitution.md`: principios y puertas de calidad.
 - `docs/architecture/ARQUITECTURA-OBJETIVO.md`: arquitectura de la aplicación.
 - `docs/architecture/PORTABILIDAD-IA.md`: cómo cambiar de motor o modelo.
+- `docs/architecture/CONTRATO-UNIVERSAL-ORQUESTADORES.md`: reglas comunes para cambiar de host
+  sin perder contexto.
+- `docs/architecture/RUTAS-MODELOS-IA.md`: rutas recomendadas por rol y proveedor.
+- `docs/bitacora/ESTADO-ACTIVO.md`: estado que debe leer el siguiente host.
+- `agents/tesis/roles/`: contratos canónicos de requirements, architect, ux, implementer,
+  reviewer, documenter y git-manager.
 - `docs/architecture/PLAN-DESDE-CERO.md`: plan completo de construcción.
 - `docs/traceability/MATRIZ-TRAZABILIDAD.md`: vínculo entre tesis, requisitos y evidencia.
 - `docs/ui/SISTEMA-DISENO.md`: reglas para una interfaz bonita, clara y accesible.
@@ -84,6 +92,8 @@ conservar la historia y revisar el cambio en una rama.
 ```bash
 ./scripts/agent.sh codex
 ./scripts/agent.sh kimi
+./scripts/agent.sh antigravity
+./scripts/agent.sh openchamber
 ```
 
 En PowerShell:
@@ -91,6 +101,16 @@ En PowerShell:
 ```powershell
 .\scripts\agent.ps1 codex
 .\scripts\agent.ps1 kimi
+.\scripts\agent.ps1 antigravity
+.\scripts\agent.ps1 openchamber
+```
+
+Antes de cambiar de herramienta, ejecuta `status`, registra el handoff de la tarea y abre el
+siguiente host desde esta misma raíz. Si PowerShell bloquea scripts no firmados, usa una
+ejecución temporal sin cambiar la política global:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\agent.ps1 status
 ```
 
 Para usar opcionalmente un modelo GLM sin guardar la clave en archivos:
@@ -107,8 +127,8 @@ $env:GLM_MODEL = "modelo-disponible"
 .\scripts\agent.ps1 glm
 ```
 
-Los scripts solo seleccionan el motor. No hacen `commit`, `push`, `merge` ni modifican la
-historia de Git.
+Los scripts solo validan la raíz y seleccionan el motor. No hacen `commit`, `push`, `merge` ni
+modifican la historia de Git.
 
 ## Flujo de una funcionalidad
 

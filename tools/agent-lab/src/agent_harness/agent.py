@@ -3,9 +3,9 @@ import json
 import uuid
 from pathlib import Path
 
+from .adapters.base import ModelAdapter
 from .memory import MemoryStore
-from .models import ModelError, ModelReply
-from .provider import ChatModel
+from .models import Message, ModelError, ModelResponse, Role
 from .tools import ToolRegistry
 
 
@@ -26,7 +26,7 @@ Reglas de seguridad:
 class Agent:
     def __init__(
         self,
-        model: ChatModel,
+        model: ModelAdapter | Any,
         memory: MemoryStore,
         tools: ToolRegistry,
         user_id: str,
@@ -70,15 +70,27 @@ class Agent:
                     sections.append(f"## {filename}\n{path.read_text(encoding='utf-8')}")
         return "\n\n".join(sections)
 
-    def _messages(self, user_text: str) -> list[dict[str, Any]]:
+    def _messages(self, user_text: str) -> list[Message]:
         lessons = self.memory.approved_lessons(self.user_id)
-        context = "Lecciones aprobadas:\n" + json.dumps(lessons, ensure_ascii=False) if lessons else "No hay lecciones aprobadas."
+        context = (
+            "Lecciones aprobadas:\n" + json.dumps(lessons, ensure_ascii=False)
+            if lessons
+            else "No hay lecciones aprobadas."
+        )
         profile = self._profile_context()
-        return [
-            {"role": "system", "content": SYSTEM_PROMPT + "\n\n" + context + ("\n\nCONTEXTO DEL PROYECTO:\n" + profile if profile else "")},
-            *self.memory.recent_turns(self.user_id),
-            {"role": "user", "content": user_text},
-        ]
+        system_content = (
+            SYSTEM_PROMPT
+            + "\n\n"
+            + context
+            + ("\n\nCONTEXTO DEL PROYECTO:\n" + profile if profile else "")
+        )
+
+        messages: list[Message] = [Message(role=Role.SYSTEM, content=system_content)]
+        for turn in self.memory.recent_turns(self.user_id):
+            role = Role.USER if turn["role"] == "user" else Role.ASSISTANT
+            messages.append(Message(role=role, content=turn["content"]))
+        messages.append(Message(role=Role.USER, content=user_text))
+        return messages
 
     def run(self, user_text: str) -> str:
         run_id = str(uuid.uuid4())
@@ -87,33 +99,69 @@ class Agent:
 
         for step in range(self.max_steps):
             try:
-                reply: ModelReply = self.model.complete(messages, self.tools.schemas())
+                reply: ModelResponse = self.model.complete(messages, self.tools.schemas())
             except ModelError as exc:
-                self.memory.record_event(self.user_id, "model_error", {"run_id": run_id, "step": step, "error": str(exc)})
+                self.memory.record_event(
+                    self.user_id,
+                    "model_error",
+                    {"run_id": run_id, "step": step, "error": str(exc)},
+                )
                 raise
 
-            assistant_message: dict[str, Any] = {"role": "assistant", "content": reply.content}
-            if reply.tool_calls:
-                assistant_message["tool_calls"] = [
-                    {"id": call.id, "type": "function", "function": {"name": call.name, "arguments": json.dumps(call.arguments)}}
-                    for call in reply.tool_calls
-                ]
-            messages.append(assistant_message)
+            assistant_msg = Message(
+                role=Role.ASSISTANT,
+                content=reply.content,
+                tool_calls=reply.tool_calls,
+                reasoning_content=reply.reasoning_content,
+            )
+            messages.append(assistant_msg)
 
             if not reply.tool_calls:
                 final = reply.content.strip() or "El modelo no devolvió contenido."
                 self.memory.add_turn(self.user_id, "assistant", final)
-                self.memory.record_event(self.user_id, "run_completed", {"run_id": run_id, "steps": step + 1})
+                self.memory.record_event(
+                    self.user_id,
+                    "run_completed",
+                    {
+                        "run_id": run_id,
+                        "steps": step + 1,
+                        "usage": {
+                            "prompt_tokens": reply.usage.prompt_tokens,
+                            "completion_tokens": reply.usage.completion_tokens,
+                            "total_tokens": reply.usage.total_tokens,
+                        },
+                    },
+                )
                 return final
 
             for call in reply.tool_calls:
                 try:
                     result = self.tools.execute(call.name, call.arguments)
-                    self.memory.record_event(self.user_id, "tool_completed", {"run_id": run_id, "tool": call.name})
+                    self.memory.record_event(
+                        self.user_id, "tool_completed", {"run_id": run_id, "tool": call.name}
+                    )
                 except Exception as exc:  # el error vuelve al modelo para que pueda recuperarse
                     result = {"error": str(exc), "tool": call.name}
-                    self.memory.record_event(self.user_id, "tool_error", {"run_id": run_id, "tool": call.name, "error": str(exc)})
-                    self.memory.add_lesson(self.user_id, f"falló {call.name}", f"Validar argumentos y permisos antes de usar {call.name}")
-                messages.append({"role": "tool", "tool_call_id": call.id, "content": json.dumps(result, ensure_ascii=False, default=str)})
+                    self.memory.record_event(
+                        self.user_id,
+                        "tool_error",
+                        {"run_id": run_id, "tool": call.name, "error": str(exc)},
+                    )
+                    self.memory.add_lesson(
+                        self.user_id,
+                        f"falló {call.name}",
+                        f"Validar argumentos y permisos antes de usar {call.name}",
+                    )
 
-        raise RuntimeError(f"El agente alcanzó el máximo de {self.max_steps} pasos; posible bucle de herramientas")
+                messages.append(
+                    Message(
+                        role=Role.TOOL,
+                        name=call.name,
+                        tool_call_id=call.id,
+                        content=json.dumps(result, ensure_ascii=False, default=str),
+                    )
+                )
+
+        raise RuntimeError(
+            f"El agente alcanzó el máximo de {self.max_steps} pasos; posible bucle de herramientas"
+        )

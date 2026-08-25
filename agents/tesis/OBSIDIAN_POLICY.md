@@ -22,9 +22,16 @@ La ubicación canónica es:
 - `specs/<id-funcionalidad>/`: especificación y artefactos técnicos de la funcionalidad.
 - `agents/tesis/`: contexto y políticas estables.
 
-Los agentes `requirements`, `architect`, `ux` y `reviewer` son de lectura y propuesta. No
-escriben archivos ni crean notas por su cuenta. El agente raíz es el único que registra sus
-resultados, usando estas rutas y sin sobrescribir notas aprobadas.
+Los agentes `requirements`, `architect`, `ux` y `reviewer` son de lectura y propuesta. El
+`documenter` es el único escritor delegado para documentación operativa, usando solo las
+rutas permitidas y sin sobrescribir notas aprobadas. El agente raíz conserva la responsabilidad
+de dashboard, sprint, matriz global, specs confirmadas y decisiones aceptadas.
+
+Los hosts Codex, OpenCode/OpenChamber y Antigravity comparten los mismos Markdown, pero sus
+archivos internos no son intercambiables automáticamente. La fuente canónica de roles está en
+`agents/tesis/roles/`; los cambios de host deben usar un handoff en
+`docs/bitacora/checkpoints/`. Obsidian visualiza ese estado persistido y no depende del
+historial privado de ningún modelo.
 
 ## Tipos de notas
 
@@ -40,6 +47,7 @@ resultados, usando estas rutas y sin sobrescribir notas aprobadas.
 - Resúmenes de sesión.
 - Pendientes detectados.
 - Errores técnicos reproducibles.
+- Checkpoints y evidencias de una tarea después de pruebas y revisión.
 - Requisitos en carpeta `docs/requirements/proposals/` con estado `proposed`.
 - Decisiones en carpeta `docs/decisions/proposals/` con estado `proposed`.
 

@@ -36,7 +36,7 @@ Auditoría documental y estructural previa a Django. No se instaló Django, no s
 
 | Área | Problema | Severidad | Acción |
 |---|---|---|---|
-| Rutas del vault | `ObsidianStore` y la configuración usan rutas relativas que dependen del directorio de ejecución. | Alta | Fijar la raíz del proyecto y proteger los destinos de escritura. |
+| Rutas del vault | `ObsidianStore` y la configuración usaban rutas relativas que dependían del directorio de ejecución. | Alta | **Corregido localmente:** autodetección por marcadores, rutas absolutas y vault obligado a coincidir con la raíz. |
 | Fuente de verdad | ADR-0004 describe como aceptado código que todavía no está integrado al remoto. | Alta | Separar estado local, commiteado y remoto. |
 | Aprobaciones | Las herramientas de escritura no aplican de forma central la aprobación declarada. | Alta | Definir y probar una política efectiva. |
 | Modelos | La matriz documental y el registro actual no coinciden completamente. | Media | Mantener una única lista verificada. |
@@ -50,16 +50,15 @@ Auditoría documental y estructural previa a Django. No se instaló Django, no s
 - “Redactor de requisitos” será el nombre visible.
 - Las rutas físicas actuales se conservan.
 - La navegación se organiza con MOCs en el vault.
-- El primer problema técnico posterior será la determinación segura de la raíz del vault.
+- La determinación segura de la raíz del vault fue corregida localmente y tiene pruebas desde una subcarpeta.
 
 ## Plan posterior condicionado
 
 1. Separar formalmente las capas host, skills, laboratorio y vault.
-2. Hacer deterministas las rutas del vault.
-3. Aplicar aprobación efectiva a las herramientas de escritura.
-4. Alinear modelos, validación de configuración y documentación.
-5. Integrar el código seleccionado y verificar un clon limpio.
+2. Aplicar aprobación efectiva a las herramientas de escritura.
+3. Alinear modelos, validación de configuración y documentación.
+4. Integrar el código seleccionado y verificar un clon limpio.
 
 ## Estado de verificación
 
-Esta nota refleja el análisis del árbol local al 2026-08-24. El código no commiteado no debe considerarse parte del estado portable hasta integrarse y verificarse desde un clon limpio.
+Esta nota refleja el análisis del árbol local al 2026-08-24. La protección de rutas está implementada en el árbol local, con 27 pruebas pasando; no debe considerarse parte del estado portable hasta integrarse y verificarse desde un clon limpio.

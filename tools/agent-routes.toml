@@ -1,0 +1,88 @@
+# Rutas económicas y de continuidad del arnés universal.
+# Este archivo no contiene credenciales y no inicia hosts automáticamente.
+# Si una cuota se agota, se registra un handoff y se usa la ruta fallback.
+
+[meta]
+version = 1
+continuity = "manual-handoff"
+source_of_truth = "docs/architecture/RUTAS-MODELOS-IA.md"
+
+[routes.coordinator.primary]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.coordinator.fallback]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.1-pro"
+
+[routes.requirements.primary]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.requirements.fallback]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.7-flash"
+
+[routes.architect.primary]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.1-pro"
+
+[routes.architect.fallback]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.ux.primary]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.5-flash"
+
+[routes.ux.fallback]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.implementer.primary]
+host = "openchamber"
+provider = "opencode-go"
+model = "deepseek-v4"
+
+[routes.implementer.fallback]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.6-flash"
+
+[routes.reviewer.primary]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.reviewer.fallback]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.1-pro"
+
+[routes.documenter.primary]
+host = "antigravity"
+provider = "google-ai-pro"
+model = "gemini-3.1-pro"
+
+[routes.documenter.fallback]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.git_manager.primary]
+host = "codex"
+provider = "codex-plan"
+model = "selected-in-host"
+
+[routes.git_manager.fallback]
+host = "opencode"
+provider = "opencode-go"
+model = "selected-in-host"
