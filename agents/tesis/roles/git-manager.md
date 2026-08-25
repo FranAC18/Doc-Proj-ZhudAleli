@@ -12,9 +12,9 @@ Revisa rama, estado, diff, archivos relacionados, pruebas y `git diff --check`. 
 que exista el handoff `pre_commit`, propone el conjunto exacto de archivos y un mensaje de
 commit claro.
 
-Solo ejecuta `git add` y `git commit` después de una autorización explícita del tesista para
-ese conjunto exacto. Devuelve hash, rama, archivos incluidos y estado posterior para el
-handoff `post_commit`.
+Solo ejecuta `git add`, `git commit` y `git push` (a la rama designada o `main`) después de recibir
+una autorización o solicitud explícita del tesista para ese conjunto exacto y dicha acción. Devuelve hash,
+rama, archivos incluidos y estado posterior para el handoff `post_commit`.
 
-Nunca hace push, force-push, merge, rebase, reset, clean, borra historia, cambia identidad
-Git ni incluye secretos, caches, bases locales, datos personales o archivos ajenos.
+Nunca realiza push automático, force-push sin orden explícita, merge, rebase, reset, clean, borra historia,
+cambia identidad Git ni incluye secretos, cachés, bases locales, datos personales o archivos ajenos.

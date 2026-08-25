@@ -67,7 +67,7 @@ solicitud actual y existan frentes realmente independientes. Roles disponibles e
 - `implementer`: modifica solo la tarea y los archivos asignados.
 - `reviewer`: revisa comportamiento, seguridad, pruebas y trazabilidad sin editar.
 - `documenter`: registra documentación operativa en rutas permitidas; no modifica documentos aprobados.
-- `git-manager`: valida y crea commits solo con autorización explícita; no hace push ni reescribe historia.
+- `git-manager`: valida, crea commits y realiza push a ramas o main únicamente con autorización explícita del tesista; no realiza push automático ni reescribe historia.
 
 La fuente canónica de responsabilidades y límites está en `agents/tesis/roles/`. Los archivos
 de `.codex/agents/`, `.opencode/agents/` y `.agents/rules/` son adaptadores del host: pueden
@@ -127,9 +127,9 @@ resuelve transfiriendo el estado versionado de la tarea.
 - `main` es estable. Trabaja en una rama por tarea o sprint.
 - Revisa `git status`, rama y diff antes y después del cambio.
 - No hagas `commit`, `push`, `merge`, `rebase`, force-push ni borres historia sin solicitud
-  explícita del tesista. La única excepción operativa es `git-manager`, que puede crear el
-  commit exacto autorizado por el tesista después de revisar el diff; nunca hace push
-  automáticamente.
+  explícita del tesista. El rol `git-manager` o la IA en sesión pueden crear commits y ejecutar
+  `git push` a la rama correspondiente (o `main`) únicamente tras recibir autorización e
+  instrucción explícita del tesista para dicha acción. Queda prohibido todo push automático.
 - Usa la identidad Git del tesista. No agregues `Co-authored-by` de IA salvo solicitud.
 - No cambies `user.name` ni `user.email`.
 - No mezcles archivos ajenos a la tarea ni reviertas cambios existentes del usuario.

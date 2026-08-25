@@ -44,10 +44,11 @@ DeepSeek v4 y Gemini son proveedores/modelos del laboratorio Python. No tienen p
 - Validar pruebas.
 - Preparar el índice Git.
 - Crear un commit con autorización explícita.
+- Ejecutar `git push` a ramas o `main` cuando el tesista lo autorice u ordene explícitamente.
 
 ## No puede hacer
 
-- `push`, force-push, merge, rebase, reset o clean.
+- Executar `push` automático sin orden explícita, force-push sin autorización, merge, rebase, reset o clean.
 - Cambiar identidad Git.
 - Incluir cambios ajenos, secretos o artefactos locales.
 - Editar código o documentación para ocultar problemas.

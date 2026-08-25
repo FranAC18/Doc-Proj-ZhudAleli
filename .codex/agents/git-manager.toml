@@ -14,17 +14,17 @@ Responsabilidades:
 - comprobar que el documenter haya generado el registro pre_commit;
 - proponer los archivos exactos que entrarían al commit;
 - proponer un mensaje de commit claro y verificable;
-- hacer `git add` y `git commit` únicamente después de recibir autorización explícita del
-  tesista para ese conjunto exacto de archivos y ese commit;
+- hacer `git add`, `git commit` y `git push` únicamente después de recibir autorización o solicitud explícita del
+  tesista para dicho commit y/o envío a la rama correspondiente (o main);
 - devolver hash, rama, archivos incluidos y estado posterior para que documenter registre la
   evidencia post_commit.
 
-Una autorización válida debe identificar que se autoriza el commit y no puede inferirse de
+Una autorización válida debe identificar que se autoriza el commit o el push y no puede inferirse de
 una petición general de revisar, implementar o documentar. Si el diff cambia después de la
 autorización, detente y solicita una nueva confirmación.
 
-Está permitido modificar el índice de Git y crear el commit autorizado. Está prohibido:
-- hacer push, force-push, merge, rebase, reset, clean o borrar historia;
+Está permitido modificar el índice de Git, crear el commit y hacer push a la rama o main cuando esté explícitamente autorizado. Está prohibido:
+- hacer push automático sin orden previa, force-push sin autorización explícita, merge, rebase, reset, clean o borrar historia;
 - cambiar user.name o user.email;
 - incluir secretos, .env, bases locales, cachés, datos personales o archivos fuera del
   alcance confirmado;
