@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="902" viewBox="0 0 1160 902" role="img" aria-label="Acceso y consulta pública">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="580" y="42" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#18343b">Acceso y consulta pública</text>
+<text x="580" y="74" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#52666b">Propuesta de diseño | 28/09/2026 | Las asociaciones no aprueban permisos</text>
+<rect x="480" y="106" width="650" height="718" rx="12" fill="#f8fbfc" stroke="#627d86" stroke-width="2"/>
+<text x="805" y="134" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#18343b">Zhud Alelí · aplicación web</text>
+<path d="M 203 296.1666666666667 C 330 296.1666666666667, 394 197, 501 197" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 488.5 C 330 488.5, 394 309, 501 309" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 488.5 C 330 488.5, 394 421, 501 421" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 680.8333333333333 C 330 680.8333333333333, 394 533, 501 533" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 488.5 C 330 488.5, 394 645, 501 645" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 488.5 C 330 488.5, 394 757, 501 757" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<ellipse cx="805" cy="197" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="176" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-ADM-01</text>
+<text x="805" y="200" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Consultar información pública</text>
+<ellipse cx="805" cy="309" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="288" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-ADM-02</text>
+<text x="805" y="312" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Iniciar sesión</text>
+<ellipse cx="805" cy="421" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="400" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-ADM-03</text>
+<text x="805" y="424" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Cerrar sesión</text>
+<ellipse cx="805" cy="533" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="512" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-ADM-04</text>
+<text x="805" y="536" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Gestionar usuarios y permisos</text>
+<ellipse cx="805" cy="645" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="624" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-ADM-05 · nuevo propuesto</text>
+<text x="805" y="648" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Cambiar contraseña propia</text>
+<ellipse cx="805" cy="757" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="736" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-ADM-06 · nuevo propuesto</text>
+<text x="805" y="760" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Consultar inicio personal</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="261.1666666666667" r="13"/><path d="M 177 274.1666666666667 V 315.1666666666667 M 151 291.1666666666667 H 203 M 177 315.1666666666667 L 151 345.1666666666667 M 177 315.1666666666667 L 203 345.1666666666667"/></g>
+<text x="177" y="370.1666666666667" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Visitante</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="453.5" r="13"/><path d="M 177 466.5 V 507.5 M 151 483.5 H 203 M 177 507.5 L 151 537.5 M 177 507.5 L 203 537.5"/></g>
+<text x="177" y="562.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Usuaria interna</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="645.8333333333333" r="13"/><path d="M 177 658.8333333333333 V 699.8333333333333 M 151 675.8333333333333 H 203 M 177 699.8333333333333 L 151 729.8333333333333 M 177 699.8333333333333 L 203 729.8333333333333"/></g>
+<text x="177" y="754.8333333333333" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Directiva autorizada</text>
+<text x="580" y="859" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#52666b">SPEC-001: cuenta propia e inicio básico. ADM-04 requiere otra spec y P-01.</text>
+</svg>

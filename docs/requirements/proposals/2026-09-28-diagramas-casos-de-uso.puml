@@ -1,0 +1,179 @@
+@startuml 01-acceso
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Acceso y consulta pública — propuesta
+actor "Visitante" as V
+actor "Usuaria interna" as U
+actor "Directiva autorizada" as D
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-ADM-01\nConsultar información pública" as CU_ADM_01
+  usecase "CU-ADM-02\nIniciar sesión" as CU_ADM_02
+  usecase "CU-ADM-03\nCerrar sesión" as CU_ADM_03
+  usecase "CU-ADM-04\nGestionar usuarios y permisos" as CU_ADM_04
+  usecase "CU-ADM-05\nCambiar contraseña propia\n[nuevo propuesto]" as CU_ADM_05
+  usecase "CU-ADM-06\nConsultar inicio personal\n[nuevo propuesto]" as CU_ADM_06
+}
+V -- CU_ADM_01
+U -- CU_ADM_02
+U -- CU_ADM_03
+D -- CU_ADM_04
+U -- CU_ADM_05
+U -- CU_ADM_06
+legend bottom
+Propuesta. SPEC-001: cuenta propia e inicio básico. ADM-04 requiere otra spec y P-01.
+endlegend
+@enduml
+
+@startuml 02-planificacion
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Planificación de actividades — propuesta
+actor "Directiva autorizada" as D
+actor "Socia operaria" as S
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-PLA-01\nGestionar actividades programadas" as CU_PLA_01
+  usecase "CU-PLA-02\nAsignar responsabilidades" as CU_PLA_02
+  usecase "CU-PLA-03\nConsultar actividades asignadas" as CU_PLA_03
+  usecase "CU-PLA-04\nGestionar encargo temporal\n[nuevo propuesto]" as CU_PLA_04
+  usecase "CU-PLA-05\nPlanificar producción semanal\n[nuevo propuesto]" as CU_PLA_05
+}
+D -- CU_PLA_01
+D -- CU_PLA_02
+D -- CU_PLA_03
+S -- CU_PLA_03
+D -- CU_PLA_04
+D -- CU_PLA_05
+legend bottom
+Propuesta. P-01 define permisos. Actividad existente es precondición de asignar responsabilidades.
+endlegend
+@enduml
+
+@startuml 03-asistencia
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Asistencia y participación — propuesta
+actor "Usuaria interna" as U
+actor "Directiva autorizada" as D
+actor "Encargada autorizada" as E
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-ASI-01\nRegistrar asistencia" as CU_ASI_01
+  usecase "CU-ASI-02\nRegistrar resolución de pendientes" as CU_ASI_02
+  usecase "CU-ASI-03\nConsultar historial de participación" as CU_ASI_03
+  usecase "CU-ASI-04\nCorregir asistencia\n[nuevo propuesto]" as CU_ASI_04
+  usecase "CU-ASI-05\nRegistrar participación adicional\n[nuevo propuesto]" as CU_ASI_05
+}
+U -- CU_ASI_01
+D -- CU_ASI_02
+U -- CU_ASI_03
+D -- CU_ASI_04
+E -- CU_ASI_04
+D -- CU_ASI_05
+E -- CU_ASI_05
+legend bottom
+Propuesta. Asamblea decide fuera del sistema; Directiva registra. ASI-05: permiso por validar en P-01.
+endlegend
+@enduml
+
+@startuml 04-trazabilidad
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Producción e inventario — propuesta
+actor "Socia autorizada" as E
+actor "Directiva autorizada" as D
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-TRA-01\nRegistrar acopio de materia prima" as CU_TRA_01
+  usecase "CU-TRA-02\nRegistrar seguimiento de secado" as CU_TRA_02
+  usecase "CU-TRA-03\nRegistrar manufactura y lote" as CU_TRA_03
+  usecase "CU-TRA-04\nConsultar existencias y movimientos" as CU_TRA_04
+  usecase "CU-TRA-05\nRegistrar despacho" as CU_TRA_05
+  usecase "CU-TRA-07\nConsultar trazabilidad de lote" as CU_TRA_07
+  usecase "CU-TRA-08\nRegistrar ajuste o corrección productiva\n[nuevo propuesto]" as CU_TRA_08
+}
+E -- CU_TRA_01
+E -- CU_TRA_02
+E -- CU_TRA_03
+E -- CU_TRA_04
+E -- CU_TRA_05
+D -- CU_TRA_07
+E -- CU_TRA_07
+D -- CU_TRA_08
+E -- CU_TRA_08
+legend bottom
+Propuesta. P-01 y encargo vigente limitan cada acción. Consultar inventario nunca crea movimientos.
+endlegend
+@enduml
+
+@startuml 05-comercial
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Ventas, saldos y catálogo — propuesta
+actor "Directiva / Tesorera" as D
+actor "Encargada de feria" as E
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-TRA-06\nConsultar cuentas por cobrar" as CU_TRA_06
+  usecase "CU-CAT-01\nMantener catálogo y valores históricos\n[nuevo propuesto]" as CU_CAT_01
+  usecase "CU-VEN-01\nRegistrar venta\n[nuevo propuesto]" as CU_VEN_01
+  usecase "CU-CON-01\nRegistrar comprobante de contingencia\n[nuevo propuesto]" as CU_CON_01
+  usecase "CU-CXC-01\nRegistrar abono\n[nuevo propuesto]" as CU_CXC_01
+  usecase "CU-CXC-02\nConciliar encargo y rendición\n[nuevo propuesto]" as CU_CXC_02
+  usecase "CU-GAS-01\nRegistrar gastos y consultar resumen\n[nuevo propuesto]" as CU_GAS_01
+}
+D -- CU_TRA_06
+D -- CU_CAT_01
+D -- CU_VEN_01
+E -- CU_VEN_01
+D -- CU_CON_01
+E -- CU_CON_01
+D -- CU_CXC_01
+D -- CU_CXC_02
+E -- CU_CXC_02
+D -- CU_GAS_01
+legend bottom
+Propuesta. Vista funcional, no nueva app decidida. P-01 delimita permisos; P-07/08/09/10 siguen abiertos.
+endlegend
+@enduml
+
+@startuml 06-reportes
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Reportes y gestión de contenido público — propuesta
+actor "Directiva autorizada" as D
+actor "Socia operaria" as S
+actor "Publicadora autorizada" as P
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-REP-01\nConsultar dashboard consolidado" as CU_REP_01
+  usecase "CU-REP-02\nGenerar reportes y descargar PDF" as CU_REP_02
+  usecase "CU-REP-03\nConsultar resumen propio y recordatorios\n[nuevo propuesto]" as CU_REP_03
+  usecase "CU-PUB-01\nGestionar publicación de contenido\n[nuevo propuesto]" as CU_PUB_01
+}
+D -- CU_REP_01
+D -- CU_REP_02
+S -- CU_REP_03
+P -- CU_PUB_01
+legend bottom
+Propuesta. Publicadora es un permiso, no un nuevo rol. P-01/P-12 delimitan preparar, aprobar y publicar.
+endlegend
+@enduml
+
+@startuml 07-continuidad
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+title Continuidad sin conexión — requerida — propuesta
+actor "Usuaria habilitada" as U
+rectangle "Zhud Alelí — aplicación web" {
+  usecase "CU-OFF-01\nGuardar operación esencial sin conexión" as CU_OFF_01
+  usecase "CU-OFF-02\nSincronizar y revisar pendientes" as CU_OFF_02
+}
+U -- CU_OFF_01
+U -- CU_OFF_02
+legend bottom
+Propuesta. Requerida por el tesista. Asistencia y pesajes: detalle por especificar; sincronizar no omite permisos.
+endlegend
+@enduml

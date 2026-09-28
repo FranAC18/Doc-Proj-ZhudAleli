@@ -6,6 +6,8 @@ spec: "[[spec]]"
 plan: "[[plan]]"
 approved: 2026-08-24
 approved_by: Tesista
+editorial_revision: 2026-09-28
+revision_scope: dependencias-y-cobertura-del-plan-aprobado
 ---
 
 # Tareas: Acceso de usuarias internas
@@ -21,8 +23,8 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
 - Escritores disponibles: `agente-raiz` (integra y escribe; conserva la propiedad de los
   archivos), `implementer` (código), `reviewer` (revisión, no edita), `coordinator`
   (trazabilidad y dashboard).
-- Los agentes `ux` y `architect` son `read-only`: entregan propuestas y el `agente-raiz`
-  escribe los artefactos de diseño.
+- Para estas tareas, `ux` y `architect` aportan propuestas; el `agente-raiz` integra los
+  artefactos. Los permisos generales del rol se consultan en `agents/tesis/roles/`.
 
 ## Fase 1 — Diseño del sistema (Fase II del anteproyecto; sin Django todavía)
 
@@ -58,7 +60,7 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
 
 - [ ] T008 [architect] [agente-raiz] Elaborar el mapa conceptual inicial del dominio en
       `docs/architecture/MODELO-RELACIONAL.md` a partir de CAT-REQ-001 y las decisiones
-      D-001 a D-012: módulos `accounts`, `planning`, `attendance`, `traceability`, `reports` y
+      D-001 a D-011: módulos `accounts`, `planning`, `attendance`, `traceability`, `reports` y
       `public_site`; las entidades futuras quedan marcadas como `proposed` y no bloquean S1.
       No se inventan reglas no confirmadas y cada entidad enlaza su requisito fuente.
 - [ ] T009 [architect] [agente-raiz] Definir en
@@ -78,11 +80,12 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
       aprobados; IDs `RF-ACC-001` y RNF aplicables → enlaces válidos en `spec.md` y `plan.md`.
       Confirmar además que la implementación de S1 se limita a `accounts` y acceso; no se
       crean apps ni reglas operativas de sprints futuros.
-- [ ] T013 [P] [implementer] Inicializar proyecto Django en la raíz: `pyproject.toml`,
+- [ ] T013 [implementer] Inicializar proyecto Django en la raíz: `pyproject.toml`,
       `uv.lock`, `manage.py`, `config/__init__.py`, `config/urls.py`, `config/asgi.py`,
       `config/wsgi.py`, `apps/__init__.py`, `.env.example` y el esqueleto de CI en
-      `.github/workflows/ci.yml` → `uv run python manage.py check` pasa sin aplicación de
-      negocio y el workflow queda preparado para instalar el proyecto raíz.
+      `.github/workflows/ci.yml` → dependencias resueltas y sintaxis del esqueleto comprobada;
+      el workflow queda preparado para instalar el proyecto raíz. La comprobación Django
+      se ejecuta en T014, una vez creados los settings.
 - [ ] T014 [implementer] Crear settings por entorno en `config/settings/base.py`,
       `development.py`, `test.py`, `production.py` e `__init__.py` con carga `python-dotenv`
       y secretos fuera de Git → `uv run python manage.py check --settings=config.settings.development`.
@@ -160,6 +163,12 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
 
 ## Fase 7 — Revisión del incremento y cierre
 
+- [ ] T037 [implementer] Completar `.github/workflows/ci.yml` y la configuración de Ruff en
+      `pyproject.toml`, después de T032: instalación reproducible, PostgreSQL de pruebas,
+      comprobaciones Django y despliegue con variables ficticias, migraciones sin cambios,
+      suite de pruebas y `uv run ruff check .` → ejecutar localmente los mismos comandos del
+      plan y revisar sintaxis del workflow. Registrar ejecución remota solo cuando ocurra;
+      no publicar para simular evidencia ni usar secretos/datos reales.
 - [ ] T033 [reviewer] Revisar criterios CA-01 a CA-11, RNF aplicables, SC-001 a SC-005,
       matriz de autorización (positivos y negativos), integridad y diff → hallazgos registrados
       sin editar.
@@ -181,13 +190,14 @@ T015 → T016 → T017 → T018 → T019 → T020
 T020 → T021 → T022 → T023 → T024
 T021 → T025 → T026 → T027 → T028
 T022 → T029 → T030 → T031 → T032
-T024/T028/T031 → T033 → T034 → T035 → T036
+T024/T028/T032 → T037 → T033 → T034 → T035 → T036
 ```
 
 `[P]` (no comparten archivos ni estado):
 - T002 y T003: subentregables independientes de la misma hoja de estilos, cada uno con
   archivos propios; T004 depende de ambos y es el único escritor de `index.html`.
-- T013: inicialización de Django no comparte archivos con las tareas de diseño.
+
+T013 comienza tras T012; no se marca paralela porque es una dependencia secuencial de preparación.
 
 ## Verificación final
 
@@ -206,3 +216,12 @@ T024/T028/T031 → T033 → T034 → T035 → T036
 - [ ] `git diff --check` y diff completo revisados.
 - [ ] Evidencia, matriz y documentación actualizadas.
 - [ ] No hay credenciales, datos personales ni cambios fuera de alcance.
+
+## Revisión editorial del 2026-09-28
+
+Correcciones S1–S4 de la [[../../docs/evidence/casos-de-uso/2026-09-28-analisis-coherencia|auditoría]]:
+T008 cita el registro existente; T013 no exige settings que aún no existen; T033 espera UI y
+CI; T037 hace ejecutable el CI/lint ya exigido por el plan aprobado. Se preservan los IDs
+anteriores, el alcance RF-ACC-001, las puertas humanas y todas las casillas pendientes.
+La aprobación del 24/08 corresponde a la base; esta corrección no declara nuevas pruebas
+pasadas, aprobación de diseño ni ejecución remota. Hay 37 tareas planificadas.

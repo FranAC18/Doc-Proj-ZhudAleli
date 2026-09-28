@@ -1,165 +1,365 @@
 ---
-title: Plan de implementación desde cero
+title: Plan maestro de implementación modular y PWA
 type: roadmap
 status: proposed
-date: 2026-07-21
+date: 2026-09-22
+approved_by: tesista
+approved: 2026-09-22
+director_review: pending
+architecture: "[[../decisions/proposals/2026-09-22-arquitectura-modular-desacoplada]]"
+related:
+  - "[[ARQUITECTURA-OBJETIVO]]"
+  - "[[MODULOS-DETALLADOS]]"
+  - "[[../decisions/ADR-0003-estructura-raiz-aplicacion-django]]"
+  - "[[../../specs/001-acceso-usuarias-internas/plan]]"
 tags:
   - proyecto/tesis
   - tipo/plan
+  - estado/proposed
+  - modulo/transversal
 ---
 
-# Plan de implementación desde cero
+# Plan maestro de implementación modular y PWA
 
-Este plan conserva los cinco sprints de desarrollo del anteproyecto. La preparación técnica
-es una etapa previa, no un sexto sprint académico.
+## Estado, alcance y gobernanza
 
-## Etapa 0 — Preparación y control del proyecto
+Este documento reemplaza la hoja de ruta técnica anterior y traduce el Plan Maestro entregado
+por el tesista a las convenciones canónicas del repositorio. El tesista autorizó su ejecución
+planificada el 2026-09-22. Permanece `proposed` porque la constitución exige revisión de la
+directora cuando una decisión de metodología o alcance afecta el anteproyecto.
 
-**Resultado**: repositorio reproducible, memoria Obsidian única, reglas de agentes, CI básico
-y decisiones de alcance visibles.
+La aplicación es una PWA para la gestión organizacional y productiva del Comité de Mujeres
+Indígenas «Tránsito Amaguaña» de Zhud y su unidad productiva Zhud Alelí. El horizonte es de 16
+semanas, con un desarrollador único, validación progresiva con usuarias y despliegue de bajo
+costo. No se crea código ni se cambian requisitos confirmados desde este roadmap; cada módulo
+funcional deberá tener su propia spec, plan, tareas y puerta de aprobación.
 
-- Integrar esta base en una rama `chore/portable-harness`.
-- Abrir la raíz como vault y validar enlaces.
-- Aprobar o corregir Constitución y ADR-0002.
-- Ejecutar smoke tests con el motor principal. El motor alternativo queda como comparación
-  opcional si existe acceso sin costo adicional.
-- Resolver dónde se guardará el PDF aprobado fuera del repositorio público.
-- Cerrar Sprint 0 solo con la evidencia definida en su documento.
+La arquitectura aprobada para planificar es un **monolito modular Django con capas de dominio
+aisladas y separación hexagonal pragmática**, complementado por una PWA offline-first con
+outbox para las operaciones esenciales especificadas. Guardar y sincronizar asistencia y
+pesajes es una necesidad obligatoria del diseño solicitado el 2026-09-28; falta concretar
+las políticas operativas, no decidir si se incorpora esa capacidad. No se usarán
+microservicios, SPA independiente ni gRPC en la primera entrega.
 
-**Puerta**: el agente lee el contexto correctamente; no hay secretos; Git y Obsidian están
-operativos; el tesista aprueba el flujo.
+## 1. Principios de implementación
 
-## Fase I — Levantamiento de requisitos
+1. **Un solo despliegue, límites explícitos.** Django y PostgreSQL se despliegan como una
+   aplicación integrada, pero cada bounded context posee sus modelos, migraciones, invariantes,
+   servicios y pruebas.
+2. **Contratos en lugar de acceso cruzado.** Un módulo no importa modelos internos, hace `JOIN`
+   ni escribe tablas de otro. Las llamadas cruzadas usan servicios de aplicación, consultas
+   públicas o eventos versionados.
+3. **Hexagonalidad pragmática.** Las reglas de negocio se separan de las vistas y del ORM donde
+   exista riesgo real. No se crean interfaces abstractas ni repositorios genéricos para CRUDs
+   simples.
+4. **Integridad transaccional.** Las operaciones críticas usan PostgreSQL y `transaction.atomic`.
+   Inventario, pesajes, secado, lotes, despachos y cuentas por cobrar conservan movimientos,
+   actor, instante y motivo de corrección cuando el requisito lo exige.
+5. **Offline verificable.** La interfaz informa si un dato está guardado localmente, pendiente,
+   sincronizado o rechazado. Cada operación offline usa `client_operation_id` UUID v4 y el
+   servidor debe ser idempotente.
+6. **Fuentes de verdad separadas.** Este roadmap organiza la ejecución; las reglas de negocio
+   aprobadas viven en specs y requisitos; el código y las pruebas demuestran lo implementado.
+7. **Iteración con puertas.** Cada fase termina con pruebas, revisión del diff, evidencia y
+   validación humana. Una capacidad pendiente de campo no se implementa por conveniencia.
 
-**Resultado**: Product Backlog validado y requisitos trazables.
+## 2. Contexto técnico y decisiones de plataforma
 
-1. Preparar guion de entrevista y ficha de observación a partir de D-001 a D-010.
-2. Observar recorridos actuales de planificación, asistencia, acopio, secado, lotes,
-   inventario y reportes.
-3. Identificar actores, datos mínimos, excepciones, correcciones y responsables.
-4. Redactar propuestas con fuente y fecha; separar hechos de hipótesis.
-5. Validar con la organización usando lenguaje y ejemplos comprensibles.
-6. Convertir cada capacidad aprobada en spec con RF/RNF y criterios Given/When/Then.
-7. Priorizar backlog respetando el orden de sprints aprobado.
+| Área | Decisión de planificación | Límite o pendiente |
+|---|---|---|
+| Runtime | Python 3.12 y Django 5.2 LTS | Se conserva la arquitectura MTV y plantillas Django. |
+| Persistencia | PostgreSQL en desarrollo y producción | SQLite solo para pruebas unitarias que no oculten diferencias relevantes. |
+| UI | Django Templates, Bootstrap 5 local y JavaScript progresivo | No se crea una SPA independiente. |
+| PWA | `manifest.json`, Service Worker, Cache Storage e IndexedDB | La cola offline se activa por módulo solo después de aprobar su spec y conflicto. |
+| API de sincronización | HTTP JSON versionado (`/api/v1/sync/outbox/`) | Es un adaptador; los casos de uso siguen dentro del módulo propietario. |
+| Infraestructura | Supabase para PostgreSQL y Vercel en la factibilidad/presupuesto aportados | Verificar ubicación real de ejecución Django, conexiones, archivos, HTTPS, costos y respaldos. La selección prevista no acredita un despliegue probado ni tarifas garantizadas. |
+| Dependencias | `pyproject.toml` y archivo de bloqueo | La herramienta concreta debe quedar aprobada en el plan de la primera porción. |
+| Calidad | `manage.py check`, migraciones, pytest/Django TestCase, pruebas de contrato y CI | La evidencia debe quedar en el vault y no contener datos reales. |
 
-**Puerta**: no quedan decisiones de alcance críticas ocultas; cada requisito tiene actor,
-fuente, criterios y estado.
+La [[../requirements/proposals/2026-09-28-catalogo-v1-1|revisión v1.1]] contiene la reconciliación
+con la línea base que excluía sincronización. La capacidad offline es obligatoria en el diseño
+solicitado; P-13/P-14 precisan aceptación temporal, identidad y conflictos. La existencia de
+una puerta no resuelve por sí sola la contradicción ni valida esos parámetros.
 
-## Fase II — Diseño del sistema
+Referencia actual: [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|16 semanas y USD 2.869]].
+Este roadmap conserva aprobación de planificación del 22/09, revisión de la directora pendiente
+y cambios documentales del 28/09; no atribuye aprobación funcional a la arquitectura propuesta.
 
-**Resultado**: arquitectura, datos y sistema visual listos para implementación incremental.
+## 3. Módulos y bounded contexts canónicos
 
-- Confirmar el monolito modular y elaborar diagramas de contexto, módulos y despliegue.
-- Crear modelo conceptual y relacional, diccionario de datos y reglas de integridad.
-- Definir RBAC real y matriz rol × permiso × operación.
-- Diseñar recorridos móviles y prototipos de baja/alta fidelidad.
-- Validar sistema visual Bootstrap con usuarias antes de multiplicar pantallas.
-- Definir estrategia de pruebas y medición de adecuación funcional ISO/IEC 25010:2023.
-- Registrar decisiones relevantes en ADR.
+Los nombres del Plan Maestro se normalizan a los nombres ya establecidos por la constitución y
+ADR-0003. `authentication` se implementa como `accounts`, `production` como `traceability` y
+`dashboard` como `reports`; no se renombrarán las apps canónicas sin un ADR adicional.
 
-**Puerta**: arquitectura y datos cubren requisitos; prototipo y permisos están validados; los
-riesgos tienen mitigación.
+| App | Propiedad | Dependencias permitidas | Contratos principales |
+|---|---|---|---|
+| `core` | IDs, reloj, navegación base, auditoría técnica, sobre de evento, outbox y utilidades PWA | Ninguna regla de dominio | Layout, middleware, `EventEnvelope`, estado de sincronización |
+| `accounts` | Usuario personalizado, membresía, roles, permisos, sesiones y credenciales | `core` | Consultas de autorización, `UserId`, eventos de activación/desactivación |
+| `planning` | Jornadas, actividades, asignaciones, fechas y estados | `accounts` por IDs y políticas | Consultas de agenda, `ActivityScheduled`, `AssignmentChanged` |
+| `attendance` | Asistencia, entrada/salida, participación y correcciones | `accounts`, `planning` por IDs | `AttendanceRecorded`, resumen de participación, ingestión idempotente |
+| `traceability` | Catálogo, acopio, pesaje, secado, formulación, lotes, mermas, inventario, despachos y cuentas por cobrar | `accounts` por IDs y autorización; consultas públicas de actividad cuando aplique | Comandos productivos, movimientos de inventario, `LotCreated`, `InventoryMoved`, saldos |
+| `reports` | Dashboard, filtros, PDFs y proyecciones de lectura | Eventos y consultas públicas; nunca tablas operativas internas | Reportes derivados, exportaciones y métricas con fórmula/periodo/fuente |
+| `public_site` | Contenido público aprobado y navegación externa | Proyección pública, sin datos internos | Páginas públicas y estado de publicación |
 
-## Base técnica de Django
+El contexto comercial permanece dentro de `traceability` para la primera planificación porque
+ventas, gastos y cuentas por cobrar forman parte del alcance confirmado. Si su complejidad o
+reglas de autorización requieren separación, se abrirá una spec y un ADR antes de crear otra app.
 
-Se crea justo antes del Sprint 1, en la misma rama de preparación técnica aprobada:
+### Contratos inter-módulo
 
-- Python 3.12, Django 5.2 LTS y PostgreSQL.
-- `config/`, settings por entorno y `.env.example` sin secretos.
-- apps vacías únicamente cuando tienen responsabilidad definida.
-- usuario personalizado, layout Bootstrap, navegación y componentes base.
-- Ruff, pruebas Django/pytest, cobertura orientativa y CI.
-- migraciones, datos de demostración anónimos y guía de instalación.
-- health check y manejo de errores básico.
+- **Dentro del proceso:** `application/services.py`, `commands.py`, `queries.py` o protocolos
+  equivalentes. El nombre y el payload son contratos versionables; las vistas son adaptadores.
+- **Eventos:** el módulo propietario escribe el evento y su cambio de estado en la misma
+  transacción. El dispatcher puede ser interno en v1; un broker externo requiere necesidad
+  comprobada.
+- **HTTP/JSON:** se habilita para la PWA y futuras integraciones. `/api/v1/sync/outbox/` recibe
+  lotes y delega cada comando a su módulo; no contiene reglas duplicadas.
+- **REST interno:** no se usa para llamadas entre apps del mismo proceso; la serialización
+  obligatoria añadiría complejidad sin una frontera de despliegue.
+- **gRPC:** queda fuera de v1 porque no existe una frontera de red independiente.
 
-No se crean modelos de negocio especulativos para “adelantar trabajo”.
+## 4. Estructura física del repositorio
 
-## Sprint 1 — Administración y acceso
+La aplicación se ubicará en la raíz ya aceptada por ADR-0003. Se comienza con archivos simples
+cuando la app sea pequeña y se promueve a paquetes internos cuando una regla real lo requiera.
 
-**Incremento funcional**: usuarias autenticadas acceden solo a las operaciones de su rol;
-visitantes ven contenido público aprobado.
+```text
+F:/Tesis/App Tesis/
+├── manage.py
+├── pyproject.toml
+├── uv.lock
+├── .env.example
+├── config/
+│   ├── settings/{base.py,development.py,test.py,production.py}
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+├── apps/
+│   ├── core/
+│   │   ├── domain/{ids.py,clock.py,audit.py}
+│   │   ├── application/{events.py,outbox.py}
+│   │   └── infrastructure/{models.py,migrations/}
+│   ├── accounts/
+│   │   ├── models.py
+│   │   ├── application/{services.py,commands.py,queries.py}
+│   │   ├── interfaces/{forms.py,views.py,urls.py,api_views.py}
+│   │   ├── migrations/
+│   │   ├── templates/accounts/
+│   │   └── tests/{unit,integration,contract}/
+│   ├── planning/
+│   ├── attendance/
+│   ├── traceability/
+│   ├── reports/
+│   └── public_site/
+├── templates/{base.html,components/}
+├── static/{css,js,pwa,manifest.json,vendor/}
+├── tests/{architecture,contract,integration}/
+├── specs/
+├── docs/
+├── agents/
+├── .agents/
+├── .codex/
+└── tools/
+```
 
-- Usuario, membresía y estados de acceso.
-- Login, logout, cambio y recuperación de contraseña únicamente según la spec aprobada.
-- Grupos/permisos según matriz validada.
-- Gestión mínima de usuarias por la directiva autorizada.
-- Shell público mínimo y navegación diferenciada; la gestión y publicación final pertenecen
-  al Sprint 5.
-- Pruebas positivas/negativas, sesión, CSRF y accesibilidad del flujo.
+La primera implementación solo crea `config`, `apps/accounts` y los recursos globales que
+`SPEC-001` necesite. Las apps futuras no se crean vacías para anticipar el alcance.
 
-**Demo**: cada perfil completa su recorrido y recibe denegación correcta en operaciones no
-autorizadas.
+## 5. PWA offline-first y patrón outbox
 
-## Sprint 2 — Planificación de actividades
+### Flujo operativo
 
-**Incremento funcional**: la directiva programa jornadas/actividades y asigna responsables;
-las socias consultan lo que les corresponde.
+```text
+Usuaria registra asistencia o pesaje
+        │
+        ├─ conexión disponible ──> POST al contrato del módulo ──> PostgreSQL
+        │                            respuesta confirmada
+        │
+        └─ sin conexión ──> IndexedDB: {client_operation_id, payload, status: PENDING}
+                              indicador textual «Guardado en dispositivo»
+                                      │ evento online / reintento explícito
+                                      ▼
+                              POST /api/v1/sync/outbox/
+                                      │
+                              validación + transaction.atomic()
+                                      │
+                              CONFIRMED o REJECTED con código recuperable
+```
 
-- Actividad, fecha, responsable, estado y observaciones validadas.
-- Listado y calendario simple si aporta valor en dispositivos reales.
-- Cambios de estado con reglas explícitas.
-- Notificaciones solo si el canal, consentimiento y conectividad están confirmados.
-- Pruebas de solapamientos, fechas límite, permisos y estados vacíos.
+### Componentes
 
-## Sprint 3 — Asistencia y participación
+- `manifest.json`: instalación `standalone`, orientación móvil y colores validados por UX.
+- `sw.js`: Cache-First para app shell y recursos locales; Network-First con fallback para
+  páginas públicas visitadas. Se excluyen autenticación y respuestas privadas de SPEC-001.
+  Los formularios offline tendrán un shell específico; la precarga mínima privada, si es
+  necesaria, se define y protege en P-14, sin cachear HTML privado de forma indiscriminada.
+- `idb-manager.js`: almacenes `catalogo_cache` y `transacciones_outbox`, sin contraseñas ni
+  datos personales innecesarios.
+- `sync-engine.js`: reintento explícito o por evento `online`, backoff y deduplicación por UUID.
+- Endpoint de sincronización: autentica, valida versión de contrato, limita el lote, procesa
+  por módulo y devuelve resultado individual; nunca informa éxito antes de confirmar la
+  transacción.
 
-**Incremento funcional**: se registra asistencia de forma completa y corregible bajo reglas
-aprobadas.
+El outbox del navegador contiene comandos todavía pendientes de aceptación; el outbox de
+servidor, si se adopta mediante ADR, contiene eventos de cambios ya confirmados. Son dos
+responsabilidades distintas: un registro local no prueba que la transacción remota ocurrió.
+Los campos, UUID y ruta HTTP de esta sección son diseño propuesto, no contrato aprobado.
 
-- Entrada, salida, actividad y participación.
-- Prevención de duplicados e inconsistencias temporales.
-- Corrección autorizada con motivo e historial cuando se confirme.
-- Historial individual y resumen por periodo.
-- Pruebas de duplicados, ausencias, correcciones y permisos.
+### Criterios de seguridad e idempotencia
 
-## Sprint 4 — Trazabilidad productiva
+- `client_operation_id` es único por módulo y operación; una repetición devuelve el resultado
+  anterior en lugar de duplicar el registro.
+- El servidor usa una restricción de unicidad y un estado de procesamiento auditable.
+- Las operaciones rechazadas permanecen visibles en el dispositivo con un mensaje comprensible
+  y opción de corregir o descartar según la regla del módulo.
+- La sincronización no permite saltarse RBAC: el servidor vuelve a evaluar el permiso al recibir
+  el comando.
+- La cola local no se considera respaldo; el sistema informa que un dato no sincronizado puede
+  perderse si se borra el almacenamiento del dispositivo.
 
-**Incremento funcional**: una materia prima puede seguirse desde el acopio hasta el lote y
-movimiento de inventario con los datos confirmados.
+## 6. Persistencia e integridad de datos
 
-- Recepción/acopio y origen.
-- Proceso de secado y variables validadas.
-- Transformación, lote, merma y producto resultante.
-- Movimientos de inventario y conciliación.
-- Transacciones, unidades, redondeo y prohibición de saldos inválidos.
-- Pruebas de trazabilidad completa, correcciones, concurrencia e integridad.
+1. PostgreSQL es la fuente operativa. Cada app posee sus tablas, migraciones, índices y reglas.
+2. Las claves foráneas se usan dentro del bounded context. Las referencias externas usan UUID o
+   IDs estables y se validan mediante contratos; no hay joins ni FKs cruzadas en el dominio.
+3. `traceability` conserva el flujo acopio → pesaje → secado → formulación/lote → inventario →
+   despacho → cuenta por cobrar. Cada transición registra entradas y salidas, no solo totales.
+4. Los reportes leen proyecciones o servicios de consulta versionados. No mantienen una segunda
+   copia operativa ni escriben tablas de producción.
+5. El outbox se actualiza junto con el cambio de negocio. Los consumidores son idempotentes y
+   se puede reconstruir una proyección sin mutar el origen.
+6. Las operaciones críticas delimitan `transaction.atomic`, aplican restricciones y bloqueos de
+   fila solo donde exista una regla de concurrencia demostrada. La frontera de app no divide
+   una operación que debe ser atómica: venta, líneas, movimientos y efectos monetarios se
+   confirman juntos o se revierten juntos. Los eventos no justifican saldos parciales.
+7. Un esquema PostgreSQL por app queda como endurecimiento futuro; no se impone antes de validar
+   las migraciones Django y la necesidad de segregación de permisos.
+8. Los respaldos, retención, borrado y recuperación se definen antes del despliegue productivo;
+   Supabase o cualquier proveedor debe demostrar estas capacidades.
 
-Ventas y cuentas por cobrar forman parte del alcance confirmado por D-002 y D-010; sus
-recorridos, permisos y datos se concretarán en las especificaciones aprobadas.
+## 7. RBAC y experiencia móvil
 
-## Sprint 5 — Reportes y gestión de información
+La matriz de permisos se deriva de requisitos confirmados y no de esta nota. La traducción
+inicial del Plan Maestro es:
 
-**Incremento funcional**: la directiva consulta y exporta los reportes priorizados con
-fórmula, periodo y fuente entendibles.
+| Perfil | Acceso previsto | Validación necesaria |
+|---|---|---|
+| Directiva (presidenta, secretaria, tesorera) | Gestión autorizada, supervisión y reportes según cargo | Confirmar operación por cargo en la matriz de permisos. |
+| Socia operaria | Perfil propio, tareas, asistencia y entregas permitidas | Confirmar qué registros puede crear/corregir. |
+| Visitante | Sitio público | No debe recibir datos internos. |
 
-- Filtros y resúmenes de asistencia, producción e inventario confirmados.
-- Totales derivados de datos operativos, sin duplicación silenciosa.
-- Exportación únicamente en formatos necesarios.
-- Página pública final con el contenido y los publicadores que se aprueben al resolver P-12.
-- Pruebas de fórmulas, permisos, periodos, zonas horarias y conjuntos vacíos.
+Las pantallas serán mobile-first, táctiles, comprensibles sin vocabulario técnico, con contraste
+AA, teclado, zoom al 200 % y estados expresados por texto además de color. La «regla de tres
+toques» se mantiene como objetivo UX a validar, no como requisito aprobado hasta medirla con
+usuarias.
 
-## Fase IV — Evaluación
+## 8. Fases e hitos de 16 semanas
 
-- Construir matriz de adecuación funcional: completitud, corrección y pertinencia.
-- Enlazar requisito → caso de prueba → resultado → evidencia.
-- Ejecutar pruebas del sistema en ambiente controlado.
-- Realizar validación con usuarias mediante tareas representativas.
-- Registrar método, muestra, instrumento, resultados y limitaciones.
-- Corregir defectos o documentar limitaciones sin alterar resultados retrospectivamente.
+Las fases técnicas se alinean con los cinco sprints del anteproyecto. F1 y F2 son diseño y
+fundación; no sustituyen los sprints académicos.
 
-## Fase V — Documentación y entrega
+| Fase | Semanas | Objetivo | Entregable / puerta |
+|---|---:|---|---|
+| F1. Requisitos | 1–2 | Levantar, analizar y validar necesidades, alcance y pendientes, incluida continuidad offline. | Catálogo revisado y prioridades; identificar políticas que debe cerrar cada spec. |
+| F2. Diseño y entorno PWA | 3–4 | Diseñar arquitectura, base de datos, UX y continuidad; preparar configuración PWA y entorno. | Modelo, wireframes y contratos revisados. Crear base Django solo tras puertas de diseño de SPEC-001; registrar por separado verificaciones de entorno y funcionales. |
+| F3. Administración y acceso | 5–6 | Acceso básico de SPEC-001 y porciones posteriores de membresía/permisos/inicio según specs propias. | SPEC-001 cubre RF-ACC-001; RF-ACC-002/003/004 necesitan sus propias puertas. Completar SPEC-001 no completa todo S1. |
+| F4. Planificación | 6–7 | Registrar jornadas, actividades, responsables, fechas y estados. | Vertical slice de `planning`, contrato con `accounts`, pruebas de permisos y estados. |
+| F5. Asistencia y primer offline | 7–8 | Registrar mingas/asambleas, participación y correcciones; habilitar outbox solo para el flujo aprobado. | `attendance`, IndexedDB, sincronización idempotente, corte de red y validación con usuarias. |
+| F6. Trazabilidad y gestión comercial | 9–10 | Catálogos, acopio, secado, rendimiento, transformación, lotes, inventario, entregas, ventas, gastos, pagos y rendición. | 23 RF confirmados con sus specs; transacciones, pesajes offline y conciliación. Bruto/tara/neto solo si la spec los define; no son campos nuevos aprobados aquí. |
+| F7. Dashboard y reportes | 11–12 | Consolidar métricas simples y PDFs comprensibles para la asamblea. | `reports` y `public_site`, proyecciones, fórmulas, periodos, permisos y salida imprimible. |
+| F8. Integración y evaluación técnica | 13–14 | Probar módulos, sincronización concurrente, recuperación, seguridad, accesibilidad y calidad funcional. | Suite de sistema, pruebas de red intermitente, respaldo/restauración y resultados ISO/IEC 25010:2023. |
+| F9. Territorio y cierre | 15–16 | Validar recorridos reales, capacitar, documentar y transferir. | Talleres, manuales, evidencia anonimizada, decisión de despliegue y aprobación de cierre. |
 
-- Manual técnico reproducible.
-- Manual de usuaria con recorridos y lenguaje validado.
-- Diccionario de datos y diagramas finales.
-- Historial de decisiones y sprints como insumo para capítulos.
-- Anexos con instrumentos y evidencia anonimizada.
-- Revisión de coherencia entre anteproyecto, sistema y tesis final.
-- Respaldo, despliegue, transferencia y plan de mantenimiento.
+### Puertas de avance
+
+- **F1 → F2:** necesidades y alcance identificados; arquitectura, contratos y políticas
+  detalladas se diseñan en F2, antes de la implementación afectada.
+- **F2 → F3:** diseño de la porción aprobado y entorno reproducible; no se presenta
+  PWA funcional como terminada solo por configurar el entorno.
+- **Cada sprint:** demo independiente, casos positivos/negativos y revisión con usuarias.
+- **F7 → F8:** reportes explican fórmula, periodo y fuente y no duplican totales operativos.
+- **F8 → F9:** no existen hallazgos críticos abiertos y las pruebas de recuperación tienen
+  evidencia.
+- **Cierre:** matriz requisito → diseño → código → prueba → evidencia actualizada y aprobación
+  humana.
+
+## 9. Estrategia de pruebas y CI
+
+- **Unitarias:** reglas de dominio, normalización, cálculos de merma, UUID e idempotencia.
+- **Integración:** ORM, migraciones, `transaction.atomic`, restricciones y PostgreSQL real.
+- **Contratos:** payloads de servicios, respuestas HTTP, códigos de rechazo y compatibilidad
+  entre productor y consumidor.
+- **Arquitectura:** imports permitidos, ausencia de joins cruzados y ownership de migraciones.
+- **PWA:** app shell sin red, cache, almacenamiento local, reintento, duplicados, orden y
+  conflicto de lotes.
+- **Seguridad:** RBAC positivo/negativo, CSRF, sesión, no filtración, no caché y logs seguros.
+- **UX:** 360 px, zoom 200 %, teclado, contraste AA, comprensión y regla de tres toques como
+  objetivo medido.
+- **CI:** `manage.py check`, migraciones, tests, lint, análisis de imports y artefactos; no se
+  ejecutan datos reales ni secretos.
+
+## 10. Migración y reversión
+
+Aunque la aplicación actual es greenfield, si aparece código acoplado se aplicará una migración
+strangler:
+
+1. Capturar pruebas de caracterización y congelar nuevos accesos cruzados.
+2. Introducir una fachada de aplicación y un adaptador anticorrupción.
+3. Extraer un slice completo a su bounded context y comparar lecturas.
+4. Activar la nueva ruta con una bandera reversible; solo usar escritura paralela con
+   reconciliación y ventana de retiro definida.
+5. Retirar el camino antiguo después de pruebas, auditoría y aprobación.
+
+Las migraciones de esquema se ejecutan hacia adelante con respaldo verificable. No se hace
+`reset`, borrado ni reescritura de historia. Una fase bloqueada continúa con diseño, pruebas o
+documentación no dependiente, y queda registrada en un checkpoint.
+
+## 11. Riesgos y decisiones pendientes
+
+| Riesgo / decisión | Mitigación o puerta |
+|---|---|
+| Offline-first aumenta conflictos y soporte | Implementar primero un único flujo, UUID/idempotencia y pruebas de corte; ampliar solo con evidencia. |
+| Roles del Plan Maestro no coinciden exactamente con matriz aprobada | Mantener `Directiva` como perfil agrupador y confirmar permisos por cargo antes de codificar. |
+| Supabase/Vercel no ejecutan el despliegue Django esperado | Validar proveedor con smoke test, SSL, backups, logs y rollback antes de seleccionarlo. |
+| Reportes requieren datos cruzados | Proyecciones y contratos de consulta; prohibido unir modelos desde plantillas. |
+| Ventas/cuentas por cobrar cambian de dominio | Mantenerlas en `traceability` durante la planificación y abrir ADR si la spec demuestra otra cohesión. |
+| Cambios de metodología del anteproyecto | Revisión de la directora antes de presentar el plan como definitivo. |
+
+## 12. Documentación y cierre
+
+- Cada fase actualiza su spec, plan, tareas, contrato y evidencia sin sobrescribir notas aprobadas.
+- Las decisiones se registran como ADR o propuesta con estado visible.
+- La matriz de trazabilidad enlaza requisito, actor, sprint, módulo, prueba, evidencia y resultado.
+- El manual técnico describe instalación, configuración por entorno, migraciones, sincronización,
+  respaldo y recuperación.
+- El manual de usuaria usa pasos visuales, mensajes de estado y recuperación ante conectividad.
+- Antes de presentar el proyecto se revisa la coherencia entre anteproyecto, fuente de campo,
+  arquitectura, código, pruebas y evaluación ISO/IEC 25010:2023.
 
 ## Regla de avance
 
-Al final de cada etapa se realiza una revisión humana. No se adelanta el siguiente módulo
-solo porque un agente pueda generar código rápidamente. Si una dependencia de campo bloquea
-la implementación, se trabaja en pruebas, diseño o infraestructura ya aprobada y se registra
-el bloqueo.
+Este roadmap está aprobado para planificación por el tesista, pero ninguna fase puede saltar
+la puerta de requisito, plan, implementación, revisión o cierre. `SPEC-001` continúa siendo la
+única porción confirmada para implementación inmediata; las fases de planificación, asistencia,
+trazabilidad, PWA offline y reportes requieren sus specs y tareas antes de escribir código.
+
+## Control de coherencia del 2026-09-28
+
+El Gantt permite solapamientos S6/S7 con dependencias satisfechas. Pruebas parciales S5–S12;
+integración S13; funcional/usabilidad y offline S13–S14; correcciones S14; validación final
+S15; capacitación/manuales S15–S16. La construcción offline acompaña asistencia/pesajes.
+Documentar continuamente sigue siendo obligatorio. Fechas absolutas no aportadas.
+
+**Riesgo temporal abierto:** 23 RF de trazabilidad/comercial más pesajes offline en S9–S10,
+y RF-ACC-002/003/004 aún sin spec en S5–S6, requieren estimación por tareas. El Gantt expresa
+la planificación aportada, no una demostración de suficiencia ni permiso para omitir alcance.
+Los límites estrictos de imports/FK/eventos son una propuesta arquitectónica sujeta a ADR;
+no sustituyen las restricciones e integridad de la constitución y del plan aprobado de SPEC-001.
+
+## Aprobación de requisitos fuente — 2026-09-28
+
+[[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1]] está confirmado por el tesista, con
+[[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|evidencia de aceptación]].
+Queda resuelta la exclusión offline de la línea base anterior. P-13/P-14 y las specs siguen
+pendientes; la aprobación de requisitos no promueve automáticamente esta propuesta técnica
+ni sustituye la revisión académica, la estimación de trabajo o la prueba de despliegue.

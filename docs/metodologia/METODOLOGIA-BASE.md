@@ -3,8 +3,7 @@ title: Metodología base del proyecto
 type: methodology
 status: proposed
 ---
-
-# Metodología base del proyecto
+# Metodología base del proyecto.
 
 Este documento consolida `Metodología.md` y el apartado metodológico del anteproyecto.
 Todavía requiere revisión académica antes de considerarse versión definitiva.
@@ -86,8 +85,19 @@ presencial, según el anteproyecto.
 ## 5. Elementos pendientes de validación
 
 - Tamaño y composición definitiva de la muestra.
-- Roles reales y responsabilidades.
-- Variables productivas obligatorias.
-- Alcance de ventas y cuentas por cobrar.
+- Matriz detallada cargo/operación (P-01); los tres perfiles ya están definidos.
+- Unidades, conversiones y excepciones productivas; peso inicial/final y temperatura de
+  secado ya están confirmados.
+- Reparto compartido, descuentos y ajustes monetarios; ventas y CXC ya están en alcance.
+- Políticas temporales, seguridad y conflictos offline (P-13/P-14 de la revisión v1.1).
 - Instrumento final de evaluación.
 - Uso de UML, BPMN o ambos.
+
+## Alineación con el cronograma actualizado
+
+El [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|Gantt de 16 semanas]]
+permite solapar trabajos de módulos con dependencias satisfechas. Los cinco bloques del
+anteproyecto no prueban cinco sprints simultáneos: la cadencia adaptada se concreta con la
+directora. Validación incremental y documentación continua se mantienen; la evaluación de
+usabilidad/offline complementa, no sustituye, la adecuación funcional ISO/IEC 25010:2023.
+La referencia presupuestaria es USD 2.869; esta metodología no demuestra su suficiencia.

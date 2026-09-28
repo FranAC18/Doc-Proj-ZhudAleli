@@ -37,7 +37,7 @@ flowchart TD
 | `accounts` | usuario, membresía, roles, permisos y perfil | actividades o producción |
 | `planning` | jornadas, actividades, asignaciones y estados | registro de asistencia |
 | `attendance` | entradas, salidas, participación y correcciones autorizadas | autenticación o inventario |
-| `traceability` | acopio, secado, lotes, mermas y movimientos de inventario | presentación de reportes globales |
+| `traceability` | catálogos, acopio, secado, lotes, inventario, ventas, gastos y cuentas por cobrar | presentación de reportes globales |
 | `reports` | consultas, filtros, exportaciones y vistas derivadas | duplicar datos operativos |
 | `public_site` | contenido y navegación pública | información interna o personal |
 
@@ -84,8 +84,10 @@ cuando una regla real lo exige, no para imitar otro framework.
 
 Una aplicación web, un proceso PostgreSQL y almacenamiento de archivos definido por el
 entorno. Contenedores pueden mejorar reproducibilidad, pero no deben bloquear el desarrollo
-local. La plataforma final se elige después de conocer conectividad, presupuesto, respaldos
-y acceso de la organización.
+local. La factibilidad actual prevé Supabase para PostgreSQL y Vercel en el presupuesto.
+Debe verificarse dónde se ejecuta Django y cómo se conectan BD/archivos, además de límites,
+seguridad y respaldo. El nombre de un servicio no demuestra el despliegue.
+Referencia: [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|stack y presupuesto vigentes]].
 
 ## Bases funcionales confirmadas
 
@@ -101,5 +103,29 @@ y acceso de la organización.
   separada, según cohesión y tamaño confirmados por las specs.
 - Política de retención, desactivación y borrado por dominio.
 - Catálogos, unidades, formación de lotes y reglas detalladas de conciliación.
-- Despliegue, respaldos y nivel de operación ante pérdida de conectividad.
+- Despliegue y respaldos; detalle de operaciones offline y políticas P-13/P-14. La necesidad
+  de guardar y sincronizar ya es obligatoria en el diseño solicitado.
 - Filtros, gráficos, generación de PDF y almacenamiento del logo autorizado.
+
+## Continuidad PWA y relación con SSR
+
+[[../requirements/proposals/2026-09-28-catalogo-v1-1|Revisión v1.1 de requisitos]]:
+Manifest/Service Worker/Cache Storage permiten preparar recursos; IndexedDB conserva las
+operaciones esenciales pendientes. Django sigue renderizando las páginas en línea; una
+interfaz local específica y contratos de sincronización permiten captura sin red, sin exigir
+una SPA o API completa. La futura spec delimita qué datos se precargan y protegen.
+
+El servidor valida autorización y reglas antes de aplicar cada operación atómica. El
+resultado local y el remoto son distintos. No se guardan páginas de autenticación ni se
+anula el no-caché privado de SPEC-001. Tiempo/QR, revocación, dispositivo compartido,
+conflictos, reintentos y retención requieren criterios verificables. El detalle de colas,
+eventos y aislamiento del [[PLAN-DESDE-CERO|plan maestro]] requiere ADR; no está aprobado
+solo por figurar en una propuesta. Los reportes no son otra fuente de saldos operativos.
+
+## Aprobación de requisitos fuente — 2026-09-28
+
+[[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1]] está confirmado por el tesista, con
+[[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|evidencia de aceptación]].
+Queda resuelta la exclusión offline de la línea base anterior. P-13/P-14 y las specs siguen
+pendientes; la aprobación de requisitos no promueve automáticamente esta propuesta técnica
+ni sustituye la revisión académica, la estimación de trabajo o la prueba de despliegue.
