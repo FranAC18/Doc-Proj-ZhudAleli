@@ -8,10 +8,10 @@ active_task: REQ-APPROVAL-001
 phase: requirement-approval
 branch: opencode/spec-001-fase-1-diseno
 head: a6e842f63917b2ac28a64c80b00d68069ba2fabd
-last_commit: a6e842f63917b2ac28a64c80b00d68069ba2fabd
-commit: pending
-current_agent: coordinator
-current_role: coordinator
+last_commit: 69a7bd3
+commit: completed
+current_agent: antigravity
+current_role: documenter
 allowed_paths:
   - docs/requirements/proposals/**
   - docs/requirements/README.md
@@ -57,10 +57,8 @@ conserva íntegra con su fecha y validadores originales.
 - [[checkpoints/2026-09-28-coherencia-integral|Revisión previa DOC-COHERENCE-001]].
 - [[checkpoints/2026-09-28-estado-previo-coherencia|Continuidad previa de HARNESS-ARCH-001]].
 
-La aprobación de requisitos ya no está pendiente del tesista. P-01…P-14 conservan sus
-preguntas sin respuesta, incluida aceptación temporal/QR y seguridad/conflictos offline.
+La aprobación de requisitos ya no está pendiente del tesista. Se cerró formalmente la decisión P-01 para habilitar la especificación de permisos, limitando el conocimiento requerido al Módulo de Acceso (sin exigir P-04, P-06 o P-14 por ahora).
 La revisión académica de la directora, las specs futuras y la verificación de despliegue
 siguen pendientes. SPEC-001 mantiene alcance y puertas; sus 37 tareas no se ejecutaron aquí.
 
-Los cambios previos de UI y arnés se preservan. No hay autorización ni ejecución de commit,
-push o publicación. La tarea de registro está completada; catálogo, historial, evidencia y enlaces verificados.
+Los cambios previos de UI y arnés se preservaron. El commit fue autorizado y ejecutado mediante el gestor git. La tarea de registro está completada; catálogo, historial, evidencia y enlaces verificados.
