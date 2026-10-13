@@ -29,3 +29,6 @@ htmlcov/
 # Artefactos de la futura aplicación
 media/
 staticfiles/
+
+# Documentación exclusiva del repositorio del docente
+/documentacion/

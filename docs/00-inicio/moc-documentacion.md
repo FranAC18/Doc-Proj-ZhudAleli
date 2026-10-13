@@ -6,7 +6,7 @@ tags:
   - proyecto/tesis
   - tipo/moc
   - estado/activo
-verified_at: "2026-08-24"
+verified_at: "2026-10-12"
 ---
 
 # Mapa de documentación
@@ -14,6 +14,7 @@ verified_at: "2026-08-24"
 ## Entrada principal
 
 - [[00-dashboard]]
+- [Índice de ediciones para el docente](https://github.com/FranAC18/Doc-Proj-ZhudAleli)
 - [[moc-agentes-y-skills]]
 - [[auditoria-agentes-skills-2026-08-24]]
 - [[ONBOARDING-IA]]
@@ -41,3 +42,6 @@ verified_at: "2026-08-24"
 ## Rutas canónicas
 
 Las carpetas `.codex/`, `.agents/`, `tools/`, `specs/`, `agents/tesis/` y `docs/` conservan sus rutas actuales. Este MOC organiza la navegación sin mover archivos que dependan de esas rutas.
+`documentacion/` se conserva en el espacio local de preparación y se versiona en el
+repositorio documental separado. `analisis/` y `_archivo/` permanecen internos. Los
+documentos originales no se trasladan automáticamente.
