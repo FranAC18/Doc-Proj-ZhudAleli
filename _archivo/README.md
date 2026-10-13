@@ -2,7 +2,7 @@
 titulo: Archivo interno del proyecto
 tipo: indice-interno
 estado: activo
-fecha: 2026-10-12
+fecha: 2026-10-13
 ---
 
 # Archivo interno
