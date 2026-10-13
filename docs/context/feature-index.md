@@ -42,3 +42,11 @@ updated: 2026-08-25
 
 La implementación de la aplicación continúa bloqueada hasta que la fase de diseño tenga la
 validación humana indicada en `tasks.md`.
+
+## Cambios de producto posteriores a la línea base
+
+El [[../requirements/CAT-REQ-001|catálogo v1.1 aprobado por el tesista]] incorpora
+las capacidades obligatorias offline con sus criterios. No amplía SPEC-001 con datos de negocio, cuentas offline o
+caché privado. Las specs de asistencia/pesajes/sincronización siguen pendientes.
+La [[../evidence/casos-de-uso/2026-09-28-coherencia-integral|auditoría integral]] documenta la
+compatibilidad y las correcciones de dependencias de tasks.md, sin marcar tareas terminadas.

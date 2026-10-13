@@ -128,3 +128,21 @@ Cada historia con interfaz debe guardar:
 
 Una pantalla visualmente pulida no está terminada si el recorrido no funciona con datos y
 permisos reales.
+
+## Continuidad offline — requisitos aprobados, diseño por concretar
+
+Fuente: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1 aprobado por el tesista]] y
+[[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|stack actualizado]].
+Los formularios esenciales priorizan seleccionar, tocar y confirmar; pesos y cantidades
+usan entrada numérica con unidad. Evitar que seleccionar un valor recurrente sustituya
+una medición real. Indicadores y reportes muestran solo información útil y explicable.
+
+Los recorridos de asistencia/pesajes deben distinguir “Guardado en este dispositivo”,
+“Pendiente de sincronizar”, “Sincronizado” y “Necesita revisión”, con texto y acción de
+recuperación. Un error de almacenamiento no muestra éxito. El usuario debe comprender
+qué falta por enviar y qué fue rechazado; la política de salida y dispositivo compartido
+se define en P-14 sin borrar pendientes silenciosamente ni exponerlos a otra cuenta.
+
+La maqueta visual no demuestra guardado, sincronización ni permisos. SPEC-001 conserva
+sus pantallas de acceso en línea y no-caché privado. La futura PWA necesita interfaz local
+específica para las operaciones aprobadas, sin guardar páginas privadas indiscriminadamente.

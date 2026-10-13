@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="805" viewBox="0 0 1160 805" role="img" aria-label="Reportes y gestión de contenido público">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="580" y="42" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#18343b">Reportes y gestión de contenido público</text>
+<text x="580" y="74" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#52666b">Propuesta de diseño | 28/09/2026 | Las asociaciones no aprueban permisos</text>
+<rect x="480" y="106" width="650" height="621" rx="12" fill="#f8fbfc" stroke="#627d86" stroke-width="2"/>
+<text x="805" y="134" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#18343b">Zhud Alelí · aplicación web</text>
+<path d="M 203 280.0 C 330 280.0, 394 197, 501 197" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 280.0 C 330 280.0, 394 309, 501 309" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 440.0 C 330 440.0, 394 421, 501 421" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 600.0 C 330 600.0, 394 533, 501 533" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<ellipse cx="805" cy="197" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="176" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-REP-01</text>
+<text x="805" y="200" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Consultar dashboard consolidado</text>
+<ellipse cx="805" cy="309" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="288" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-REP-02</text>
+<text x="805" y="312" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Generar reportes y descargar PDF</text>
+<ellipse cx="805" cy="421" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="400" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-REP-03 · nuevo propuesto</text>
+<text x="805" y="424" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Consultar resumen propio y recordatorios</text>
+<ellipse cx="805" cy="533" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="512" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-PUB-01 · nuevo propuesto</text>
+<text x="805" y="536" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Gestionar publicación de contenido</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="245.0" r="13"/><path d="M 177 258.0 V 299.0 M 151 275.0 H 203 M 177 299.0 L 151 329.0 M 177 299.0 L 203 329.0"/></g>
+<text x="177" y="354.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Directiva autorizada</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="405.0" r="13"/><path d="M 177 418.0 V 459.0 M 151 435.0 H 203 M 177 459.0 L 151 489.0 M 177 459.0 L 203 489.0"/></g>
+<text x="177" y="514.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Socia operaria</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="565.0" r="13"/><path d="M 177 578.0 V 619.0 M 151 595.0 H 203 M 177 619.0 L 151 649.0 M 177 619.0 L 203 649.0"/></g>
+<text x="177" y="674.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Publicadora autorizada</text>
+<text x="580" y="762" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#52666b">Publicadora es un permiso, no un nuevo rol. P-01/P-12 delimitan preparar, aprobar y publicar.</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="1014" viewBox="0 0 1160 1014" role="img" aria-label="Ventas, saldos y catálogo">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="580" y="42" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#18343b">Ventas, saldos y catálogo</text>
+<text x="580" y="74" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#52666b">Propuesta de diseño | 28/09/2026 | Las asociaciones no aprueban permisos</text>
+<rect x="480" y="106" width="650" height="830" rx="12" fill="#f8fbfc" stroke="#627d86" stroke-width="2"/>
+<text x="805" y="134" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#18343b">Zhud Alelí · aplicación web</text>
+<path d="M 203 372.25 C 330 372.25, 394 197, 501 197" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 372.25 C 330 372.25, 394 309, 501 309" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 372.25 C 330 372.25, 394 421, 501 421" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 716.75 C 330 716.75, 394 421, 501 421" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 372.25 C 330 372.25, 394 533, 501 533" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 716.75 C 330 716.75, 394 533, 501 533" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 372.25 C 330 372.25, 394 645, 501 645" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 372.25 C 330 372.25, 394 757, 501 757" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 716.75 C 330 716.75, 394 757, 501 757" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<path d="M 203 372.25 C 330 372.25, 394 869, 501 869" fill="none" stroke="#91a0a5" stroke-width="1.5"/>
+<ellipse cx="805" cy="197" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="176" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-TRA-06</text>
+<text x="805" y="200" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Consultar cuentas por cobrar</text>
+<ellipse cx="805" cy="309" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="288" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-CAT-01 · nuevo propuesto</text>
+<text x="805" y="312" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Mantener catálogo y valores históricos</text>
+<ellipse cx="805" cy="421" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="400" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-VEN-01 · nuevo propuesto</text>
+<text x="805" y="424" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Registrar venta</text>
+<ellipse cx="805" cy="533" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="512" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-CON-01 · nuevo propuesto</text>
+<text x="805" y="536" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Registrar comprobante de contingencia</text>
+<ellipse cx="805" cy="645" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="624" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-CXC-01 · nuevo propuesto</text>
+<text x="805" y="648" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Registrar abono</text>
+<ellipse cx="805" cy="757" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="736" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-CXC-02 · nuevo propuesto</text>
+<text x="805" y="760" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Conciliar encargo y rendición</text>
+<ellipse cx="805" cy="869" rx="304" ry="45" fill="#eaf4f4" stroke="#37717a" stroke-width="1.6"/>
+<text x="805" y="848" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#45656c">CU-GAS-01 · nuevo propuesto</text>
+<text x="805" y="872" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#18343b">Registrar gastos y consultar resumen</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="337.25" r="13"/><path d="M 177 350.25 V 391.25 M 151 367.25 H 203 M 177 391.25 L 151 421.25 M 177 391.25 L 203 421.25"/></g>
+<text x="177" y="446.25" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Directiva / Tesorera</text>
+<g stroke="#294f59" stroke-width="3" fill="none"><circle cx="177" cy="681.75" r="13"/><path d="M 177 694.75 V 735.75 M 151 711.75 H 203 M 177 735.75 L 151 765.75 M 177 735.75 L 203 765.75"/></g>
+<text x="177" y="790.75" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#18343b">Encargada de feria</text>
+<text x="580" y="971" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#52666b">Vista funcional, no nueva app decidida. P-01 delimita permisos; P-07/08/09/10 siguen abiertos.</text>
+</svg>

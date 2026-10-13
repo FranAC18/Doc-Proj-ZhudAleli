@@ -2,7 +2,7 @@
 title: Índice operativo de contexto
 type: context-index
 status: active
-updated: 2026-08-25
+updated: 2026-10-12
 source_of_truth: "AGENTS.md"
 ---
 
@@ -35,6 +35,11 @@ defecto.
 
 ## Funcionalidad activa
 
+Para arquitectura, la guía canónica vigente es
+[`ARQUITECTURA-OBJETIVO.md`](../architecture/ARQUITECTURA-OBJETIVO.md), vinculada a
+[`ADR-0006`](../decisions/ADR-0006-monolito-modular-y-entrega-incremental.md) y constitución 0.2.0.
+Las propuestas previas se recuperan como antecedentes, no como reglas alternativas vigentes.
+
 Leer [`feature-index.md`](feature-index.md) antes de abrir cualquier artefacto de una spec.
 No leer automáticamente `research.md`, `data-model.md`, `contracts/` o `quickstart.md`:
 se abren únicamente si la tarea los necesita.
@@ -47,6 +52,14 @@ se abren únicamente si la tarea los necesita.
 4. Documentación oficial vigente.
 5. Propuestas e historial.
 6. Conversación y memoria como contexto auxiliar.
+
+## Edición documental para el docente
+
+`documentacion/README.md` indexa las ediciones finales destinadas al repositorio
+documental. Sus fuentes de trabajo siguen en `docs/` y `specs/`; `analisis/` y
+`_archivo/` son internos. Antes de sincronizar, revisar el estado y la versión de
+cada documento, el control de cambios y la lista exacta de archivos. El `commit`
+y la publicación tienen autorizaciones humanas separadas.
 
 ## Referencia, no contexto normal
 

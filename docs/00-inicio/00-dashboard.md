@@ -3,7 +3,7 @@ title: Dashboard del proyecto de tesis
 type: dashboard
 status: in-progress
 project: tesis-zhud-aleli
-updated: 2026-08-24
+updated: 2026-09-28
 ---
 
 # Dashboard del proyecto
@@ -14,6 +14,17 @@ updated: 2026-08-24
 
 Aplicación web para apoyar la gestión organizacional y la trazabilidad productiva del
 Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad productiva Zhud Alelí.
+
+## Referencia actual y requisitos aprobados
+
+- Guardar y sincronizar registros esenciales sin conexión es obligatorio en CAT-REQ-001 v1.1.
+- [[../requirements/CAT-REQ-001|v1.1 confirmada por el tesista]] el 2026-09-28; se conserva
+  [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|evidencia de aprobación]].
+  P-13/P-14 y la revisión académica siguen pendientes.
+- [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|Cronograma, presupuesto y stack]]:
+  16 semanas relativas, USD 2.869 y Django/PostgreSQL/SSR/Bootstrap/PWA.
+- [[../evidence/casos-de-uso/2026-09-28-coherencia-integral|Auditoría integral de coherencia]] y
+  [[../requirements/proposals/2026-09-28-diagramas-casos-de-uso|esquemas de casos de uso]].
 
 ## Estado actual
 
@@ -27,7 +38,7 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - Aplicación Django: no creada ni instalada como aplicación del proyecto.
 - Base de datos PostgreSQL: servicio local instalado y activo; falta crear la base de desarrollo
   del proyecto Django cuando exista `manage.py`.
-- Requisitos: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0]] aprobado con 57 IDs
+- Requisitos: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1]] aprobado por el tesista con 60 IDs
   `confirmed`, 2 `proposed` y 12 `superseded`.
 - Primera especificación: [[../../specs/001-acceso-usuarias-internas/spec|SPEC-001 — Acceso
   de usuarias internas]] en `confirmed`.
@@ -65,7 +76,7 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
 - [[../decisions/ADR-0001-base-del-proyecto|Decisión técnica inicial]].
 - [[../requirements/README|Cómo documentar requisitos]].
-- [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0 aprobado]].
+- [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1 aprobado]].
 - [[../requirements/proposals/2026-07-22-catalogo-revisado-requisitos-r3|CAT-REQ-001-R3 histórico]].
 - [[../evidence/fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3|Fuente del tesista registrada]].
 - [[../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1|Validación humana del catálogo]].
@@ -104,12 +115,11 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Confirmar con el tesista la selección concreta de modelos y cuotas por host (en uso
-`opencode:big-pickle` vs `deepseek-v4` propuesto en `RUTAS-MODELOS-IA.md`); después continuar las
-tareas aprobadas de `SPEC-001` (Fase 1: diseño sin Django). La implementación de S1 se limita a
+Revisar las políticas P-13/P-14 de la revisión v1.1 y el despliegue Django; continuar
+independientemente el diseño de `SPEC-001` según sus puertas vigentes. La implementación de S1 se limita a
 `accounts` y acceso; no se crean apps ni reglas operativas de sprints futuros.
 
 ## Regla de avance
 
-Sprint 0 está cerrado y CAT-REQ-001 v1.0 ya tiene confirmación humana. Cada spec, plan y
+Sprint 0 está cerrado y CAT-REQ-001 v1.1 tiene aprobación explícita del tesista. Cada spec, plan y
 porción de implementación conserva sus propias puertas de aprobación.

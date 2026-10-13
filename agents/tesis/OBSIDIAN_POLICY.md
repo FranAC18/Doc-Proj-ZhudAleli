@@ -14,6 +14,9 @@ IDE, proveedor o modelo.
 
 La ubicación canónica es:
 
+- `documentacion/`: ediciones académicas finales, versionadas y preparadas para publicación.
+- `analisis/`: trabajo interno organizado por fecha y tema.
+- `_archivo/`: material sustituido o retirado con un registro de motivo y reemplazo.
 - `docs/bitacora/`: sesiones y checkpoints.
 - `docs/requirements/`: requisitos y propuestas.
 - `docs/decisions/`: ADR y decisiones propuestas.
@@ -21,6 +24,12 @@ La ubicación canónica es:
 - `docs/architecture/`, `docs/ui/`, `docs/sprints/` y `docs/traceability/`: diseño y gobierno.
 - `specs/<id-funcionalidad>/`: especificación y artefactos técnicos de la funcionalidad.
 - `agents/tesis/`: contexto y políticas estables.
+
+`docs/` y `specs/` conservan las fuentes aprobadas y el trabajo técnico. La edición en
+`documentacion/` cita esas fuentes y no se modifica como requisito paralelo. Solo se
+sincroniza la edición final revisada; el tesista autoriza cada publicación. Los nombres
+versionados de `documentacion/` usan `tema_vM.m_aaaa-mm-dd.md`; esta convención es una
+excepción a los guiones de las notas internas de Obsidian.
 
 Los agentes `requirements`, `architect`, `ux` y `reviewer` son de lectura y propuesta. El
 `documenter` es el único escritor delegado para documentación operativa, usando solo las

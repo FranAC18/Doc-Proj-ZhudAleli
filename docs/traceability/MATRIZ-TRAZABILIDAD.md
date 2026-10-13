@@ -54,3 +54,31 @@ especificación es confirmada y se actualiza al implementar, probar y validar.
 
 Antes de cerrar un sprint, filtrar sus filas y confirmar que no existen enlaces rotos,
 criterios sin prueba, resultados sin evidencia ni defectos críticos abiertos.
+
+## Reconciliación documental del 2026-09-28
+
+La [[../evidence/casos-de-uso/2026-09-28-coherencia-integral|matriz de auditoría integral]]
+complementa las filas anteriores: comprueba los 57 IDs aprobados contra su regla fuente,
+módulo y caso de uso propuesto. No acredita código ni pruebas funcionales ejecutadas.
+
+| Cambio | Fuente | Diseño afectado | Estado real |
+|---|---|---|---|
+| Continuidad offline obligatoria | EVID-FACT-001 y EVID-PLAN-002 | [[../requirements/proposals/2026-09-28-catalogo-v1-1|Revisión v1.1]], CU-OFF-01/02 | Requisitos y criterios aprobados por el tesista en v1.1; políticas P-13/P-14 pendientes |
+| RNF-CON-001, asistencia y pesajes | v1.0 + revisión v1.1 | P-13/P-14; futuras specs attendance/traceability/PWA | Aprobación propia del tesista el 28/09; acceso básico de SPEC-001 conserva su alcance |
+| 16 semanas / USD 2.869 / stack | [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|EVID-PLAN-002]] | Plan maestro, módulos, contexto y roadmap | Referencia actual aportada; no es evidencia de viabilidad ya probada |
+| Tareas de SPEC-001 | Plan aprobado y hallazgos S1–S4 | T008/T013/T014/T033/T037 | Orden y CI corregidos; tareas aún pendientes |
+
+## Promoción de requisitos a v1.1
+
+Fuente: [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|EVID-REQ-APP-001]].
+Catálogo vigente: [[../requirements/CAT-REQ-001|60 confirmed, 2 proposed, 12 históricos]].
+El corte de 57 de la auditoría anterior se conserva como historial.
+
+| ID | Casos y módulo | Estado | Prueba y evidencia de implementación |
+|---|---|---|---|
+| RF-PWA-001 | CU-OFF-01; interfaz esencial transversal | `confirmed` por el tesista | Apertura con corte tras preparación; pendiente de spec y ejecución |
+| RF-PWA-002 | CU-OFF-01, ASI-01, TRA-01/02; attendance/traceability | `confirmed` por el tesista | Persistencia al recargar, fallo local e aislamiento entre cuentas; pendiente de spec y ejecución |
+| RF-PWA-003 | CU-OFF-02; sincronización y módulos propietarios | `confirmed` por el tesista | Respuesta perdida/reintento, revocación, conflicto y reversión atómica; pendiente de spec y ejecución |
+
+Los ajustes de RNF-CON-001, RF-ASI-001/007, RF-TRA-001/002 y P-10 están en el catálogo.
+Esta aprobación no acredita código ni resultados de pruebas, y no resuelve P-13/P-14.

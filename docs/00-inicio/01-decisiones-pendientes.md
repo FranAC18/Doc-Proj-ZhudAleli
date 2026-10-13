@@ -2,14 +2,14 @@
 title: Decisiones pendientes del proyecto
 type: decision-log
 status: in-progress
-updated: 2026-07-25
+updated: 2026-09-28
 ---
 
 # Decisiones pendientes
 
 Las decisiones D-001 a D-010 permitieron construir la primera línea base. Esta nota también
-mantiene las decisiones de detalle P-01 a P-12 de
-[[../requirements/CAT-REQ-001|CAT-REQ-001 v1.0]]. El catálogo ya está aprobado; cada P
+mantiene las decisiones de detalle P-01 a P-14 de
+[[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1]]. El catálogo ya está aprobado; cada P
 bloquea únicamente la parte de una spec indicada.
 
 ## D-001 - Denominación legal
@@ -102,8 +102,11 @@ bloquea únicamente la parte de una spec indicada.
 - Alcance de acceso: la aplicación debe funcionar dentro y fuera de la organización, incluso
   durante ferias y otras actividades externas.
 - Restricción técnica: interfaz ligera y tolerante a conectividad inestable.
-- Pendiente técnico: definir despliegue, respaldos y si se necesita funcionamiento offline con
-  sincronización; esto no se asumirá automáticamente.
+- Pendiente registrado en julio: despliegue, respaldos y necesidad offline.
+- Actualización del 2026-09-28: el tesista exige guardado y sincronización offline. La
+  necesidad ya no está abierta; quedan las políticas P-13/P-14 de la
+  [[../requirements/proposals/2026-09-28-catalogo-v1-1|revisión v1.1]] y la validación del
+  despliegue. Esto no atribuye a la decisión de julio criterios nuevos aprobados.
 - Confirmó: tesista, 2026-07-21.
 - Estado: confirmado con diseño técnico pendiente.
 
@@ -119,6 +122,12 @@ bloquea únicamente la parte de una spec indicada.
 - Estado: confirmado con contenido pendiente.
 
 ## D-010 - Distribución y rendición de cuentas
+
+**Control de vigencia:** el registro siguiente conserva lo indicado el 2026-07-21. Para
+el diseño actual prevalece CAT-REQ-001 aprobado el 2026-07-22: valor base con vigencia
+histórica; excedente bruto, no utilidad neta; retiro individual impago genera deuda;
+custodia compartida no la genera; reparto compartido pendiente P-07. Las frases originales
+sobre base fija y deuda de todo producto entregado no deben aplicarse de forma general.
 
 - Pregunta: ¿cómo se calcula el costo de producción, el margen organizacional, la ganancia
   individual y la deuda de cada socia?
@@ -183,7 +192,7 @@ bloquea únicamente la parte de una spec indicada.
 
 | ID | Tema | Estado | Puerta afectada |
 |---|---|---|---|
-| P-01 | Matriz cargo por operación y acceso de soporte | `open` | Spec de permisos y operaciones sensibles |
+| P-01 | Matriz cargo por operación y acceso de soporte | `closed` | Resuelto para acceso básico; especificaciones futuras lo ampliarán |
 | P-02 | Duración del QR, habilitación de fases y delegación | `open` | Spec de asistencia antes del QR |
 | P-03 | Consecuencias y autoridad sobre faltas | `open` | Sanciones; no bloquea asistencia básica |
 | P-04 | Presentaciones, unidades, conversiones y plantas | `open` | Fórmulas y movimientos que conviertan unidades |
@@ -200,3 +209,27 @@ El detalle de cada pregunta, su tratamiento y los requisitos relacionados está 
 [[../requirements/CAT-REQ-001#Decisiones de detalle abiertas|CAT-REQ-001]]. Cuando una P se
 resuelva, registrar fecha, participantes, fuente y efecto sobre las specs; no editar solo la
 tabla sin evidencia.
+
+## Cambios documentados el 2026-09-28
+
+No se crea retroactivamente una D-012 para justificar una referencia errónea de T008.
+El nuevo registro de cambios está en la [[../requirements/proposals/2026-09-28-catalogo-v1-1|revisión v1.1]].
+
+| Tema | Estado actual | Pendiente concreto |
+|---|---|---|
+| Guardado y sincronización offline | Obligatorio por instrucción del tesista | P-13: acciones y reglas temporales; P-14: dispositivo, seguridad y conflictos |
+| Cronograma | 16 semanas relativas según Gantt aportado | Fechas de inicio/fin absolutas, cuando se aporten |
+| Presupuesto | USD 2.869; suma verificada | Evidencia de costos efectivos al contratar, sin afirmar tarifas garantizadas |
+| Stack | Django/PostgreSQL/Supabase/SSR/Bootstrap/PWA; Vercel presupuestado | Verificar dónde se ejecutará Django; backups P-11 |
+
+P-10 se conserva para comprobantes y conciliación de feria; no cuestiona la obligatoriedad
+PWA. Las políticas P-13/P-14 y su fuente se mantienen en una sola revisión enlazada.
+
+## Aprobación posterior de requisitos — 2026-09-28
+
+El tesista acepta expresamente los cambios de la revisión v1.1. Se incorporan en
+[[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1 confirmed]] con
+[[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|evidencia directa]].
+La necesidad y los criterios de continuidad ya están aprobados; P-13/P-14 permanecen
+abiertos para los datos y políticas no definidos. P-10 incluye conciliación de comprobantes
+con operaciones digitales. La revisión de la directora conserva su estado pendiente.

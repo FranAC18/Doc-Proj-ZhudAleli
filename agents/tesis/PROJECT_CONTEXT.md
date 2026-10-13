@@ -67,9 +67,12 @@ Autenticación, roles, permisos y página pública.
 ## Stack y método
 
 - Python y Django.
-- PostgreSQL.
+- PostgreSQL; Supabase como servicio de persistencia previsto en la nueva factibilidad.
 - Bootstrap 5 y diseño responsivo.
-- Arquitectura MTV de Django.
+- Arquitectura MTV de Django, plantillas SSR/HTML5, CSS y JavaScript progresivo.
+- PWA: Manifest, Service Worker, Cache Storage e IndexedDB para continuidad esencial.
+- Git y GitHub para trazabilidad. Vercel figura en el presupuesto; falta comprobar el
+  entorno de ejecución Django y los respaldos, no se confunden con PostgreSQL administrado.
 - Desarrollo iterativo basado en Scrum.
 - Evaluación de adecuación funcional según ISO/IEC 25010:2023.
 
@@ -89,9 +92,10 @@ Autenticación, roles, permisos y página pública.
   realiza una afirmación legal.
 - El documento menciona “MVP” en una sección, aunque Django emplea habitualmente la
   arquitectura MTV; corregir la terminología académica si corresponde.
-- Ventas y cuentas por cobrar forman parte del alcance inicial. D-010 confirmó el valor base fijo
-  por producto, el excedente de la socia, los dos tipos de saldo y los pagos parciales; los detalles
-  técnicos se definirán en las especificaciones.
+- Ventas, gastos y cuentas por cobrar forman parte del alcance inicial. Prevalece
+  CAT-REQ-001 sobre el antecedente D-010: valor base histórico por operación, excedente
+  bruto, retiro individual impago distinto de custodia compartida y pagos parciales.
+  Reparto compartido, descuentos y ajustes monetarios conservan sus decisiones pendientes.
 - Variables de secado confirmadas: peso inicial, peso final y un valor de temperatura en grados
   Celsius; humedad opcional; inicio y fin con fecha y hora automáticas.
 - Las correcciones de registros las realizarán solo la directiva y la encargada; se conservará
@@ -153,3 +157,16 @@ detalle útil, pero no sustituyen al anteproyecto ni a la validación con la org
 - La metodología debe separar investigación, desarrollo y evaluación.
 - Los datos no presentes en el anteproyecto quedan como hipótesis o información pendiente
   de confirmar.
+
+## Referencia actual de planificación — 2026-09-28
+
+El tesista aporta [[../../docs/evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|16 semanas, presupuesto USD 2.869 y stack actualizado]].
+Son semanas relativas, con solapamientos S6/S7; no equivalen al periodo antiguo
+septiembre–febrero ni prueban que el proyecto esté ejecutado. Se conservan cinco módulos
+académicos; apps de dominio y core no se cuentan como nuevos módulos académicos.
+
+Guardar y sincronizar registros offline es obligatorio en los requisitos aprobados por el tesista.
+[[../../docs/requirements/CAT-REQ-001|CAT-REQ-001 v1.1]] delimita asistencia,
+pesajes y políticas pendientes; v1.0 queda como fuente de la aprobación original, no como
+justificación para eliminar esa capacidad. SPEC-001 sigue siendo acceso básico sin
+operaciones de negocio ni autenticación offline.

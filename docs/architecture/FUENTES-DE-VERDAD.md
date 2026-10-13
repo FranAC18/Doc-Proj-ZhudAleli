@@ -20,6 +20,7 @@ aprobado.
 |---|---|---|
 | Alcance académico | Anteproyecto aprobado + ADR de alcance | El contexto resume y enlaza; no sustituye el original |
 | Hallazgos de campo | Nota con fecha, técnica y fuente en `docs/requirements/proposals/` | Se mantiene `proposed` hasta validación |
+| Línea base de requisitos | CAT-REQ-001 con su evidencia de validación | Revisiones propuestas enlazan cambios y no heredan la aprobación anterior |
 | Funcionalidad aprobada | `specs/<id>/spec.md` | `docs/requirements/` solo indexa o conserva propuesta de origen |
 | Diseño técnico | `specs/<id>/plan.md` + ADR relacionados | Diagramas enlazan el plan |
 | Trabajo ejecutable | `specs/<id>/tasks.md` | Sprint enlaza y resume, no duplica el detalle |
@@ -47,7 +48,8 @@ crea otro requisito; un cambio semántico relevante se registra y vuelve a valid
 ## Reglas de escritura multiagente
 
 - Cada tarea declara un escritor y rutas permitidas.
-- Analista, arquitecto, UX y reviewer son de solo lectura.
+- Los permisos de cada rol se toman de `agents/tesis/roles/`; reviewer es de solo lectura.
+  Una propuesta autorizada de arquitectura o UX no aprueba requisitos ni modifica una spec confirmada.
 - Implementadores trabajan en worktrees distintos cuando hay paralelismo.
 - Dashboard, sprint, catálogo y matriz global tienen un único escritor: el coordinador.
 - Los resultados de agentes hijos se integran después de revisar conflictos y evidencia.
