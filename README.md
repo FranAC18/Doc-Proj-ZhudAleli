@@ -1,6 +1,6 @@
 ---
 titulo: Índice de documentación final de Zhud Alelí
-version: "4.2"
+version: "4.3"
 fecha: 2026-10-19
 autor: Tesista
 estado: final-documental
@@ -17,7 +17,7 @@ tesista el 2026-10-14; el compendio Word v1.6 y el plan/backlog Word v1.7 ya se 
 Los demás documentos de esta tabla conservan su estado de revisión o publicación indicado.
 **Preparado** no significa revisado por la directora.
 
-La edición de seguimiento del 19 de octubre documenta el cierre histórico de S0 y los pendientes posteriores; está preparada para revisión y pendiente de transferencia al repositorio del docente.
+La edición de seguimiento del 19 de octubre documenta el cierre histórico de S0 y los pendientes posteriores; está preparada para revisión y pendiente de transferencia al repositorio del docente. La arquitectura detallada v1.1 fue aprobada por el tesista para documentación; su transferencia sigue pendiente.
 
 ## Documentos vigentes
 
@@ -39,11 +39,11 @@ La edición de seguimiento del 19 de octubre documenta el cierre histórico de S
 | Planificación | [Sprint backlog](sprints/sprint_backlog_v1.3_2026-10-14.md) | 1.3 | 27 fichas de tareas; conserva evidencia parcial y pendientes de S1. |
 | Planificación | [Plan incremental y sprint backlog Word](sprints/plan_incremental_y_sprint_backlog_v1.7_2026-10-14.docx) | 1.7 | HT-PRE-001 a HT-PRE-005 asignadas a S1; relación de historias, tareas y evidencia, con estados reales. |
 | Evaluación | [Factibilidad](factibilidad/factibilidad_v1.4_2026-10-13.md) | 1.4 | Costos y escenarios de ahorro conservados; plazo S1–S6 actualizado. |
-| Diseño | [Arquitectura](arquitectura/arquitectura_v1.0_2026-10-12.md) | 1.0 | Enfoque técnico aprobado; producto sin implementar. |
+| Diseño | [Arquitectura detallada](arquitectura/arquitectura_v1.1_2026-10-19.md) | 1.1 | Arquitectura base, comportamiento, módulos, requisitos y entrevista explicados con diagramas; aprobada por el tesista para documentación. Producto sin implementar; decisiones abiertas y validaciones pendientes. |
 | Diseño | [Criterios de interfaz](diseno/criterios_diseno_v1.0_2026-10-12.md) | 1.0 | Criterios de uso; identidad visual pendiente de validar. |
 | Pruebas | [Plan de pruebas](pruebas/plan_pruebas_v1.0_2026-10-12.md) | 1.0 | Pruebas previstas; ningún resultado adelantado. |
 | Revisión | Reporte de revisión docente en clase (fuente interna identificada en el informe de seguimiento) | — | Reporte del tesista; fecha, versión revisada, resultado y constancia: SIN EVIDENCIA. La revisión académica formal sigue pendiente. |
-| Gobierno | [Control de cambios](control_de_cambios/registro_v4.2_2026-10-19.md) | 4.2 | Se incorpora seguimiento de S0 y pendientes posteriores; esta edición permanece pendiente de transferencia. |
+| Gobierno | [Control de cambios](control_de_cambios/registro_v4.3_2026-10-19.md) | 4.3 | Se incorpora arquitectura detallada v1.1; transferencia pendiente. |
 
 ## Ediciones anteriores conservadas
 
@@ -56,6 +56,8 @@ la tabla.
 También se conservan las ediciones HU v2.3–v2.4, HT v1.4, pila v1.3–v1.4,
 sprint backlog v1.0–v1.1 y plan Word v1.2–v1.3. Las ediciones vigentes usan
 fichas individuales y dejan los códigos como referencias secundarias.
+
+La [arquitectura v1.0](arquitectura/arquitectura_v1.0_2026-10-12.md) se conserva como edición anterior; la vigente es la v1.1 de la tabla.
 
 El registro de entrevista v1.0 se conserva como antecedente; el registro vigente es v1.1,
 cotejado con CAT-REQ-001 v1.2. El acta formal, la validación organizacional directa de las
@@ -115,3 +117,4 @@ Cada publicación requiere revisión y confirmación del tesista.
 | 4.0 | 2026-10-14 | Se asignan HT-PRE-001 a HT-PRE-005 a S1, se eliminan del grupo de propuestas y se actualizan las fichas, pila, plan y backlog sin declarar el sprint completo. |
 | 4.1 | 2026-10-14 | Se registra la publicación autorizada de requisitos generales v2.0 y priorización v1.3; los pendientes académicos y organizacionales se mantienen explícitos. |
 | 4.2 | 2026-10-19 | Se documentan cierre histórico de S0, correspondencia de etapas y brechas de cobertura; edición pendiente de revisión y transferencia. |
+| 4.3 | 2026-10-19 | Se indexa arquitectura detallada v1.1 aprobada para documentación; v1.0 se conserva y la transferencia permanece pendiente. |
