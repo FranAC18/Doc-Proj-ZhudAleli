@@ -7,10 +7,11 @@ fecha: 2026-10-20
 
 # Dashboard ágil del proyecto
 
-Abre este [`index.html`](index.html) directamente en el navegador. Para la alternativa con
-guardado persistente, en Windows ejecuta
-[`proyecto-local/Abrir cronograma.cmd`](proyecto-local/Abrir%20cronograma.cmd). Usa un servidor
-loopback y mantiene el seguimiento local fuera del repositorio.
+El acceso directo de Windows está en [../Abrir cronograma de sprints.lnk](../Abrir%20cronograma%20de%20sprints.lnk)
+y abre [`proyecto-local/Abrir cronograma.cmd`](proyecto-local/Abrir%20cronograma.cmd). El
+lanzador requiere Python 3.9 o posterior e inicia el servidor local, que guarda el avance
+en `proyecto-local/estado/` fuera de Git. Para una vista autónoma sin servidor, abre este
+[`index.html`](index.html) directamente; el seguimiento de esa vista se guarda en el navegador.
 
 ## Modelo de trazabilidad
 

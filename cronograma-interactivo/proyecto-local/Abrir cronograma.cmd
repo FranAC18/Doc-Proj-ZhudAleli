@@ -1,11 +1,10 @@
 @echo off
 setlocal
 title Gestor Tesis Agile - Zhud Aleli
-set "DASHBOARD=%~dp0..\index.html"
-if not exist "%DASHBOARD%" (
-  echo No se encontro el dashboard: "%DASHBOARD%"
+cd /d "%~dp0"
+python servidor.py
+if errorlevel 1 (
+  echo No se pudo iniciar el servidor local. Comprueba que Python 3.9 o posterior este instalado.
   pause
-  exit /b 1
 )
-start "" "%DASHBOARD%"
 endlocal
