@@ -34,6 +34,7 @@ verified_at: "2026-10-13"
 | Diseño de interfaz | [[../ui/SISTEMA-DISENO|Sistema de diseño]] | Reglas visuales y de interacción. |
 | Ediciones académicas finales | [Índice de `documentacion/`](../../documentacion/README.md) | Versiones preparadas para entrega y su control de cambios. |
 | Análisis interno | [Índice de `analisis/`](../../analisis/README.md) | Borradores, comparaciones y material por fecha. |
+| Alcances modulares | [Índice único de alcances](../../analisis/2026-10-13/alcances-modulos/README.md) | Propuestas, versiones anteriores, plantilla y secuencia de los módulos. |
 | Archivo interno | [Índice de `_archivo/`](../../_archivo/README.md) | Material sustituido con motivo y reemplazo registrados. |
 | Plantillas | [[../templates/PLANTILLA-CHECKPOINT|Plantilla de checkpoint]], [[../templates/PLANTILLA-DECISION|Plantilla de decisión]], [[../templates/PLANTILLA-REQUISITO|Plantilla de requisito]] | Formatos para crear notas consistentes. |
 

@@ -33,11 +33,26 @@ write_owner: "[owner]"
 | Portabilidad | no depende del historial/modelo | [pass/fail] |
 | Pruebas y permisos | [secciones] | [pass/fail] |
 | Simplicidad e integridad | [decisión] | [pass/fail] |
+| Cohesión y dependencias | [propietarios, contratos, consumidores y composición] | [pass/fail] |
+| Entrega incremental | [alcance, compatibilidad, regresión y publicación si aplica] | [pass/fail] |
 | UX/accesibilidad | [criterios] | [pass/fail] |
 | Trazabilidad | [IDs] | [pass/fail] |
 | Control humano/privacidad | [medidas] | [pass/fail] |
 
-Un `fail` bloquea la implementación o requiere ADR y aprobación explícita.
+Un `fail` bloquea la implementación del trabajo afectado o requiere ADR y aprobación
+explícita. No impide que el tesista cierre administrativamente el sprint y traslade pendientes.
+
+## Fronteras y evolución modular
+
+Referencia: constitución vigente y ADR-0006. Registrar:
+
+- Responsabilidad del módulo y dueño de entidades, escrituras y migraciones.
+- Dependencias, operaciones públicas/lecturas autorizadas y consumidores afectados; sin ciclos.
+- Separación HTTP/reglas/datos necesaria; justificar servicios/consultas sin capas vacías.
+- Composición y punto transaccional cuando varios cambios deban confirmar juntos.
+- Incremento utilizable, dependencias disponibles y porciones del módulo todavía pendientes.
+- Compatibilidad de esquema/contratos, regresión y operaciones PWA antiguas si aplica.
+- Publicación conjunta y recuperación, si esta funcionalidad incluye una entrega piloto.
 
 ## Diseño de dominio y datos
 
@@ -70,6 +85,7 @@ aparecer en logs o evidencias.
 ```text
 apps/<module>/
 ├── models.py
+├── migrations/
 ├── forms.py
 ├── views.py
 ├── urls.py
@@ -83,6 +99,7 @@ docs/evidence/
 ```
 
 Sustituye el árbol por rutas reales y elimina archivos innecesarios.
+Conservar descubrimiento nativo de modelos/migraciones; no crear apps futuras o `core` vacío.
 
 ## Estrategia de pruebas
 
@@ -92,6 +109,15 @@ Sustituye el árbol por rutas reales y elimina archivos innecesarios.
 - Migraciones y datos de demostración anónimos.
 - Recorrido visual y accesibilidad.
 - Comandos exactos a ejecutar.
+- Recorridos anteriores e integración con consumidores afectados; límites de dependencia
+  verificables cuando exista código. No interpretar pruebas locales como piloto integrado.
+
+## Entrega y validación del incremento
+
+- Versión/contenido disponible y entorno piloto, si forma parte del alcance.
+- Migraciones, recursos, arranque, permisos, respaldo y recuperación antes de publicar.
+- Tareas y evidencia de prueba con socias, sin convertir hallazgos en requisitos aprobados.
+- Autorización concreta para Git/publicación; aceptar arquitectura no autoriza estas acciones.
 
 ## Evidencia y documentación
 

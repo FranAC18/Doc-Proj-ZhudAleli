@@ -2,7 +2,10 @@
 title: Propuesta ADR — Arquitectura modular desacoplada por dominios
 type: decision
 status: proposed
+adoption_status: partially-superseded
 date: 2026-09-22
+superseded_in_part_on: 2026-10-08
+current_decision: "[[../ADR-0006-monolito-modular-y-entrega-incremental]]"
 decision_id: PRO-ADR-004
 task_id: HARNESS-ARCH-001
 accepted_by: null
@@ -24,6 +27,18 @@ tags:
 ---
 
 # Propuesta ADR — Arquitectura modular desacoplada por dominios
+
+## Vigencia histórica — 2026-10-08
+
+Se conserva el texto siguiente como antecedente. [[../ADR-0006-monolito-modular-y-entrega-incremental|ADR-0006]]
+adopta monolito modular con capas pragmáticas, no esta propuesta íntegra. Quedan superadas
+la prohibición universal de FK/JOIN, ubicaciones no nativas de modelos/migraciones y la
+obligación de eventos, outbox de servidor y proyecciones. Monolito es una unidad de entrega,
+compatible con varios workers/instancias; extraer servicios no está garantizado como simple.
+Los permisos, offline y alcance se rigen por requisitos/specs y la constitución 0.2.0.
+La aprobación histórica para planificar no autoriza esas decisiones descartadas.
+
+## Texto histórico preservado
 
 ## Estado y alcance de la propuesta
 

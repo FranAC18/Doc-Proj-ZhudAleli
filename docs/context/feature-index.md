@@ -2,7 +2,7 @@
 title: Índice de funcionalidades activas
 type: feature-context-index
 status: active
-updated: 2026-08-25
+updated: 2026-10-20
 ---
 
 # Índice de funcionalidades activas
@@ -42,6 +42,12 @@ updated: 2026-08-25
 
 La implementación de la aplicación continúa bloqueada hasta que la fase de diseño tenga la
 validación humana indicada en `tasks.md`.
+
+Compatibilidad arquitectónica 2026-10-08: ADR-0006 adoptó la raíz, ORM, modelos/migraciones
+nativos y capas proporcionales; la constitución vigente 1.0.0 conserva esa arquitectura. ADR-0007
+regula solo el cierre administrativo de los periodos. El plan de SPEC-001 conserva su estructura
+sin servicios, `core`, API o apps vacías. Su validación de diseño continúa siendo necesaria para
+esa implementación; cerrar un sprint no marca la spec o sus tareas como completadas.
 
 ## Cambios de producto posteriores a la línea base
 

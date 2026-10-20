@@ -7,52 +7,74 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<style>
+  .actions-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .section { margin-bottom: 3rem; }
+</style>
 </head>
 <body>
-<div class="container-page">
-  <h1>Botones</h1>
-  <p>Acciones principales, secundarias, enlace y destructivas; estados focus, disabled y loading.</p>
+<div class="container py-5">
+  <div class="mb-4">
+    <a href="../index.html" class="btn btn-link px-0">&larr; Volver al índice</a>
+  </div>
+
+  <h1 class="mb-3">Botones</h1>
+  <p class="mb-5 text-muted">Acciones principales, secundarias, enlace y destructivas; estados focus y disabled. (Clases nativas de Bootstrap 5 sobreescritas).</p>
 
   <section class="section" aria-labelledby="b-primario">
-    <h2 id="b-primario">Primario</h2>
+    <h2 id="b-primario">Primario (.btn.btn-primary)</h2>
     <div class="actions-row">
-      <button class="btn btn--primary" type="button">Ingresar</button>
-      <button class="btn btn--primary" type="button" disabled>Ingresar (disabled)</button>
-      <button class="btn btn--primary btn--loading" type="button" disabled>Ingresando</button>
+      <button class="btn btn-primary" type="button">Ingresar</button>
+      <button class="btn btn-primary" type="button" disabled>Ingresar (disabled)</button>
     </div>
   </section>
 
   <section class="section" aria-labelledby="b-secundario">
-    <h2 id="b-secundario">Secundario</h2>
+    <h2 id="b-secundario">Secundario (.btn.btn-secondary)</h2>
     <div class="actions-row">
-      <button class="btn btn--secondary" type="button">Cancelar</button>
-      <button class="btn btn--secondary" type="button" disabled>Cancelar (disabled)</button>
-      <button class="btn btn--secondary btn--loading" type="button" disabled>Esperando</button>
+      <button class="btn btn-secondary" type="button">Cancelar</button>
+      <button class="btn btn-secondary" type="button" disabled>Cancelar (disabled)</button>
     </div>
   </section>
 
   <section class="section" aria-labelledby="b-enlace">
-    <h2 id="b-enlace">Enlace</h2>
+    <h2 id="b-enlace">Enlace (.btn.btn-link)</h2>
     <div class="actions-row">
-      <button class="btn btn--link" type="button">Olvidé mi contraseña</button>
-      <a class="btn btn--link" href="#">Restablecer edición</a>
+      <button class="btn btn-link" type="button">Olvidé mi contraseña</button>
+      <a class="btn btn-link" href="#">Restablecer edición</a>
     </div>
   </section>
 
   <section class="section" aria-labelledby="b-destructivo">
-    <h2 id="b-destructivo">Destructivo</h2>
+    <h2 id="b-destructivo">Destructivo (.btn.btn-danger, .btn.btn-outline-danger)</h2>
     <div class="actions-row">
-      <button class="btn btn--danger" type="button">Eliminar lote</button>
-      <button class="btn btn--danger-outline" type="button">Retirar socia</button>
-      <button class="btn btn--danger" type="button" disabled>Eliminar (disabled)</button>
+      <button class="btn btn-danger" type="button">Eliminar lote</button>
+      <button class="btn btn-outline-danger" type="button">Retirar socia</button>
+      <button class="btn btn-danger" type="button" disabled>Eliminar (disabled)</button>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="b-carga">
+    <h2 id="b-carga">Carga y acción compacta</h2>
+    <div class="actions-row">
+      <button class="btn btn-primary btn-loading" type="button" aria-busy="true" disabled>
+        <span class="za-spinner" aria-hidden="true"></span> Procesando
+      </button>
+      <button class="btn btn-secondary za-icon-button" type="button" aria-label="Más opciones" title="Más opciones">
+        <span aria-hidden="true">⋯</span>
+      </button>
     </div>
   </section>
 
   <section class="section" aria-labelledby="b-foco">
     <h2 id="b-foco">Foco visible</h2>
-    <p>Navega con <kbd>Tab</kbd> sobre los botones: el contorno ámbar indica qué elemento recibe el foco.</p>
+    <p>Navega con <kbd>Tab</kbd> sobre los botones: el contorno primario indica qué elemento recibe el foco.</p>
   </section>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

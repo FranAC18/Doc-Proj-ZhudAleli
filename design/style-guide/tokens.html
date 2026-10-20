@@ -7,50 +7,56 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container-page">
-  <h1>Tokens de diseño</h1>
-  <p>Paleta de marca tomada de <code>design/zhud_aleli_exact_dashboard.html</code> y lenguaje visual de
+<div class="container py-5">
+  <div class="mb-4">
+    <a href="index.html" class="btn btn-link px-0">&larr; Volver a la hoja de estilos</a>
+  </div>
+  
+  <h1 class="mb-4">Tokens de diseño</h1>
+  <p class="mb-5 text-muted">Paleta de marca tomada de <code>design/zhud_aleli_exact_dashboard.html</code> y lenguaje visual de
   <code>design/dashboard-html/</code>. La identidad visual es una <strong>propuesta</strong> con estos valores
   provisionales; se valida con la organización antes de fijarla como definitiva.</p>
 
-  <section class="section" aria-labelledby="t-color">
+  <section class="mb-5" aria-labelledby="t-color">
     <h2 id="t-color">Color</h2>
-    <div class="table-wrap" tabindex="0">
-      <table class="table">
+    <div class="table-responsive border rounded-3 bg-white">
+      <table class="table table-hover mb-0">
         <thead>
           <tr>
             <th scope="col">Token</th><th scope="col">Valor</th><th scope="col">Uso</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><code>--primary</code></td><td><code>#B32276</code></td><td>Marca, acciones principales, enlaces</td></tr>
-          <tr><td><code>--primary-hover</code></td><td><code>#961961</code></td><td>Hover de acciones principales</td></tr>
-          <tr><td><code>--primary-soft</code></td><td><code>#FBEDF9</code></td><td>Fondos de énfasis suave de marca</td></tr>
-          <tr><td><code>--accent-purple</code></td><td><code>#8A2BE2</code></td><td>Acento secundario (detalles)</td></tr>
-          <tr><td><code>--accent-blue</code></td><td><code>#4589FF</code></td><td>Estado informativo</td></tr>
-          <tr><td><code>--accent-yellow</code></td><td><code>#F8BE39</code></td><td>Estado de atención</td></tr>
-          <tr><td><code>--accent-orange</code></td><td><code>#FF7A59</code></td><td>Estado de advertencia</td></tr>
-          <tr><td><code>--accent-cyan</code></td><td><code>#14B8A6</code></td><td>Éxito</td></tr>
-          <tr><td><code>--bg-body</code></td><td><code>#FAF7FB</code></td><td>Fondo de página</td></tr>
-          <tr><td><code>--bg-surface</code></td><td><code>#FFFFFF</code></td><td>Tarjetas y superficies</td></tr>
-          <tr><td><code>--bg-input</code></td><td><code>#F4EDF5</code></td><td>Fondo de campos</td></tr>
-          <tr><td><code>--text-title</code></td><td><code>#1F1422</code></td><td>Títulos</td></tr>
-          <tr><td><code>--text-body</code></td><td><code>#594D5D</code></td><td>Texto de párrafos</td></tr>
-          <tr><td><code>--text-secondary</code></td><td><code>#6B616D</code></td><td>Texto secundario accesible (derivado)</td></tr>
-          <tr><td><code>--text-muted</code></td><td><code>#9F93A3</code></td><td>Solo decorativo (no informativo)</td></tr>
-          <tr><td><code>--danger</code></td><td><code>#B31A4F</code></td><td>Errores y acciones destructivas (semántico)</td></tr>
+          <tr><td><code>--za-primary</code></td><td><code>#B32276</code></td><td>Marca, acciones principales, enlaces</td></tr>
+          <tr><td><code>--za-primary-hover</code></td><td><code>#961961</code></td><td>Hover de acciones principales</td></tr>
+          <tr><td><code>--za-primary-soft</code></td><td><code>#FBEDF9</code></td><td>Fondos de énfasis suave de marca</td></tr>
+          <tr><td><code>--za-accent-purple</code></td><td><code>#8A2BE2</code></td><td>Acento secundario (detalles)</td></tr>
+          <tr><td><code>--za-accent-blue</code></td><td><code>#4589FF</code></td><td>Estado informativo</td></tr>
+          <tr><td><code>--za-accent-yellow</code></td><td><code>#F8BE39</code></td><td>Estado de atención</td></tr>
+          <tr><td><code>--za-accent-orange</code></td><td><code>#FF7A59</code></td><td>Estado de advertencia</td></tr>
+          <tr><td><code>--za-accent-cyan</code></td><td><code>#14B8A6</code></td><td>Éxito</td></tr>
+          <tr><td><code>--za-bg-body</code></td><td><code>#FAF7FB</code></td><td>Fondo de página</td></tr>
+          <tr><td><code>--za-bg-surface</code></td><td><code>#FFFFFF</code></td><td>Tarjetas y superficies</td></tr>
+          <tr><td><code>--za-bg-input</code></td><td><code>#F4EDF5</code></td><td>Fondo de campos</td></tr>
+          <tr><td><code>--za-text-title</code></td><td><code>#1F1422</code></td><td>Títulos</td></tr>
+          <tr><td><code>--za-text-body</code></td><td><code>#594D5D</code></td><td>Texto de párrafos</td></tr>
+          <tr><td><code>--za-text-secondary</code></td><td><code>#6B616D</code></td><td>Texto secundario accesible (derivado)</td></tr>
+          <tr><td><code>--za-text-muted</code></td><td><code>#9F93A3</code></td><td>Solo decorativo (no informativo)</td></tr>
+          <tr><td><code>--za-danger</code></td><td><code>#B31A4F</code></td><td>Errores y acciones destructivas (semántico)</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="t-contraste">
+  <section class="mb-5" aria-labelledby="t-contraste">
     <h2 id="t-contraste">Contraste AA verificado</h2>
-    <div class="table-wrap" tabindex="0">
-      <table class="table">
+    <div class="table-responsive border rounded-3 bg-white mb-4">
+      <table class="table table-hover mb-0">
         <thead>
           <tr><th scope="col">Par</th><th scope="col">Ratio</th><th scope="col">AA</th></tr>
         </thead>
@@ -66,63 +72,35 @@
         </tbody>
       </table>
     </div>
-    <div class="error-summary" role="note">
-      <span class="error-summary__icon" aria-hidden="true">!</span>
+    
+    <div class="alert alert-danger" role="alert">
+      <span class="alert-icon fw-bold fs-5 me-2" aria-hidden="true">!</span>
       <div>
-        <h3>Restricciones de uso por contraste</h3>
-        <ul>
-          <li><code>--text-muted</code> (<code>#9F93A3</code>) da <strong>2.93</strong> sobre blanco: <strong>falla AA</strong>.
-            Se usa solo para elementos decorativos, nunca para texto que comunique información.</li>
-          <li>Por eso se añadió <code>--text-secondary</code> (<code>#6B616D</code>), derivado del mismo tono,
-            con 5.91/5.56 para texto secundario informativo.</li>
-          <li><code>--accent-cyan</code> (2.49) y <code>--accent-yellow</code> se emplean para indicadores no
-            textuales (puntos, bordes) o con texto oscuro de mayor contraste.</li>
-          <li><code>--danger</code> es un complemento semántico fuera de la paleta de marca, necesario para
-            estados de error accesibles (la referencia solo trae acentos de éxito).</li>
+        <h4 class="alert-heading">Restricciones de uso por contraste</h4>
+        <ul class="mb-0 ps-3 mt-2 text-dark">
+          <li><code>--za-text-muted</code> (<code>#9F93A3</code>) da <strong>2.93</strong> sobre blanco: <strong>falla AA</strong>. Se usa solo para elementos decorativos, nunca para texto que comunique información.</li>
+          <li>Por eso se añadió <code>--za-text-secondary</code> (<code>#6B616D</code>), derivado del mismo tono, con 5.91/5.56 para texto secundario informativo.</li>
+          <li><code>--za-accent-cyan</code> (2.49) y <code>--za-accent-yellow</code> se emplean para indicadores no textuales (puntos, bordes) o con texto oscuro de mayor contraste.</li>
+          <li><code>--za-danger</code> es un complemento semántico fuera de la paleta de marca, necesario para estados de error accesibles.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="t-tipografia">
-    <h2 id="t-tipografia">Tipografía</h2>
-    <p><code>Poppins</code> (Google Fonts) con respaldo <code>Segoe UI / system-ui / sans-serif</code>.
-    En producción la fuente debe <strong>servirse localmente</strong> para no depender de una CDN
-    (RNF-CON-001 / conectividad limitada).</p>
-  </section>
-
-  <section class="section" aria-labelledby="t-espaciado">
-    <h2 id="t-espaciado">Espaciado, radios, sombras y objetivo táctil</h2>
-    <div class="table-wrap" tabindex="0">
-      <table class="table">
-        <thead><tr><th scope="col">Token</th><th scope="col">Valor</th></tr></thead>
-        <tbody>
-          <tr><td><code>--space-1..7</code></td><td>4 · 8 · 12 · 16 · 20 · 24 · 32 px</td></tr>
-          <tr><td><code>--radius-sm/md/lg/pill</code></td><td>10 · 18 · 24 · 999 px</td></tr>
-          <tr><td><code>--card-shadow</code></td><td><code>0 4px 20px rgba(36,17,38,.03)</code></td></tr>
-          <tr><td><code>--card-hover-shadow</code></td><td><code>0 10px 30px rgba(179,34,118,.07)</code></td></tr>
-          <tr><td><code>--touch-target</code></td><td>44 px</td></tr>
-        </tbody>
-      </table>
+  <section class="mb-5" aria-labelledby="t-estados">
+    <h2 id="t-estados">Estados de color (texto + icono)</h2>
+    <div class="d-flex gap-2 flex-wrap mt-3 mb-3">
+      <span class="badge bg-brand-soft"><span class="badge-dot"></span> Marca</span>
+      <span class="badge bg-success-soft"><span class="badge-dot"></span> Éxito</span>
+      <span class="badge bg-info-soft"><span class="badge-dot"></span> Información</span>
+      <span class="badge bg-warning-soft"><span class="badge-dot"></span> Atención</span>
+      <span class="badge bg-secondary text-white"><span class="badge-dot text-white"></span> Neutro</span>
+      <span class="badge bg-danger text-white"><span class="badge-dot text-white"></span> Peligro</span>
     </div>
+    <p class="text-muted">Todos los estados incluyen texto e icono; el color nunca es la única señal.</p>
   </section>
 
-  <section class="section" aria-labelledby="t-estados">
-    <h2 id="t-estados">Estados de color (texto + icono, nunca color solo)</h2>
-    <div class="stack">
-      <div>
-        <span class="badge badge--brand"><span class="badge__dot" aria-hidden="true"></span> Marca</span>
-        <span class="badge badge--success"><span class="badge__dot" aria-hidden="true"></span> Éxito</span>
-        <span class="badge badge--info"><span class="badge__dot" aria-hidden="true"></span> Información</span>
-        <span class="badge badge--attention"><span class="badge__dot" aria-hidden="true"></span> Atención</span>
-        <span class="badge badge--muted"><span class="badge__dot" aria-hidden="true"></span> Neutro</span>
-        <span class="badge badge--danger"><span class="badge__dot" aria-hidden="true"></span> Peligro</span>
-      </div>
-    </div>
-    <p>Todos los estados incluyen texto e icono; el color nunca es la única señal.</p>
-  </section>
-
-  <p><a class="btn btn--link" href="index.html">← Volver a la hoja de estilos</a></p>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

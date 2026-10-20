@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout y Dashboard — Sistema de diseño Zhud Alelí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="za-shell">
+
+  <!-- Sidebar Extraído del Dashboard -->
+  <aside class="za-sidebar">
+    <div class="za-brand-logo">
+      <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+    </div>
+
+    <nav class="za-nav-list">
+      <a href="#" class="za-nav-btn active">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      </a>
+      <a href="#" class="za-nav-btn">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      </a>
+      <a href="#" class="za-nav-btn">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+      </a>
+    </nav>
+
+    <div class="za-user-profile-btn" title="Perfil Zhud Alelí">ZA</div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="za-main-content">
+    
+    <div class="mb-4">
+      <a href="../index.html" class="btn btn-link px-0">&larr; Volver al índice</a>
+    </div>
+
+    <!-- Topbar -->
+    <div class="za-topbar mb-5">
+      <h1 class="za-topbar-title">Dashboard Layout</h1>
+      <div class="d-flex gap-2">
+        <div class="za-date-pill">
+          <span>10-08-2026</span>
+          <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="za-stat-card">
+          <div class="za-stat-icon bg-brand-soft text-primary">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+          <div>
+            <div class="za-stat-number">178+</div>
+            <div class="za-stat-label">Save Products</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-12 col-lg-9">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3 class="card-title">Reports</h3>
+            <button class="btn btn-link p-0 text-muted">
+              <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-center bg-light rounded h-100" style="min-height: 200px;">
+              <span class="text-muted">Área de gráfico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@ title: Dashboard del proyecto de tesis
 type: dashboard
 status: in-progress
 project: tesis-zhud-aleli
-updated: 2026-09-28
+updated: 2026-10-20
 ---
 
 # Dashboard del proyecto
@@ -15,21 +15,40 @@ updated: 2026-09-28
 Aplicación web para apoyar la gestión organizacional y la trazabilidad productiva del
 Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad productiva Zhud Alelí.
 
-## Referencia actual y requisitos aprobados
+## Referencia actual y revisiones de requisitos
 
-- Guardar y sincronizar registros esenciales sin conexión es obligatorio en CAT-REQ-001 v1.1.
-- [[../requirements/CAT-REQ-001|v1.1 confirmada por el tesista]] el 2026-09-28; se conserva
-  [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|evidencia de aprobación]].
-  P-13/P-14 y la revisión académica siguen pendientes.
-- [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|Cronograma, presupuesto y stack]]:
-  16 semanas relativas, USD 2.869 y Django/PostgreSQL/SSR/Bootstrap/PWA.
-- [[../evidence/casos-de-uso/2026-09-28-coherencia-integral|Auditoría integral de coherencia]] y
-  [[../requirements/proposals/2026-09-28-diagramas-casos-de-uso|esquemas de casos de uso]].
+- [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.2]] fue aprobado por el tesista el 2026-10-13.
+- La [lista general v2.0](../../documentacion/requisitos/requisitos_generales_v2.0_2026-10-13.md)
+  contiene 58 RF y 9 RNF confirmados, 2 propuestos y 12 históricos.
+- La [priorización v1.3](../../documentacion/requisitos/priorizacion/priorizacion_requisitos_v1.3_2026-10-13.md)
+  registra importancia; no modifica la secuencia del plan de sprints.
+- El tesista informa que el docente de Aplicaciones II revisó requisitos en
+  clase. El [reporte registrado](../evidence/requirements/2026-10-13-reporte-revision-docente-en-clase.md)
+  identifica como SIN EVIDENCIA la fecha, versión revisada, resultado y constancia.
+  La revisión académica formal y la revisión de la directora siguen pendientes.
+- El 2026-10-20 el tesista identificó a Maria Camas, encargada de la organización, como
+  quien autorizó verbalmente, y a Julio Santillan, profesor de Aplicaciones Informáticas 2,
+  como quien dio el visto bueno en una presentación. No hay actas ni constancias; fecha,
+  versión y alcance exacto por precisar. El [informe para el docente](../../documentacion/seguimiento/cierre_sprint_1_y_vistos_buenos_v1.1_2026-10-20.md)
+  registra el resultado y la conciliación del seguimiento local.
+- La validación organizacional directa de las novedades de entrevista y el acta formal
+  continúan pendientes. La aprobación del tesista está en
+  [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2|EVID-REQ-APP-2026-10-13]].
+- El [alcance general v1.3](../../documentacion/alcance/alcance_v1.3_2026-10-13.md)
+  está preparado para revisión del tesista; no está aprobado en esta edición.
+- Se conserva la [[../evidence/casos-de-uso/2026-09-28-cronograma-presupuesto-stack|evidencia de cronograma, presupuesto y stack]]
+  y la [[../evidence/casos-de-uso/2026-09-28-coherencia-integral|auditoría de coherencia]] como antecedentes.
 
 ## Estado actual
 
-- Fase: preparación técnica del Sprint 1 sobre la línea base aprobada.
-- Último sprint cerrado: [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
+- Sprint 1 (15 sep-12 oct): requisitos y diseño; timebox cerrado administrativamente el
+  2026-10-20 con resultado **partially-complete**. El seguimiento local se concilió con el
+  backlog: tres tareas `en_curso`, dos `bloqueada` y ninguna `verificada`. La fecha original
+  de SB-S1-05 y las validaciones académica y de interfaz siguen pendientes de evidencia.
+  El [[../bitacora/checkpoints/2026-10-20-reconciliacion-gantt-sprint-1|checkpoint de conciliación]] detalla el cotejo; el [[../bitacora/checkpoints/2026-10-20-cierre-sprint-1-parcial|checkpoint de cierre]] conserva el reporte de vistos buenos verbales y las brechas de trazabilidad.
+- Sprint 2 (13–26 oct): incremento planificado de acceso privado, cuentas y permisos.
+  El inicio del calendario no acredita implementación ni abre la puerta T012.
+- Último sprint completado: [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
 - Arnés portable: contrato universal implementado; Codex, OpenCode/OpenChamber y Antigravity
   comparten la fuente versionada y sus adaptadores propios. Smoke test multi-host **pasado**:
   [[../evidence/S0/2026-08-24-smoke-test-contrato-universal|Smoke test del contrato universal]].
@@ -38,8 +57,8 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - Aplicación Django: no creada ni instalada como aplicación del proyecto.
 - Base de datos PostgreSQL: servicio local instalado y activo; falta crear la base de desarrollo
   del proyecto Django cuando exista `manage.py`.
-- Requisitos: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1]] aprobado por el tesista con 60 IDs
-  `confirmed`, 2 `proposed` y 12 `superseded`.
+- Requisitos: [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.2]] y [requisitos generales v2.0](../../documentacion/requisitos/requisitos_generales_v2.0_2026-10-13.md):
+  67 confirmados (58 RF + 9 RNF), 2 propuestos y 12 históricos.
 - Primera especificación: [[../../specs/001-acceso-usuarias-internas/spec|SPEC-001 — Acceso
   de usuarias internas]] en `confirmed`.
 - Plan técnico: [[../../specs/001-acceso-usuarias-internas/plan|Plan de SPEC-001]] `approved`
@@ -76,7 +95,11 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 - [[../sprints/SPRINT-00-preparacion|Sprint 0 - Preparación]].
 - [[../decisions/ADR-0001-base-del-proyecto|Decisión técnica inicial]].
 - [[../requirements/README|Cómo documentar requisitos]].
-- [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.1 aprobado]].
+- [[../requirements/CAT-REQ-001|CAT-REQ-001 v1.2 aprobado por el tesista]].
+- [Lista general completa de requisitos v2.0](../../documentacion/requisitos/requisitos_generales_v2.0_2026-10-13.md).
+- [Importancia de requisitos v1.3](../../documentacion/requisitos/priorizacion/priorizacion_requisitos_v1.3_2026-10-13.md).
+- [Alcance general v1.3, pendiente de revisión](../../documentacion/alcance/alcance_v1.3_2026-10-13.md).
+- [[../evidence/requirements/2026-10-13-reporte-revision-docente-en-clase|Reporte del tesista sobre revisión docente en clase]].
 - [[../requirements/proposals/2026-07-22-catalogo-revisado-requisitos-r3|CAT-REQ-001-R3 histórico]].
 - [[../evidence/fase-i/2026-07-22-respuestas-tesista-cat-req-001-r3|Fuente del tesista registrada]].
 - [[../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1|Validación humana del catálogo]].
@@ -115,11 +138,15 @@ Comité de Mujeres Indígenas “Tránsito Amaguaña” de Zhud y su unidad prod
 
 ## Próximo paso permitido
 
-Revisar las políticas P-13/P-14 de la revisión v1.1 y el despliegue Django; continuar
-independientemente el diseño de `SPEC-001` según sus puertas vigentes. La implementación de S1 se limita a
-`accounts` y acceso; no se crean apps ni reglas operativas de sprints futuros.
+Continuar el trabajo pendiente de S1: completar la trazabilidad de requisitos, cotejar
+los criterios ampliados y registrar las revisiones académica y organizacional cuando
+ocurran. La arquitectura vigente sigue siendo el monolito modular de ADR-0006. El
+timebox de S1 está cerrado, pero su resultado es parcial; no declarar completado el
+trabajo ni abrir T012 sin sus evidencias y validaciones.
 
 ## Regla de avance
 
-Sprint 0 está cerrado y CAT-REQ-001 v1.1 tiene aprobación explícita del tesista. Cada spec, plan y
-porción de implementación conserva sus propias puertas de aprobación.
+El timebox de Sprint 1 está cerrado y su resultado permanece parcialmente completo.
+El tesista aprobó CAT-REQ-001 v1.2 y requisitos generales v2.0; el reporte de revisión
+docente en clase no reemplaza la revisión académica formal. Cada spec, plan y porción
+de implementación conserva sus propias puertas de aprobación.

@@ -3,70 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Campos — Sistema de diseño Zhud Alelí</title>
+<title>Formularios — Sistema de diseño Zhud Alelí</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<div class="container-page">
-  <h1>Campos</h1>
-  <p>Etiqueta persistente, ayuda contextual, unidad junto al valor y error recuperable.</p>
+<div class="container py-5">
+  <div class="mb-4">
+    <a href="../index.html" class="btn btn-link px-0">&larr; Volver al índice</a>
+  </div>
 
-  <section class="section" aria-labelledby="f-texto">
-    <h2 id="f-texto">Texto</h2>
-    <form onsubmit="return false">
-      <div class="field">
-        <label for="nombre">Nombre de usuaria</label>
-        <input id="nombre" name="nombre" type="text" value="María Zhunio" autocomplete="username">
-      </div>
-      <div class="field">
-        <label for="usuario">Usuario interno</label>
-        <input id="usuario" name="usuario" type="text" value="mzhunio" autocomplete="username">
-        <span class="field-hint">Letras, números, punto, guion o guion bajo.</span>
-      </div>
-      <div class="field">
-        <label for="clave">Contraseña</label>
-        <input id="clave" name="clave" type="password" autocomplete="current-password">
-        <span class="field-hint">Al menos 8 caracteres, con una letra y un número.</span>
-      </div>
-    </form>
-  </section>
+  <h1 class="mb-5">Formularios</h1>
 
-  <section class="section" aria-labelledby="f-numero">
-    <h2 id="f-numero">Número con unidad</h2>
-    <div class="field">
-      <label for="peso">Peso de la hoja</label>
-      <div class="input-group">
-        <div class="field">
-          <input id="peso" name="peso" type="number" inputmode="decimal" step="0.01" value="12.50">
-        </div>
-        <span class="input-group__suffix">kg</span>
+  <section class="mb-5">
+    <h2>Campo básico (.form-control)</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form onsubmit="return false">
+          <div class="mb-4">
+            <label for="idx-usuario" class="form-label">Usuario interno</label>
+            <input id="idx-usuario" name="idx-usuario" type="text" class="form-control" autocomplete="username">
+            <div class="form-text mt-2">Letras, números, punto, guion o guion bajo.</div>
+          </div>
+          <div class="mb-4">
+            <label for="idx-rol" class="form-label">Rol</label>
+            <select id="idx-rol" class="form-select">
+              <option>Seleccionar rol</option>
+              <option>Socia operaria</option>
+              <option>Directiva</option>
+            </select>
+          </div>
+        </form>
       </div>
-      <span class="field-hint">Se redondea a 2 decimales.</span>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="f-error">
-    <h2 id="f-error">Error de campo</h2>
-    <form onsubmit="return false">
-      <div class="error-summary" role="alert">
-        <span class="error-summary__icon" aria-hidden="true">!</span>
-        <div>
-          <h3>Revisa los datos e inténtalo de nuevo</h3>
-          <ul>
-            <li><a href="#usuario2">El usuario ya está en uso.</a></li>
-          </ul>
+  <section class="mb-5">
+    <h2>Validación de campos (.is-invalid)</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-4">
+          <label for="idx-error" class="form-label">Contraseña actual</label>
+          <input id="idx-error" type="password" class="form-control is-invalid">
+          <div class="invalid-feedback d-block mt-2 fw-bold">
+            <span class="badge bg-danger rounded-circle me-1 px-2 py-1">!</span> La contraseña no coincide.
+          </div>
         </div>
       </div>
-      <div class="field">
-        <label for="usuario2">Usuario interno</label>
-        <input id="usuario2" name="usuario2" type="text" value="mzhunio" aria-invalid="true" aria-describedby="usuario2-error">
-        <span class="field-error" id="usuario2-error">El usuario «mzhunio» ya está en uso. Prueba con otro.</span>
-      </div>
-    </form>
+    </div>
   </section>
+
+  <section class="mb-5" aria-labelledby="f-error-summary">
+    <h2 id="f-error-summary">Resumen de errores</h2>
+    <div class="za-error-summary mt-4" role="alert" aria-labelledby="f-error-title">
+      <h3 id="f-error-title">Revisa los campos marcados</h3>
+      <ul class="mb-0">
+        <li><a href="#idx-error">Contraseña actual</a>: revisa el valor ingresado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="f-checks">
+    <h2 id="f-checks">Opciones seleccionables</h2>
+    <fieldset class="mt-4">
+      <legend class="form-label">Preferencias de vista</legend>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" id="f-notificaciones">
+        <label class="form-check-label" for="f-notificaciones">Mostrar notificaciones</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="f-densidad" id="f-comoda" checked>
+        <label class="form-check-label" for="f-comoda">Vista cómoda</label>
+      </div>
+    </fieldset>
+  </section>
+
 </div>
 </body>
 </html>

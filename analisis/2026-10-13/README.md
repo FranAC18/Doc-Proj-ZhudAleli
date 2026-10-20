@@ -20,6 +20,9 @@ control y no son documentos finales para el docente.
 | `fichas-separadas/` | Generadores, verificaciones y renders de fichas de historias, sprints y tareas. | `generar_markdown.py`, `generar_word.py`, `verificar_fichas.py` |
 | `formato-historias-docx/` | Comparación visual del formato de historias Word y sus versiones. | [Contrato de formato](formato-historias-docx/contrato-formato-historias.md), `build_historias.py` |
 | `gantt-interactivo/` | Cronograma interactivo, generador, verificador, capturas y copia del proyecto local. | [README del cronograma](gantt-interactivo/README.md) |
+| `alcances-modulos/` | Carpeta única de alcances modulares, plantilla, versiones históricas y estado vigente por sprint. | [Índice de alcances modulares](alcances-modulos/README.md) |
+| `casos-uso/` | Casos de uso detallados, trazabilidad y diagramas de flujo por proceso. | Documentos ZA-CU por módulo; consultar el índice de alcances. |
+| `diagramas-procesos/` | Catálogo visual general de procesos. | [ZA-DG-001](diagramas-procesos/ZA-DG-001-diagramas-generales-por-proceso-v1.1-2026-10-13.md) |
 | `orden-tablas/` | Scripts, verificaciones y renders de tablas reordenadas. | `reordenar_historias_y_sprints.py`, `build_plan_backlog_v1_3.py`, `verificar_edicion.py` |
 | `plan-incremental-docx/` | Iteraciones del plan incremental en Word, PDFs y renders de revisión. | [Contrato de formato](plan-incremental-docx/contrato-formato-plan-incremental.md), `build_plan.py`, `build_plan_v1_1.py` |
 | `sprint-backlog/` | Generación y revisión visual del documento de sprint backlog. | `build_plan_backlog_docx.py`, `renumerar_fuentes.py` |

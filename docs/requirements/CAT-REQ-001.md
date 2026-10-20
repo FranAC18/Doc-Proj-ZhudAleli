@@ -1,29 +1,29 @@
 ---
-title: Catálogo canónico de requisitos v1.1
+title: Catálogo canónico de requisitos v1.2
 type: requirement
 status: confirmed
 id: CAT-REQ-001
-version: 1.1
+version: 1.2
 created: 2026-07-22
-approved: 2026-09-28
+approved: 2026-10-13
 approved_by: Tesista
-updated: 2026-09-28
+updated: 2026-10-13
 baseline_approval: 2026-07-22
 director_review: pending
-organization_validation: not-recorded-for-v1.1
+organization_validation: tesista-reports-approval-of-attendance-rules; direct-record-not-provided
 phase: Fase I
 sprint: transversal
 priority: high
 module: transversal
-approval_scope: baseline-with-pending-items
-confirmed_requirements: 60
+approval_scope: baseline-v1-1-plus-interview-requirements-v1-2
+confirmed_requirements: 67
 proposed_requirements: 2
 superseded_requirements: 12
 validated_by:
   - Tesista
-validation_source: EVID-REQ-APP-001
+validation_source: EVID-REQ-APP-001; EVID-REQ-APP-2026-10-13
 baseline_validation_source: Levantamiento de requisitos 1.0
-supersedes: CAT-REQ-001 v1.0
+supersedes: CAT-REQ-001 v1.1
 pending_requirements:
   - RF-COS-001
   - RNF-OPS-001
@@ -44,7 +44,7 @@ tags:
   - sprint/fase-i
 ---
 
-# CAT-REQ-001 — Catálogo canónico de requisitos v1.1
+# CAT-REQ-001 — Catálogo canónico de requisitos v1.2
 
 ## Estado y alcance de la aprobación
 
@@ -54,7 +54,7 @@ Esta versión incorpora los cambios de requisitos aceptados expresamente por el 
 **tesista**, según [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|EVID-REQ-APP-001]];
 no se atribuye una nueva firma a la organización ni a la directora.
 
-Hay **60 requisitos confirmed**, 2 proposed y 12 IDs históricos superseded. Se aprueban las
+Hay **67 requisitos confirmed**, 2 proposed y 12 IDs históricos superseded. La aprobación de v1.2 corresponde al tesista según [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2|EVID-REQ-APP-2026-10-13]]. Se aprueban las
 reglas y criterios de RF-PWA-001/002/003 y los ajustes expresos de esta versión. Los parámetros
 P-01 a P-14 siguen abiertos en lo no definido; aprobar la capacidad no inventa sus valores.
 La revisión académica de la directora, las specs, los planes y las puertas de implementación
@@ -88,8 +88,7 @@ Interpretación de la validación recibida:
 2. Asistencia con entrada y salida separadas, hora del servidor en línea, QR temporal, código
    alternativo y registro delegado auditable. La captura offline es provisional y distingue
    instante declarado de recepción; P-13 define aceptación sin dar validez a un token vencido.
-3. Inconsistencias de asistencia pendientes hasta que la asamblea las resuelva; no existen
-   sanciones automáticas ni una ventana automática de tres días.
+3. Al cierre de la actividad, el sistema registra automáticamente una falta para cada participante asignada sin asistencia válida. La justificación puede presentarse dentro de un máximo de tres días hábiles. La multa comunicada es USD 10 por falta; el atraso es USD 0,01 por minuto, y se emite un aviso al llegar a la tercera falta. La Tesorera valida la multa antes de aplicarla. P-03 mantiene abiertos el inicio del cómputo, el canal y resolución de justificativos, redondeo, impugnación y cobro.
 4. Perfiles Directiva, Socia operaria y Visitante. Los cargos y encargos limitan operaciones;
    el soporte técnico no recibe autoridad organizacional ni permiso de negocio ilimitado.
 5. Inventario, lotes, entregas, ventas, devoluciones, pagos y ajustes se registran mediante
@@ -140,11 +139,11 @@ habilitar cada fase y casos autorizados de delegación.
 | P-10 | Definir numeración, custodia, digitación, verificación y plazo del comprobante manual, y conciliación con operaciones digitales para evitar doble registro. No volver a preguntar si la PWA es necesaria. |
 
 
-Los ajustes de esta sección prevalecen sobre v1.0 y R3. Los demás criterios se conservan.
+Los ajustes de esta sección prevalecen sobre v1.0 y R3. Los demás criterios se conservan. Los ajustes de v1.2 se describen en “Requisitos aprobados derivados de entrevista en v1.2”.
 
 ## Requisitos confirmados
 
-Los siguientes 60 IDs tienen estado `confirmed`: 57 heredados y 3 capacidades PWA.
+Los siguientes 67 IDs tienen estado `confirmed`: 57 heredados, 3 capacidades PWA y 7 requisitos aprobados a partir de la entrevista en v1.2.
 Los ajustes expresos de RF-ASI-007 y de v1.1 prevalecen sobre R3; los demás criterios
 incorporados conservan su definición. La aprobación no equivale a implementación.
 
@@ -158,7 +157,13 @@ incorporados conservan su definición. La aprobación no equivale a implementaci
 | Reportes, recordatorios y sitio público — S5 | `RF-REP-001`, `RF-REP-002`, `RF-REP-003`, `RF-REP-004`, `RF-REP-005`, `RF-REP-006`, `RF-NOT-001`, `RF-PUB-001`, `RF-PUB-002` | 9 |
 | No funcionales transversales | `RNF-UX-001`, `RNF-UX-002`, `RNF-UX-003`, `RNF-CON-001`, `RNF-SEC-001`, `RNF-AUD-001`, `RNF-DAT-001`, `RNF-PRV-001`, `RNF-PDF-001` | 9 |
 | Continuidad PWA — transversal, S3/S4 | `RF-PWA-001`, `RF-PWA-002`, `RF-PWA-003` | 3 |
-| **Total** |  | **60** |
+| Gestión documental — transversal | `RF-DOC-001` | 1 |
+| Activos — transversal | `RF-AST-001` | 1 |
+| Inventario y producción — S4 | `RF-INV-005`, `RF-INV-006` | 2 |
+| Sitio público — S5 | `RF-PUB-003` | 1 |
+| Feria — S4 | `RF-VEN-009` | 1 |
+| Notificaciones externas — transversal | `RF-NOT-002` | 1 |
+| **Total** |  | **67** |
 
 ### Catálogo inicial confirmado como estructura
 
@@ -219,6 +224,35 @@ cerrada de plantas se completan en P-04 antes de implementar operaciones que las
 - Módulos: adaptador PWA y servicios propietarios; CU-OFF-02. Estado: `confirmed`, capacidad
   obligatoria aprobada. RNF-SEC/AUD/DAT/PRV se mantienen, no se exceptúan.
 
+## Requisitos aprobados derivados de entrevista en v1.2
+
+La aprobación del tesista de 2026-10-13 queda registrada en [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2|EVID-REQ-APP-2026-10-13]]. Se aprueban estas capacidades a nivel de requisito; las decisiones de detalle señaladas siguen siendo puertas para la especificación e implementación.
+
+| ID | Prioridad | Requisito aprobado | Criterios mínimos y pendientes |
+|---|---|---|---|
+| `RF-DOC-001` | Alta | La Directiva registra, consulta y versiona documentos organizacionales y productivos por tipo, entidad relacionada, fecha y vigencia, con acceso autorizado y avisos internos de vencimiento. | Las versiones anteriores se conservan y solo personas autorizadas abren o descargan documentos. Definir tipos, metadatos mínimos, plazos por clase, retención y tratamiento de documentos personales. |
+| `RF-AST-001` | Complementaria | La Directiva mantiene un registro de activos de la organización con estado e historial, separado del inventario consumible. | Altas, cambios y retiros conservan historial sin afectar existencias consumibles. Depreciación queda fuera hasta aprobar método y vida útil. |
+| `RF-INV-005` | Alta | El sistema distingue inventario bajo custodia individual del inventario organizacional y concilia transferencias sin convertir automáticamente la custodia en deuda. | Cada transferencia identifica origen, destino, responsable y cantidad; diferencias quedan pendientes. Acordar propiedad, faltantes y conciliación monetaria. |
+| `RF-INV-006` | Alta | Las personas autorizadas reciben alertas cuando una materia o insumo llega al mínimo aprobado para una planta o producto. | Mostrar existencia, unidad y umbral fuente; impedir comparación entre unidades incompatibles. Definir catálogo, umbrales, mermas y responsables. |
+| `RF-PUB-003` | Complementaria | La organización publica precios vigentes aprobados y ofrece un enlace contextual de contacto por WhatsApp, sin crear automáticamente un pedido o venta. | Solo se muestra un precio aprobado vigente; el enlace identifica el producto y abre una consulta. Definir aprobación y vigencia del precio y el alcance del contacto. |
+| `RF-VEN-009` | Esencial | La Tesorera prepara la distribución de comisiones de feria aplicando una fórmula aprobada y rastreable. | Mostrar base, ventas, devoluciones, gastos y fórmula aplicada. No distribuir importes hasta acordar porcentajes, destinatarios y excepciones. |
+| `RF-NOT-002` | Complementaria | Si se habilita mensajería automática, el sistema envía recordatorios externos solo a destinatarios autorizados que dieron consentimiento. | Registrar consentimiento y resultado; un fallo no figura como envío y un reintento no duplica. Definir canal, proveedor, contenido y costo antes de habilitarlo. |
+
+### Ajustes v1.2 a requisitos existentes
+
+| Requisito | Ajuste aprobado | Decisiones de detalle abiertas |
+|---|---|---|
+| `RF-ASI-006` | Registro automático de falta al cierre si no hay asistencia válida; máximo de tres días hábiles para justificar; USD 10 por falta y USD 0,01 por minuto de atraso como valores comunicados; aviso a la tercera falta; validación de la multa por la Tesorera antes de aplicarla. | Evento inicial del plazo, canal, aceptación de justificativos, redondeo, impugnación y cobro (P-03). |
+| `RF-PLA-003` | Añade aceptación del encargo de secado, evidencia de cierre y posibilidad de reasignación cuando no hay confirmación. | Responsable de aceptación/reasignación, plazos y tipos de evidencia. |
+| `RF-NOT-001` | Permite recordatorios internos de actividades uno o dos días antes. | Destinatarios y excepciones por tipo de actividad. |
+| `RF-TRA-005` | Aclara que composición y versión representan una receta aprobada, con insumos y unidades. | Solo se incorporan fórmulas validadas; no se confirma el ejemplo 50 litros/100 champús. |
+| `RF-GAS-001` | Distingue gastos previstos de gastos reales comprobados en ferias. | Evidencias y autorización del gasto. |
+| `RF-REP-005` | Añade cierre mensual por socia con entregas, ventas, devoluciones, pagos y saldos conciliados. | Periodo y reglas de conciliación, sin inventar fórmulas de comisión. |
+| `RNF-PRV-001` | Refuerza minimización y acceso restringido a expedientes, justificativos y documentos personales. | Categorías de documentos, responsables y retención antes de habilitar almacenamiento. |
+| `RNF-SEC-001` y `RNF-AUD-001` | Si se habilitan mensajes externos, verificar destinatario/consentimiento y conservar resultado y fallos. | Canal, proveedor, costo, retención y reintentos. |
+
+La revisión académica y la validación directa de la organización para las novedades de v1.2 no constan realizadas. La aprobación del tesista no las sustituye.
+
 ## Requisitos que permanecen propuestos
 
 | ID | Estado | Alcance conservado | Condición para confirmar |
@@ -253,7 +287,7 @@ activos. No significa que la pregunta asociada esté resuelta.
 |---|---|---|
 | P-01 | Matriz cargo por operación y acceso puntual de soporte | Cerrado. Resuelto para el módulo de acceso; pendiente de especificaciones futuras según funcionalidad |
 | P-02 | Duración del QR, habilitación de fases y casos de delegación | Cerrar durante la spec de asistencia antes de implementar el QR |
-| P-03 | Consecuencias de faltas y autoridad que las decide | No bloquea asistencia; bloquea sanciones automáticas o económicas |
+| P-03 | Inicio y canal del plazo de tres días hábiles, autoridad que resuelve justificativos, redondeo, impugnación y cobro de multas | No bloquea el registro de asistencia; bloquea cálculo final o aplicación automática de sanciones. La Tesorera valida cada multa antes de aplicarla. |
 | P-04 | Presentaciones, unidades, conversiones, nombre de horchata/kit y lista de plantas | Cerrar antes de fórmulas y movimientos que requieran conversiones |
 | P-05 | Compatibilidades de mezcla/división, bajas, mermas y cierres excepcionales | Cerrar antes de implementar esas excepciones de lote |
 | P-06 | Fórmula de costo completo | Mantiene `RF-COS-001` en `proposed` |
@@ -299,10 +333,18 @@ explícita del tesista se registra con fuente, alcance, versión y evidencia, co
 | Fecha | Participantes y roles | Fuente | Resultado | Evidencia |
 |---|---|---|---|---|
 | 2026-07-22 | Tesista; organización; presidenta | Levantamiento de requisitos 1.0 | 57 `confirmed`, 2 `proposed`, 12 `superseded`; RF-ASI-007 ajustado | [[../evidence/fase-i/2026-07-22-validacion-cat-req-001-v1]] |
-| 2026-09-28 | Tesista; aprobación explícita de los cambios presentados | Revisión v1.1 y solicitud «acepto los cambios de requisitos, apruebalos» | 60 `confirmed`, 2 `proposed`, 12 históricos; ajustes de continuidad y tres RF-PWA aprobados; parámetros pendientes conservados | [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1]] |
+| 2026-09-28 | Tesista; aprobación explícita de los cambios presentados | Revisión v1.1 y solicitud «acepto los cambios de requisitos, apruebalos» | 60 `confirmed`, 2 `proposed`, 12 históricos; ajustes de continuidad y tres RF-PWA aprobados | [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1]] |
+| 2026-10-13 | Tesista | Aprobación de la propuesta general v2.2 basada en entrevista; tres días hábiles, falta automática y validación de multas por la Tesorera | 67 `confirmed`, 2 `proposed`, 12 históricos; revisión académica/directa de organización pendiente | [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2]] |
 
 ## Próxima puerta
 
 Crear specs por funcionalidad únicamente desde los IDs `confirmed`. Antes de implementar una
 operación afectada por P-01 a P-14, su spec debe cerrar el dato o separar esa parte en una porción posterior
 sin eliminar la capacidad obligatoria del proyecto. `speckit-implement` continúa prohibido hasta aprobar la spec y sus tareas.
+
+## Historial de versiones
+
+| Versión | Fecha | Estado | Cambio |
+|---|---|---|---|
+| 1.1 | 2026-09-28 | Histórica, conservada en CAT-REQ-001-v1.1.md | Línea base anterior: 60 requisitos confirmados. |
+| 1.2 | 2026-10-13 | Vigente | Se incorporan las capacidades aprobadas derivadas de entrevista, se complementa RF-ASI-006 y se registran decisiones aún abiertas. |

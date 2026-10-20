@@ -1,5 +1,10 @@
 # Feature Specification: [FEATURE NAME]
 
+<!-- Zhud Alelí: prefer templates/overrides/spec-template.md. The current constitution
+and approved requirements govern scope. An independently useful/testable increment may
+be released in a joint monolith version; it does not require independent service deployment.
+Future capabilities are examples, not newly approved requirements. -->
+
 **Feature Branch**: `[###-feature-name]`
 
 **Created**: [DATE]
@@ -19,7 +24,7 @@
   Think of each story as a standalone slice of functionality that can be:
   - Developed independently
   - Tested independently
-  - Deployed independently
+  - Released as a useful increment, within the application's deployment model
   - Demonstrated to users independently
 -->
 
