@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Cronograma de sprints - Zhud Alelí</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/interaction.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="top" id="top">
+      <div>
+        <div class="eyebrow">Zhud Alelí · planificación documental</div>
+        <h1>Cronograma del proyecto</h1>
+        <p class="lede">Consulta el plan, modifica el seguimiento de tareas y encuentra las fuentes y evidencias de cada sprint.</p>
+      </div>
+      <span class="edition">Herramienta local · solo en este equipo</span>
+    </header>
+
+    <nav class="main-menu" aria-label="Menú principal">
+      <div class="menu-links" aria-label="Accesos directos">
+        <a class="menu-link" href="#project-overview">Resumen</a>
+        <a class="menu-link" href="#sprint-overview">Sprints</a>
+      </div>
+      <div class="menu-tabs" role="tablist" aria-label="Vistas del proyecto">
+        <button class="tab" role="tab" id="tab-kanban" aria-controls="panel-kanban" aria-selected="true" data-tab="kanban">Kanban</button>
+        <button class="tab" role="tab" id="tab-backlog" aria-controls="panel-backlog" aria-selected="false" data-tab="backlog">Product Backlog</button>
+        <button class="tab" role="tab" id="tab-gantt" aria-controls="panel-gantt" aria-selected="false" data-tab="gantt">Cronograma</button>
+        <button class="tab" role="tab" id="tab-matrix" aria-controls="panel-matrix" aria-selected="false" data-tab="matrix">Tareas y avance</button>
+        <button class="tab" role="tab" id="tab-log" aria-controls="panel-log" aria-selected="false" data-tab="log">Bitácora</button>
+        <button class="tab" role="tab" id="tab-pending" aria-controls="panel-pending" aria-selected="false" data-tab="pending">Pendientes</button>
+      </div>
+      <a class="menu-link menu-documents" href="#sources-section">Documentos</a>
+    </nav>
+
+    <p class="notice"><strong>Cómo leer el avance.</strong> Las barras muestran ventanas planificadas, no fechas aprobadas para cada tarea. El estado se refiere al seguimiento local. El cronograma y sus relaciones conservan el corte del 13 de octubre de 2026; los accesos documentales incluyen ediciones posteriores cuando están disponibles. El seguimiento no sustituye pruebas, actas ni revisión académica.</p>
+
+    <section class="overview" id="project-overview" aria-label="Resumen del proyecto">
+      <div class="metric"><b id="metric-sprints">6</b><span>sprints y 2 días de cierre</span></div>
+      <div class="metric"><b id="metric-tasks">27</b><span>tareas candidatas</span></div>
+      <div class="metric"><b id="metric-verified">0</b><span>tareas verificadas</span></div>
+      <div class="metric"><b id="metric-requirements">60</b><span>requisitos confirmados · 51 RF y 9 RNF</span></div>
+    </section>
+
+    <details class="sprint-overview" id="sprint-overview" open>
+      <summary class="sprint-summary">
+        <span>
+          <span class="eyebrow">Navegación rápida</span>
+          <h2 id="sprint-overview-title">Sprints, tareas y evidencias</h2>
+          <span class="sprint-summary-hint">Desliza entre etapas o usa las flechas. Abre cada sprint para editar tareas y acceder a sus documentos.</span>
+        </span>
+        <span class="summary-toggle"><span class="summary-toggle-label">Mostrar u ocultar</span><span class="summary-chevron" aria-hidden="true">⌄</span></span>
+      </summary>
+      <div class="sprint-carousel" aria-label="Carrusel de sprints">
+        <button type="button" class="carousel-arrow" id="sprint-prev" aria-label="Sprint anterior" title="Sprint anterior">‹</button>
+        <div class="sprint-cards" id="sprint-cards" aria-label="Sprints, documentos y evidencias" tabindex="0"></div>
+        <button type="button" class="carousel-arrow" id="sprint-next" aria-label="Siguiente sprint" title="Siguiente sprint">›</button>
+      </div>
+      <div class="carousel-footer">
+        <span class="hint" id="carousel-help">También puedes usar las flechas izquierda y derecha.</span>
+        <span class="carousel-position" id="carousel-position" role="status" aria-live="polite">Sprint 1 de 8</span>
+      </div>
+    </details>
+
+    <section class="tab-panel" id="panel-kanban" role="tabpanel" aria-labelledby="tab-kanban">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h2>Tablero Kanban</h2><p>Mueve tareas entre estados. Las tareas fuente conservan su trazabilidad; puedes crear y gestionar tareas locales.</p></div>
+          <div class="tools">
+            <label class="sr-only" for="board-sprint-filter">Filtrar tareas por sprint</label>
+            <select id="board-sprint-filter" class="compact-control" aria-label="Filtrar por sprint"></select>
+            <label class="search-compact"><span class="sr-only">Buscar tarea</span><input id="board-search" type="search" placeholder="Buscar tarea…"></label>
+            <button type="button" class="primary" id="new-task-button">+ Nueva tarea</button>
+          </div>
+        </div>
+        <p class="hint">Al completar una tarea se solicitarán evidencia, fecha y persona verificadora. Las tareas del backlog documental no se eliminan desde este tablero.</p>
+      </div>
+      <div class="kanban-board" id="kanban-board" aria-label="Tablero de tareas"></div>
+    </section>
+
+    <section class="tab-panel" id="panel-backlog" role="tabpanel" aria-labelledby="tab-backlog" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <div><h2>Product Backlog</h2><p>Historias, requisitos y tareas del plan vigente, con sus relaciones y avance local.</p></div>
+          <div class="tools">
+            <label class="search-compact"><span class="sr-only">Buscar en backlog</span><input id="backlog-search" type="search" placeholder="Buscar código o nombre…"></label>
+            <select id="backlog-kind-filter" class="compact-control" aria-label="Filtrar por tipo">
+              <option value="all">Todos los tipos</option><option value="task">Tareas</option><option value="hu">Historias de usuario</option><option value="ht">Historias técnicas</option><option value="rf">Requisitos funcionales</option><option value="rnf">Requisitos no funcionales</option>
+            </select>
+            <select id="backlog-status-filter" class="compact-control" aria-label="Filtrar por estado">
+              <option value="all">Todos los estados</option><option value="sin_verificar">Sin verificar</option><option value="en_curso">En curso</option><option value="bloqueada">Bloqueada</option><option value="realizada">En revisión</option><option value="verificada">Completado</option>
+            </select>
+            <button type="button" class="primary" id="new-backlog-task">+ Nueva tarea</button>
+          </div>
+        </div>
+        <div class="backlog-wrap">
+          <table class="backlog-table">
+            <thead><tr><th>ID</th><th>Elemento</th><th>Tipo</th><th>Prioridad</th><th>Estado</th><th>Sprint</th><th>Pts</th><th>Fechas</th><th>Acción</th></tr></thead>
+            <tbody id="backlog-body"></tbody>
+          </table>
+        </div>
+        <p class="hint" id="backlog-count" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="panel-gantt" role="tabpanel" aria-labelledby="tab-gantt" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <div><h2>Cronograma por fechas</h2><p>Filtra por sprint, estado o texto. Selecciona una tarea para editar su avance y evidencia.</p></div>
+          <div class="tools">
+            <button type="button" class="secondary" id="export-button">Exportar avance</button>
+            <label class="secondary file-button">Importar avance<input type="file" id="import-file" accept="application/json,.json" aria-label="Importar seguimiento JSON"></label>
+          </div>
+        </div>
+        <p class="hint" id="file-status" role="status" aria-live="polite">Conectando con el archivo de avance.</p>
+        <div class="filters">
+          <div class="field"><label for="search">Buscar código o nombre</label><input id="search" type="search" placeholder="Ej. asistencia, HU-ASI-001"></div>
+          <div class="field"><label for="sprint-filter">Sprint</label><select id="sprint-filter"><option value="all">Todos los sprints</option></select></div>
+          <div class="field"><label for="status-filter">Estado de tarea</label><select id="status-filter"><option value="all">Todos los estados</option><option value="sin_verificar">Sin verificar</option><option value="en_curso">En curso</option><option value="bloqueada">Bloqueada</option><option value="realizada">Realizada</option><option value="verificada">Verificada</option></select></div>
+          <div class="field"><label for="zoom">Escala</label><select id="zoom"><option value="11">Compacta</option><option value="15" selected>Normal</option><option value="21">Amplia</option></select></div>
+        </div>
+        <div class="kind-controls" role="group" aria-label="Tipos de fila">
+          <label class="kind-chip"><input type="checkbox" data-kind="sprint" checked>Sprints</label>
+          <label class="kind-chip"><input type="checkbox" data-kind="task" checked>Tareas</label>
+          <label class="kind-chip"><input type="checkbox" data-kind="hu">Historias de usuario</label>
+          <label class="kind-chip"><input type="checkbox" data-kind="ht">Historias técnicas</label>
+          <label class="kind-chip"><input type="checkbox" data-kind="rf">Requisitos funcionales</label>
+          <label class="kind-chip"><input type="checkbox" data-kind="rnf">Requisitos no funcionales</label>
+        </div>
+        <div class="legend"><span style="--dot:#a69aa5">Sin verificar</span><span style="--dot:#2769a8">En curso</span><span style="--dot:#a82048">Bloqueada</span><span style="--dot:#a05a00">Realizada</span><span style="--dot:#087a70">Verificada</span></div>
+      </div>
+      <div class="gantt-wrap" id="gantt-wrap" role="region" aria-label="Cronograma con desplazamiento horizontal y vertical" tabindex="0"><div id="gantt"></div></div>
+      <p class="hint" id="gantt-count" aria-live="polite"></p>
+    </section>
+
+    <section class="tab-panel" id="panel-matrix" role="tabpanel" aria-labelledby="tab-matrix" hidden>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Seguimiento de tareas</h2><p>Selecciona una tarea para cambiar su estado, añadir evidencia o registrar quién la verificó.</p></div></div>
+        <div class="matrix-wrap"><table class="matrix"><thead><tr><th>Código</th><th>Sprint y tarea</th><th>Prioridad</th><th>HU relacionadas</th><th>HT relacionadas</th><th>Estado</th></tr></thead><tbody id="task-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="panel-pending" role="tabpanel" aria-labelledby="tab-pending" hidden>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Decisiones y propuestas fuera del calendario comprometido</h2><p>Son asuntos documentados para aclarar. No tienen fecha de ejecución ni se presentan como requisitos aprobados.</p></div></div>
+        <div class="pending-grid" id="pending-grid"></div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="panel-log" role="tabpanel" aria-labelledby="tab-log" hidden>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Bitácora de actividad</h2><p>Historial local de cambios de estado, fechas, evidencias, tareas y cierre de sprints.</p></div><span class="edition" id="audit-count">0 eventos</span></div>
+        <div class="audit-list" id="audit-list"></div>
+      </div>
+    </section>
+
+    <section class="panel sources-panel" id="sources-section" aria-labelledby="sources-heading">
+      <div class="panel-head"><div><h2 id="sources-heading">Documentos fuente</h2><p>Abre un documento local en su carpeta o visita un enlace web en otra pestaña.</p></div></div>
+      <div class="source-list" id="source-list"></div>
+    </section>
+
+    <footer class="footer">Herramienta interna local. El servidor solo escucha en este equipo. No publica cambios ni modifica los documentos de <code>documentacion/</code>.</footer>
+  </div>
+
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="drawer" class="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-head"><div><div class="eyebrow" id="drawer-kind"></div><h2 id="drawer-title"></h2></div><button type="button" class="close" id="close-drawer" aria-label="Cerrar detalle">×</button></div>
+    <div id="drawer-content"></div>
+  </aside>
+  <dialog id="task-dialog" class="task-dialog" aria-labelledby="task-dialog-title">
+    <form id="task-form" novalidate>
+      <div class="dialog-head"><div><h2 id="task-dialog-title">Nueva tarea local</h2><p>La tarea se guarda en el seguimiento de este equipo.</p></div><button type="button" class="close" id="task-dialog-close" aria-label="Cerrar formulario">×</button></div>
+      <input type="hidden" id="task-dialog-id">
+      <div class="form-grid">
+        <div class="field"><label for="task-display-id">ID</label><input id="task-display-id" readonly></div>
+        <div class="field"><label for="task-sprint">Sprint asignado</label><select id="task-sprint"></select></div>
+        <div class="field wide"><label for="task-title">Título *</label><input id="task-title" maxlength="120" required></div>
+        <div class="field wide"><label for="task-description">Descripción breve</label><textarea id="task-description" maxlength="500"></textarea></div>
+        <div class="field"><label for="task-priority">Prioridad</label><select id="task-priority"><option>Esencial</option><option>Alta</option><option selected>Media</option><option>Baja</option><option>Complementaria</option></select></div>
+        <div class="field"><label for="task-points">Story points</label><input id="task-points" type="number" min="0" max="100" step="1" placeholder="Sin estimar"></div>
+        <div class="field"><label for="task-status">Estado</label><select id="task-status"><option value="sin_verificar">Por hacer</option><option value="en_curso">En progreso</option><option value="bloqueada">Por hacer · bloqueada</option><option value="realizada">En revisión</option><option value="verificada">Completado</option></select></div>
+        <div class="field"><label for="task-start">Fecha de inicio</label><input id="task-start" type="date"></div>
+        <div class="field"><label for="task-end">Fecha de fin</label><input id="task-end" type="date"></div>
+        <div class="field wide"><label for="task-evidence">Enlace o ruta de evidencia</label><input id="task-evidence" maxlength="1000" placeholder="https://… o /evidencias/…/archivo.pdf"></div>
+        <div class="field"><label for="task-reviewer">Persona verificadora</label><input id="task-reviewer" maxlength="160"></div>
+        <div class="field"><label for="task-date">Fecha de comprobación</label><input id="task-date" type="date"></div>
+        <div class="field wide"><label for="task-notes">Observaciones</label><textarea id="task-notes" maxlength="4000"></textarea></div>
+      </div>
+      <p class="hint">Para marcar como realizada o completada, agrega evidencia. Para completarla, añade quién verificó y la fecha. Puedes vincular archivos de /fuentes/ o /evidencias/.</p>
+      <p class="error" id="task-dialog-error" role="alert"></p>
+      <div class="dialog-actions"><button type="button" class="secondary" id="task-delete-button" hidden>Eliminar tarea local</button><span></span><button type="button" class="secondary" id="task-cancel-button">Cancelar</button><button type="submit" class="primary">Guardar tarea</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
