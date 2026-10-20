@@ -5,11 +5,18 @@ description: "Task list template for feature implementation"
 
 # Tasks: [FEATURE NAME]
 
+<!-- Zhud Alelí: prefer templates/overrides/tasks-template.md. Constitution 1.0.0 and ADR-0006
+override generic examples: use approved repository-root config/apps paths, a single writer,
+behavior tests proportional to risk, explicit module dependencies and incremental joint
+releases. The tesista may close a sprint with unfinished tasks; do not relabel them complete.
+Do not generate empty services/apps. Git/publication require user authorization. -->
+
 **Input**: Design documents from `/specs/[###-feature-name]/`
 
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**Tests**: Functional behavior requires tests proportional to risk under the constitution.
+Use the approved feature's criteria; do not infer that tests are optional from generic commands.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -80,7 +87,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 1 (proportional to approved behavior and risk)
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
@@ -106,7 +113,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 2 (proportional to approved behavior and risk)
 
 - [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
@@ -128,7 +135,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 3 (proportional to approved behavior and risk)
 
 - [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
@@ -154,7 +161,7 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
+- [ ] TXXX [P] Additional unit tests for uncovered behavior or risk in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
 
@@ -179,10 +186,10 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Within Each User Story
 
-- Tests (if included) MUST be written and FAIL before implementation
-- Models before services
-- Services before endpoints
-- Core implementation before integration
+- Relevant behavior tests MUST establish the expected failure before implementation
+- Models/invariants before operations that depend on them
+- Required operations before views/endpoints that consume them; no empty service layer
+- Story behavior before integration; no universal core module required
 - Story complete before moving to next priority
 
 ### Parallel Opportunities
@@ -247,6 +254,6 @@ With multiple developers:
 - [Story] label maps task to specific user story for traceability
 - Each user story should be independently completable and testable
 - Verify tests fail before implementing
-- Commit after each task or logical group
+- Prepare reviewable increments; commit only with explicit user authorization
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence

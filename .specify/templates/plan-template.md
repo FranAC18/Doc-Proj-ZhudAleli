@@ -1,5 +1,11 @@
 # Implementation Plan: [FEATURE]
 
+<!-- Zhud Alelí: prefer templates/overrides/plan-template.md. Fallbacks MUST follow
+constitution 1.0.0 and ADR-0006: modular Django at repository root, explicit ownership,
+pragmatic layers, transactions, compatibility and incremental joint releases. The tesista
+may close a sprint administratively at any time; that does not mark unfinished work complete.
+Generic src/backend/frontend examples below MUST be replaced with approved config/apps paths. -->
+
 **Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
 
 **Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
@@ -38,7 +44,8 @@
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design. A failed work gate
+does not prevent the tesista from closing the sprint period and carrying unfinished work.*
 
 [Gates determined based on constitution file]
 

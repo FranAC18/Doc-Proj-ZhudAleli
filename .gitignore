@@ -32,3 +32,7 @@ staticfiles/
 
 # Documentación exclusiva del repositorio del docente
 /documentacion/
+
+# Avance local del Gantt (puede contener nombres y evidencias)
+seguimiento_sprints_zhud_aleli.json
+/cronograma-interactivo/proyecto-local/estado/

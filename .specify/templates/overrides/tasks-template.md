@@ -16,6 +16,10 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
 - Cada archivo tiene un único escritor.
 - Las pruebas no son opcionales para comportamiento funcional.
 - Una tarea no puede marcarse `completed` sin resultado de verificación.
+- El tesista decide cuándo cerrar o reabrir un sprint; puede hacerlo con resultado parcial y
+  trasladar pendientes sin acta ni aprobación adicional. El cierre del periodo no completa tareas.
+- Constitución vigente y ADR-0006 gobiernan capas proporcionales, propiedad de escrituras
+  y entrega conjunta; eliminar tareas/capas que el incremento no necesita.
 
 ## Fase 1 — Preparación de la porción vertical
 
@@ -39,7 +43,8 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
 - [ ] T009 [reviewer] Revisar criterios, autorización, integridad y diff → hallazgos registrados.
 - [ ] T010 [writer] Resolver hallazgos aceptados → pruebas pasan.
 - [ ] T011 [coordinator] Actualizar matriz y evidencia en `[rutas]` → enlaces comprobados.
-- [ ] T012 [coordinator] Preparar checkpoint y solicitud de aprobación → sin commit/push automático.
+- [ ] T012 [coordinator] Registrar resultado y pendientes en el estado operativo existente;
+      solicitar solo las aprobaciones propias de un entregable → sin commit/push automático.
 
 ## Dependencias
 
@@ -57,7 +62,14 @@ no comparten archivos ni una migración ordenada.
 - [ ] `python manage.py check` pasa.
 - [ ] `python manage.py makemigrations --check --dry-run` no detecta cambios.
 - [ ] Suite relevante pasa.
+- [ ] Dependencias y consumidores revisados; recorridos anteriores afectados pasan.
+- [ ] Migraciones/contratos compatibles y recuperación comprobada donde haya cambios.
 - [ ] Interfaz revisada en móvil y escritorio.
 - [ ] `git diff --check` y diff completo revisados.
 - [ ] Evidencia, matriz y documentación actualizadas.
+- [ ] El tesista puede cerrar el periodo con pendientes; no se exige una puerta adicional ni
+      cambiar el estado de tareas que no estén verificadas.
 - [ ] No hay credenciales, datos personales ni cambios fuera de alcance.
+- [ ] Si hay piloto: versión y alcance utilizables, prueba con socias y hallazgos registrados.
+- [ ] Git y publicación ejecutados solo con autorización; cerrar un incremento no completa
+      automáticamente el módulo ni aprueba el siguiente.

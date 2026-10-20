@@ -3,10 +3,12 @@ title: Plan maestro de implementación modular y PWA
 type: roadmap
 status: proposed
 date: 2026-09-22
+updated: 2026-10-08
 approved_by: tesista
 approved: 2026-09-22
 director_review: pending
-architecture: "[[../decisions/proposals/2026-09-22-arquitectura-modular-desacoplada]]"
+architecture: "[[../decisions/ADR-0006-monolito-modular-y-entrega-incremental]]"
+historical_architecture: "[[../decisions/proposals/2026-09-22-arquitectura-modular-desacoplada]]"
 related:
   - "[[ARQUITECTURA-OBJETIVO]]"
   - "[[MODULOS-DETALLADOS]]"
@@ -34,9 +36,10 @@ semanas, con un desarrollador único, validación progresiva con usuarias y desp
 costo. No se crea código ni se cambian requisitos confirmados desde este roadmap; cada módulo
 funcional deberá tener su propia spec, plan, tareas y puerta de aprobación.
 
-La arquitectura aprobada para planificar es un **monolito modular Django con capas de dominio
-aisladas y separación hexagonal pragmática**, complementado por una PWA offline-first con
-outbox para las operaciones esenciales especificadas. Guardar y sincronizar asistencia y
+La arquitectura vigente se confirma en [[../decisions/ADR-0006-monolito-modular-y-entrega-incremental|ADR-0006]]:
+**monolito modular Django con capas internas pragmáticas, alta cohesión y bajo acoplamiento**.
+La reconciliación del 2026-10-08 sustituye las restricciones de aislamiento de septiembre;
+no promueve todo este roadmap ni sus políticas pendientes. Guardar y sincronizar asistencia y
 pesajes es una necesidad obligatoria del diseño solicitado el 2026-09-28; falta concretar
 las políticas operativas, no decidir si se incorpora esa capacidad. No se usarán
 microservicios, SPA independiente ni gRPC en la primera entrega.
@@ -46,12 +49,12 @@ microservicios, SPA independiente ni gRPC en la primera entrega.
 1. **Un solo despliegue, límites explícitos.** Django y PostgreSQL se despliegan como una
    aplicación integrada, pero cada bounded context posee sus modelos, migraciones, invariantes,
    servicios y pruebas.
-2. **Contratos en lugar de acceso cruzado.** Un módulo no importa modelos internos, hace `JOIN`
-   ni escribe tablas de otro. Las llamadas cruzadas usan servicios de aplicación, consultas
-   públicas o eventos versionados.
-3. **Hexagonalidad pragmática.** Las reglas de negocio se separan de las vistas y del ORM donde
-   exista riesgo real. No se crean interfaces abstractas ni repositorios genéricos para CRUDs
-   simples.
+2. **Propiedad y dependencias explícitas.** Las escrituras usan operaciones del propietario.
+   Las lecturas autorizadas y FK/JOIN justificados se conservan; se documentan consumidores
+   y dirección de dependencias sin ciclos. No se impone HTTP/eventos entre apps.
+3. **Capas pragmáticas.** Se separa HTTP de reglas y datos con mecanismos nativos. Servicios,
+   consultas y adaptadores aparecen cuando existe comportamiento requerido, sin interfaces
+   abstractas, repositorios genéricos o capas vacías para CRUDs simples.
 4. **Integridad transaccional.** Las operaciones críticas usan PostgreSQL y `transaction.atomic`.
    Inventario, pesajes, secado, lotes, despachos y cuentas por cobrar conservan movimientos,
    actor, instante y motivo de corrección cuando el requisito lo exige.
@@ -93,13 +96,13 @@ ADR-0003. `authentication` se implementa como `accounts`, `production` como `tra
 
 | App | Propiedad | Dependencias permitidas | Contratos principales |
 |---|---|---|---|
-| `core` | IDs, reloj, navegación base, auditoría técnica, sobre de evento, outbox y utilidades PWA | Ninguna regla de dominio | Layout, middleware, `EventEnvelope`, estado de sincronización |
-| `accounts` | Usuario personalizado, membresía, roles, permisos, sesiones y credenciales | `core` | Consultas de autorización, `UserId`, eventos de activación/desactivación |
-| `planning` | Jornadas, actividades, asignaciones, fechas y estados | `accounts` por IDs y políticas | Consultas de agenda, `ActivityScheduled`, `AssignmentChanged` |
-| `attendance` | Asistencia, entrada/salida, participación y correcciones | `accounts`, `planning` por IDs | `AttendanceRecorded`, resumen de participación, ingestión idempotente |
-| `traceability` | Catálogo, acopio, pesaje, secado, formulación, lotes, mermas, inventario, despachos y cuentas por cobrar | `accounts` por IDs y autorización; consultas públicas de actividad cuando aplique | Comandos productivos, movimientos de inventario, `LotCreated`, `InventoryMoved`, saldos |
-| `reports` | Dashboard, filtros, PDFs y proyecciones de lectura | Eventos y consultas públicas; nunca tablas operativas internas | Reportes derivados, exportaciones y métricas con fórmula/periodo/fuente |
-| `public_site` | Contenido público aprobado y navegación externa | Proyección pública, sin datos internos | Páginas públicas y estado de publicación |
+| `core` | Utilidades realmente compartidas, solo cuando se necesitan | Ninguna regla de dominio | IDs/reloj o auditoría técnica sin autoridad de negocio; no outbox obligatorio |
+| `accounts` | Usuario personalizado, membresía, roles, permisos, sesiones y credenciales | Utilidades compartidas solo si necesarias | Identidad y consultas de autorización; alcance según cada spec |
+| `planning` | Jornadas, actividades, asignaciones, fechas y estados | `accounts` por identidad y permisos | Consultas/operaciones de agenda y asignaciones |
+| `attendance` | Asistencia, entrada/salida, participación y correcciones | `accounts`, `planning` por identidad y relaciones explícitas | Registro autorizado, resumen y sincronización cuando su spec esté aprobada |
+| `traceability` | Catálogo, acopio, pesaje, secado, formulación, lotes, mermas, inventario, despachos y cuentas por cobrar | Identidad/autorización y actividad cuando aplique | Operaciones productivas/comerciales, movimientos y consultas de saldos |
+| `reports` | Dashboard, filtros y PDFs mediante lecturas autorizadas | Consultas públicas o ORM explícito revisado; no escritura operativa | Reportes derivados, exportaciones y métricas con fórmula/periodo/fuente |
+| `public_site` | Contenido público aprobado y navegación externa | Lecturas públicas delimitadas, sin datos privados | Páginas públicas y estado de publicación |
 
 El contexto comercial permanece dentro de `traceability` para la primera planificación porque
 ventas, gastos y cuentas por cobrar forman parte del alcance confirmado. Si su complejidad o
@@ -107,13 +110,14 @@ reglas de autorización requieren separación, se abrirá una spec y un ADR ante
 
 ### Contratos inter-módulo
 
-- **Dentro del proceso:** `application/services.py`, `commands.py`, `queries.py` o protocolos
-  equivalentes. El nombre y el payload son contratos versionables; las vistas son adaptadores.
-- **Eventos:** el módulo propietario escribe el evento y su cambio de estado en la misma
-  transacción. El dispatcher puede ser interno en v1; un broker externo requiere necesidad
-  comprobada.
-- **HTTP/JSON:** se habilita para la PWA y futuras integraciones. `/api/v1/sync/outbox/` recibe
-  lotes y delega cada comando a su módulo; no contiene reglas duplicadas.
+- **Dentro de la aplicación:** funciones/servicios y consultas del propietario cuando se
+  requieren; entradas, resultados, errores y garantías explícitos. Los contratos internos
+  no requieren serialización o versionado HTTP si no hay consumidores independientes.
+- **Eventos de servidor:** no son parte del mínimo. Dispatcher, outbox y proyecciones necesitan
+  necesidad demostrada y ADR específico. Si se adoptan, deben conservar integridad y recuperación.
+- **HTTP/JSON:** se concreta para PWA/integraciones en sus specs; `/api/v1/sync/outbox/` es una
+  ruta propuesta, no aprobada por ADR-0006. Una entrada delega operaciones a sus propietarios
+  sin duplicar reglas o autorización.
 - **REST interno:** no se usa para llamadas entre apps del mismo proceso; la serialización
   obligatoria añadiría complejidad sin una frontera de despliegue.
 - **gRPC:** queda fuera de v1 porque no existe una frontera de red independiente.
@@ -135,14 +139,11 @@ F:/Tesis/App Tesis/
 │   ├── asgi.py
 │   └── wsgi.py
 ├── apps/
-│   ├── core/
-│   │   ├── domain/{ids.py,clock.py,audit.py}
-│   │   ├── application/{events.py,outbox.py}
-│   │   └── infrastructure/{models.py,migrations/}
 │   ├── accounts/
 │   │   ├── models.py
-│   │   ├── application/{services.py,commands.py,queries.py}
-│   │   ├── interfaces/{forms.py,views.py,urls.py,api_views.py}
+│   │   ├── forms.py
+│   │   ├── views.py
+│   │   ├── urls.py
 │   │   ├── migrations/
 │   │   ├── templates/accounts/
 │   │   └── tests/{unit,integration,contract}/
@@ -164,6 +165,8 @@ F:/Tesis/App Tesis/
 
 La primera implementación solo crea `config`, `apps/accounts` y los recursos globales que
 `SPEC-001` necesite. Las apps futuras no se crean vacías para anticipar el alcance.
+Modelos y migraciones mantienen descubrimiento nativo. `core`, servicios, consultas y paquetes
+se añaden cuando el plan los necesita; el archivo de bloqueo lo define el plan aprobado.
 
 ## 5. PWA offline-first y patrón outbox
 
@@ -220,14 +223,14 @@ Los campos, UUID y ruta HTTP de esta sección son diseño propuesto, no contrato
 ## 6. Persistencia e integridad de datos
 
 1. PostgreSQL es la fuente operativa. Cada app posee sus tablas, migraciones, índices y reglas.
-2. Las claves foráneas se usan dentro del bounded context. Las referencias externas usan UUID o
-   IDs estables y se validan mediante contratos; no hay joins ni FKs cruzadas en el dominio.
+2. Las relaciones dentro o entre apps usan FK y restricciones justificadas. Las lecturas
+   cruzadas son explícitas y autorizadas; las escrituras mantienen un propietario.
 3. `traceability` conserva el flujo acopio → pesaje → secado → formulación/lote → inventario →
    despacho → cuenta por cobrar. Cada transición registra entradas y salidas, no solo totales.
-4. Los reportes leen proyecciones o servicios de consulta versionados. No mantienen una segunda
-   copia operativa ni escriben tablas de producción.
-5. El outbox se actualiza junto con el cambio de negocio. Los consumidores son idempotentes y
-   se puede reconstruir una proyección sin mutar el origen.
+4. Los reportes usan consultas autorizadas. No mantienen una segunda copia operativa ni
+   escriben tablas de producción; materialización requiere necesidad y ADR.
+5. El almacenamiento local PWA conserva pendientes; no es un outbox de eventos del servidor.
+   Un outbox de servidor, si se adopta en otro ADR, debe garantizar integridad/idempotencia.
 6. Las operaciones críticas delimitan `transaction.atomic`, aplican restricciones y bloqueos de
    fila solo donde exista una regla de concurrencia demostrada. La frontera de app no divide
    una operación que debe ser atómica: venta, líneas, movimientos y efectos monetarios se
@@ -266,7 +269,7 @@ fundación; no sustituyen los sprints académicos.
 | F4. Planificación | 6–7 | Registrar jornadas, actividades, responsables, fechas y estados. | Vertical slice de `planning`, contrato con `accounts`, pruebas de permisos y estados. |
 | F5. Asistencia y primer offline | 7–8 | Registrar mingas/asambleas, participación y correcciones; habilitar outbox solo para el flujo aprobado. | `attendance`, IndexedDB, sincronización idempotente, corte de red y validación con usuarias. |
 | F6. Trazabilidad y gestión comercial | 9–10 | Catálogos, acopio, secado, rendimiento, transformación, lotes, inventario, entregas, ventas, gastos, pagos y rendición. | 23 RF confirmados con sus specs; transacciones, pesajes offline y conciliación. Bruto/tara/neto solo si la spec los define; no son campos nuevos aprobados aquí. |
-| F7. Dashboard y reportes | 11–12 | Consolidar métricas simples y PDFs comprensibles para la asamblea. | `reports` y `public_site`, proyecciones, fórmulas, periodos, permisos y salida imprimible. |
+| F7. Dashboard y reportes | 11–12 | Consolidar métricas simples y PDFs comprensibles para la asamblea. | `reports` y `public_site`, consultas autorizadas, fórmulas, periodos, permisos y salida imprimible. |
 | F8. Integración y evaluación técnica | 13–14 | Probar módulos, sincronización concurrente, recuperación, seguridad, accesibilidad y calidad funcional. | Suite de sistema, pruebas de red intermitente, respaldo/restauración y resultados ISO/IEC 25010:2023. |
 | F9. Territorio y cierre | 15–16 | Validar recorridos reales, capacitar, documentar y transferir. | Talleres, manuales, evidencia anonimizada, decisión de despliegue y aprobación de cierre. |
 
@@ -321,7 +324,7 @@ documentación no dependiente, y queda registrada en un checkpoint.
 | Offline-first aumenta conflictos y soporte | Implementar primero un único flujo, UUID/idempotencia y pruebas de corte; ampliar solo con evidencia. |
 | Roles del Plan Maestro no coinciden exactamente con matriz aprobada | Mantener `Directiva` como perfil agrupador y confirmar permisos por cargo antes de codificar. |
 | Supabase/Vercel no ejecutan el despliegue Django esperado | Validar proveedor con smoke test, SSL, backups, logs y rollback antes de seleccionarlo. |
-| Reportes requieren datos cruzados | Proyecciones y contratos de consulta; prohibido unir modelos desde plantillas. |
+| Reportes requieren datos cruzados | Consultas públicas u ORM explícito autorizado; no consultas de negocio desde plantillas. |
 | Ventas/cuentas por cobrar cambian de dominio | Mantenerlas en `traceability` durante la planificación y abrir ADR si la spec demuestra otra cohesión. |
 | Cambios de metodología del anteproyecto | Revisión de la directora antes de presentar el plan como definitivo. |
 
@@ -353,8 +356,8 @@ Documentar continuamente sigue siendo obligatorio. Fechas absolutas no aportadas
 **Riesgo temporal abierto:** 23 RF de trazabilidad/comercial más pesajes offline en S9–S10,
 y RF-ACC-002/003/004 aún sin spec en S5–S6, requieren estimación por tareas. El Gantt expresa
 la planificación aportada, no una demostración de suficiencia ni permiso para omitir alcance.
-Los límites estrictos de imports/FK/eventos son una propuesta arquitectónica sujeta a ADR;
-no sustituyen las restricciones e integridad de la constitución y del plan aprobado de SPEC-001.
+Los límites estrictos de imports/FK/eventos de septiembre quedan parcialmente superados por
+ADR-0006. Se conservan las puertas, integridad y plan aprobado de SPEC-001.
 
 ## Aprobación de requisitos fuente — 2026-09-28
 

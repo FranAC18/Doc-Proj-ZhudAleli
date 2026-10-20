@@ -2,7 +2,7 @@
 title: Índice operativo de contexto
 type: context-index
 status: active
-updated: 2026-10-12
+updated: 2026-10-20
 source_of_truth: "AGENTS.md"
 ---
 
@@ -37,7 +37,9 @@ defecto.
 
 Para arquitectura, la guía canónica vigente es
 [`ARQUITECTURA-OBJETIVO.md`](../architecture/ARQUITECTURA-OBJETIVO.md), vinculada a
-[`ADR-0006`](../decisions/ADR-0006-monolito-modular-y-entrega-incremental.md) y constitución 0.2.0.
+[`ADR-0006`](../decisions/ADR-0006-monolito-modular-y-entrega-incremental.md), aceptado bajo
+la constitución 0.2.0. La constitución vigente es 1.0.0; el cierre administrativo de sprints se
+rige por [`ADR-0007`](../decisions/ADR-0007-autoridad-del-tesista-para-cierre-de-sprints.md).
 Las propuestas previas se recuperan como antecedentes, no como reglas alternativas vigentes.
 
 Leer [`feature-index.md`](feature-index.md) antes de abrir cualquier artefacto de una spec.

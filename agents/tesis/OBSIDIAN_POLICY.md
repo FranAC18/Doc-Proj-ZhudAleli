@@ -103,6 +103,8 @@ Usar estos estados para tareas y checkpoints:
 
 No usar `completed` solo porque se escribió código. Debe existir evidencia: prueba, revisión,
 decisión aprobada o validación correspondiente.
+El cierre administrativo de un periodo es una decisión separada del tesista y no cambia los
+estados de las tareas ni exige que todas estén `completed`.
 
 ## Etiquetas y relaciones
 
@@ -126,4 +128,8 @@ dependen de ella.
 - Cambio importante o pausa: crear un `checkpoint`.
 - Bloqueo: crear un `checkpoint` con `blocked` y la dependencia.
 - Fin de sesión: crear un resumen de sesión.
-- Fin de sprint: cerrar formalmente solo después de revisar evidencias.
+- Fin de sprint: el tesista decide cuándo cerrar o reabrir el periodo. Basta actualizar el
+  registro operativo existente con fecha, resultado y pendientes para dar continuidad; el
+  apunte no es precondición. No se requiere acta, revisión previa completa ni aprobación
+  adicional. Las evidencias informan el resultado, no vetan el cierre. Las tareas sin
+  verificación siguen pendientes y pueden trasladarse.

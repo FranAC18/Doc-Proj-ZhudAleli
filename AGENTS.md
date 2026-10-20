@@ -55,7 +55,12 @@ Una conversación, inferencia o propuesta de IA nunca aprueba un requisito.
   rutas permitidas y prueba esperada; no hay delegación recursiva.
 - `reviewer` es read-only. `architect` solo puede registrar propuestas en rutas autorizadas.
   `implementer` modifica únicamente una tarea asignada.
-- No se aprueban requisitos, decisiones ni alcance desde una conversación.
+- No se infieren aprobaciones de requisitos, decisiones, alcance ni acciones externas a partir
+  de una conversación. Una instrucción explícita del tesista autoriza solo el cambio o la acción
+  que nombra; los requisitos conservan su evidencia de validación.
+- El tesista puede cerrar o reabrir cualquier sprint y avanzar cuando lo decida, sin acta ni
+  aprobación adicional. La continuidad se anota en el estado operativo existente, sin que el
+  apunte sea precondición. El cierre del periodo no marca trabajo pendiente como completado.
 - No hagas `commit`, `push`, `merge`, `rebase`, `reset`, `clean` ni cambies la identidad Git
   sin autorización explícita del tesista.
 - No guardes secretos, datos personales innecesarios ni bases locales en Git.
@@ -68,10 +73,29 @@ monolito modular. La aplicación Django todavía no existe; los artefactos de di
 no deben presentarse como aplicación funcional. Las reglas de autorización viven en backend y
 las operaciones con varias entidades usan transacciones.
 
+ADR-0006 y la constitución 0.2.0 confirman capas internas proporcionales: cada módulo agrupa
+su responsabilidad y posee escrituras, invariantes y migraciones. La colaboración usa
+operaciones públicas y lecturas autorizadas; se evitan ciclos y se conservan FK/relaciones
+justificadas. `core` sigue pequeño y no se crean apps/capas vacías. Las versiones se entregan
+conjuntamente por incrementos verificables, con compatibilidad y regresión de lo afectado.
+La guía canónica es [`docs/architecture/ARQUITECTURA-OBJETIVO.md`](docs/architecture/ARQUITECTURA-OBJETIVO.md).
+Los ejemplos genéricos de comandos/templates no rebajan las pruebas ni autorizaciones de la
+constitución. Confirmar arquitectura no aprueba nuevas funcionalidades, Git ni despliegue.
+
 ## Documentación y continuidad
 
-- El vault es la raíz del repositorio; los documentos estables van en `docs/` y las specs en
-  `specs/<id>/`.
+- El vault es la raíz del repositorio. Las fuentes internas, evidencia y notas estables
+  permanecen en `docs/`; las specs técnicas permanecen en `specs/<id>/`.
+- `documentacion/` contiene únicamente ediciones finales y versionadas para la entrega
+  académica. Cada edición identifica fecha, autor, estado, historial y fuentes aprobadas.
+  Se prepara desde las fuentes internas; una copia pública no cambia por sí sola un
+  requisito, decisión o spec. `analisis/` conserva trabajo interno por fecha y tema.
+  `_archivo/` recibe material sustituido solo con motivo, origen y reemplazo registrados.
+- Solo el contenido revisado de `documentacion/` puede sincronizarse con el repositorio
+  documental del docente, mediante un clon separado y una vista previa de diferencias.
+  Todo cambio relevante actualiza versión y control de cambios. `commit` se hace cuando
+  el tesista lo solicite expresamente; publicación requiere su confirmación específica.
+  Nunca se incluyen código, agentes, skills, secretos, `.env` ni evidencia interna.
 - El estado operativo se conserva en `docs/bitacora/ESTADO-ACTIVO.md`; el detalle de pausas y
   handoffs va en `docs/bitacora/checkpoints/`.
 - No sobrescribas notas aprobadas. Las propuestas usan estado `proposed` y sus rutas autorizadas.

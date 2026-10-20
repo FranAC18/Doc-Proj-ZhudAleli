@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-19",
+  "edition": "2026-10-20",
   "sprints": [
     {
       "id": "S0",
@@ -39,7 +39,7 @@
       "title": "Requisitos y diseño",
       "period": "15 sep–12 oct 2026",
       "status": "Parcial",
-      "statusDetail": "Al corte del 19 de octubre conserva pendientes documentales y validaciones. No hay cierre formal de S1 registrado.",
+      "statusDetail": "Timebox cerrado administrativamente el 20 de octubre de 2026 con resultado parcialmente completo. El seguimiento local se concilió con el backlog: tres tareas en curso, dos bloqueadas y ninguna verificada. Persisten criterios, validaciones y estimaciones pendientes.",
       "resources": [
         {
           "group": "Plan y backlog",

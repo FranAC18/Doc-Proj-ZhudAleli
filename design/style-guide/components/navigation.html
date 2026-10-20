@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navegación — Sistema de diseño Zhud Alelí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main class="container py-5">
+  <div class="mb-4">
+    <a href="../index.html" class="btn btn-link px-0">&larr; Volver al índice</a>
+  </div>
+
+  <h1 class="mb-3">Navegación</h1>
+  <p class="text-secondary mb-5">Patrones de navegación con estado activo, foco visible y etiquetas accesibles.</p>
+
+  <section class="mb-5" aria-labelledby="sidebar-navigation">
+    <h2 id="sidebar-navigation">Sidebar de aplicación</h2>
+    <div class="za-navigation-preview mt-4">
+      <aside class="za-sidebar za-sidebar--preview" aria-label="Navegación principal">
+        <div class="za-brand-logo" aria-hidden="true">ZA</div>
+        <nav class="za-nav-list" aria-label="Secciones">
+          <a href="#inicio" class="za-nav-btn active" aria-current="page" aria-label="Inicio" title="Inicio">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </a>
+          <a href="#registros" class="za-nav-btn" aria-label="Registros" title="Registros">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </a>
+          <a href="#reportes" class="za-nav-btn" aria-label="Reportes" title="Reportes">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </a>
+        </nav>
+        <div class="za-user-profile-btn" aria-label="Perfil">ZA</div>
+      </aside>
+      <div class="za-navigation-preview-copy">
+        <p class="mb-0">En escritorio se muestra como sidebar fija; en pantallas menores de 768 px se transforma en navegación inferior.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="tabs-navigation">
+    <h2 id="tabs-navigation">Navegación secundaria</h2>
+    <nav class="za-nav-tabs mt-4" aria-label="Secciones secundarias">
+      <a href="#resumen" class="za-nav-link active" aria-current="page">Resumen</a>
+      <a href="#actividad" class="za-nav-link">Actividad</a>
+      <a href="#historial" class="za-nav-link">Historial</a>
+    </nav>
+  </section>
+</main>
+</body>
+</html>

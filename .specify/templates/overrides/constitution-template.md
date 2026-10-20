@@ -18,13 +18,19 @@ versionados. Cambiar de motor no cambia el alcance ni la definición de terminad
 
 ### III. Calidad demostrable
 
-Todo incremento incluye criterios, pruebas proporcionales, comandos ejecutados, revisión de
-diff y evidencia. La declaración de un agente no es una prueba.
+Cada tarea funcional tiene criterios y pruebas proporcionales. Marcarla terminada requiere
+verificación y evidencia; la falta de evidencia no impide que el tesista cierre el periodo
+con resultado parcial. La declaración de un agente no es una prueba.
 
-### IV. Arquitectura simple e integridad de datos
+### IV. Arquitectura modular, cohesión e integridad de datos
 
-Se usa un monolito modular Django con PostgreSQL. Se protegen transacciones, movimientos e
-historial. La complejidad adicional requiere necesidad y ADR.
+Se usa un monolito modular Django con PostgreSQL y una unidad de entrega. Cada módulo agrupa
+su responsabilidad y posee escrituras, invariantes y migraciones. HTTP, casos de uso/reglas
+y datos se separan con mecanismos nativos; servicios/consultas solo cuando hay comportamiento
+que los justifica. Dependencias, operaciones públicas y lecturas autorizadas son explícitas;
+se evitan ciclos y se conservan relaciones justificadas. Se protegen transacciones comunes,
+movimientos e historial. Incrementos verifican compatibilidad y recorridos afectados antes de
+publicar. Complejidad adicional requiere necesidad y ADR; carga exige mediciones.
 
 ### V. Experiencia digna y accesible
 
@@ -38,14 +44,19 @@ Obsidian muestra los mismos archivos de Git.
 
 ### VII. Control humano y privacidad
 
-El tesista controla alcance y Git. No se publican credenciales ni datos personales. Cambios
-irreversibles o externos requieren autorización explícita.
+El tesista controla el cierre, reapertura y avance entre sprints, sin permiso de terceros ni
+acta adicional. Registra fecha, resultado y pendientes en el estado, backlog o checkpoint que
+ya use. El cierre no completa tareas ni aprueba requisitos o entregables. El tesista controla
+alcance y Git. No se publican credenciales ni datos personales. Cambios irreversibles o externos
+requieren autorización explícita.
 
 ## Restricciones técnicas
 
 - Python 3.12, Django 5.2 LTS, PostgreSQL, Bootstrap 5 y MTV.
 - Monolito modular y usuario personalizado desde el inicio.
 - Autorización en backend y pruebas negativas.
+- Modelos/migraciones nativos, `core` mínimo y ausencia de capas/apps vacías anticipadas.
+- Versiones incrementales conjuntas con migraciones compatibles y recuperación verificable.
 - Configuración y secretos fuera de Git.
 - [ADDITIONAL_APPROVED_CONSTRAINTS]
 
@@ -55,7 +66,11 @@ irreversibles o externos requieren autorización explícita.
 2. Plan de datos, permisos, UX y pruebas.
 3. Tareas acotadas y propiedad de archivos.
 4. Implementación probada y revisada.
-5. Evidencia y trazabilidad antes del cierre.
+5. Cierre administrativo decidido por el tesista, con registro breve del resultado y los
+   pendientes; no requiere una revisión previa, aprobación adicional ni acta formal.
+
+El cierre del periodo puede ser parcial o bloqueado. La evidencia sigue siendo necesaria para
+marcar tareas, criterios y entregables como terminados.
 
 ## Gobierno
 

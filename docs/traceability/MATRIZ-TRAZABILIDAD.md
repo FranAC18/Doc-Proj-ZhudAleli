@@ -52,8 +52,11 @@ especificación es confirmada y se actualiza al implementar, probar y validar.
 
 ## Cierre de sprint
 
-Antes de cerrar un sprint, filtrar sus filas y confirmar que no existen enlaces rotos,
-criterios sin prueba, resultados sin evidencia ni defectos críticos abiertos.
+El tesista decide cuándo cerrar el periodo. Revisar las filas, enlaces, pruebas, evidencias y
+defectos informa el resultado, pero no es una condición previa ni requiere aprobación aparte.
+Anotar el resultado y los pendientes en el estado operativo o backlog existente para dar
+continuidad; el apunte no es precondición. Cerrar el periodo no marca como terminadas las
+tareas, criterios o requisitos que sigan sin verificación.
 
 ## Reconciliación documental del 2026-09-28
 

@@ -36,6 +36,8 @@ related: []
 - **Valor esperado**: [resultado útil, sin describir tecnología]
 - **Incluye**: [límites]
 - **No incluye**: [límites explícitos]
+- **Incremento utilizable**: [recorrido y dependencias disponibles; no confundir con módulo completo].
+- **Capacidades anteriores afectadas**: [comportamiento que debe conservarse o N/A justificado].
 
 ## Escenarios de usuario y pruebas (User Scenarios & Testing)
 
@@ -119,6 +121,8 @@ related: []
 
 - [Supuesto explícito; no convertir en hecho].
 - [Dependencia de decisión, dato, rol o infraestructura].
+- [Dependencias de capacidades existentes; ejemplos de módulos futuros no amplían esta spec].
+- [Necesidad de versiones coexistentes/offline, si existe; el detalle técnico pertenece al plan].
 
 ## Preguntas pendientes
 

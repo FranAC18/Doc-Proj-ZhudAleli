@@ -2,29 +2,63 @@
 title: Estado activo de continuidad
 type: state
 status: partially-complete
-updated: 2026-10-13
+updated: 2026-10-20
 task_id: DOC-ORG-001
 active_task: DOC-ORG-001
-phase: documentation-prepared-for-separate-git-review
-branch: opencode/spec-001-fase-1-diseno
-head: c2654519b041d8f96a2028482608c93ac9d8ea0b
-last_commit: c265451
-commit: pending
+phase: post_commit
+branch: docs/requisitos-y-organizacion-del-vault
+head: 58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9
+last_commit: 58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9
+commit: 58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9
 current_agent: codex
 current_role: coordinator
+continuity_checkpoint: "checkpoints/2026-10-20-commit-push-worktree-post-commit.md"
+sprint_0_status: completed
+sprint_0_closure_commit: 9276813b44e399ef56c2ddb4c3bc74d4f65bb28f
+sprint_1_timebox_status: closed
+sprint_1_completion_status: partially-complete
+sprint_1_closure_date: 2026-10-20
 decision_status: plan-authorized-by-tesista
-constitution_current: 0.2.0
-constitution_previous: 0.1.0
+constitution_current: 1.0.0
+constitution_previous: 0.2.0
 allowed_paths:
   - AGENTS.md
   - README.md
   - agents/tesis/OBSIDIAN_POLICY.md
+  - .specify/memory/constitution.md
+  - .specify/templates/plan-template.md
+  - .specify/templates/tasks-template.md
+  - .specify/templates/overrides/constitution-template.md
+  - .specify/templates/overrides/plan-template.md
+  - .specify/templates/overrides/tasks-template.md
+  - .specify/templates/overrides/README.md
+  - docs/decisions/ADR-0007-autoridad-del-tesista-para-cierre-de-sprints.md
+  - docs/traceability/MATRIZ-TRAZABILIDAD.md
+  - agents/tesis/PROJECT_CONTEXT.md
+  - docs/00-inicio/00-dashboard.md
   - docs/00-inicio/moc-documentacion.md
   - docs/context/context-index.md
+  - docs/context/feature-index.md
   - docs/bitacora/ESTADO-ACTIVO.md
+  - docs/bitacora/checkpoints/2026-10-18-cierre-sesion-pendientes.md
+  - docs/bitacora/checkpoints/2026-10-18-verificacion-cierre-sprint-0.md
+  - docs/bitacora/checkpoints/2026-10-20-cierre-sprint-1-parcial.md
+  - docs/bitacora/checkpoints/2026-10-20-reconciliacion-gantt-sprint-1.md
+  - docs/bitacora/checkpoints/2026-10-20-commit-push-worktree-pre-commit.md
+  - docs/bitacora/checkpoints/2026-10-20-commit-push-worktree-post-commit.md
   - docs/bitacora/checkpoints/2026-10-12-inicio-organizacion-documental.md
   - docs/bitacora/checkpoints/2026-10-13-preparacion-publicacion-documental.md
+  - docs/bitacora/checkpoints/2026-10-13-publicacion-documental-verificada.md
+  - docs/bitacora/checkpoints/2026-10-14-publicacion-requisitos-v2.0-pre-commit.md
+  - docs/bitacora/checkpoints/2026-10-14-publicacion-requisitos-v2.0-post-commit.md
   - documentacion/**
+  - cronograma-interactivo/proyecto-local/estado/seguimiento_sprints_zhud_aleli.json
+  - cronograma-interactivo/proyecto-local/web/recursos-sprints.json
+  - cronograma-interactivo/README.md
+
+  - docs/evidence/requirements/**
+  - docs/requirements/CAT-REQ-001.md
+  - docs/requirements/CAT-REQ-001-v1.1.md
   - analisis/**
   - _archivo/**
   - .gitignore
@@ -38,11 +72,142 @@ blocked_paths:
   - .agents/**
   - .codex/**
   - docs/decisions/ADR-000[1-5]*.md
-next_action: Revisar el manifiesto exacto de los dos repositorios y obtener autorización específica de commit y push. La edición documental está preparada localmente; confirmar unidad de USD 15, costos de operación, P-03 y alcance ampliado. No atribuir publicación hasta verificarla.
+next_action: Continuar como trabajo posterior al timebox de S1 la cobertura de los siete RF y el cotejo de los seis criterios ampliados; ratificar los propietarios de RF-DOC-001 y RF-AST-001. Precisar, si está disponible, la fecha, versión y alcance de los vistos buenos verbales reportados por Maria Camas y Julio Santillan, aclarar la fecha original de SB-S1-05 y completar las estimaciones, asignaciones y validaciones pendientes. Mantener separado el cierre del periodo de la finalización del trabajo.
 blockers: []
 ---
 
 # Estado activo de continuidad
+
+## Autoridad de cierre de sprints aclarada - 2026-10-20
+
+Por solicitud explícita del tesista, la constitución 1.0.0 y el
+[[../decisions/ADR-0007-autoridad-del-tesista-para-cierre-de-sprints|ADR-0007]] reconocen su
+autoridad exclusiva para cerrar/reabrir un periodo y avanzar sin acta ni aprobación adicional.
+El resultado y los pendientes se anotan en el registro operativo existente para continuidad;
+no es una precondición y no marca como completado el trabajo pendiente.
+
+## Timebox de Sprint 1 cerrado con resultado parcial - 2026-10-20
+
+Por solicitud del tesista se cerró administrativamente el timebox de S1. El resultado
+permanece `partially-complete`: el cierre del periodo no convierte las tareas pendientes
+en completadas ni aprueba requisitos, criterios o decisiones sin su evidencia. El
+[[checkpoints/2026-10-20-cierre-sprint-1-parcial|checkpoint de cierre parcial de S1]]
+registra el inventario de trabajo y la continuidad.
+
+La numeración queda explicitada: el S1 del calendario es requisitos y diseño; el `S1`
+histórico de SPEC-001 es acceso y corresponde al S2 del calendario. El estado de
+SPEC-001 y su puerta T012 se mantienen sin cambio.
+
+El 2026-10-20 el tesista identificó a Maria Camas, encargada de la organización, como
+quien autorizó verbalmente, y a Julio Santillan, profesor de Aplicaciones Informáticas 2,
+como quien dio el visto bueno durante una presentación. El tesista aclara que no existen
+actas ni constancias. La fecha de cada autorización, la versión expuesta y el alcance
+exacto no están identificados; no se presume que cubrieran todas las tareas, requisitos
+o decisiones de S1. El reporte no cambia por sí solo el resultado parcial del timebox.
+
+El [[checkpoints/2026-10-20-reconciliacion-gantt-sprint-1|cotejo del Gantt local]] corrigió
+las cinco marcas `verificada` que no coincidían con el backlog v1.7: ahora tres tareas
+figuran `en_curso`, dos `bloqueada` y ninguna `verificada`. El estado detallado del backlog
+se conserva sin cambios. La fecha original de SB-S1-05 se retiró del campo de verificación
+activo y queda pendiente de aclaración; sus estados parciales, las validaciones y las
+brechas de trazabilidad siguen abiertos.
+
+## Arquitectura detallada v1.1 documentada - 2026-10-19
+
+El tesista aprobó la edición documental v1.1 de arquitectura, derivada de la base de ADR-0006.
+Se creó en `documentacion/arquitectura/`; el índice y el control de cambios avanzan a v4.3.
+La edición no modifica requisitos ni decisiones abiertas, y no declara implementación, revisión académica,
+validación organizacional o transferencia. Se mantienen siete RF sin referencia en historias/pila,
+seis criterios ampliados por cotejar y la ratificación pendiente de propietarios para RF-DOC-001/RF-AST-001.
+La arquitectura v1.0 se conserva como historial. No se hizo commit ni push.
+
+## Edición académica de seguimiento preparada - 2026-10-19
+
+Por solicitud del tesista se prepararon en `documentacion/seguimiento/` el informe
+de cierre de Sprint 0 y continuidad v1.0 y el registro de pendientes de trazabilidad v1.0.
+El índice y el control de cambios pasan a v4.2; las ediciones anteriores se conservan.
+Los documentos registran el cierre histórico aprobado y los pendientes posteriores sin
+declarar completados S1, SPEC-001 ni las validaciones académicas u organizacionales.
+
+Se comprobaron los cuatro archivos de la entrega: cero enlaces rotos, cero enlaces locales
+fuera de `documentacion/` y cero espacios finales. La carpeta separada `F:\Tesis\Doc Tesis`
+no fue accesible (`Permission denied`); no se copiaron archivos allí ni se hizo commit/push.
+El conjunto exacto y los resultados constan en
+[[checkpoints/2026-10-19-edicion-docente-seguimiento]]. La transferencia sigue pendiente.
+
+## Sprint 0 verificado como cerrado - 2026-10-18
+
+La revisión de las fuentes canónicas confirma que Sprint 0 (preparación) ya está
+`completed`, cerrado por el tesista el 2026-07-21 y versionado en `9276813b44e399ef56c2ddb4c3bc74d4f65bb28f`.
+El commit es ancestro de HEAD y de la referencia local de seguimiento de la rama remota.
+La consulta remota nueva falló por resolución de red; no se afirma verificación online.
+
+Se corrige la equiparación errónea hecha por el asistente entre Sprint 0 y S1 de requisitos
+y diseño. Los pendientes de S1 y DOC-ORG-001 no reabren S0 ni impiden continuar el trabajo
+permitido por las puertas de cada tarea. La numeración técnica histórica S1 de SPEC-001
+corresponde a acceso, S2 en el calendario público; son referencias distintas.
+
+El [[checkpoints/2026-10-18-verificacion-cierre-sprint-0|checkpoint de verificación]]
+registra la revisión independiente, la evidencia Git y los pendientes posteriores.
+El commit/push nuevo sigue bloqueado por escritura denegada en `.git`; no por falta
+de autorización del tesista. No se intentan rutas alternativas para eludir ese límite.
+
+## Cierre de sesión y pendientes - 2026-10-18
+
+Se documentó la pausa por solicitud del tesista. El detalle y los criterios para retomar
+están en [[checkpoints/2026-10-18-cierre-sesion-pendientes]]. DOC-ORG-001 sigue parcialmente
+completa; este cierre corresponde únicamente a la sesión.
+
+La referencia documental actual es `documentacion/README.md` v4.1: requisitos generales
+v2.0 y CAT-REQ-001 v1.2, con 58 RF y 9 RNF confirmados. Las menciones a 51 RF y CAT v1.1
+en las secciones históricas inferiores describen la línea base anterior. Se debe cotejar
+la cobertura de las novedades en historias y pila antes de declarar coherencia integral.
+
+Quedan pendientes la revisión académica formal, la validación organizacional directa de
+las novedades, el acta formal, la revisión del alcance general v1.3, los alcances modulares
+propuestos y las decisiones abiertas, incluida P-03. Sprint 1 y SPEC-001 no se declaran
+terminados; se conserva la puerta de validación humana del diseño registrada en sus tareas.
+
+Rama y HEAD comprobados: `docs/requisitos-y-organizacion-del-vault`, `5ccbe09dda2ebf435e979888e64c6b9dbdc4b1db`.
+Hay cambios locales anteriores. No se realizó commit, push ni verificación remota nueva.
+Retomar por los índices canónicos y el checkpoint, sin cargar todo el historial.
+
+## Publicación de requisitos generales v2.0 y priorización v1.3 — 2026-10-14
+
+El tesista autorizó expresamente transferir estos dos documentos al repositorio documental,
+hacer commit y push. El commit `de8cd18d56743e821ab69021aa6904cde02f7624` se publicó en
+`main`; `git ls-remote` confirmó el mismo hash en `origin/main` y el clon documental quedó
+limpio. El checkpoint [[checkpoints/2026-10-14-publicacion-requisitos-v2.0-pre-commit]]
+registra el manifiesto y las verificaciones previas; el
+[[checkpoints/2026-10-14-publicacion-requisitos-v2.0-post-commit|checkpoint post_commit]]
+registra el resultado remoto. La revisión académica formal y la validación organizacional
+directa de las novedades permanecen pendientes. Esta operación no incluye commit ni push del
+repositorio general, cuyo árbol de trabajo conserva cambios ajenos.
+
+## Organización documental modular — 2026-10-13
+
+Los alcances modulares ZA-ALC-001 a ZA-ALC-003 y sus versiones históricas se centralizaron en
+`analisis/2026-10-13/alcances-modulos/`, incluido el Word histórico ZA-ALC-001 v1.0 que estuvo
+bloqueado temporalmente. La carpeta `documentacion/alcance/modulos/` queda sin alcances mientras
+las propuestas no estén aprobadas para entrega; sus ediciones no aprobadas se retiraron del
+índice de entregables finales. El índice modular registra el orden del Plan de sprints v1.2:
+S2 Acceso, S3 Planificación, S4 Asistencia, S5 Trazabilidad productiva y rendición, S6 Reportes
+e información. El alcance general del proyecto permanece diferenciado en `documentacion/alcance/`.
+El catálogo general usa ZA-DG-001; ZA-CU queda para especificaciones detalladas. Las ediciones
+modulares continúan como propuestas y no implican aprobación ni publicación.
+
+## Publicación documental verificada — 2026-10-13
+
+El tesista autorizó los conjuntos exactos del manifiesto y el push documental.
+El repositorio general recibió el commit local `09f4318106fd85d10c3095d592c177c33972c1ff`
+de 38 archivos; **no** se publicó ese repositorio. El repositorio del docente
+recibió en `main` el commit `20f42279a769b3aefc6d52a0efde79e4c707e498`
+de 24 archivos Markdown. Se comprobó que el hash remoto coincide. El
+[[checkpoints/2026-10-13-publicacion-documental-verificada|checkpoint post_commit]]
+registra archivos, pruebas y límites. Las decisiones de alcance y la revisión
+académica siguen pendientes.
+
+La nota de preparación que sigue conserva el estado anterior a los commits.
 
 ## Edición documental preparada y separación de repositorios — 2026-10-13
 
@@ -281,3 +446,13 @@ El estado anterior tenía HEAD `a6e842f63917b2ac28a64c80b00d68069ba2fabd` y `las
 Se actualiza al HEAD local comprobado `c2654519b041d8f96a2028482608c93ac9d8ea0b`; esto no crea
 un commit ni demuestra una publicación remota. Los cambios locales previos de UI, Obsidian
 y artefactos de SPEC-001 se preservan.
+
+## Commit, integración y publicación del lote DOC-ORG-001 - 2026-10-20
+
+El commit `aacabeeab9f41287ea9f431f1fccdbb37d947089` incluyó 182 archivos. Se integraron los
+commits remotos `7e3a25406cb007dc770777c45bc1db83acd02843` y
+`310cd914e8c2b5d5a844314919f4667ed68432a2`; los 15 conflictos del cronograma quedaron
+resueltos en el merge commit `58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9`. El push a
+`origin/docs/requisitos-y-organizacion-del-vault` terminó correctamente. La
+[[checkpoints/2026-10-20-commit-push-worktree-post-commit|evidencia post-commit]] registra la
+resolución, verificaciones y alcance publicado.

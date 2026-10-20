@@ -19,7 +19,7 @@ privada de una herramienta en fuente de verdad.
   Kimi Code sin mantener dos copias.
 - Contexto del anteproyecto: resumido en `agents/tesis/PROJECT_CONTEXT.md`.
 - Decisiones D-001 a D-010: revisadas funcionalmente; los recorridos se validan en Fase I.
-- Requisitos: CAT-REQ-001 v1.0 es la línea base aprobada, con 57 requisitos `confirmed`,
+- Requisitos: CAT-REQ-001 v1.1 es la línea base aprobada, con 60 requisitos `confirmed`,
   2 `proposed` y 12 `superseded`, en `docs/requirements/CAT-REQ-001.md`.
 - Arnés Python anterior: conservado únicamente como laboratorio en `tools/agent-lab/`.
 
@@ -27,6 +27,12 @@ Toda la documentación visible en Obsidian permanece dentro de la raíz del repo
 notas de trabajo se guardan en `docs/bitacora/`, las especificaciones en `specs/` y el
 contexto estable en `agents/tesis/`; el laboratorio y la configuración de agentes no son
 fuentes documentales del proyecto.
+
+La carpeta `documentacion/` reúne únicamente ediciones académicas finales y versionadas.
+`analisis/` conserva borradores y análisis internos; `_archivo/` registra material
+sustituido sin borrarlo. Solo el contenido revisado de `documentacion/` se prepara para el
+repositorio documental del docente. Cada `commit` y publicación requieren la solicitud o
+confirmación expresa del tesista, respectivamente.
 
 No se implementa una funcionalidad hasta que su spec concreta esté confirmada y existan
 plan y tareas aprobados con sus puertas de calidad satisfechas.
@@ -158,7 +164,7 @@ apps/
 ├── accounts/           usuarios, membresías y RBAC
 ├── planning/           jornadas, actividades y responsables
 ├── attendance/         asistencia y participación
-├── traceability/       acopio, secado, lotes, mermas e inventario
+├── traceability/       producción, inventario, ventas, gastos y cuentas por cobrar
 ├── reports/            consultas y exportaciones
 └── public_site/        contenido público
 templates/              layout y componentes Bootstrap
@@ -166,11 +172,21 @@ static/                 tokens, estilos e imágenes versionables
 tests/                  pruebas de integración y recorridos críticos
 specs/                  especificaciones, planes y tareas por funcionalidad
 docs/                   memoria Obsidian y evidencia académica
+documentacion/          ediciones finales para el repositorio del docente
+analisis/               análisis internos por fecha y tema
+_archivo/               material sustituido con motivo registrado
 ```
 
-Se usará un monolito modular Django con plantillas del servidor y Bootstrap 5. Cualquier
-propuesta de SPA, microservicios o infraestructura adicional exige un ADR con una necesidad
-demostrable.
+Se mantiene un monolito modular Django con plantillas del servidor y Bootstrap 5, confirmado
+por el tesista el 2026-10-08 en [ADR-0006](docs/decisions/ADR-0006-monolito-modular-y-entrega-incremental.md).
+La [guía de arquitectura](docs/architecture/ARQUITECTURA-OBJETIVO.md) explica capas internas,
+propiedad de datos/escrituras, dependencias explícitas y versiones piloto incrementales.
+Cada módulo agrupa su responsabilidad; servicios/consultas aparecen cuando hay comportamiento
+que los justifica. Se conserva el ORM, las relaciones y transacciones nativas; no se crean
+capas/apps vacías. La publicación es conjunta y verifica lo anterior afectado. Versionar
+código no sustituye ejecutar la aplicación en un entorno accesible a las socias.
+SPA, microservicios o infraestructura adicional requieren necesidad y ADR. Las capacidades
+futuras, proveedores y Git/publicación conservan sus propias puertas y autorizaciones.
 
 ## Laboratorio heredado
 

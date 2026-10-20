@@ -70,6 +70,12 @@ Autenticación, roles, permisos y página pública.
 - PostgreSQL; Supabase como servicio de persistencia previsto en la nueva factibilidad.
 - Bootstrap 5 y diseño responsivo.
 - Arquitectura MTV de Django, plantillas SSR/HTML5, CSS y JavaScript progresivo.
+- Monolito modular con capas internas proporcionales, alta cohesión, propiedad de escrituras
+  y dependencias explícitas; confirmado por el tesista el 2026-10-08 en
+  [[../../docs/decisions/ADR-0006-monolito-modular-y-entrega-incremental|ADR-0006]].
+  Las versiones piloto se entregan conjuntamente por incrementos, comprobando compatibilidad
+  y recorridos afectados. La guía canónica es
+  [[../../docs/architecture/ARQUITECTURA-OBJETIVO|ARQUITECTURA-OBJETIVO]].
 - PWA: Manifest, Service Worker, Cache Storage e IndexedDB para continuidad esencial.
 - Git y GitHub para trazabilidad. Vercel figura en el presupuesto; falta comprobar el
   entorno de ejecución Django y los respaldos, no se confunden con PostgreSQL administrado.
@@ -131,6 +137,11 @@ proyecto y no debe sustituirse por un orden inventado por el agente.
 4. Sprint 4: trazabilidad productiva.
 5. Sprint 5: reportes y gestión de información.
 
+El tesista decide cuándo cerrar o reabrir cada periodo y cuándo avanzar. Basta registrar fecha,
+resultado y pendientes en el estado operativo existente; no se requiere acta ni aprobación
+adicional. El cierre no cambia estados de tareas, requisitos ni validaciones pendientes. Esta
+regla de gobierno consta en ADR-0007 y no altera el orden del cronograma.
+
 ### Fase IV - Evaluación
 
 - Pruebas de adecuación funcional.
@@ -170,3 +181,12 @@ Guardar y sincronizar registros offline es obligatorio en los requisitos aprobad
 pesajes y políticas pendientes; v1.0 queda como fuente de la aprobación original, no como
 justificación para eliminar esa capacidad. SPEC-001 sigue siendo acceso básico sin
 operaciones de negocio ni autenticación offline.
+
+## Decisión arquitectónica vigente — 2026-10-08
+
+ADR-0006 registra el monolito modular, aceptado bajo la constitución 0.2.0; la constitución
+vigente es 1.0.0. Estas decisiones no sustituyen el anteproyecto ni confirman módulos nuevos.
+La referencia histórica a página pública en Administración y
+acceso describe el proyecto completo: `public_site` no pertenece al alcance de SPEC-001.
+Facturación, clientes y funciones ARCSA son posibilidades futuras sujetas a requisitos
+validados. La confirmación arquitectónica no autoriza implementación, Git o publicación.
