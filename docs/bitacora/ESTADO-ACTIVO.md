@@ -5,14 +5,14 @@ status: partially-complete
 updated: 2026-10-20
 task_id: DOC-ORG-001
 active_task: DOC-ORG-001
-phase: pre_commit
+phase: post_commit
 branch: docs/requisitos-y-organizacion-del-vault
-head: 5ccbe09dda2ebf435e979888e64c6b9dbdc4b1db
-last_commit: 5ccbe09
-commit: pending
+head: 58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9
+last_commit: 58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9
+commit: 58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9
 current_agent: codex
 current_role: coordinator
-continuity_checkpoint: "checkpoints/2026-10-20-commit-push-worktree-pre-commit.md"
+continuity_checkpoint: "checkpoints/2026-10-20-commit-push-worktree-post-commit.md"
 sprint_0_status: completed
 sprint_0_closure_commit: 9276813b44e399ef56c2ddb4c3bc74d4f65bb28f
 sprint_1_timebox_status: closed
@@ -446,3 +446,13 @@ El estado anterior tenía HEAD `a6e842f63917b2ac28a64c80b00d68069ba2fabd` y `las
 Se actualiza al HEAD local comprobado `c2654519b041d8f96a2028482608c93ac9d8ea0b`; esto no crea
 un commit ni demuestra una publicación remota. Los cambios locales previos de UI, Obsidian
 y artefactos de SPEC-001 se preservan.
+
+## Commit, integración y publicación del lote DOC-ORG-001 - 2026-10-20
+
+El commit `aacabeeab9f41287ea9f431f1fccdbb37d947089` incluyó 182 archivos. Se integraron los
+commits remotos `7e3a25406cb007dc770777c45bc1db83acd02843` y
+`310cd914e8c2b5d5a844314919f4667ed68432a2`; los 15 conflictos del cronograma quedaron
+resueltos en el merge commit `58d9b1f344feda2e5d8db2b01f61ab74cc9d8ea9`. El push a
+`origin/docs/requisitos-y-organizacion-del-vault` terminó correctamente. La
+[[checkpoints/2026-10-20-commit-push-worktree-post-commit|evidencia post-commit]] registra la
+resolución, verificaciones y alcance publicado.
