@@ -16,8 +16,9 @@ canónica en `specs/`; no dupliques su contenido completo.
 
 ## Paquete candidato de superadministración — 2026-10-27
 
-Todos los documentos de esta tabla son borradores internos. No cambian requisitos confirmados,
-prioridad, estimación, sprint, estado de implementación ni la política de documentación.
+El paquete permanece en el vault interno. El requisito, las historias, SPEC-002 y la pila son
+propuestas; el plan v1.1 fue aprobado por el tesista solo como plan técnico. No se aprueba el
+requisito, la validación de la presidenta, una prioridad, un sprint ni código.
 
 | Artefacto | Estado | Uso |
 |---|---|---|
@@ -25,7 +26,7 @@ prioridad, estimación, sprint, estado de implementación ni la política de doc
 | [SPEC-002](../../../specs/002-superadministracion/spec.md) | `proposed` | Matriz actor → acción → recurso → resultado; no está lista para `speckit-implement` |
 | [Checklist de SPEC-002](../../../specs/002-superadministracion/checklists/requirements.md) | `incomplete` | Puertas y preguntas que deben resolverse para validar requisitos |
 | [Pila v1.8 candidata](2026-10-27-pila-producto-v1.8-superadmin.md) | `proposed` | Conserva la lista base y mantiene aparte los candidatos sin sprint |
-| [Plan de implementación v1.0](../../decisions/proposals/2026-10-27-plan-implementacion-superadmin-v1.0.md) | `proposed` | Resuelve discrepancias como tratamiento propuesto y registra decisiones pendientes |
+| [Plan de implementación v1.1](../../decisions/proposals/2026-10-27-plan-implementacion-superadmin-v1.1.md) | `approved` por el tesista | Enfoque y fases aprobados como plan; no autoriza implementación ni asigna sprint |
 
 La atribución de la solicitud a la presidenta procede del relato del tesista. La confirmación
 directa de la presidenta, la delimitación de datos y la prioridad del incremento siguen
@@ -43,3 +44,4 @@ de acceso; SPEC-002 no desplaza la funcionalidad activa.
 | Fecha | Cambio |
 |---|---|
 | 2026-10-27 | Se corrige el puntero canónico a CAT-REQ-001 v1.2 y se indexa el paquete de propuestas de superadministración sin aprobar requisitos ni asignar sprint. |
+| 2026-10-27 | Se indexa el plan v1.1 aprobado por el tesista, manteniendo `RF-ACC-005`, SPEC-002, prioridad y sprint pendientes. |

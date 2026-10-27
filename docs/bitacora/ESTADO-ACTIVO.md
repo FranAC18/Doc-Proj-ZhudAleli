@@ -2,7 +2,7 @@
 title: Estado activo de continuidad
 type: state
 status: partially-complete
-updated: 2026-10-20
+updated: 2026-10-27
 task_id: DOC-ORG-001
 active_task: DOC-ORG-001
 phase: post_commit
@@ -66,6 +66,7 @@ allowed_paths:
   - docs/requirements/proposals/2026-10-27-historias-usuario-v2.6-superadmin.md
   - docs/requirements/proposals/2026-10-27-pila-producto-v1.8-superadmin.md
   - docs/decisions/proposals/2026-10-27-plan-implementacion-superadmin-v1.0.md
+  - docs/decisions/proposals/2026-10-27-plan-implementacion-superadmin-v1.1.md
   - specs/002-superadministracion/spec.md
   - specs/002-superadministracion/checklists/requirements.md
   - .gitignore
@@ -87,10 +88,10 @@ blockers: []
 
 ## Paquete propuesto de superadministración — 2026-10-27
 
-Se prepararon borradores internos para un panel administrativo por módulos. `RF-ACC-005`,
-SPEC-002, las historias y el plan siguen como propuestas; la presidenta aún debe validar el
-requerimiento. No se asignan prioridad ni sprint, no se cambia el trabajo activo y no se
-autoriza código. El alcance excluye una autoridad universal de edición. Las rutas de trabajo
+El tesista aprobó el plan de implementación v1.1; esa aprobación se limita al plan.
+`RF-ACC-005`, SPEC-002 y las historias siguen como propuestas; la presidenta aún debe
+validar el requisito. No se asignan prioridad ni sprint, no se cambia el trabajo activo y no
+se autoriza código. El alcance excluye una autoridad universal de edición. Las rutas de trabajo
 están añadidas a `allowed_paths`; se mantiene SPEC-001 separada y activa.
 
 ## Autoridad de cierre de sprints aclarada - 2026-10-20
