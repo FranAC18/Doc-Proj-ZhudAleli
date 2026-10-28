@@ -44,4 +44,3 @@ ediciones Word disponibles, se conservan en esta carpeta como historial; el
 índice señala las revisiones vigentes. No son copias finales ni aprobadas. La
 plantilla recibida del tesista es
 [Formato Corregido.docx](Formato%20Corregido.docx).
-
