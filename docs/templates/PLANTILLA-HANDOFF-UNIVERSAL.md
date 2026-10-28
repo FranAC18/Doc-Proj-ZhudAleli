@@ -7,6 +7,8 @@ task_id: "TXXX"
 requirement_ids: []
 sprint: "S1"
 module: transversal
+repository: "ZhudAleli | App-zhudaleli"
+remote: ""
 phase: in-progress
 writer: ""
 handoff_to: ""
@@ -34,9 +36,8 @@ Describe el resultado observable de la tarea, no una instrucción abierta.
 - `.specify/memory/constitution.md`
 - `agents/tesis/PROJECT_CONTEXT.md`
 - `docs/00-inicio/00-dashboard.md`
-- `specs/<id>/spec.md`
-- `specs/<id>/plan.md`
-- `specs/<id>/tasks.md`
+- Requisito y sprint vigentes en el repositorio general.
+- Apartados pertinentes de `specs/<id>/spec.md`, `plan.md` y `tasks.md`, si existen.
 
 ## Estado
 
@@ -82,7 +83,7 @@ Describe el resultado observable de la tarea, no una instrucción abierta.
 
 ## Reglas para el siguiente host
 
-La herramienta siguiente debe leer este handoff, confirmar la raíz y el estado de Git antes
+La herramienta siguiente debe leer este handoff, confirmar la raíz, remoto y estado de Git antes
 de escribir. No puede cambiar `allowed_paths`, alcance, requisito o criterio sin devolver una
 pregunta al coordinador.
 

@@ -1,18 +1,21 @@
 # Zhud Alelí
 
-Base de ingeniería para desarrollar la aplicación web de tesis del Comité de Mujeres
-Indígenas “Tránsito Amaguaña” de Zhud y su unidad productiva Zhud Alelí.
+Repositorio general de requisitos, diseño, sprints, agentes y documentación académica
+para la aplicación web de tesis del Comité de Mujeres Indígenas “Tránsito Amaguaña” de
+Zhud y su unidad productiva Zhud Alelí. El código de producto vive en el repositorio
+privado [App-zhudaleli](https://github.com/FranAC18/App-zhudaleli).
 
-El objetivo de este repositorio es construir la aplicación, no construir otro asistente de
-programación. Los requisitos, planes, tareas, pruebas, decisiones y evidencias viven en
-archivos versionados; Codex, Codex CLI, Kimi Code o GLM son motores intercambiables que
+El objetivo de este repositorio es guiar la construcción de la aplicación sin duplicar su
+código. Los requisitos, planes, tareas, decisiones y evidencias viven en archivos
+versionados aquí; el código, migraciones y pruebas de producto viven en la app. Codex,
+Codex CLI, Kimi Code o GLM son motores intercambiables que
 trabajan sobre esos mismos contratos. Codex, Antigravity con Gemini y OpenCode/OpenChamber
 pueden alternarse mediante el contrato universal de orquestadores, sin convertir la sesión
 privada de una herramienta en fuente de verdad.
 
 ## Estado actual
 
-- Etapa: preparación técnica del Sprint 1, después de la validación de requisitos.
+- Etapa: continuidad de requisitos y diseño tras el cierre administrativo parcial de S1.
 - Sprint 0: cerrado con evidencia y commit inicial.
 - Aplicación Django: todavía no creada.
 - Flujo portable: skills de Spec Kit 0.13.2 en `.agents/skills/`, descubiertas por Codex y
@@ -28,27 +31,42 @@ notas de trabajo se guardan en `docs/bitacora/`, las especificaciones en `specs/
 contexto estable en `agents/tesis/`; el laboratorio y la configuración de agentes no son
 fuentes documentales del proyecto.
 
-La carpeta `documentacion/` reúne únicamente ediciones académicas finales y versionadas.
+La carpeta `documentacion/` reúne ediciones académicas finales. Permanece ignorada
+por defecto; cada archivo revisado puede incorporarse explícitamente a este
+repositorio, con control de versión y cambios, sin arrastrar borradores.
 `analisis/` conserva borradores y análisis internos; `_archivo/` registra material
 sustituido sin borrarlo. Solo el contenido revisado de `documentacion/` se prepara para el
 repositorio documental del docente. Cada `commit` y publicación requieren la solicitud o
 confirmación expresa del tesista, respectivamente.
 
-No se implementa una funcionalidad hasta que su spec concreta esté confirmada y existan
-plan y tareas aprobados con sus puertas de calidad satisfechas.
+Para desarrollar se necesita un requisito y sprint vigentes con alcance verificable. Si
+existen spec, plan y tareas aprobados, se respetan; su ausencia no exige crear esos
+documentos antes de programar. Una decisión material de comportamiento sí debe estar
+resuelta antes de implementarse. La revisión y las pruebas proporcionales siguen siendo
+necesarias para declarar terminada una funcionalidad.
+
+## Dos repositorios
+
+| Repositorio | Contenido | Exclusiones |
+|---|---|---|
+| `ZhudAleli` (este vault) | Constitución, `specs/`, requisitos, sprints, matriz, agentes, skills, proceso y `documentacion/` revisada | `/app/`, código Django, migraciones y pruebas de producto |
+| [App-zhudaleli](https://github.com/FranAC18/App-zhudaleli) | Código Django, migraciones, pruebas, plantillas, estáticos fuente, dependencias, configuración de ejecución/CI, `.gitignore` y README técnico | Agentes, specs, requisitos y documentación de proceso |
+
+Consulta [la guía de repositorios y pre-push](docs/git/REPOSITORIOS-Y-PRE-PUSH.md) antes
+de preparar un commit o migrar historial. El checkout local `app/` está ignorado aquí.
 
 ## Arquitectura de trabajo
 
 ```text
 anteproyecto + entrevistas
            ↓
-propuestas → especificación aprobada → plan → tareas
-                                            ↓
-                                   código + migraciones
-                                            ↓
-                                pruebas + revisión + evidencia
-                                            ↓
-                                documentación para la tesis
+requisito validado + sprint de ejecución
+           ↓
+spec / plan / tareas, si existen o el riesgo los justifica
+           ↓
+código + migraciones en App-zhudaleli
+           ↓
+pruebas + revisión + trazabilidad en ZhudAleli
 ```
 
 La fuente común es Git. Obsidian abre la raíz como vault y muestra los mismos Markdown que
@@ -141,21 +159,20 @@ modifican la historia de Git.
 Con Codex, las skills se invocan como `$speckit-*`; con Kimi Code, como
 `/skill:speckit-*`.
 
-1. Registrar una propuesta en `docs/requirements/proposals/`.
-2. Validar el requisito con el tesista y, cuando corresponda, con la organización.
-3. Crear la spec en borrador: `speckit-specify`.
-4. Resolver ambigüedades: `speckit-clarify`.
-5. Confirmar humanamente la spec y registrar la evidencia.
-6. Crear el plan técnico: `speckit-plan`.
-7. Generar tareas: `speckit-tasks`.
-8. Revisar coherencia: `speckit-analyze`.
-9. Implementar una porción verificable: `speckit-implement`.
-10. Ejecutar pruebas, revisar el diff y guardar evidencia.
+1. Identificar el requisito aprobado y el sprint vigente en este repositorio.
+2. Resolver decisiones materiales de comportamiento para la porción elegida.
+3. Usar spec, plan y tareas aprobados cuando existan. Spec Kit puede producirlos
+   para trabajo complejo, pero no son un trámite obligatorio para cada porción.
+4. Implementar código, migraciones y pruebas en la raíz Git de `App-zhudaleli`.
+5. Revisar el diff y las verificaciones proporcionales antes de declarar terminado
+   el trabajo; enlazar el PR/tag real en la matriz de este repositorio.
 
 Las plantillas adaptadas a la tesis están en `.specify/templates/overrides/`. No reemplazan
 la validación humana ni convierten propuestas en requisitos aprobados.
 
 ## Estructura objetivo de la aplicación
+
+En la raíz Git de `App-zhudaleli`:
 
 ```text
 config/                 configuración Django
@@ -170,15 +187,16 @@ apps/
 templates/              layout y componentes Bootstrap
 static/                 tokens, estilos e imágenes versionables
 tests/                  pruebas de integración y recorridos críticos
-specs/                  especificaciones, planes y tareas por funcionalidad
-docs/                   memoria Obsidian y evidencia académica
-documentacion/          ediciones finales para el repositorio del docente
-analisis/               análisis internos por fecha y tema
-_archivo/               material sustituido con motivo registrado
 ```
+
+`specs/`, `docs/`, `documentacion/`, `analisis/` y `_archivo/` pertenecen solo a
+este repositorio general.
 
 Se mantiene un monolito modular Django con plantillas del servidor y Bootstrap 5, confirmado
 por el tesista el 2026-10-08 en [ADR-0006](docs/decisions/ADR-0006-monolito-modular-y-entrega-incremental.md).
+[ADR-0008](docs/decisions/ADR-0008-separacion-repositorios-y-flujo-git.md) sustituye
+la ubicación en un único repositorio de ADR-0003 y conserva su estructura Django
+interna en la raíz de `App-zhudaleli`.
 La [guía de arquitectura](docs/architecture/ARQUITECTURA-OBJETIVO.md) explica capas internas,
 propiedad de datos/escrituras, dependencias explícitas y versiones piloto incrementales.
 Cada módulo agrupa su responsabilidad; servicios/consultas aparecen cuando hay comportamiento

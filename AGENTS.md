@@ -9,10 +9,11 @@ documentación detallada se recupera bajo demanda.
 
 ## Inicio de una tarea
 
-1. Confirma que la raíz contiene este archivo y `.specify/memory/constitution.md` y que
-   también es la raíz del vault de Obsidian.
-2. Lee [`docs/context/context-index.md`](docs/context/context-index.md).
-3. Lee [`docs/bitacora/ESTADO-ACTIVO.md`](docs/bitacora/ESTADO-ACTIVO.md) y confirma rama,
+1. Confirma si estás en el repositorio general (`AGENTS.md`, constitución y vault) o en
+   el repositorio de la aplicación (`App-zhudaleli`). Para cambios de código, comprueba
+   ambas raíces Git antes de escribir.
+2. Lee [`docs/context/context-index.md`](docs/context/context-index.md) en el repositorio general.
+3. Lee [`docs/bitacora/ESTADO-ACTIVO.md`](docs/bitacora/ESTADO-ACTIVO.md) en el general y confirma rama,
    `HEAD`, tarea y rutas permitidas antes de escribir.
 4. Clasifica la solicitud según `task_types` en `tools/agent-routes.toml`.
 5. Carga solamente el contexto indicado por esa clasificación. No leas todo `docs/`, todo
@@ -22,8 +23,9 @@ documentación detallada se recupera bajo demanda.
 
 - Arquitectura o planificación: constitución, índice, arquitectura/ADR relevantes y la
   funcionalidad activa indicada por `docs/context/feature-index.md`.
-- Implementación: `tasks.md`, secciones relevantes de `spec.md`, código y pruebas; contratos
-  y modelo de datos únicamente cuando la tarea los toca.
+- Implementación: requisito y sprint vigentes, código y pruebas; `tasks.md` y secciones
+  relevantes de `spec.md` cuando existan. Contratos y modelo de datos solo si el cambio
+  los toca.
 - Frontend: reglas UI, componentes, archivos visuales y criterios de accesibilidad relevantes.
 - Investigación: solo las fuentes necesarias para la pregunta.
 - Revisión: diff, archivos modificados, contratos, pruebas y reglas aplicables.
@@ -64,13 +66,57 @@ Una conversación, inferencia o propuesta de IA nunca aprueba un requisito.
 - No hagas `commit`, `push`, `merge`, `rebase`, `reset`, `clean` ni cambies la identidad Git
   sin autorización explícita del tesista.
 - No guardes secretos, datos personales innecesarios ni bases locales en Git.
-- No ejecutes `speckit-implement` sobre una especificación no aprobada.
+- Si usas `speckit-implement` con una spec, esta debe estar aprobada. El desarrollo
+  directo puede avanzar con el requisito y sprint vigentes sin exigir spec, plan,
+  tareas ni checklist adicionales.
+
+## Ritmo de trabajo del tesista y Codex
+
+- Una idea se contrasta primero con el requisito vigente. Si precisa un comportamiento ya
+  validado, se implementa una porción verificable y se actualiza solo la documentación
+  afectada. No se exige rehacer pila, historias, spec y plan antes de cada cambio de código.
+- Si la idea cambia un requisito, permiso o regla de negocio, se identifica la decisión
+  concreta, su fuente y su impacto. Las propuestas y tareas antiguas no implementadas se
+  ajustan al requisito nuevo; no bloquean por sí solas el avance. Si el cambio contradice
+  una regla validada, se registra la discrepancia y se valida esa regla específica antes
+  de implementarla. El resto del trabajo independiente continúa.
+- La pila ordena valor y dependencias; el sprint backlog contiene solo compromisos y estado
+  verificable del sprint. Las historias detallan criterios cuando cambian, sin duplicar
+  el mismo texto en todos los artefactos. La edición académica se sincroniza desde las
+  fuentes internas en hitos revisados, respetando su control de versiones y publicación.
+- Codex implementa, prueba y revisa el diff de cada porción. La revisión por otro agente
+  se reserva para decisiones o cambios de riesgo alto; la clasificación de tareas no obliga
+  a convocar varios agentes para un ajuste ordinario.
+- El modelo de datos se construye por módulo: mapa conceptual, propietarios y relaciones
+  esenciales desde S1; tablas, restricciones y migraciones del recorrido activo en S2 y
+  los sprints siguientes. Cada cambio verifica integridad y compatibilidad de datos.
+
+## Repositorios y Git
+
+- `ZhudAleli` es el repositorio general y vault: constitución, `specs/`, requisitos,
+  sprints, `docs/`, `documentacion/` revisada, agentes, skills, plantillas y herramientas
+  de proceso. `/app/` está ignorada y nunca se commitea aquí.
+- `FranAC18/App-zhudaleli` contiene el código de producto: Django, migraciones,
+  pruebas, plantillas, estáticos fuente, dependencias, configuración de ejecución/CI,
+  `.gitignore` y README técnico breve. No recibe agentes, specs ni docs de proceso.
+- Todo commit y push de código ocurre únicamente en la raíz Git de la app. Antes de
+  cada push se verifican ruta actual, `git rev-parse --show-toplevel`, `git remote -v`,
+  URL de push, rama y archivos preparados. Nunca uses `git add .` en la raíz general
+  ni force push a `main`.
+- Los commits de código siguen `tipo(scope): descripción [RF-XXX][SPRINT-N]` con ID
+  real; se trabaja en `feature/RF-XXX-descripcion` y se integra por PR a `main`
+  protegida. El cierre de un sprint con código integrado lleva tag `sprint-N` en la
+  app y enlace requisito → sprint → PR/tag en la matriz general.
+- Para desarrollar basta consultar en el repo general el requisito y sprint vigentes.
+  La falta de documentos de proceso dentro de la app nunca bloquea un commit.
+  Las decisiones materiales, permisos, pruebas y evidencias de terminación conservan
+  sus controles de calidad.
 
 ## Arquitectura de producto
 
-La aplicación futura usa Python, Django, PostgreSQL, Bootstrap 5 y plantillas MTV en un
-monolito modular. La aplicación Django todavía no existe; los artefactos de diseño o laboratorio
-no deben presentarse como aplicación funcional. Las reglas de autorización viven en backend y
+La aplicación usa Python, Django, PostgreSQL, Bootstrap 5 y plantillas MTV en un
+monolito modular. Se construye por incrementos: una base técnica o laboratorio aún no
+acredita funcionalidad de negocio entregada. Las reglas de autorización viven en backend y
 las operaciones con varias entidades usan transacciones.
 
 ADR-0006 y la constitución 0.2.0 confirman capas internas proporcionales: cada módulo agrupa
@@ -84,15 +130,17 @@ constitución. Confirmar arquitectura no aprueba nuevas funcionalidades, Git ni 
 
 ## Documentación y continuidad
 
-- El vault es la raíz del repositorio. Las fuentes internas, evidencia y notas estables
+- El vault es la raíz del repositorio general. Las fuentes internas, evidencia y notas estables
   permanecen en `docs/`; las specs técnicas permanecen en `specs/<id>/`.
-- `documentacion/` contiene únicamente ediciones finales y versionadas para la entrega
-  académica. Cada edición identifica fecha, autor, estado, historial y fuentes aprobadas.
+- `documentacion/` contiene ediciones para la entrega académica. Se versiona en el
+  repositorio general solo cada archivo revisado e incorporado explícitamente.
+  Cada edición identifica fecha, autor, estado, historial y fuentes aprobadas.
   Se prepara desde las fuentes internas; una copia pública no cambia por sí sola un
   requisito, decisión o spec. `analisis/` conserva trabajo interno por fecha y tema.
   `_archivo/` recibe material sustituido solo con motivo, origen y reemplazo registrados.
-- Solo el contenido revisado de `documentacion/` puede sincronizarse con el repositorio
-  documental del docente, mediante un clon separado y una vista previa de diferencias.
+- Solo el contenido revisado de `documentacion/` se versiona en el repositorio general y
+  puede sincronizarse con el repositorio documental del docente, mediante un clon separado
+  y una vista previa de diferencias.
   Todo cambio relevante actualiza versión y control de cambios. `commit` se hace cuando
   el tesista lo solicite expresamente; publicación requiere su confirmación específica.
   Nunca se incluyen código, agentes, skills, secretos, `.env` ni evidencia interna.

@@ -3,6 +3,9 @@
 # TASK TYPE -> AGENT -> MODEL PROFILE. Los perfiles describen capacidades, no identificadores
 # concretos. El proveedor y el modelo real se seleccionan en el host y no se duplican aquí ni
 # en los adaptadores de Codex/OpenCode.
+# review = "proportional" exige pruebas y revisión del diff por el escritor; una revisión
+# independiente se añade según riesgo o antes de una entrega. "required" conserva la
+# revisión independiente para decisiones y cambios de riesgo alto.
 
 [meta]
 version = 2
@@ -58,8 +61,8 @@ agent = "implementer"
 risk = "medium"
 reasoning = "coding"
 model_profile = "coding_efficient"
-context = ["tasks", "relevant spec", "relevant code", "relevant tests"]
-review = "required"
+context = ["current requirement and sprint", "tasks and spec when available", "relevant code", "relevant tests"]
+review = "proportional"
 delegation = "coordinator-only"
 
 [task_types.frontend]
@@ -68,7 +71,7 @@ risk = "medium"
 reasoning = "coding"
 model_profile = "frontend_strong"
 context = ["UI rules", "relevant components", "UI specification", "relevant assets"]
-review = "required"
+review = "proportional"
 delegation = "coordinator-only"
 
 [task_types.debugging]
@@ -104,7 +107,7 @@ risk = "low"
 reasoning = "focused"
 model_profile = "documentation_economy"
 context = ["source document", "template", "operational state"]
-review = "required"
+review = "proportional"
 delegation = "none"
 
 # Compatibilidad con el contrato universal anterior. Los valores de model son perfiles, no

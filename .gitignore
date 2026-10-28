@@ -26,11 +26,20 @@ htmlcov/
 .kimi-code/mcp.json
 .specify/feature.json
 
-# Artefactos de la futura aplicación
+# Checkout local de la aplicación: su Git y código pertenecen solo a App-zhudaleli
+/app/
+
+# Artefactos locales de la futura aplicación
 media/
 staticfiles/
 
-# Documentación exclusiva del repositorio del docente
+# Copias locales de respaldo y trabajo temporal
+/_backups/
+/tmp/
+/_codex_tmp_*/
+
+# Ediciones para el docente: incorporar al repo general solo archivos revisados,
+# mediante staging explícito por ruta (`git add -f <archivo>`).
 /documentacion/
 
 # Avance local del Gantt (puede contener nombres y evidencias)
