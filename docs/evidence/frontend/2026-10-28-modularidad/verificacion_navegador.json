@@ -1,0 +1,43 @@
+{
+  "resultados": [
+    {
+      "pagina": "login",
+      "ancho": 360,
+      "aparienciaIgual": true,
+      "desborde": false
+    },
+    {
+      "pagina": "inicio",
+      "ancho": 360,
+      "aparienciaIgual": true,
+      "desborde": false
+    },
+    {
+      "pagina": "cambio_contrasena",
+      "ancho": 360,
+      "aparienciaIgual": true,
+      "desborde": false
+    },
+    {
+      "pagina": "login",
+      "ancho": 1440,
+      "aparienciaIgual": true,
+      "desborde": false
+    },
+    {
+      "pagina": "inicio",
+      "ancho": 1440,
+      "aparienciaIgual": true,
+      "desborde": false
+    },
+    {
+      "pagina": "cambio_contrasena",
+      "ancho": 1440,
+      "aparienciaIgual": true,
+      "desborde": false
+    }
+  ],
+  "mostrarOcultar": true,
+  "focoErrores": true,
+  "errores": []
+}

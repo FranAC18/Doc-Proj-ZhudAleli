@@ -7,12 +7,12 @@ task_id: SB-S2-02
 active_task: SB-S2-02
 phase: implementation
 branch: docs/requisitos-y-organizacion-del-vault
-head: fd10b3f9f5fe1efce730c4b5c346faf6b2d21109
-last_commit: fd10b3f9f5fe1efce730c4b5c346faf6b2d21109
+head: 6c09fc3d8fa5228249185ab7e3e93d5a8c29104e
+last_commit: 6c09fc3d8fa5228249185ab7e3e93d5a8c29104e
 commit: pending
 current_agent: codex
 current_role: coordinator
-continuity_checkpoint: "checkpoints/2026-10-20-sb-s2-01-pre-commit.md"
+continuity_checkpoint: "checkpoints/2026-10-28-acceso-multicanal-pre-commit.md"
 history_checkpoint: "checkpoints/2026-10-27-historial-estado-activo.md"
 sprint_0_status: completed
 sprint_0_closure_commit: 9276813b44e399ef56c2ddb4c3bc74d4f65bb28f
@@ -35,8 +35,23 @@ repository: ZhudAleli
 app_root: "app/"
 app_remote: "https://github.com/FranAC18/App-zhudaleli.git"
 app_branch: feature/RF-ACC-001-base-proyecto
-app_head: 8f19c0ea14e9f3209ff2bdc2599ed70c0126f746
+app_head: 36f1136b0b14a334fa12f401b9fa18bd1220d5e5
 allowed_paths:
+  - specs/003-acceso-multicanal/**
+  - docs/requirements/CAT-REQ-001.md
+  - docs/requirements/CAT-REQ-001-v1.2.md
+  - docs/requirements/README.md
+  - docs/evidence/requirements/2026-10-28-aceptacion-acceso-multicanal.md
+  - documentacion/requisitos/requisitos_generales_v2.2_2026-10-28.md
+  - documentacion/historias/usuario/historias_usuario_v2.7_2026-10-28.md
+  - documentacion/historias/tecnicas/historias_tecnicas_v1.8_2026-10-28.md
+  - documentacion/pila_producto/pila_producto_v1.9_2026-10-28.md
+  - documentacion/sprints/sprint_backlog_v1.5_2026-10-28.md
+  - documentacion/control_de_cambios/registro_v5.2_2026-10-28.md
+  - cronograma-interactivo/proyecto-local/web/datos-proyecto.json
+  - cronograma-interactivo/proyecto-local/web/recursos-sprints.json
+  - cronograma-interactivo/index.html
+  - cronograma-interactivo/proyecto-local/web/index.html
   - AGENTS.md
   - README.md
   - .gitignore
@@ -49,6 +64,7 @@ allowed_paths:
   - .specify/templates/overrides/README.md
   - .agents/skills/zhud-aleli-context/SKILL.md
   - .agents/skills/zhud-aleli-codigo-legible/SKILL.md
+  - .agents/skills/frontend-design/**
   - .agents/skills/zhud-aleli-git-manager/SKILL.md
   - .agents/skills/zhud-aleli-documenter/SKILL.md
   - .agents/skills/zhud-aleli-handoff/SKILL.md
@@ -122,6 +138,21 @@ allowed_paths:
   - specs/002-superadministracion/spec.md
   - specs/002-superadministracion/checklists/requirements.md
 app_allowed_paths:
+  - specs/003-acceso-multicanal/**
+  - docs/requirements/CAT-REQ-001.md
+  - docs/requirements/CAT-REQ-001-v1.2.md
+  - docs/requirements/README.md
+  - docs/evidence/requirements/2026-10-28-aceptacion-acceso-multicanal.md
+  - documentacion/requisitos/requisitos_generales_v2.2_2026-10-28.md
+  - documentacion/historias/usuario/historias_usuario_v2.7_2026-10-28.md
+  - documentacion/historias/tecnicas/historias_tecnicas_v1.8_2026-10-28.md
+  - documentacion/pila_producto/pila_producto_v1.9_2026-10-28.md
+  - documentacion/sprints/sprint_backlog_v1.5_2026-10-28.md
+  - documentacion/control_de_cambios/registro_v5.2_2026-10-28.md
+  - cronograma-interactivo/proyecto-local/web/datos-proyecto.json
+  - cronograma-interactivo/proyecto-local/web/recursos-sprints.json
+  - cronograma-interactivo/index.html
+  - cronograma-interactivo/proyecto-local/web/index.html
   - .gitignore
   - .env.example
   - .github/workflows/ci.yml
@@ -131,6 +162,7 @@ app_allowed_paths:
   - manage.py
   - config/**
   - apps/accounts/**
+  - apps/portal/**
   - apps/__init__.py
   - static/**
   - templates/**
@@ -147,11 +179,53 @@ blocked_paths:
   - _archivo/**
   - .codex/config.toml
   - docs/decisions/ADR-000[1-5]*.md
-next_action: Revisar SB-S2-02 en navegador y comprobar PWA con rutas privadas; después refinar cuentas y superadministración para S2 según PLAN-HASTA-2026-12-23.md. Las fechas intermedias siguen propuestas y RF-ACC-005 requiere criterios validados. La revisión académica y la evidencia de validación presidencial siguen pendientes. No hacer commit ni push sin solicitud explícita.
+next_action: Implementar por incrementos SPEC-003 aceptada por el tesista: SB-S2-05 seguridad común, SB-S2-06 correo, SB-S2-07 passkeys, SB-S2-08 WhatsApp con mock/adaptador y SB-S2-09 recuperación/regresión. Conservar avances de SB-S2-02; funciones nuevas pendientes. Sincronizar RF, HU/HT, pila, backlog y gestor en cada cambio. No contratar, publicar ni hacer Git sin autorización expresa.
 blockers: []
 ---
 
 # Estado activo de continuidad
+
+## Plan de acceso multicanal aceptado — 2026-10-28
+
+El tesista aceptó el plan de correo, passkeys y WhatsApp configurable y pidió sincronizar siempre requisitos, historias, pila, backlog y gestor local. RF-ACC-006 a 009 y SPEC-003 contienen el alcance aceptado; HU-ACC-010 a 013, HT-ACC-001/002 y SB-S2-05 a 09 tienen implementación pendiente. La entrega real SMTP/WhatsApp y los equipos de passkeys no están comprobados. La aceptación no autoriza gasto ni publicación ni acredita validación con usuarias. La evidencia está en [[../evidence/requirements/2026-10-28-aceptacion-acceso-multicanal]]; el checkpoint registra la verificación documental y del gestor. Los estados previos de tareas se conservan.
+
+## Identidad e inicio privado separados — 2026-10-28
+
+Por solicitud expresa del tesista se creó `portal` como propietario de `/inicio/`,
+su vista y su frontend. `accounts` conserva identidad, login, salida y contraseñas.
+El nombre interno pasa a `portal:inicio`; las URLs del navegador y las reglas de
+sesión, cambio obligatorio y caché se conservan. La configuración general define
+el destino de acceso, sin que cuentas importe la presentación del portal.
+
+Pasaron 26 pruebas PostgreSQL, Django, Ruff y comprobación de migraciones sin cambios.
+Chromium con sesión Django y cuentas ficticias en una base aislada verificó login,
+cambio de contraseña, salida con imposibilidad de reutilizar la cookie, denegación
+anónima y cambio inicial. Las seis capturas móvil/escritorio son idénticas; PWA v10
+reemplaza v9, precarga 19 recursos públicos y ofrece la alternativa sin conexión.
+Evidencia y límites en [[checkpoints/2026-10-28-separacion-accounts-portal-pre-commit]].
+
+Se actualizaron arquitectura, contrato HTTP, adenda técnica del plan e índice de
+funcionalidad. No se modifican criterios de negocio ni se declara completo el inicio
+operativo de RF-ACC-004 o SB-S2-02. Cambios locales sin commit ni push.
+
+## Convención implementada en cuentas — 2026-10-28
+
+El tesista solicitó implementar la organización aprobada para continuar el desarrollo.
+Las tres pantallas de `accounts` ya viven en
+`apps/accounts/frontend/accounts/<pantalla>/`, con HTML y recursos propios cercanos.
+Django resuelve las plantillas desde la raíz frontend y publica solo los directorios
+`recursos/` registrados con prefijos. Un adaptador del buscador normaliza separadores
+para resolver esos prefijos en Windows. Se retiraron las carpetas anteriores vacías;
+el backend de cuentas, sus reglas, rutas y migraciones conservan su contenido.
+
+Pasaron 22 pruebas PostgreSQL, controles Django/Ruff, comprobación de migraciones,
+resolución de recursos, exclusión de plantillas en desarrollo y `collectstatic`.
+Las seis capturas móvil/escritorio antes/después son idénticas. La PWA v9 reemplaza
+v8, precarga 19 recursos públicos y ofrece la alternativa sin conexión sobre HTML
+de prueba; no se declara terminado SB-S2-02 ni el recorrido de aceptación con sesión
+real en navegador. Evidencia y límites en
+[[checkpoints/2026-10-28-frontend-colocalizado-pre-commit]].
+Los cambios de producto y esta nota siguen locales, sin commit ni push en esta tarea.
 
 ## Reglas aprobadas de organización de código — 2026-10-28
 
@@ -173,6 +247,21 @@ Verificación de esta actualización: `quick_validate.py` de `skill-creator` dev
 `Skill is valid!`; enlaces locales y bloques Markdown correctos; revisión del diff y
 `git diff --check` sin errores. No se repitieron pruebas de producto porque solo cambiaron
 instrucciones y documentación.
+
+## Organización del frontend por página — 2026-10-28
+
+Por solicitud expresa del tesista se reorganizó el frontend de acceso en la app:
+plantillas y estáticos propios de login, inicio y cambio de contraseña bajo
+`accounts`; estilos y comportamientos reutilizados en `static/compartido/`;
+registro PWA junto a sus recursos. Se conservaron las URLs, el comportamiento y
+el diseño local previo. Pasaron 19 pruebas PostgreSQL, controles Django y Ruff,
+descubrimiento y recopilación de estáticos, y comparación en Chromium a 360 y
+1440 píxeles con seis capturas antes/después idénticas. La comprobación PWA sobre
+HTML de prueba instalado localmente precargó 20 recursos públicos y mostró la
+alternativa offline sin almacenar páginas privadas. Su alcance no sustituye la
+revisión completa del recorrido autenticado ni cierra SB-S2-02.
+Evidencia y límites en [[checkpoints/2026-10-28-frontend-por-pagina-pre-commit]].
+Cambios locales sin commit ni push; se conserva el HEAD registrado.
 
 ## Reordenación ágil solicitada por el tesista — 2026-10-27
 

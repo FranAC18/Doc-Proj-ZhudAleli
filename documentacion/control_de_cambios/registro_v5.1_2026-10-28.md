@@ -4,7 +4,7 @@ version: "5.1"
 fecha: 2026-10-28
 autor: Franklin Acero
 estado: preparado-para-revision-academica
-publicacion: pendiente-de-transferencia
+publicacion: publicada-para-revision-academica
 ---
 
 # Registro de cambios documentales v5.1
@@ -18,8 +18,8 @@ a la convención técnica y no acredita nuevos requisitos ni la entrega completa
 
 | Documento | Versión | Cambio | Estado |
 |---|---:|---|---|
-| [Arquitectura detallada](../arquitectura/arquitectura_v1.2_2026-10-28.md) | 1.2 | Añade responsabilidades del backend, frontend por pantalla, recursos compartidos, descubrimiento de plantillas y estáticos, crecimiento proporcional y transición verificable. Actualiza el estado parcial de la app y corrige la descripción de mensajes de acceso conforme a SPEC-001. | Convención técnica aprobada; edición completa preparada para revisión académica y pendiente de transferencia. |
-| [Índice documental](../README.md) | 5.1 | Señala la nueva arquitectura, conserva las ediciones anteriores y explicita la diferencia entre diseño aprobado, cambios locales y entrega comprobada. | Actualizado localmente; revisión y transferencia pendientes. |
+| [Arquitectura detallada](../arquitectura/arquitectura_v1.2_2026-10-28.md) | 1.2 | Añade responsabilidades del backend, frontend por pantalla, recursos compartidos, descubrimiento de plantillas y estáticos, crecimiento proporcional y transición verificable. Actualiza el estado parcial de la app y corrige la descripción de mensajes de acceso conforme a SPEC-001. | Convención técnica aprobada; edición completa publicada para revisión académica, sin aceptación docente registrada. |
+| [Índice documental](../README.md) | 5.1 | Señala la nueva arquitectura, conserva las ediciones anteriores y explicita la diferencia entre diseño aprobado, cambios locales y entrega comprobada. | Publicado con esta entrega; revisión académica pendiente. |
 | Control de cambios | 5.1 | Registra las fuentes y los límites de esta actualización. | Preparado para revisión académica. |
 
 ## Contenido incorporado
@@ -54,8 +54,9 @@ a la edición destinada al docente.
 
 Se conservan sin cambios [arquitectura v1.1](../arquitectura/arquitectura_v1.1_2026-10-19.md)
 y el [control de cambios v5.0](registro_v5.0_2026-10-27.md). Los formatos Word anteriores
-no se modificaron. Esta preparación no incluye commit, transferencia ni publicación al
-repositorio del docente.
+no se modificaron. La preparación original no incluía transferencia. Por solicitud expresa del tesista, esta
+edición se publica en el repositorio documental para revisión académica. Se utiliza la rama
+`codex/historial-original-readme-v5`, conservando el historial recuperado y sin force push.
 
 ## Verificación editorial
 

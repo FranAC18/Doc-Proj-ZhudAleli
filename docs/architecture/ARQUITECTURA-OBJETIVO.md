@@ -45,6 +45,7 @@ flowchart TD
 |---|---|---|
 | `core` | tipos y utilidades transversales realmente compartidos | reglas de todos los dominios |
 | `accounts` | usuario, membresía, roles, permisos y perfil | actividades o producción |
+| `portal` | inicio privado y composición de navegación y resúmenes autorizados | autenticación propia, reglas o escrituras de otros módulos |
 | `planning` | jornadas, actividades, asignaciones y estados | registro de asistencia |
 | `attendance` | entradas, salidas, participación y correcciones autorizadas | autenticación o inventario |
 | `traceability` | catálogos, acopio, secado, lotes, inventario, ventas, gastos y cuentas por cobrar | presentación de reportes globales |
@@ -167,6 +168,26 @@ aplica al generar, modificar y revisar código. La adaptación comprueba descubr
 plantillas y estáticos, rutas, comportamiento, migraciones cuando corresponda y política PWA.
 La estructura descrita para SPEC-001 conserva su valor como registro de implementación previo;
 esta adenda no altera retroactivamente sus criterios funcionales.
+
+### Separación de identidad e inicio privado — 2026-10-28
+
+El tesista solicitó implementar la separación propuesta entre `accounts` y `portal`.
+`accounts` conserva autenticación, sesiones, contraseñas y propiedad de la identidad.
+`portal` recibe la vista y la presentación de `/inicio/`; mantiene la bienvenida mínima
+de SPEC-001 y queda como propietario del futuro inicio operativo de RF-ACC-004, sin
+declararlo implementado. La cuenta y la sesión se comparten mediante Django. La separación
+es de responsabilidades: las barreras de acceso continúan en la verificación backend de
+sesión y permisos, el cambio obligatorio, la caducidad y la política de caché.
+
+`portal` no crea modelos ni migraciones porque su presentación actual no posee datos.
+Cuando componga información de planificación, asistencia u otros módulos, usará lecturas
+autorizadas sin asumir sus escrituras. Los módulos fuente no importan el portal. El acceso
+y el cambio de contraseña usan `LOGIN_REDIRECT_URL`, definido en la configuración general,
+para evitar que cuentas importe su presentación consumidora.
+
+Las URLs del navegador no cambian. El nombre interno `portal:inicio` sustituye a
+`accounts:dashboard`; el [[../../specs/001-acceso-usuarias-internas/contracts/http|contrato HTTP]]
+registra el ajuste técnico. No cambia criterios funcionales ni autoriza nuevas operaciones.
 
 ## Integridad y auditoría
 

@@ -3,7 +3,7 @@ title: "Plan de implementación: Acceso de usuarias internas"
 type: implementation-plan
 status: approved
 date: 2026-07-25
-updated: 2026-10-21
+updated: 2026-10-28
 approved: 2026-08-24
 approved_by: Tesista
 spec: "[[spec]]"
@@ -31,6 +31,21 @@ aprobado explícitamente por el tesista el 2026-08-24 y queda `approved`. Su apr
 habilitó generar `tasks.md`. El tesista autorizó iniciar la implementación de `SB-S2-02` y
 actualizar los criterios de mensajes y bloqueo el 2026-10-21; esta revisión registra ese
 alcance sin cambiar el resto de la arquitectura aprobada.
+
+### Ajuste técnico de propietarios — 2026-10-28
+
+Por solicitud expresa del tesista se traslada la bienvenida privada de `accounts` a
+`portal`, manteniendo las reglas de SPEC-001 y las URLs del navegador. El nuevo nombre
+interno es `portal:inicio`. Cuentas conserva identidad, acceso y contraseñas; la
+configuración `LOGIN_REDIRECT_URL` resuelve el destino de acceso y cambio de contraseña.
+La vista de portal conserva autenticación obligatoria, desvío por credencial temporal y
+no almacenamiento en caché. No se construye todavía el inicio operativo de RF-ACC-004.
+
+El árbol de implementación y las referencias anteriores a una sola app se conservan
+como diseño previo; esta adenda y la organización frontend aprobada el 2026-10-28
+definen el propietario y la ubicación actuales. No cambian modelos, migraciones ni
+requisitos funcionales. La [[../../docs/architecture/ARQUITECTURA-OBJETIVO|arquitectura]]
+y el [[contracts/http|contrato HTTP]] registran los límites y nombres vigentes.
 
 ## Resumen
 

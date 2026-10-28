@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-27",
+  "edition": "2026-10-28",
   "sprints": [
     {
       "id": "S0",
@@ -187,6 +187,42 @@
           "label": "Sprint backlog v1.4 · corte anterior",
           "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
           "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
+        },
+        {
+          "group": "Acceso multicanal aceptado",
+          "label": "requisitos v2.2",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md",
+          "note": "Plan aceptado por el tesista el 2026-10-28; implementación y revisión académica pendientes."
+        },
+        {
+          "group": "Acceso multicanal aceptado",
+          "label": "hu v2.7",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.7_2026-10-28.md",
+          "note": "Plan aceptado por el tesista el 2026-10-28; implementación y revisión académica pendientes."
+        },
+        {
+          "group": "Acceso multicanal aceptado",
+          "label": "ht v1.8",
+          "url": "/fuentes/historias/tecnicas/historias_tecnicas_v1.8_2026-10-28.md",
+          "note": "Plan aceptado por el tesista el 2026-10-28; implementación y revisión académica pendientes."
+        },
+        {
+          "group": "Acceso multicanal aceptado",
+          "label": "pila v1.9",
+          "url": "/fuentes/pila_producto/pila_producto_v1.9_2026-10-28.md",
+          "note": "Plan aceptado por el tesista el 2026-10-28; implementación y revisión académica pendientes."
+        },
+        {
+          "group": "Acceso multicanal aceptado",
+          "label": "backlog v1.5",
+          "url": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md",
+          "note": "Plan aceptado por el tesista el 2026-10-28; implementación y revisión académica pendientes."
+        },
+        {
+          "group": "Aceptación",
+          "label": "Aceptación del acceso multicanal",
+          "url": "/evidencias/requirements/2026-10-28-aceptacion-acceso-multicanal.md",
+          "note": "Evidencia de decisión del tesista; no acredita entrega de funciones."
         }
       ]
     },

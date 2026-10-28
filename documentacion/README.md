@@ -1,6 +1,6 @@
 ---
 titulo: Índice de documentación final de Zhud Alelí
-version: "5.1"
+version: "5.2"
 fecha: 2026-10-28
 autor: Tesista
 estado: preparado-para-revision-academica
@@ -19,9 +19,24 @@ Los demás documentos de esta tabla conservan su estado de revisión o publicaci
 
 La edición de seguimiento del 19 de octubre documenta el cierre histórico de S0 y los pendientes posteriores; está preparada para revisión y pendiente de transferencia al repositorio del docente. La arquitectura detallada v1.1 fue aprobada por el tesista para documentación; su transferencia sigue pendiente. El informe de S1 v1.2 registra el cierre administrativo parcial y la aceptación del tesista del 2026-10-21 para asignar HT-PRE-001 a HT-PRE-005 a S1, con los estados y pendientes registrados entonces. El 2026-10-27 el tesista decidió extender hasta ese día la definición documental de acceso y superadministración en S1 y concentrar login, cuentas, permisos y estructura de módulos en S2. Las funciones de los módulos se distribuyen entre S3 y S5. El cierre propuesto de S2 es el 8 de noviembre; las fechas intermedias están sujetas a revisión. El periodo de S1 se registra concluido por calendario; la finalización de sus entregables requiere cotejo y evidencia. El tesista comunicó una disponibilidad de 16–25 horas semanales, aún no convertida en estimaciones por historia.
 
-La edición del 2026-10-28 incorpora arquitectura v1.2 con la organización modular de backend y frontend aprobada por el tesista. Conserva las ediciones anteriores y diferencia esa aprobación técnica de la revisión de la nueva edición completa. La aplicación cuenta con desarrollo local parcial; la adaptación más reciente del frontend no se presenta como una entrega aceptada. Esta edición permanece local, sin transferencia al docente.
+La edición del 2026-10-28 incorpora arquitectura v1.2 con la organización modular de backend y frontend aprobada por el tesista. Conserva las ediciones anteriores y diferencia esa aprobación técnica de la revisión de la nueva edición completa. La aplicación cuenta con desarrollo local parcial; la adaptación más reciente del frontend no se presenta como una entrega aceptada. Esta edición se publica en el repositorio documental para revisión docente. La publicación no equivale a aprobación académica.
 
-## Documentos vigentes
+## Actualización local de acceso — 2026-10-28
+
+El tesista aceptó la ampliación de acceso por correo, passkeys y WhatsApp configurable. Las ediciones nuevas contienen ese alcance aceptado y pendiente de implementación; su revisión académica y transferencia al docente siguen pendientes. Las aprobaciones y publicaciones anteriores conservan su alcance histórico.
+
+| Área | Nueva edición de consulta | Versión | Estado |
+|---|---|---|---|
+| requisitos | [requisitos_generales_v2.2_2026-10-28.md](requisitos/requisitos_generales_v2.2_2026-10-28.md) | 2.2 | Alcance de acceso aceptado por el tesista; preparado para revisión, sin implementación acreditada. |
+| hu | [historias_usuario_v2.7_2026-10-28.md](historias/usuario/historias_usuario_v2.7_2026-10-28.md) | 2.7 | Alcance de acceso aceptado por el tesista; preparado para revisión, sin implementación acreditada. |
+| ht | [historias_tecnicas_v1.8_2026-10-28.md](historias/tecnicas/historias_tecnicas_v1.8_2026-10-28.md) | 1.8 | Alcance de acceso aceptado por el tesista; preparado para revisión, sin implementación acreditada. |
+| pila | [pila_producto_v1.9_2026-10-28.md](pila_producto/pila_producto_v1.9_2026-10-28.md) | 1.9 | Alcance de acceso aceptado por el tesista; preparado para revisión, sin implementación acreditada. |
+| backlog | [sprint_backlog_v1.5_2026-10-28.md](sprints/sprint_backlog_v1.5_2026-10-28.md) | 1.5 | Alcance de acceso aceptado por el tesista; preparado para revisión, sin implementación acreditada. |
+| Control de cambios | [Registro v5.2](control_de_cambios/registro_v5.2_2026-10-28.md) | 5.2 | Preparado localmente; publicación pendiente. |
+
+La tabla siguiente conserva el corte anterior y los estados de publicación históricos; para acceso se consultan las nuevas ediciones anteriores. Los formatos Word conservan su corte previo.
+
+## Corte documental anterior y publicaciones conservadas
 
 | Área | Documento vigente | Versión | Qué representa |
 |---|---|---:|---|
@@ -46,10 +61,10 @@ La edición del 2026-10-28 incorpora arquitectura v1.2 con la organización modu
 | Planificación | [Criterios de acceso y superadministración](sprints/plan_implementacion_superadmin_v1.4_2026-10-27.md) | 1.4 | Autoridad transversal y edición de registros, valores y opciones desde el panel, con criterios S2 y S3–S5. RF-ACC-005 y detalles por módulo siguen propuestos; evidencia presidencial pendiente. |
 | Planificación | [Plan incremental y sprint backlog Word, edición conservada](sprints/plan_incremental_y_sprint_backlog_v1.7_2026-10-14.docx) | 1.7 | Última edición Word existente; no se modificó en la actualización Markdown del 2026-10-21. |
 | Evaluación | [Factibilidad, corte anterior](factibilidad/factibilidad_v1.4_2026-10-13.md) | 1.4 | Costos y escenarios de ahorro conservados; su calendario S1–S6 corresponde al corte anterior y requiere revisión frente al plan v1.6. |
-| Diseño | [Arquitectura detallada](arquitectura/arquitectura_v1.2_2026-10-28.md) | 1.2 | Backend por módulo y frontend por pantalla según convención aprobada; recursos compartidos y transición verificable. Implementación local parcial y adaptación presente sin acreditar entrega completa. Edición preparada para revisión académica. |
+| Diseño | [Arquitectura detallada](arquitectura/arquitectura_v1.2_2026-10-28.md) | 1.2 | Backend por módulo y frontend por pantalla según convención aprobada; recursos compartidos y transición verificable. Implementación local parcial y adaptación presente sin acreditar entrega completa. Publicada para revisión académica; aceptación docente pendiente. |
 | Diseño | [Criterios de interfaz](diseno/criterios_diseno_v1.0_2026-10-12.md) | 1.0 | Criterios de uso; identidad visual pendiente de validar. |
 | Pruebas | [Plan de pruebas](pruebas/plan_pruebas_v1.0_2026-10-12.md) | 1.0 | Pruebas previstas; ningún resultado adelantado. |
-| Gobierno | [Control de cambios](control_de_cambios/registro_v5.1_2026-10-28.md) | 5.1 | Registra arquitectura v1.2, la convención aprobada de modularidad y la diferencia entre diseño e implementación local; revisión académica y transferencia pendientes. |
+| Gobierno | [Control de cambios](control_de_cambios/registro_v5.1_2026-10-28.md) | 5.1 | Registra arquitectura v1.2, la convención aprobada de modularidad y la diferencia entre diseño e implementación local; edición publicada para revisión académica. |
 
 ## Ediciones anteriores conservadas
 
@@ -63,7 +78,7 @@ También se conservan las ediciones HU v2.3–v2.4, HT v1.4, pila v1.3–v1.4,
 sprint backlog v1.0–v1.1 y plan Word v1.2–v1.3. Las ediciones vigentes usan
 fichas individuales y dejan los códigos como referencias secundarias.
 
-Las arquitecturas [v1.0](arquitectura/arquitectura_v1.0_2026-10-12.md) y [v1.1](arquitectura/arquitectura_v1.1_2026-10-19.md) se conservan como ediciones anteriores. La v1.1 mantiene su aprobación editorial histórica; la v1.2 de la tabla es la edición actual preparada para revisión. El [control de cambios v5.0](control_de_cambios/registro_v5.0_2026-10-27.md) conserva el corte documental anterior.
+Las arquitecturas [v1.0](arquitectura/arquitectura_v1.0_2026-10-12.md) y [v1.1](arquitectura/arquitectura_v1.1_2026-10-19.md) se conservan como ediciones anteriores. La v1.1 mantiene su aprobación editorial histórica; la v1.2 de la tabla es la edición actual publicada para revisión académica. El [control de cambios v5.0](control_de_cambios/registro_v5.0_2026-10-27.md) conserva el corte documental anterior.
 
 El registro de entrevista v1.0 se conserva como antecedente; el registro vigente es v1.1,
 cotejado con CAT-REQ-001 v1.2. El informe de S1 documenta los vistos buenos verbales que
@@ -74,7 +89,7 @@ entrevista.
 La autoría correcta de los documentos Word es Franklin Acero. Se corrigieron
 las propiedades de las ediciones anteriores para evitar atribuciones erróneas.
 
-La línea base vigente consta de **58 requisitos funcionales y 9 no funcionales confirmados**, además de RF-COS-001 y RNF-OPS-001 propuestos. La edición candidata v2.1 añade RF-ACC-005 propuesto, sin alterar esa línea base. El tesista aprobó la edición general v2.0 y CAT-REQ-001 v1.2; la revisión de la directora y la validación directa de la organización para las novedades siguen pendientes. Sprint 0 está cerrado desde el 21 de julio de 2026. S1 permanece parcial. La app tiene pruebas locales de acceso registradas en el estado operativo; eso no declara terminada la aplicación.
+El corte histórico publicado v2.0 contiene 58 RF y 9 RNF confirmados. La edición vigente local v2.2 y CAT-REQ-001 v1.3 contienen **62 RF y 9 RNF confirmados por el tesista**, además de RF-COS-001, RF-ACC-005 y RNF-OPS-001 propuestos. La ampliación de acceso del 2026-10-28 tiene implementación y validación de recorridos pendientes. El tesista aprobó la edición general v2.0 y CAT-REQ-001 v1.2; la revisión de la directora y la validación directa de la organización para las novedades siguen pendientes. Sprint 0 está cerrado desde el 21 de julio de 2026. S1 permanece parcial. La app tiene pruebas locales de acceso registradas en el estado operativo; eso no declara terminada la aplicación.
 
 El reporte de revisión docente del 13 de octubre conserva lo conocido en esa fecha. El
 informe de S1 del 20 de octubre incorpora la actualización del tesista: Julio Santillan,
@@ -83,7 +98,7 @@ el alcance no están identificados; el informe no representa confirmación direc
 Maria Camas, encargada de la organización, también autorizó verbalmente, según el tesista,
 sin fecha o alcance documentados. El alcance general v1.3 permanece preparado para revisión.
 
-El documento general v2.0 sigue siendo la **lista aprobada y publicada** para consulta y entrega; la v2.1 es la edición ampliada local con RF-ACC-005 propuesto. Las ediciones funcional y no funcional v1.1 conservan el detalle anterior. Los documentos derivan del catálogo interno CAT-REQ-001, que conserva la aprobación y los estados.
+El documento general v2.0 conserva su aprobación y publicación históricas; la **edición vigente local de consulta es v2.2**, con el acceso aceptado el 2026-10-28. Su revisión académica y transferencia siguen pendientes; RF-ACC-005 conserva estado propuesto. Las ediciones funcional y no funcional v1.1 conservan el detalle anterior. Los documentos derivan del catálogo interno CAT-REQ-001, que conserva la aprobación y los estados.
 Una modificación aprobada de la línea base requiere una nueva versión del
 documento general y actualizar este índice y el control de cambios; organizar
 requisitos por sprint en otros documentos no reemplaza esa lista general.
@@ -135,3 +150,5 @@ Cada publicación requiere revisión y confirmación del tesista.
 | 4.9 | 2026-10-27 | Se indexan el plan v1.6 y los criterios v1.4 con autoridad transversal de la Superadministradora sobre todos los módulos y edición de registros y opciones desde el panel. |
 | 5.0 | 2026-10-27 | Se incorporan ediciones académicas completas de requisitos v2.1, historias v2.6 y pila v1.8; línea base aprobada y ampliaciones propuestas permanecen diferenciadas. |
 | 5.1 | 2026-10-28 | Se incorpora arquitectura v1.2 con backend por módulo, frontend por pantalla, recursos compartidos y verificación de transición. Se conserva v1.1 y se distinguen convención aprobada, implementación local parcial y revisión académica pendiente. |
+
+| 5.2 | 2026-10-28 | Indexa requisitos v2.2, HU v2.7, HT v1.8, pila v1.9 y backlog v1.5 del acceso aceptado; revisión académica, implementación y transferencia pendientes. |

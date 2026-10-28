@@ -1,0 +1,61 @@
+{
+  "fecha": "2026-10-28",
+  "alcance": "Capturas de HTML renderizado por Django con usuaria ficticia, servido temporalmente; sin recorrido autenticado completo en navegador.",
+  "origen_capturas": "Archivos temporales de la comprobacion anterior; las imagenes no se incorporan a Git.",
+  "comparaciones": [
+    {
+      "pantalla": "login",
+      "ancho_px": 360,
+      "captura_antes": "login_360_antes.png",
+      "captura_despues": "login_360_despues.png",
+      "sha256_antes": "53f2d13129f5729b80f2d21d83035e57778ebc3cff818bfcba48f9e1f21508f4",
+      "sha256_despues": "53f2d13129f5729b80f2d21d83035e57778ebc3cff818bfcba48f9e1f21508f4",
+      "identicas": true
+    },
+    {
+      "pantalla": "inicio",
+      "ancho_px": 360,
+      "captura_antes": "inicio_360_antes.png",
+      "captura_despues": "inicio_360_despues.png",
+      "sha256_antes": "5794125a370f3da5e17f5e4e73073e6044818f3b9e15a40c14f5318923e571c1",
+      "sha256_despues": "5794125a370f3da5e17f5e4e73073e6044818f3b9e15a40c14f5318923e571c1",
+      "identicas": true
+    },
+    {
+      "pantalla": "cambio_contrasena",
+      "ancho_px": 360,
+      "captura_antes": "cambio_contrasena_360_antes.png",
+      "captura_despues": "cambio_contrasena_360_despues.png",
+      "sha256_antes": "492633c94f45a989994dde9916772ba47b012f81196deaeb28bd0e1719ca1367",
+      "sha256_despues": "492633c94f45a989994dde9916772ba47b012f81196deaeb28bd0e1719ca1367",
+      "identicas": true
+    },
+    {
+      "pantalla": "login",
+      "ancho_px": 1440,
+      "captura_antes": "login_1440_antes.png",
+      "captura_despues": "login_1440_despues.png",
+      "sha256_antes": "cbee2c31e205b4c5d0266c7eea4e6174b65e7e214ab64f54325019c79124547c",
+      "sha256_despues": "cbee2c31e205b4c5d0266c7eea4e6174b65e7e214ab64f54325019c79124547c",
+      "identicas": true
+    },
+    {
+      "pantalla": "inicio",
+      "ancho_px": 1440,
+      "captura_antes": "inicio_1440_antes.png",
+      "captura_despues": "inicio_1440_despues.png",
+      "sha256_antes": "c952144805704071a957fa8925935bc401fb4828915fc432cf3e8cb552a7fb27",
+      "sha256_despues": "c952144805704071a957fa8925935bc401fb4828915fc432cf3e8cb552a7fb27",
+      "identicas": true
+    },
+    {
+      "pantalla": "cambio_contrasena",
+      "ancho_px": 1440,
+      "captura_antes": "cambio_contrasena_1440_antes.png",
+      "captura_despues": "cambio_contrasena_1440_despues.png",
+      "sha256_antes": "1281fb8becad366c9d5773fce4fcd44e0bab46a767794bd2778c8cc26c595fde",
+      "sha256_despues": "1281fb8becad366c9d5773fce4fcd44e0bab46a767794bd2778c8cc26c595fde",
+      "identicas": true
+    }
+  ]
+}

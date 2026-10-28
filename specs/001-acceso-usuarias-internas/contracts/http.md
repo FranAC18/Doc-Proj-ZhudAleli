@@ -3,6 +3,7 @@ title: Contrato HTTP de SPEC-001
 type: interface-contract
 status: approved
 date: 2026-07-25
+updated: 2026-10-28
 spec: "[[../spec]]"
 plan: "[[../plan]]"
 tags:
@@ -22,11 +23,16 @@ el plan, decisión registrada el 2026-08-24.
 
 ## Rutas
 
+Actualización técnica del 2026-10-28, solicitada por el tesista: el inicio privado
+pertenece a `portal`. `portal:inicio` sustituye al nombre interno `accounts:dashboard`
+de la versión anterior. Se conservan `/inicio/`, sus precondiciones y resultados;
+los criterios funcionales de SPEC-001 permanecen vigentes.
+
 | Nombre Django | Método y ruta | Precondición | Resultado principal |
 |---|---|---|---|
 | `accounts:login` | `GET /acceso/` | anónima | `200`, formulario |
 | `accounts:login` | `POST /acceso/` | token CSRF | válido normal: `302 /inicio/`; válido temporal: `302` a cambio; inválido: `200` |
-| `accounts:dashboard` | `GET /inicio/` | sesión normal | `200`, dashboard privado |
+| `portal:inicio` | `GET /inicio/` | sesión normal | `200`, dashboard privado |
 | `accounts:password_change` | `GET /mi-cuenta/cambiar-contrasena/` | sesión autenticada | `200`, formulario de cambio |
 | `accounts:password_change` | `POST /mi-cuenta/cambiar-contrasena/` | sesión y CSRF | válido: `302 /inicio/` con confirmación; inválido: `200` sin cambios |
 | `accounts:logout` | `POST /salir/` | CSRF | sesión eliminada y `302 /acceso/` |

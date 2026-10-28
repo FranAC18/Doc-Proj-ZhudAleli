@@ -136,6 +136,8 @@ constitución. Confirmar arquitectura no aprueba nuevas funcionalidades, Git ni 
 
 ## Documentación y continuidad
 
+- Por instrucción del tesista del 2026-10-28, cada cambio relevante de alcance, criterios, prioridad o estado sincroniza requisitos, historias de usuario/técnicas afectadas, pila de producto, sprint backlog y el gestor local de tesis ágil en `http://127.0.0.1:55478/`. Conserva versiones, IDs, avances y evidencia; indica cualquier destino pendiente. Esta sincronización local no autoriza Git, gasto ni publicación al docente.
+
 - El vault es la raíz del repositorio general. Las fuentes internas, evidencia y notas estables
   permanecen en `docs/`; las specs técnicas permanecen en `specs/<id>/`.
 - `documentacion/` contiene ediciones para la entrega académica. Se versiona en el

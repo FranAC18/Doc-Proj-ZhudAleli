@@ -28,16 +28,9 @@ Consulta [[../architecture/FUENTES-DE-VERDAD|Fuentes de verdad]] y
 
 ## Línea base actual
 
-[[CAT-REQ-001|CAT-REQ-001 v1.1]] está confirmado por el tesista el 2026-09-28:
-**60 requisitos confirmed, 2 proposed y 12 históricos superseded**. Incorpora los ajustes
-de continuidad y RF-PWA-001/002/003, con guardado y sincronización offline obligatorios.
-La [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|aprobación explícita]]
-identifica quién aprueba y qué queda pendiente. P-01…P-14 no se resuelven por inferencia.
+[[CAT-REQ-001|CAT-REQ-001 v1.3]] contiene **71 requisitos confirmed, 3 proposed y 12 históricos superseded**: 62 RF y 9 RNF confirmados; RF-COS-001, RF-ACC-005 y RNF-OPS-001 propuestos. La v1.2 aprobada se conserva en [[CAT-REQ-001-v1.2]].
 
-La [[CAT-REQ-001-v1.0.md|v1.0]] conserva íntegra la aprobación de julio y sus 57 IDs;
-su exclusión offline ya no rige la versión actual. R3 y la
-[[proposals/2026-09-28-catalogo-v1-1|propuesta v1.1 aceptada]] son antecedentes incorporados,
-no catálogos paralelos. No se extiende la aprobación de julio a nuevas autoridades.
+El 2026-10-28 el tesista aceptó RF-ACC-006 a 009 y el plan de correo, passkeys y WhatsApp configurable. Fuente: [[../evidence/requirements/2026-10-28-aceptacion-acceso-multicanal]]. La definición canónica del incremento está en [[../../specs/003-acceso-multicanal/spec|SPEC-003]]. La aceptación no declara implementación ni validación de campo. La propuesta anterior de superadministración mantiene su estado y no se aprueba mediante este cambio.
 
 La revisión académica de la directora y las specs/planes de los flujos nuevos mantienen
 sus puertas. La aprobación de requisitos no equivale a implementación o validación de campo.

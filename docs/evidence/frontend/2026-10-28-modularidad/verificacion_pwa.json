@@ -1,0 +1,28 @@
+{
+  "instalacion": true,
+  "recursosPublicos": 20,
+  "rutas": [
+    "/static/pwa/offline.html",
+    "/static/manifest.json",
+    "/static/pwa/pwa-register.js",
+    "/static/compartido/password-toggle.js",
+    "/static/compartido/form-feedback.js",
+    "/static/compartido/base.css",
+    "/static/compartido/formularios.css",
+    "/static/accounts/login/login.css",
+    "/static/accounts/inicio/inicio.css",
+    "/static/accounts/cambio_contrasena/cambio_contrasena.css",
+    "/static/accounts/login/imagenes/login-hero-2.png",
+    "/static/brand/zhud-aleli-wordmark.png",
+    "/static/brand/zhud-aleli-emblem-white.png",
+    "/static/brand/zhud-aleli-wordmark-white.png",
+    "/static/brand/favicon-32.png",
+    "/static/vendor/bootstrap/bootstrap.min.css",
+    "/static/vendor/bootstrap/bootstrap.bundle.min.js",
+    "/static/pwa/icons/icon-192.png",
+    "/static/pwa/icons/icon-512.png",
+    "/static/pwa/icons/apple-touch-icon.png"
+  ],
+  "alternativaPublica": true,
+  "paginasPrivadasEnCache": false
+}

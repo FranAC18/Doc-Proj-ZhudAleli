@@ -116,3 +116,14 @@ El corte de 57 de la auditoría anterior se conserva como historial.
 
 Los ajustes de RNF-CON-001, RF-ASI-001/007, RF-TRA-001/002 y P-10 están en el catálogo.
 Esta aprobación no acredita código ni resultados de pruebas, y no resuelve P-13/P-14.
+
+## Acceso multicanal aceptado — 2026-10-28
+
+Fuente: [[../evidence/requirements/2026-10-28-aceptacion-acceso-multicanal]]. Objetivo OE-02; SPEC-003 confirmada por el tesista; ejecución S2. La aprobación no acredita pruebas, PR, tag ni validación organizacional.
+
+| Requisito | Historia | Tareas | Pruebas previstas | Resultado actual |
+|---|---|---|---|---|
+| `RF-ACC-006` | `HU-ACC-010` | SB-S2-05, SB-S2-06, SB-S2-09 | Criterios de [[../../specs/003-acceso-multicanal/spec|SPEC-003]]; pruebas de permisos, expiración, reuso y recorrido | Plan aceptado; implementación/pruebas/PR/tag pendientes |
+| `RF-ACC-007` | `HU-ACC-011` | SB-S2-05, SB-S2-07, SB-S2-09 | Criterios de [[../../specs/003-acceso-multicanal/spec|SPEC-003]]; pruebas de permisos, expiración, reuso y recorrido | Plan aceptado; implementación/pruebas/PR/tag pendientes |
+| `RF-ACC-008` | `HU-ACC-012` | SB-S2-05, SB-S2-08, SB-S2-09 | Criterios de [[../../specs/003-acceso-multicanal/spec|SPEC-003]]; pruebas de permisos, expiración, reuso y recorrido | Plan aceptado; implementación/pruebas/PR/tag pendientes |
+| `RF-ACC-009` | `HU-ACC-013` | SB-S2-05, SB-S2-09 | Criterios de [[../../specs/003-acceso-multicanal/spec|SPEC-003]]; pruebas de permisos, expiración, reuso y recorrido | Plan aceptado; implementación/pruebas/PR/tag pendientes |

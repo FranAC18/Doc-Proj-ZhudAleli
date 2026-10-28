@@ -19,6 +19,12 @@ nueva de `RF-ACC-005` se declara aprobada o implementada por este ajuste.
 
 El tesista cerró el periodo del sprint 1 y decidió comenzar el sprint 2 por `SB-S1-01`, pendiente trasladada. El cierre no declara completadas las tareas arrastradas. En el calendario actual, `SPEC-001` se ejecuta en S2 aunque sus artefactos conservan la etiqueta histórica `S1`.
 
+## Ampliación de acceso aceptada — 2026-10-28
+
+El tesista aceptó correo por código, passkeys y WhatsApp configurable para S2, con recuperación y seguridad común. SPEC-003 y RF-ACC-006 a 009 gobiernan este incremento; SB-S2-05 a 09 descomponen las cinco fases. La activación real de WhatsApp depende de proveedor, plantilla, consentimiento, costo y prueba de entrega. El ingreso necesita conexión y el registro WebAuthn se verifica en dispositivos con HTTPS. Las exclusiones históricas de recuperación y los mensajes diferenciados de SB-S2-02 no vetan el alcance nuevo aceptado; la implementación actual se adaptará con regresión.
+
+Se conserva el avance anterior y el cierre propuesto de S2; no se inventan nuevas fechas, estimaciones ni terminaciones. El backlog v1.5 registra las tareas pendientes. Cada cambio relevante sincroniza requisitos, historias, pila, backlog y gestor local.
+
 ## Orden de trabajo
 
 | Orden | Porción | Resultado comprobable | Límite |

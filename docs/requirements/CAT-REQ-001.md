@@ -1,13 +1,13 @@
 ---
-title: Catálogo canónico de requisitos v1.2
+title: Catálogo canónico de requisitos v1.3
 type: requirement
 status: confirmed
 id: CAT-REQ-001
-version: 1.2
+version: 1.3
 created: 2026-07-22
-approved: 2026-10-13
+approved: 2026-10-28
 approved_by: Tesista
-updated: 2026-10-13
+updated: 2026-10-28
 baseline_approval: 2026-07-22
 director_review: pending
 organization_validation: tesista-reports-approval-of-attendance-rules; direct-record-not-provided
@@ -15,17 +15,18 @@ phase: Fase I
 sprint: transversal
 priority: high
 module: transversal
-approval_scope: baseline-v1-1-plus-interview-requirements-v1-2
-confirmed_requirements: 67
-proposed_requirements: 2
+approval_scope: baseline-v1-2-plus-acceso-multicanal-2026-10-28
+confirmed_requirements: 71
+proposed_requirements: 3
 superseded_requirements: 12
 validated_by:
   - Tesista
-validation_source: EVID-REQ-APP-001; EVID-REQ-APP-2026-10-13
+validation_source: EVID-REQ-APP-001; EVID-REQ-APP-2026-10-13; EVID-ACC-2026-10-28
 baseline_validation_source: Levantamiento de requisitos 1.0
-supersedes: CAT-REQ-001 v1.1
+supersedes: CAT-REQ-001 v1.2
 pending_requirements:
   - RF-COS-001
+  - RF-ACC-005
   - RNF-OPS-001
 related:
   - "[[CAT-REQ-001-v1.0.md]]"
@@ -44,7 +45,7 @@ tags:
   - sprint/fase-i
 ---
 
-# CAT-REQ-001 — Catálogo canónico de requisitos v1.2
+# CAT-REQ-001 — Catálogo canónico de requisitos v1.3
 
 ## Estado y alcance de la aprobación
 
@@ -54,11 +55,11 @@ Esta versión incorpora los cambios de requisitos aceptados expresamente por el 
 **tesista**, según [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1|EVID-REQ-APP-001]];
 no se atribuye una nueva firma a la organización ni a la directora.
 
-Hay **67 requisitos confirmed**, 2 proposed y 12 IDs históricos superseded. La aprobación de v1.2 corresponde al tesista según [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2|EVID-REQ-APP-2026-10-13]]. Se aprueban las
+Hay **71 requisitos confirmed**, 3 proposed y 12 IDs históricos superseded. La aceptación del 2026-10-28 se limita a los cuatro requisitos nuevos de acceso; RF-ACC-005 conserva su propuesta previa. La aprobación de v1.2 corresponde al tesista según [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2|EVID-REQ-APP-2026-10-13]]. Se aprueban las
 reglas y criterios de RF-PWA-001/002/003 y los ajustes expresos de esta versión. Los parámetros
 P-01 a P-14 siguen abiertos en lo no definido; aprobar la capacidad no inventa sus valores.
 La revisión académica de la directora, las specs, los planes y las puertas de implementación
-continúan pendientes donde corresponda. SPEC-001 conserva su alcance de acceso básico.
+continúan pendientes donde corresponda. SPEC-001 conserva el corte de acceso básico; SPEC-003 define la ampliación aceptada el 2026-10-28. La edición aprobada v1.2 se conserva en CAT-REQ-001-v1.2.md.
 
 ## Línea base incorporada
 
@@ -143,7 +144,7 @@ Los ajustes de esta sección prevalecen sobre v1.0 y R3. Los demás criterios se
 
 ## Requisitos confirmados
 
-Los siguientes 67 IDs tienen estado `confirmed`: 57 heredados, 3 capacidades PWA y 7 requisitos aprobados a partir de la entrevista en v1.2.
+Los siguientes 71 IDs tienen estado `confirmed`: 57 heredados, 3 capacidades PWA, 7 requisitos de entrevista de v1.2 y 4 de acceso multicanal aceptados por el tesista el 2026-10-28.
 Los ajustes expresos de RF-ASI-007 y de v1.1 prevalecen sobre R3; los demás criterios
 incorporados conservan su definición. La aprobación no equivale a implementación.
 
@@ -163,7 +164,8 @@ incorporados conservan su definición. La aprobación no equivale a implementaci
 | Sitio público — S5 | `RF-PUB-003` | 1 |
 | Feria — S4 | `RF-VEN-009` | 1 |
 | Notificaciones externas — transversal | `RF-NOT-002` | 1 |
-| **Total** |  | **67** |
+| Acceso multicanal — S2 | `RF-ACC-006`, `RF-ACC-007`, `RF-ACC-008`, `RF-ACC-009` | 4 |
+| **Total** |  | **71** |
 
 ### Catálogo inicial confirmado como estructura
 
@@ -253,10 +255,22 @@ La aprobación del tesista de 2026-10-13 queda registrada en [[../evidence/requi
 
 La revisión académica y la validación directa de la organización para las novedades de v1.2 no constan realizadas. La aprobación del tesista no las sustituye.
 
+## Ampliación de acceso aceptada el 2026-10-28
+
+Fuente: [[../evidence/requirements/2026-10-28-aceptacion-acceso-multicanal|EVID-ACC-2026-10-28]]. La aprobación corresponde al tesista y no acredita revisión académica, validación organizacional ni código entregado. Los criterios canónicos se conservan en [[../../specs/003-acceso-multicanal/spec|SPEC-003]], sin duplicarlos aquí.
+
+| ID | Estado | Capacidad | Historia | Sprint |
+|---|---|---|---|---|
+| `RF-ACC-006` | `confirmed` por el tesista; pendiente | Una usuaria con cuenta interna activa puede iniciar sesión con un código enviado a su correo previamente asociado y verificado. | `HU-ACC-010` | S2 |
+| `RF-ACC-007` | `confirmed` por el tesista; pendiente | Una usuaria activa puede registrar, utilizar, consultar y revocar passkeys mediante WebAuthn, con verificación local del dispositivo por biometría o PIN. | `HU-ACC-011` | S2 |
+| `RF-ACC-008` | `confirmed` por el tesista; pendiente | Una usuaria activa puede solicitar un código a su teléfono E.164 previamente asociado y verificado, mediante un proveedor oficial configurable. | `HU-ACC-012` | S2 |
+| `RF-ACC-009` | `confirmed` por el tesista; pendiente | Una usuaria activa puede recuperar acceso mediante un canal previamente verificado, revocar credenciales perdidas y completar el cambio inicial antes de acceder a funciones privadas. | `HU-ACC-013` | S2 |
+
 ## Requisitos que permanecen propuestos
 
 | ID | Estado | Alcance conservado | Condición para confirmar |
 |---|---|---|---|
+| `RF-ACC-005` | `proposed` | Superadministración transversal y configuración por módulo | Mantiene la propuesta del 2026-10-27; esta aceptación de acceso no aprueba sus detalles ni sustituye la evidencia presidencial pendiente |
 | `RF-COS-001` | `proposed` | Registrar consumos y costos directos conocidos, sin presentar entradas no valoradas como cero | Resolver P-06: valoración de plantas propias, trabajo comunitario, mano de obra, energía, transporte y gastos compartidos |
 | `RNF-OPS-001` | `proposed` | Copias protegidas y restauración demostrable | Resolver P-11: responsables, proveedor, retención, RPO/RTO, frecuencia y autorización de restauración |
 
@@ -336,6 +350,8 @@ explícita del tesista se registra con fuente, alcance, versión y evidencia, co
 | 2026-09-28 | Tesista; aprobación explícita de los cambios presentados | Revisión v1.1 y solicitud «acepto los cambios de requisitos, apruebalos» | 60 `confirmed`, 2 `proposed`, 12 históricos; ajustes de continuidad y tres RF-PWA aprobados | [[../evidence/casos-de-uso/2026-09-28-aprobacion-requisitos-v1-1]] |
 | 2026-10-13 | Tesista | Aprobación de la propuesta general v2.2 basada en entrevista; tres días hábiles, falta automática y validación de multas por la Tesorera | 67 `confirmed`, 2 `proposed`, 12 históricos; revisión académica/directa de organización pendiente | [[../evidence/requirements/2026-10-13-aprobacion-propuesta-requisitos-generales-v2-2]] |
 
+| 2026-10-28 | Tesista | Aceptación expresa del plan de correo, passkeys y WhatsApp y solicitud de sincronización | RF-ACC-006 a 009 confirmados; 71 confirmed, 3 proposed y 12 históricos; implementación pendiente | [[../evidence/requirements/2026-10-28-aceptacion-acceso-multicanal|EVID-ACC-2026-10-28]] |
+
 ## Próxima puerta
 
 Crear specs por funcionalidad únicamente desde los IDs `confirmed`. Antes de implementar una
@@ -347,4 +363,6 @@ sin eliminar la capacidad obligatoria del proyecto. `speckit-implement` continú
 | Versión | Fecha | Estado | Cambio |
 |---|---|---|---|
 | 1.1 | 2026-09-28 | Histórica, conservada en CAT-REQ-001-v1.1.md | Línea base anterior: 60 requisitos confirmados. |
-| 1.2 | 2026-10-13 | Vigente | Se incorporan las capacidades aprobadas derivadas de entrevista, se complementa RF-ASI-006 y se registran decisiones aún abiertas. |
+| 1.2 | 2026-10-13 | Histórica, conservada en CAT-REQ-001-v1.2.md | Se incorporan las capacidades aprobadas derivadas de entrevista, se complementa RF-ASI-006 y se registran decisiones aún abiertas. |
+
+| 1.3 | 2026-10-28 | Vigente; aceptación del tesista | Añade RF-ACC-006 a 009 y referencia RF-ACC-005 todavía propuesto; aprobación y validación se distinguen de implementación. |

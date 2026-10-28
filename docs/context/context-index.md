@@ -62,6 +62,10 @@ Leer [`feature-index.md`](feature-index.md) antes de abrir cualquier artefacto d
 No leer automáticamente `research.md`, `data-model.md`, `contracts/` o `quickstart.md`:
 se abren únicamente si la tarea los necesita.
 
+## Ampliación vigente de acceso — 2026-10-28
+
+Para acceso multicanal consultar SPEC-003 en el feature index: plan de correo, passkeys y WhatsApp aceptado por el tesista; código pendiente. El catálogo vigente es CAT-REQ-001 v1.3 (71 confirmados, 3 propuestos). Las ediciones académicas de consulta son requisitos v2.2, HU v2.7, HT v1.8, pila v1.9 y backlog v1.5, preparadas localmente. Los cortes y estados históricos descritos arriba se conservan; no sustituyen este incremento. Cada cambio relevante debe sincronizar los cinco destinos documentales y el gestor local según AGENTS.md.
+
 ## Fuentes de verdad
 
 1. Requisitos validados y evidencia de campo.

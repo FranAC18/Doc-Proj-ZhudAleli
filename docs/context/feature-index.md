@@ -7,6 +7,20 @@ updated: 2026-10-27
 
 # Índice de funcionalidades activas
 
+## SPEC-003 — Acceso multicanal y recuperación
+
+- **Estado:** alcance y plan aceptados expresamente por el tesista el 2026-10-28; implementación pendiente.
+- **Fuente:** [[../evidence/requirements/2026-10-28-aceptacion-acceso-multicanal]].
+- **Spec canónica:** [[../../specs/003-acceso-multicanal/spec.md]].
+- **RF/HU/HT:** RF-ACC-006 a 009; HU-ACC-010 a 013; HT-ACC-001/002.
+- **Sprint:** S2, tareas SB-S2-05 a 09; puntos y responsables pendientes.
+- **Orden:** seguridad común → correo → passkeys; WhatsApp puede desarrollarse tras seguridad común; recuperación y regresión integral al final.
+- **Límites:** proveedor/costo/plantilla/entrega real de WhatsApp pendientes; dominio y dispositivos de passkeys por verificar; no se guardan datos biométricos.
+- **Relación con SPEC-001:** conserva el acceso por contraseña como respaldo; el nuevo incremento incorpora recuperación y respuestas públicas genéricas. Los criterios diferenciados de SPEC-001 son el corte histórico del código existente hasta ejecutar la adaptación; no impiden el alcance nuevo aceptado.
+- **Documentación:** requisitos v2.2, HU v2.7, HT v1.8, pila v1.9, backlog v1.5 e índice v5.2; gestor http://127.0.0.1:55478/.
+
+El código de la app no se modificó con esta aceptación documental. RF-ACC-005 conserva estado propuesto y validaciones pendientes.
+
 ## SPEC-001 — Acceso de usuarias internas
 
 | Campo | Valor |
@@ -19,6 +33,11 @@ updated: 2026-10-27
 | Fuente principal | [`spec.md`](../../specs/001-acceso-usuarias-internas/spec.md) |
 | Plan | [`plan.md`](../../specs/001-acceso-usuarias-internas/plan.md) |
 | Tareas | [`tasks.md`](../../specs/001-acceso-usuarias-internas/tasks.md) |
+
+Actualización técnica del 2026-10-28: por solicitud del tesista, `accounts` conserva
+identidad y acceso, y `portal` posee `/inicio/` con nombre interno `portal:inicio`.
+La bienvenida mínima conserva los criterios de SPEC-001. La creación del portal
+no declara implementados el inicio operativo de RF-ACC-004 ni funciones de otros módulos.
 
 ### Recuperación por tipo de tarea
 
