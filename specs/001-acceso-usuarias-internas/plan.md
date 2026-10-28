@@ -3,6 +3,7 @@ title: "Plan de implementación: Acceso de usuarias internas"
 type: implementation-plan
 status: approved
 date: 2026-07-25
+updated: 2026-10-21
 approved: 2026-08-24
 approved_by: Tesista
 spec: "[[spec]]"
@@ -27,8 +28,9 @@ tags:
 
 Este plan desarrolla técnicamente [[spec|SPEC-001]], que está `confirmed`. El plan fue
 aprobado explícitamente por el tesista el 2026-08-24 y queda `approved`. Su aprobación
-habilita generar `tasks.md` y analizar la coherencia; todavía no autoriza escribir la
-aplicación.
+habilitó generar `tasks.md`. El tesista autorizó iniciar la implementación de `SB-S2-02` y
+actualizar los criterios de mensajes y bloqueo el 2026-10-21; esta revisión registra ese
+alcance sin cambiar el resto de la arquitectura aprobada.
 
 ## Resumen
 
@@ -58,10 +60,11 @@ recuperación externa, apps futuras vacías ni operaciones de negocio.
 - **Escala y datos**: cantidad de cuentas aún no cuantificada y sin necesidad de optimización
   especial; credenciales, identificadores de cuenta y contenido privado son sensibles.
 - **Restricciones**: móvil desde 360 px, zoom al 200 %, teclado, contraste AA, acciones
-  táctiles de 44 × 44 px, conectividad limitada, recursos críticos locales y mensajes sin
-  revelar existencia o estado de cuentas.
-- **Dudas técnicas**: ninguna que bloquee la planificación. La política de limitación de
-  intentos de acceso queda como riesgo y requisito futuro, no como alcance implícito.
+  táctiles de 44 × 44 px, conectividad limitada, recursos críticos locales y mensajes breves.
+  El tesista acepta que «Contraseña incorrecta» permite inferir una cuenta activa; usuario
+  inexistente e inactivo comparten «Usuario incorrecto».
+- **Dudas técnicas**: la política autorizada limita a tres fallos por identificador canónico
+  dentro de tres minutos y bloquea ese identificador durante tres minutos.
 
 Las decisiones y alternativas están justificadas en [[research]].
 
@@ -76,14 +79,14 @@ Las decisiones y alternativas están justificadas en [[research]].
 | Pruebas y permisos | Matriz de autorización y estrategia CA → prueba | `pass` |
 | Simplicidad e integridad | Autenticación nativa, una app, sin SPA ni capas vacías | `pass` |
 | UX/accesibilidad | Recorridos y validaciones para RNF-UX-001 a 003 | `pass` |
-| Trazabilidad | `RF-ACC-001`, RNF aplicables, CA-ACC-001-01 a 11 | `pass` |
+| Trazabilidad | `RF-ACC-001`, RNF aplicables, CA-ACC-001-01 a 13 | `pass` |
 | Control humano/privacidad | Plan aprobado por el tesista, secretos fuera de Git y entrega presencial | `pass` |
 
 ### Después del diseño
 
 | Puerta | Evidencia resultante | Resultado |
 |---|---|---|
-| Datos y migración | [[data-model]]; `User` en `accounts/0001_initial.py` | `pass` |
+| Datos y migración | [[data-model]]; `User` en `accounts/0001_initial.py` y `LoginThrottle` en la migración incremental | `pass` |
 | Autorización backend | vistas protegidas y barrera de credencial temporal con pruebas negativas | `pass` |
 | Interfaz verificable | contrato HTTP, estados, 360 px, teclado, foco y zoom | `pass` |
 | Pruebas reproducibles | matriz de pruebas y [[quickstart]] | `pass` |
@@ -96,6 +99,8 @@ No se requiere excepción a la constitución ni un ADR adicional para implementa
 
 - `accounts.User` hereda de `AbstractUser` y agrega únicamente
   `must_change_password: bool`, con valor inicial seguro `True`.
+- `accounts.LoginThrottle` almacena un HMAC del identificador canónico, contador y vencimientos
+  temporales; no conserva el nombre de usuario ni la IP.
 - El nombre de usuario acepta únicamente caracteres ASCII controlados (letras, números, punto,
   guion y guion bajo), elimina espacios externos y se almacena en minúsculas mediante un único
   método reutilizado por la creación controlada y el formulario de acceso. Una restricción
@@ -130,7 +135,7 @@ El detalle de campos, invariantes, estados y migración está en [[data-model]].
 
 | Operación | Regla backend | Permitido | Denegado | Prueba negativa |
 |---|---|---|---|---|
-| Iniciar sesión | backend nativo + formulario común | cuenta activa con credenciales válidas | inexistente, inactiva o contraseña incorrecta | mismo mensaje y ninguna sesión |
+| Iniciar sesión | backend nativo + formulario y limitador transaccional | cuenta activa con credenciales válidas | inexistente, inactiva, contraseña errónea o identificador bloqueado | mensajes según CA-02/03/12; nunca crea sesión ni muestra datos privados |
 | Ver dashboard | `LoginRequiredMixin` | Directiva o Socia operaria con sesión normal | anónima, sesión vencida o credencial temporal | redirección sin contenido privado |
 | Cambiar contraseña propia | vista autenticada y contraseña actual | cualquier cuenta interna autenticada | anónima o contraseña actual inválida | sin cambio ni filtración |
 | Usar otras vistas con credencial temporal | guarda backend reutilizable sobre cada vista privada | cambio de contraseña y cierre de sesión | dashboard y cualquier vista privada | acceso directo redirigido al cambio |
@@ -141,7 +146,11 @@ Minimización y privacidad:
 
 - El acceso solicita solo nombre de usuario y contraseña.
 - El dashboard no muestra datos personales ni operaciones aún inexistentes.
-- Los mensajes para cuenta inexistente, inactiva o contraseña incorrecta son equivalentes.
+- Cuenta inexistente e inactiva comparten «Usuario incorrecto»; una contraseña errónea para
+  una cuenta activa recibe «Contraseña incorrecta». El tesista acepta la señal de existencia
+  que produce esta distinción.
+- Tres fallos para el mismo identificador normalizado dentro de tres minutos bloquean los
+  intentos por tres minutos. El bloqueo no cambia el estado de la cuenta.
 - Contraseñas, cookies, tokens CSRF y datos de cuentas reales no aparecen en logs,
   documentación, capturas, fixtures ni evidencia.
 - Las pruebas y demostraciones usan identidades ficticias. La entrega real de la primera
@@ -166,8 +175,9 @@ flowchart LR
 
 ### Vistas y estados
 
-- **Acceso**: nombre de usuario conservado tras error, contraseña vacía, mensaje genérico,
-  indicación de sesión vencida sin detalles internos y envío recuperable.
+- **Acceso**: nombre de usuario conservado tras error, contraseña vacía, mensaje corto asociado
+  al campo que debe corregirse, estado de bloqueo con tiempo restante e indicación de sesión
+  vencida sin detalles internos.
 - **Cambio de contraseña**: contraseña actual, nueva y confirmación; errores junto al campo y
   resumen accesible; control de mostrar/ocultar progresivo.
 - **Dashboard**: bienvenida, confirmación persistente después de un cambio y solo “Cambiar
@@ -263,8 +273,8 @@ F:\Tesis\App Tesis\
             └── RF-ACC-001\
 ```
 
-No se crean `core`, apps futuras, `services.py`, `policies.py`, API, SPA ni repositorios
-genéricos porque esta porción no los necesita.
+No se crean `core`, apps futuras, `policies.py`, API, SPA ni repositorios genéricos. `services.py`
+se justifica para serializar intentos concurrentes y aplicar el bloqueo temporal.
 
 ## Estrategia de pruebas
 
@@ -273,8 +283,8 @@ genéricos porque esta porción no los necesita.
 | Criterio | Tipo y prueba prevista | Ruta propietaria |
 |---|---|---|
 | CA-ACC-001-01 | integración: acceso válido abre dashboard | `test_authentication.py` |
-| CA-ACC-001-02 | integración: usuario inexistente y clave incorrecta producen respuesta equivalente | `test_authentication.py` |
-| CA-ACC-001-03 | integración: cuenta inactiva no crea sesión y usa el mismo mensaje | `test_authentication.py` |
+| CA-ACC-001-02 | integración: clave incorrecta de cuenta activa muestra el error de contraseña y no crea sesión | `test_authentication.py` |
+| CA-ACC-001-03 | integración: usuario inexistente e inactivo comparten error de usuario y no crean sesión | `test_authentication.py` |
 | CA-ACC-001-04 | seguridad: acceso anónimo a cada vista privada redirige sin contenido | `test_security.py` |
 | CA-ACC-001-05 | integración: `POST` de salida invalida sesión; retroceso no almacena contenido | `test_authentication.py`, recorrido de navegador |
 | CA-ACC-001-06 | integración: cambio válido, clave anterior rechazada, sesión actual conservada y confirmación en dashboard | `test_password_change.py` |
@@ -283,6 +293,8 @@ genéricos porque esta porción no los necesita.
 | CA-ACC-001-09 | plantilla: dashboard contiene solo bienvenida y dos opciones reales | `test_authentication.py` |
 | CA-ACC-001-10 | comando: primera cuenta activa, no administrativa, cambio obligatorio, secreto no expuesto y una sola creación bajo concurrencia | `test_management_command.py` |
 | CA-ACC-001-11 | tiempo: activa a 29:59, expirada a 30:00 y renovación con actividad | `test_sessions.py` |
+| CA-ACC-001-12 | integración/concurrencia: tres fallos en ventana de tres minutos bloquean el identificador por tres minutos; acceso correcto previo al umbral limpia el contador | `test_login_throttle.py` |
+| CA-ACC-001-13 | interfaz: errores breves, asociados al campo y anuncio accesible del bloqueo | `test_authentication.py`, revisión de navegador |
 
 ### Cobertura adicional
 
@@ -365,7 +377,8 @@ RNF aplicable.
 | Dos cambios simultáneos usan la misma clave anterior | baja/alta | `select_for_update()` antes de validar y prueba concurrente | invalidar sesiones y restablecer mediante el procedimiento autorizado futuro |
 | Duplicados por mayúsculas o espacios | media/media | normalización y restricción funcional probada en PostgreSQL | corregir datos de desarrollo y recrear migración antes de datos reales |
 | Contenido privado visible al retroceder | media/alta | `never_cache`, cabeceras verificadas y recorrido de navegador | deshabilitar la ruta afectada hasta corregir cabeceras |
-| Intentos automatizados de contraseña | media/alta | mensajes equivalentes, registro del riesgo y requisito posterior de limitación | no exponer el sistema públicamente hasta aprobar y aplicar la política necesaria |
+| Enumeración de cuentas activas | media/alta | distinción aceptada expresamente por el tesista; usuario inexistente e inactivo se agrupan; bloqueo breve y respuesta sin datos privados | volver a un mensaje común si cambia la decisión de producto |
+| Bloqueo abusivo de una cuenta | media/alta | el contador se limita por identificador canónico y dura tres minutos; no desactiva ni modifica la cuenta | eliminar estado vencido; ajustar umbral/duración en un cambio documentado |
 | PostgreSQL local no disponible | media/media | guía de variables, verificación temprana y CI con servicio PostgreSQL | detener implementación de datos; no sustituir silenciosamente por SQLite |
 | Recurso Bootstrap ausente o licencia perdida | baja/media | archivo local versionado, licencia y prueba sin red | volver a la versión local conocida |
 | SC-002 no alcanzado con usuarias | media/media | protocolo, tareas breves y registro de hallazgos | mantener spec abierta, ajustar interfaz y repetir validación |

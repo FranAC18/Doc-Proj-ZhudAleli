@@ -3,6 +3,7 @@ title: Modelo de datos de SPEC-001
 type: data-model
 status: approved
 date: 2026-07-25
+updated: 2026-10-21
 spec: "[[spec]]"
 plan: "[[plan]]"
 tags:
@@ -16,9 +17,10 @@ tags:
 
 ## Límite del modelo
 
-La app `accounts` es propietaria de la identidad autenticable. En esta spec no existen
-entidades para membresías, cargos, actividades, recuperación externa, bitácora organizacional
-ni credencial temporal en texto claro.
+La app `accounts` es propietaria de la identidad autenticable y del estado efímero usado para
+limitar intentos fallidos. En esta spec no existen entidades para membresías, cargos,
+actividades, recuperación externa, bitácora organizacional ni credencial temporal en texto
+claro.
 
 ## Entidad `accounts.User`
 
@@ -54,8 +56,10 @@ por compatibilidad de Django, pero no modelan aún los cargos de la organizació
    `must_change_password=True`.
 6. Completar correctamente el cambio obligatorio establece
    `must_change_password=False` en la misma operación lógica.
-7. Una cuenta inactiva no abre sesión y obtiene el mismo mensaje exterior que otras
-   credenciales inválidas.
+7. Una cuenta inactiva no abre sesión; obtiene «Usuario incorrecto», igual que un identificador
+   inexistente. Una contraseña errónea para una cuenta activa obtiene «Contraseña incorrecta».
+8. Un identificador normalizado acumula como máximo tres fallos dentro de tres minutos; el
+   bloqueo dura tres minutos y no cambia `is_active`.
 
 ### Restricciones e índices
 
@@ -65,6 +69,35 @@ por compatibilidad de Django, pero no modelan aún los cargos de la organizació
   `accounts_user_username_canon_uniq`.
 - La restricción, la validación ASCII y la normalización se prueban sobre PostgreSQL; no se da
   por válido un resultado solo en SQLite.
+
+## Entidad `accounts.LoginThrottle`
+
+Registra únicamente estado temporal para impedir intentos reiterados; no representa un rol ni
+desactiva la cuenta.
+
+| Campo | Tipo | Regla |
+|---|---|---|
+| `id` | clave primaria | identificador interno |
+| `identifier_digest` | `varchar(64)`, único | HMAC-SHA256 del nombre de usuario normalizado; no guarda el nombre ni la IP |
+| `failed_attempts` | entero positivo pequeño | cantidad de fallos dentro de la ventana |
+| `window_started_at` | fecha/hora | inicio de la ventana de tres minutos |
+| `locked_until` | fecha/hora opcional | fin del bloqueo temporal, fijado tres minutos después del tercer fallo |
+| `updated_at` | fecha/hora | permite localizar y purgar filas vencidas |
+
+Reglas:
+
+- El contador se comparte entre solicitudes concurrentes mediante transacción y bloqueo de la
+  fila en PostgreSQL.
+- Tres fallos para el mismo identificador canónico dentro de tres minutos bloquean nuevos
+  intentos durante tres minutos, incluso si luego se ingresa la contraseña correcta.
+- Un acceso válido elimina el estado de fallos. Una ventana o bloqueo vencido permite iniciar
+  un nuevo conteo.
+- Los identificadores de nombres inexistentes e inactivos también se limitan, sin conservar
+  sus nombres en claro. Se eliminan filas más antiguas que la ventana activa al procesar un
+  intento posterior.
+- El mensaje distinto entre contraseña incorrecta y usuario incorrecto es una decisión expresa
+  del tesista; revela si existe una cuenta activa y queda registrada como riesgo aceptado en la
+  spec.
 
 ## Entidad nativa `django_session`
 
@@ -108,7 +141,8 @@ la ejecutará pertenece a una especificación posterior.
 | Operación | Escrituras | Garantía |
 |---|---|---|
 | Crear primera cuenta | bloqueo asesor PostgreSQL y fila de usuario | transacción serializada; una segunda ejecución espera, vuelve a comprobar y no crea |
-| Iniciar sesión | datos de sesión y `last_login` | mecanismos nativos de Django |
+| Iniciar sesión correcto | datos de sesión, `last_login` y eliminación del contador de fallos | autenticación Django; el cambio de sesión ocurre solo si el formulario es válido |
+| Intento de acceso fallido | contador y, al tercer fallo, vencimiento del bloqueo | transacción más `select_for_update()` para serializar intentos del mismo identificador |
 | Cambiar contraseña | fila bloqueada, hash nuevo y bandera temporal en una sola escritura; sesión actual rotada por Django | `select_for_update()` ocurre antes de validar; solo una solicitud concurrente puede usar la clave anterior |
 | Cerrar sesión | eliminación/invalidación de sesión | `POST` protegido por CSRF |
 
@@ -125,10 +159,11 @@ esta operación, vuelve a consultar `User.objects.exists()` y crea como máximo 
 
 1. Crear proyecto y app sin ejecutar `migrate`.
 2. Definir `accounts.User`, su restricción y `AUTH_USER_MODEL`.
-3. Generar y revisar `accounts/0001_initial.py`.
+3. Generar y revisar `accounts/0001_initial.py` y la migración posterior de `LoginThrottle`.
 4. Aplicar todas las migraciones en una base PostgreSQL vacía.
 5. Verificar creación desde cero y `makemigrations --check --dry-run`.
-6. Verificar con dos conexiones que el bloqueo asesor permite una sola primera cuenta y que
+6. Verificar con dos conexiones que el bloqueo asesor permite una sola primera cuenta, que el
+   contador de intentos se serializa y que
    el bloqueo de fila permite un solo cambio concurrente.
 
 Antes de datos reales se puede recrear únicamente la base de desarrollo si la migración
@@ -142,3 +177,5 @@ cambio se realiza con una nueva migración hacia adelante y respaldo probado.
   evidencia.
 - No se copian nombres, teléfonos, cédulas, correos ni credenciales reales.
 - No se crea una fixture versionada con la primera cuenta real.
+- La tabla de intentos conserva solo identificadores HMAC y estados vigentes; no se guardan
+  contraseñas ni direcciones IP.

@@ -77,23 +77,27 @@ uv run python manage.py runserver
 Verificar los siguientes escenarios con datos ficticios:
 
 1. Cuenta activa normal → acceso → bienvenida → salida → URL privada exige autenticación.
-2. Usuario inexistente, contraseña incorrecta y cuenta inactiva → mismo mensaje general,
-   sin sesión y sin diferencia visible.
-3. Cuenta temporal → cualquier URL privada redirige al cambio; tras cambiar, abre dashboard.
-4. Cambio inválido → explica el error, no altera la contraseña ni la bandera.
-5. Cambio válido → la contraseña anterior ya no inicia sesión.
-6. Dos navegadores autenticados → el cambio conserva el actual e invalida el otro.
-7. Sesión sin actividad → válida a los 29:59 y vencida a los 30:00; una solicitud
+2. Clave incorrecta de cuenta activa → «Contraseña incorrecta», sin sesión ni contenido
+   privado.
+3. Usuario inexistente y cuenta inactiva → ambos muestran «Usuario incorrecto», sin sesión
+   ni contenido privado.
+4. Tres fallos del mismo usuario dentro de tres minutos → el siguiente intento queda bloqueado
+   por tres minutos; el aviso indica cuánto esperar y la cuenta sigue activa.
+5. Cuenta temporal → cualquier URL privada redirige al cambio; tras cambiar, abre dashboard.
+6. Cambio inválido → explica el error, no altera la contraseña ni la bandera.
+7. Cambio válido → la contraseña anterior ya no inicia sesión.
+8. Dos navegadores autenticados → el cambio conserva el actual e invalida el otro.
+9. Sesión sin actividad → válida a los 29:59 y vencida a los 30:00; una solicitud
    autenticada intermedia renueva el plazo.
-8. Salida por `POST` funciona; `GET /salir/` se rechaza; solicitudes sin CSRF se rechazan.
-9. Volver atrás después de salir no muestra el contenido privado almacenado.
-10. `Usuaria`, ` usuaria ` y `USUARIA` resuelven al mismo identificador canónico; no se
+10. Salida por `POST` funciona; `GET /salir/` se rechaza; solicitudes sin CSRF se rechazan.
+11. Volver atrás después de salir no muestra el contenido privado almacenado.
+12. `Usuaria`, ` usuaria ` y `USUARIA` resuelven al mismo identificador canónico; no se
     pueden crear duplicados equivalentes.
-11. Interrumpir la conexión durante acceso, cambio y salida no muestra un éxito inventado y
+13. Interrumpir la conexión durante acceso, cambio y salida no muestra un éxito inventado y
     permite reintentar de forma segura.
-12. Lanzar dos cambios de contraseña simultáneos con conexiones separadas produce un solo
+14. Lanzar dos cambios de contraseña simultáneos con conexiones separadas produce un solo
     éxito, un rechazo y un único hash final; la sesión ganadora permanece válida.
-13. Lanzar dos comandos de primera cuenta simultáneos sobre una base vacía produce exactamente
+15. Lanzar dos comandos de primera cuenta simultáneos sobre una base vacía produce exactamente
     una cuenta regular; la segunda ejecución no altera ni revela la existente.
 
 ## Revisión de interfaz prevista

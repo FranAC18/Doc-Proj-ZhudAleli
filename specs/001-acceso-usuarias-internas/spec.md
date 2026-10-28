@@ -4,6 +4,7 @@ title: Acceso de usuarias internas
 type: feature-spec
 status: confirmed
 created: 2026-07-25
+updated: 2026-10-21
 source:
   - CAT-REQ-001
   - ACT-REQ-001
@@ -34,7 +35,7 @@ related:
 
 | Elemento | Valor |
 |---|---|
-| Estado | `confirmed`; habilita planificación, no implementación |
+| Estado | `confirmed`, en implementación dentro de SB-S2-02; incluye el ajuste autorizado el 2026-10-21 |
 | Fuente primaria | [[../../docs/requirements/CAT-REQ-001\|CAT-REQ-001 v1.0]] y [[../../docs/evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0\|ACT-REQ-001]] |
 | Preparó | Codex, bajo instrucciones del tesista |
 | Debe validar | Tesista; representantes de las usuarias internas en la validación de recorridos |
@@ -52,7 +53,8 @@ related:
   privado comprensible, cambiar su contraseña y cerrar la sesión; una persona no autenticada,
   una cuenta inactiva o credenciales incorrectas no obtienen acceso ni información sensible.
 - **Incluye**: acceso con nombre de usuario y contraseña, cierre de sesión, protección de
-  contenido privado, rechazo no revelador de intentos inválidos, cambio de contraseña,
+  contenido privado, errores breves y comprensibles, bloqueo temporal tras tres intentos
+  fallidos y cambio de contraseña,
   primera cuenta y dashboard privado de bienvenida con opciones realmente disponibles.
 - **No incluye**: administración de membresías (`RF-ACC-002`), matriz definitiva de cargos y
   operaciones (`RF-ACC-003`), actividades, pendientes o encargos (`RF-ACC-004`), recuperación
@@ -81,21 +83,23 @@ dashboard de bienvenida, cerrar la sesión e intentar volver a una dirección pr
 
 ### HU-02 — Proteger el acceso privado (P1)
 
-**Como** organización, **quiero** que los intentos inválidos o no autorizados se rechacen sin
-revelar información interna, **para** proteger las cuentas y los datos organizacionales.
+**Como** organización, **quiero** que los intentos inválidos o no autorizados se rechacen con
+mensajes breves y claros, **para** que la usuaria pueda corregirlos sin permitir acceso privado.
 
 **Prueba independiente**: intentar acceder con contraseña incorrecta, nombre de usuario
-inexistente, cuenta inactiva y sin sesión, y comprobar que ninguna variante muestra contenido
-privado ni permite distinguir qué dato de la cuenta existe.
+inexistente, cuenta inactiva y sin sesión; comprobar la respuesta breve definida para cada caso,
+que no se cree una sesión y que no se muestre contenido privado. Después, probar el bloqueo
+temporal tras tres fallos.
 
 **Criterios de aceptación**:
 
-1. **CA-ACC-001-02 — Dado** un nombre de usuario inexistente o una contraseña incorrecta,
-   **cuando** se intenta iniciar sesión, **entonces** se rechaza el acceso con un mismo
-   mensaje comprensible que no confirma cuál dato fue incorrecto.
-2. **CA-ACC-001-03 — Dado** un nombre de usuario correspondiente a una cuenta inactiva, **cuando** se intenta
-   iniciar sesión, **entonces** se rechaza con el mismo nivel de información que un intento
-   inválido y no se abre una sesión.
+1. **CA-ACC-001-02 — Dado** un nombre de usuario activo con contraseña incorrecta, **cuando**
+   se intenta iniciar sesión, **entonces** se rechaza, no se crea una sesión y se muestra
+   únicamente el mensaje breve **«Contraseña incorrecta.»** junto al campo correspondiente.
+2. **CA-ACC-001-03 — Dado** un nombre de usuario inexistente o asociado a una cuenta inactiva,
+   **cuando** se intenta iniciar sesión, **entonces** se rechaza, no se crea una sesión ni se
+   muestra información privada y en ambos casos aparece el mismo mensaje breve
+   **«Usuario incorrecto.»** junto al campo correspondiente.
 3. **CA-ACC-001-04 — Dado** que una persona no tiene una sesión activa, **cuando** solicita
    directamente una dirección privada, **entonces** no ve contenido interno y se le ofrece
    iniciar sesión.
@@ -141,6 +145,13 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
   solicita autenticarse de nuevo sin exponer información adicional.
 - **CA-ACC-001-11**: después de 30 minutos sin actividad, la sesión deja de permitir acceso
   privado y solicita autenticación nuevamente.
+- **CA-ACC-001-12 — Dado** un identificador de usuario, **cuando** acumula tres intentos
+  fallidos dentro de tres minutos, **entonces** el acceso para ese identificador queda
+  temporalmente bloqueado durante tres minutos; el bloqueo no desactiva la cuenta y un acceso
+  correcto restablece el contador.
+- **CA-ACC-001-13 — Dado** un error en el acceso, **cuando** se presenta en pantalla,
+  **entonces** el mensaje es breve, cotidiano, específico y está asociado al campo que se debe
+  corregir; no contiene detalles técnicos.
 
 ## Requisitos (Requirements)
 
@@ -151,11 +162,14 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
   - **Fuente**: CAT-REQ-001, ACT-REQ-001 y D-011.
   - **Actor/permiso**: Directiva o Socia operaria con cuenta activa; se deniega a cuentas
     inactivas y personas sin sesión.
-  - **Criterios**: CA-ACC-001-01 a CA-ACC-001-11.
+- **Criterios**: CA-ACC-001-01 a CA-ACC-001-13.
 - **RF-ACC-001.1**: el inicio de sesión debe solicitar nombre de usuario y contraseña.
   - **Criterio**: CA-ACC-001-01 — credenciales válidas de una cuenta activa abren el dashboard.
 - **RF-ACC-001.2**: credenciales inválidas, nombres inexistentes y cuentas inactivas deben
-  rechazarse sin revelar cuál dato o estado provocó el rechazo.
+  rechazarse sin crear una sesión ni mostrar contenido privado. Se muestra «Contraseña
+  incorrecta» para una cuenta activa existente y «Usuario incorrecto» para un nombre
+  inexistente o una cuenta inactiva, conforme a CA-ACC-001-02/03. Esta distinción fue solicitada
+  expresamente por el tesista y acepta revelar que un nombre corresponde a una cuenta activa.
   - **Criterios**: CA-ACC-001-02 y CA-ACC-001-03.
 - **RF-ACC-001.3**: una persona sin sesión activa no debe ver contenido privado, incluso si
   intenta abrir su dirección directamente.
@@ -182,6 +196,10 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
 - **RF-ACC-001.8**: una sesión sin actividad debe dejar de permitir acceso privado después de
   30 minutos y solicitar autenticación nuevamente.
   - **Criterio**: CA-ACC-001-11.
+- **RF-ACC-001.9**: limitar los intentos fallidos de autenticación a tres por identificador
+  normalizado en una ventana de tres minutos; al alcanzar el límite, rechazar nuevos intentos
+  durante tres minutos. No se desactiva la cuenta.
+  - **Criterio**: CA-ACC-001-12.
 
 ### Requisitos no funcionales
 
@@ -200,11 +218,15 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
   y explicar qué hacer cuando una interrupción impide confirmar el resultado.
   - **Método de verificación**: prueba con conexión limitada e interrupción durante envíos.
 - **RNF-SEC-001**: cada contenido privado debe comprobar que existe una sesión autorizada; las
-  denegaciones no deben alterar cuentas ni revelar credenciales o estados internos.
+  denegaciones no deben crear sesiones, alterar el estado de las cuentas ni exponer contenido
+  privado o credenciales. Se aplica la excepción de mensajes indicada en CA-ACC-001-02/03:
+  «Contraseña incorrecta» distingue una cuenta activa existente y esta exposición queda
+  aceptada expresamente por el tesista.
   - **Método de verificación**: pruebas positivas y negativas por cada operación y acceso
     directo.
 - **RNF-PRV-001**: el acceso debe solicitar y mostrar solo los datos personales necesarios;
-  una persona no autenticada no debe recibir datos de cuentas ni contenido organizacional.
+  una persona no autenticada no recibe datos personales ni contenido organizacional. Se admite
+  únicamente la señal de existencia de una cuenta activa definida en CA-ACC-001-02/03.
   - **Método de verificación**: revisión de pantallas, mensajes, registros de evidencia y
     respuestas ante accesos anónimos.
 
@@ -214,6 +236,7 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
 |---|---|---|---|
 | Cuenta interna | Identidad que permite a una integrante acceder al espacio privado | Nombre de usuario, estado activo/inactivo y credencial protegida | La administración posterior pertenece a `RF-ACC-002` |
 | Sesión | Acceso temporal reconocido después de una autenticación válida | Cuenta asociada, vigencia y finalización | Vence después de 30 minutos sin actividad |
+| Estado temporal de intentos | Contador breve para frenar intentos repetidos | Identificador canónico protegido, cantidad, inicio de ventana y vencimiento del bloqueo | Identificador almacenado como HMAC; filas vencidas se purgan durante intentos posteriores |
 | Dashboard de bienvenida | Punto de entrada privado de esta porción | Mensaje de bienvenida y opciones disponibles | Contenido personalizado por actividades pertenece a `RF-ACC-004` |
 | Credencial temporal | Secreto inicial entregado para habilitar la primera cuenta | Valor conocido solo por receptora y responsable de entrega | Entrega presencial a representante designada por la Directiva; cambio obligatorio |
 
@@ -245,7 +268,7 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
 
 ## Criterios de éxito (Success Criteria)
 
-- **SC-001**: el 100 % de los criterios CA-ACC-001-01 a CA-ACC-001-11 tiene al menos una
+- **SC-001**: el 100 % de los criterios CA-ACC-001-01 a CA-ACC-001-13 tiene al menos una
   prueba aprobada, incluidos intentos inválidos, cuenta inactiva y acceso anónimo.
 - **SC-002**: al menos el 80 % de las usuarias representativas completa el recorrido de
   iniciar sesión, reconocer el dashboard, cambiar la contraseña y cerrar sesión sin ayuda en
@@ -254,10 +277,13 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
   200 % sin pérdida de información, acciones inaccesibles ni desplazamiento horizontal
   accidental.
 - **SC-004**: en el 100 % de los intentos con cuenta inexistente, contraseña incorrecta o
-  cuenta inactiva, la persona recibe una respuesta equivalente y no accede a contenido
-  privado.
+  cuenta inactiva, no se crea una sesión ni se entrega contenido privado; las respuestas siguen
+  la correspondencia explícita de CA-ACC-001-02/03.
 - **SC-005**: tras cerrar sesión, el 100 % de los intentos de reutilizarla o volver a una
   dirección privada exige autenticación nuevamente.
+- **SC-006**: el 100 % de los intentos alcanza el bloqueo tras tres fallos dentro de tres
+  minutos y el bloqueo expira a los tres minutos; los mensajes de error son concisos y están
+  asociados al campo que se corrige.
 
 ## Trazabilidad académica
 
@@ -267,7 +293,7 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
 | Sprint | S1 — Administración y acceso |
 | Requisitos | `RF-ACC-001`; `RNF-UX-001`; `RNF-UX-002`; `RNF-UX-003`; `RNF-CON-001`; `RNF-SEC-001`; `RNF-PRV-001` |
 | ADR | [[../../docs/decisions/ADR-0003-estructura-raiz-aplicacion-django\|ADR-0003 — Estructura raíz de Django y agentes]] |
-| Casos de prueba | Estrategia CA-ACC-001-01 a CA-ACC-001-11 definida en el [[../../specs/001-acceso-usuarias-internas/plan\|plan aprobado]] |
+| Casos de prueba | Estrategia CA-ACC-001-01 a CA-ACC-001-13 definida en el [[../../specs/001-acceso-usuarias-internas/plan\|plan aprobado]] |
 | Evidencia | [[../../docs/evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0\|ACT-REQ-001]] |
 | ISO/IEC 25010:2023 | Adecuación funcional: completitud, corrección y pertinencia; interacción: operabilidad y accesibilidad; seguridad: confidencialidad |
 
@@ -286,6 +312,9 @@ nueva válida, confirmar el cambio y comprobar que la anterior deja de permitir 
   autenticar ni confirma un cambio cuyo resultado sea desconocido.
 - La matriz definitiva de cargos P-01 no bloquea este acceso básico porque ninguna usuaria
   administra otras cuentas ni ejecuta operaciones de negocio en esta porción.
+- Los mensajes «Usuario incorrecto» y «Contraseña incorrecta» se diferencian a petición del
+  tesista. Esto permite inferir si un identificador corresponde a una cuenta activa. Se
+  conserva «Usuario incorrecto» para nombres inexistentes y cuentas inactivas.
 - El plan deberá resolver los mecanismos de almacenamiento protegido de credenciales,
   sesiones, primera cuenta, pruebas y configuración por entorno sin ampliar esta spec.
 
@@ -301,4 +330,5 @@ No quedan preguntas materiales para confirmar esta spec. P-01 continúa abierta 
 | 2026-07-25 | Tesista | Autorizó preparar SPEC-001 con la opción A | Alcance limitado a `RF-ACC-001` y RNF aplicables | [[../../docs/evidence/fase-i/2026-07-25-acta-levantamiento-requisitos-1-0\|ACT-REQ-001]] |
 | 2026-07-25 | Tesista | Resolvió Q1=A, Q2=A y Q3=A | Cambio inicial obligatorio; 30 minutos de inactividad; entrega presencial a representante designada por la Directiva | [[../../docs/evidence/fase-i/2026-07-25-confirmacion-spec-001\|EVID-SPEC-001]] |
 | 2026-07-25 | Tesista | Confirma integralmente SPEC-001 | Estado cambia a `confirmed`; se autoriza preparar el plan | [[../../docs/evidence/fase-i/2026-07-25-confirmacion-spec-001\|EVID-SPEC-001]] |
+| 2026-10-21 | Tesista | Solicita documentar y aplicar criterios concretos de acceso, mensajes y bloqueo | Se agregan CA-ACC-001-12/13; se diferencian errores de cuenta activa e identificador, con exposición de existencia aceptada expresamente; bloqueo temporal tras tres fallos | Instrucción explícita del tesista en la sesión de trabajo |
 | Pendiente | Representantes de usuarias internas | Validar recorridos durante pruebas representativas | Comprensión, operabilidad y accesibilidad | Pendiente de plan y ejecución |

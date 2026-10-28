@@ -144,15 +144,23 @@ parte del [[plan|plan aprobado]]; no son implementación.
 
 ### DTR-009 — Seguridad por defecto y riesgo residual explícito
 
-- **Decisión propuesta**: CSRF en todo `POST`, cookies `HttpOnly` y `SameSite=Lax`, cookie
-  segura y HTTPS en producción, redirecciones validadas por Django, mensajes equivalentes y
-  `never_cache`/no almacenamiento en respuestas privadas.
+- **Decisión base**: CSRF en todo `POST`, cookies `HttpOnly` y `SameSite=Lax`, cookie segura y
+  HTTPS en producción, redirecciones validadas por Django, y `never_cache`/no almacenamiento en
+  respuestas privadas.
 - **Prueba especial**: el cliente con `enforce_csrf_checks=True` cubre acceso, cambio y salida.
-- **Riesgo residual**: SPEC-001 no define bloqueo, tasa, duración ni recuperación ante
-  intentos automatizados. No se inventará un bloqueo de cuentas. Antes de exposición pública
-  se debe levantar y aprobar esa política si el análisis de despliegue la requiere.
+- **Actualización autorizada por el tesista (2026-10-21)**: se muestran errores breves por
+  campo («Usuario incorrecto» para nombre inexistente o cuenta inactiva; «Contraseña
+  incorrecta» para una cuenta activa con clave errónea) y se limita cada identificador
+  normalizado a tres fallos en tres minutos, con bloqueo de tres minutos. La app guarda el
+  identificador de intentos como HMAC y no altera `is_active`.
+- **Riesgo residual aceptado**: distinguir la contraseña incorrecta permite enumerar cuentas
+  activas. OWASP recomienda mensajes genéricos y advierte del bloqueo abusivo como denegación
+  de servicio; la instrucción del tesista prioriza claridad, mantiene iguales los mensajes para
+  nombres inexistentes e inactivos y limita el bloqueo a tres minutos. No se deben ocultar
+  estos efectos en la documentación.
 - **Fuente**:
-  [protección CSRF de Django](https://docs.djangoproject.com/en/5.2/howto/csrf/).
+  [protección CSRF de Django](https://docs.djangoproject.com/en/5.2/howto/csrf/) y
+  [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
 
 ### DTR-010 — Configuración por entorno
 

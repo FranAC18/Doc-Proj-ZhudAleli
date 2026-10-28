@@ -53,10 +53,13 @@ Una redirección nunca incluye credenciales ni estados internos.
 | `username` | texto | etiqueta “Nombre de usuario”; conserva el valor normalizado tras error |
 | `password` | contraseña | etiqueta “Contraseña”; nunca se repuebla tras error |
 
-Para nombre inexistente, clave incorrecta o cuenta inactiva se devuelve el mismo estado HTTP,
-estructura y texto general: “No pudimos iniciar sesión con esos datos. Revisa el nombre de
-usuario y la contraseña e inténtalo nuevamente.” La redacción podrá ajustarse en revisión UX
-sin revelar cuál dato falló.
+Los fallos devuelven la página de acceso y no crean sesión. Un identificador inexistente o
+asociado a una cuenta inactiva presenta «Usuario incorrecto» junto al campo de usuario; una
+clave errónea de una cuenta activa presenta «Contraseña incorrecta» junto al campo de
+contraseña. El tesista acepta que esta distinción permite inferir la existencia de una cuenta
+activa. Al tercer fallo del mismo identificador canónico dentro de tres minutos, el acceso para
+ese identificador se bloquea durante tres minutos y se muestra un aviso breve con el tiempo
+restante. El bloqueo no desactiva la cuenta.
 
 ### Cambio de contraseña
 
@@ -76,8 +79,9 @@ confirmación en el dashboard.
 - Las páginas de acceso, cambio y dashboard incluyen cabeceras para impedir
   almacenamiento de contenido sensible en caché.
 - La cookie de sesión es `HttpOnly`, `SameSite=Lax` y `Secure` en producción.
-- No se incluyen nombre de cuenta, existencia, actividad, hash, sesión o token en mensajes de
-  error, parámetros de URL o logs de aplicación.
+- No se incluyen hashes, sesiones, tokens ni detalles técnicos en mensajes de error,
+  parámetros de URL o logs de aplicación. La única señal permitida sobre la existencia
+  de una cuenta activa es la distinción de mensajes aprobada en CA-ACC-001-02/03.
 - Las plantillas escapan texto por defecto y no usan HTML confiable derivado de entradas.
 
 ## Comportamiento con conectividad interrumpida

@@ -12,6 +12,13 @@ revision_scope: dependencias-y-cobertura-del-plan-aprobado
 
 # Tareas: Acceso de usuarias internas
 
+> **Continuidad de implementación, 2026-10-27:** la secuencia de fases de este plan
+> conserva el diseño original y sus tareas pendientes. La app ya tiene base Django y
+> trabajo local de acceso; una casilla sin actualizar no revierte código verificado ni
+> obliga a repetir una fase documental antes de continuar la porción autorizada de
+> `RF-ACC-001` en S2. Las tareas se marcan completas solo con evidencia. Las operaciones
+> nuevas de superadministración se planifican aparte y no se infieren de esta spec.
+
 ## Convención
 
 Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
@@ -137,14 +144,20 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
 - [ ] T025 [implementer] Implementar guarda reutilizable para credencial temporal y proteger
       cada vista privada en `apps/accounts/decorators.py` y `views.py` → CA-08 parcial y
       acceso directo redirigido al cambio en `apps/accounts/tests/test_security.py`.
-- [ ] T026 [implementer] Asegurar mensaje único equivalente para usuario inexistente, clave
-      incorrecta y cuenta inactiva en el formulario de acceso → CA-02 y CA-03 en
-      `test_authentication.py`.
+- [ ] T026 [implementer] Asegurar «Usuario incorrecto» para identificador inexistente o
+      cuenta inactiva y «Contraseña incorrecta» para clave inválida de cuenta activa; no crear
+      sesión ni mostrar contenido privado → CA-02/03 en `test_authentication.py`.
 - [ ] T027 [implementer] Redirigir acceso anónimo a cada URL privada con `next` seguro y sin
       contenido privado → CA-04 en `test_security.py`.
 - [ ] T028 [implementer] Agregar cabeceras de no-caché en respuestas privadas y de
       autenticación; `never_cache` → prueba de ausencia de contenido privado al retroceder en
       `test_security.py`.
+- [ ] T038 [implementer] Crear `LoginThrottle` con identificador HMAC, contador, ventana y
+      vencimiento del bloqueo, más migración incremental → modelo y migración aplicados en
+      PostgreSQL; `test_login_throttle.py`.
+- [ ] T039 [implementer] Limitar a tres fallos por identificador canónico dentro de tres
+      minutos y bloquearlo por tres minutos sin desactivar la cuenta → CA-12/13 en
+      `test_login_throttle.py` y `test_authentication.py`.
 
 ## Fase 6 — HU-03 (P2): Cambiar la contraseña propia (CA-06, CA-07, CA-08, CA-10)
 
@@ -188,7 +201,7 @@ T001 → T008 → T009 → T010 → T011
 T007/T011 → T012 → T013 → T014 → T015
 T015 → T016 → T017 → T018 → T019 → T020
 T020 → T021 → T022 → T023 → T024
-T021 → T025 → T026 → T027 → T028
+T021 → T025 → T038 → T026 → T039 → T027 → T028
 T022 → T029 → T030 → T031 → T032
 T024/T028/T032 → T037 → T033 → T034 → T035 → T036
 ```
@@ -203,7 +216,7 @@ T013 comienza tras T012; no se marca paralela porque es una dependencia secuenci
 
 - [ ] Hoja de estilos aprobada y usada en todas las plantillas de la porción.
 - [ ] Modelo relacional validado y coherente con `data-model.md` de SPEC-001.
-- [ ] Todos los RF/CA de la porción están enlazados a pruebas (CA-ACC-001-01 a CA-11).
+- [ ] Todos los RF/CA de la porción están enlazados a pruebas (CA-ACC-001-01 a CA-13).
 - [ ] Permisos positivos y negativos pasan (RNF-SEC-001).
 - [ ] `uv run python manage.py check` pasa.
 - [ ] `uv run python manage.py check --deploy --settings=config.settings.production` sin
@@ -224,4 +237,4 @@ T008 cita el registro existente; T013 no exige settings que aún no existen; T03
 CI; T037 hace ejecutable el CI/lint ya exigido por el plan aprobado. Se preservan los IDs
 anteriores, el alcance RF-ACC-001, las puertas humanas y todas las casillas pendientes.
 La aprobación del 24/08 corresponde a la base; esta corrección no declara nuevas pruebas
-pasadas, aprobación de diseño ni ejecución remota. Hay 37 tareas planificadas.
+pasadas, aprobación de diseño ni ejecución remota. El plan actualizado registra 39 tareas.
