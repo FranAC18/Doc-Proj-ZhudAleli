@@ -9,8 +9,8 @@ requirement: RF-ACC-001
 phase: post_commit
 repository: App-zhudaleli
 branch: feature/RF-ACC-001-base-proyecto
-head: 36f1136b0b14a334fa12f401b9fa18bd1220d5e5
-commit: 36f1136b0b14a334fa12f401b9fa18bd1220d5e5
+head: 54e7c1717b6623febe07dc07c104845548e185fb
+commit: 54e7c1717b6623febe07dc07c104845548e185fb
 parent_commit: 8f19c0ea14e9f3209ff2bdc2599ed70c0126f746
 remote: https://github.com/FranAC18/App-zhudaleli.git
 push: pending
