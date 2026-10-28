@@ -188,4 +188,3 @@ Cuando se apruebe una modificación de la línea base, se generará una nueva ve
 | Versión | Fecha | Cambio | Estado |
 |---|---|---|---|
 | 2.0-candidato | 2026-10-13 | Se conserva la línea base y se agregan 12 candidatos funcionales y 2 no funcionales derivados de entrevista, priorizados para revisión. | Candidato interno; no aprobado |
-

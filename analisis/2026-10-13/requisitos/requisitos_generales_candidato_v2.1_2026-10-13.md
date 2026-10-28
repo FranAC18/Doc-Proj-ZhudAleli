@@ -209,4 +209,3 @@ Este documento es una propuesta de análisis y no se publica ni reemplaza CAT-RE
 |---|---|---|---|
 | 2.0-candidato | 2026-10-13 | Propuesta inicial con 12 candidatos funcionales y 2 no funcionales derivados de entrevista. | Candidato interno; no promovido |
 | 2.1-candidato | 2026-10-13 | Se aclara la generación automática de faltas y el máximo de tres días para justificar; se consolidan redundancias y se separan requisitos nuevos de complementos. | Candidato interno; aprobación comunicada, evidencia pendiente |
-

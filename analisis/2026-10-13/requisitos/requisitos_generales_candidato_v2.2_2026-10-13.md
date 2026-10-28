@@ -210,7 +210,3 @@ Este archivo es el análisis interno previo a la aprobación; no reemplaza la ed
 | 2.0-candidato | 2026-10-13 | Propuesta inicial con 12 candidatos funcionales y 2 no funcionales derivados de entrevista. | Candidato interno; no promovido |
 | 2.1-candidato | 2026-10-13 | Se aclara la generación automática de faltas y el máximo de tres días para justificar; se consolidan redundancias y se separan requisitos nuevos de complementos. | Candidato interno; sustituido por v2.2 |
 | 2.2-candidato | 2026-10-13 | Se confirma un plazo de tres días hábiles, validación de multas por la Tesorera y base de aprobación comunicada por el tesista a partir de la entrevista con María Camas; se actualizan pendientes. | Aprobada por el tesista; promovida a CAT v1.2; antecedente de análisis |
-
-
-
-

@@ -504,4 +504,3 @@ Solo SPEC-001 tiene especificación/plan aprobados en el índice funcional activ
 | Versión | Fecha | Cambio | Estado |
 |---|---|---|---|
 | 1.1-candidate | 2026-10-19 | Añade diagramas, matriz de los 58 RF y 9 RNF, cotejo de entrevista, brechas de trazabilidad, componentes, PWA, transacciones, reportes, despliegue y pendientes. | proposed; revisión del tesista pendiente |
-
