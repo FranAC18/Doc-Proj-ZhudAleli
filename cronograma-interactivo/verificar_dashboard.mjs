@@ -12,27 +12,50 @@ new vm.Script(appScript, { filename: "dashboard-inline.js" });
 
 const appData = JSON.parse(dataScript.slice("window.APP_DATA=".length).replace(/;\s*$/, ""));
 const project = appData.project;
+const normalizerStart = appScript.indexOf("function reconcilePlan(");
+const normalizerEnd = appScript.indexOf("function migrate(", normalizerStart);
+assert.ok(normalizerStart >= 0 && normalizerEnd > normalizerStart, "El tablero concilia el calendario nuevo con el avance local.");
+const normalizerContext = { projectItems: project.items };
+vm.createContext(normalizerContext);
+vm.runInContext(appScript.slice(normalizerStart, normalizerEnd), normalizerContext);
+const savedProgress = {
+  taskOverrides: { "SB-S2-01": { sprint: "S2", start: "2026-10-13", end: "2026-10-26", status: "progress", evidence: "evidencia local" } },
+  storyOverrides: { "HU-REP-001": { sprint: "S6", start: "2026-12-08", end: "2026-12-21" } },
+  requirementOverrides: {},
+};
+normalizerContext.reconcilePlan(savedProgress);
+assert.equal(savedProgress.taskOverrides["SB-S2-01"].end, undefined, "La fecha vieja cede al plan vigente.");
+assert.equal(savedProgress.taskOverrides["SB-S2-01"].status, "progress", "El avance guardado se conserva.");
+assert.equal(savedProgress.taskOverrides["SB-S2-01"].evidence, "evidencia local", "La evidencia guardada se conserva.");
+assert.equal(savedProgress.storyOverrides["HU-REP-001"].sprint, undefined, "La asignación guardada a S6 deja de ocultar el nuevo sprint propuesto.");
 const count = (kind) => project.items.filter((item) => item.kind === kind).length;
-assert.deepEqual([count("hu"), count("rf"), count("rnf"), count("ht"), count("task")], [51, 51, 9, 19, 27]);
-assert.equal(project.pending.length, 24, "Se integra la lista de decisiones pendientes del proyecto.");
-assert.equal(project.sprints.length, 7, "Se conservan los siete sprints fuente.");
+assert.deepEqual([count("hu"), count("rf"), count("rnf"), count("ht"), count("task")], [56, 59, 9, 19, 27]);
+assert.equal(project.pending.length, 27, "Se conservan los pendientes previos y se añaden las decisiones de superadministración.");
+assert.ok(project.pending.find((item) => item.id === "SA-AUT-01"), "La autorización inicial de superadministración sigue visible como pendiente de evidencia.");
+assert.ok(!project.pending.find((item) => item.id === "P-12").priority.includes("Sprint 6"), "El contenido público no figura en un S6 inexistente.");
+assert.deepEqual(project.sprints.map((sprint) => [sprint.id, sprint.end]), [
+  ["S1", "2026-10-27"], ["S2", "2026-11-08"], ["S3", "2026-11-19"],
+  ["S4", "2026-11-30"], ["S5", "2026-12-20"], ["Cierre", "2026-12-23"],
+], "El calendario vigente contiene S1–S5 y la entrega del 23 de diciembre.");
+assert.ok(project.items.every((item) => !String(item.sprint || "").includes("S6")), "S6 no figura como sprint vigente en historias o tareas.");
+assert.ok(project.items.filter((item) => item.id.startsWith("SB-S6-")).every((item) => !item.sprint && item.legacySprint), "Las tareas de S6 se conservan como historial pendiente de replanificación.");
 assert.ok(appData.tracking.updates?.["SB-S1-01"], "Se integra el seguimiento local existente.");
 assert.ok(appData.tracking.sprintStates?.S1?.closed, "Se conserva el cierre previamente registrado.");
 const s1 = appData.resources.sprints.find((sprint) => sprint.id === "S1");
-assert.equal(s1.planningInputs.allUserStoriesAsInput, true, "S1 distingue las HU de insumo de las comprometidas.");
+assert.equal(s1.planningInputs.allUserStoriesAsInput, false, "Las cinco HU candidatas nuevas no se incorporan retrospectivamente a S1.");
 assert.equal(s1.planningInputs.requirementScope, "all", "El catálogo RF/RNF completo queda disponible para la revisión de alcance de S1.");
 assert.deepEqual(s1.planningInputs.spotlightUserStories.map((story) => story.id), ["HU-PWA-001"], "S1 destaca la HU móvil del plan.");
 assert.deepEqual(s1.planningInputs.technicalStoryIds, ["HT-PRE-001", "HT-PRE-002", "HT-PRE-003", "HT-PRE-004", "HT-PRE-005", "HT-GEN-008"]);
-assert.deepEqual(s1.planningInputs.storyIds, project.items.filter((item) => item.kind === "hu").map((story) => story.id), "S1 conserva un vínculo explícito por ID con todas las HUs fuente.");
+assert.deepEqual(s1.planningInputs.storyIds, project.items.filter((item) => item.kind === "hu" && !/^HU-ACC-00[5-9]$/.test(item.id)).map((story) => story.id), "S1 conserva los 51 insumos originales.");
 for (const id of s1.planningInputs.technicalStoryIds) {
   const technicalStory = project.items.find((item) => item.kind === "ht" && item.id === id);
   assert.ok(technicalStory, `${id} existe en la pila de historias técnicas.`);
   assert.ok(technicalStory.tasks.every((taskId) => project.items.some((item) => item.kind === "task" && item.id === taskId)), `${id} apunta a tareas SB existentes.`);
 }
-assert.ok(project.items.find((item) => item.id === "HT-GEN-008").tasks.includes("SB-S6-05"), "HT-GEN-008 conserva la revisión adicional planificada en S6.");
+assert.ok(project.items.find((item) => item.id === "HT-GEN-008").tasks.includes("SB-S6-05"), "HT-GEN-008 conserva el vínculo histórico con SB-S6-05.");
 const pwaStory = project.items.find((item) => item.id === "HU-PWA-001");
 assert.ok(pwaStory.tasks.includes("SB-S1-04") && pwaStory.sprint.includes("S4"), "La revisión PWA en S1 conserva el sprint de entrega S4-S5 de HU-PWA-001.");
-assert.equal(s1.status, "Parcial", "La fuente documental conserva S1 como parcial aunque el seguimiento local tenga un cierre registrado.");
+assert.equal(s1.status, "Periodo concluido · resultado parcial", "El periodo S1 no declara completados sus pendientes.");
 const requirementIds = new Set(project.items.filter((item) => ["rf", "rnf"].includes(item.kind)).map((item) => item.id));
 const storyIds = new Set(project.items.filter((item) => item.kind === "hu").map((item) => item.id));
 const taskIds = new Set(project.items.filter((item) => item.kind === "task").map((item) => item.id));
@@ -100,6 +123,7 @@ vm.createContext(sprintContext);
 vm.runInContext(appScript.slice(helperStart, helperEnd), sprintContext);
 assert.equal(sprintContext.storyHasSprint({ sprint: "S4–S5 (transversal)" }, "S4"), true, "La asignación transversal se filtra por S4.");
 assert.equal(sprintContext.storyHasSprint({ sprint: "S4–S5 (transversal)" }, "S5"), true, "La asignación transversal se filtra por S5.");
+assert.equal(sprintContext.storyHasSprint({ sprint: "S2–S5 (transversal)" }, "S4"), true, "Los rangos transversales incluyen los sprints intermedios.");
 const unestimated = sprintContext.pointMetrics([{ storyPoints: null, complete: false }, { storyPoints: 0, complete: true }]);
 assert.equal(unestimated.total, 0);
 assert.equal(unestimated.percent, null, "Sin puntos estimados no se calcula un porcentaje ficticio.");

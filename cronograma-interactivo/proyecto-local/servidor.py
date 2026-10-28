@@ -24,7 +24,10 @@ WEB = HERE / "web"
 DOCUMENTACION = HERE.parents[1] / "documentacion"
 EVIDENCIAS = HERE.parents[1] / "docs" / "evidence"
 STATE_FILE = HERE / "estado" / "seguimiento_sprints_zhud_aleli.json"
+DASHBOARD_STATE_FILE = HERE / "estado" / "dashboard_v5.json"
 FORMAT = "zhud-aleli-gantt-v1"
+DASHBOARD_STATE_SCHEMA = "tesis_scrum_multireq_v1"
+DEFAULT_PORT = 55478
 MAX_BODY = 2_000_000
 STATUSES = {"sin_verificar", "en_curso", "bloqueada", "realizada", "verificada"}
 PRIORITIES = {"Esencial", "Alta", "Media", "Baja", "Complementaria"}
@@ -40,16 +43,18 @@ def resolve_local_document(url: object) -> Path:
     if parsed.scheme or parsed.netloc or parsed.query or parsed.fragment:
         raise ValueError("La ruta debe apuntar directamente a un documento local.")
     decoded = unquote(parsed.path)
-    if (
-        not re.fullmatch(r"/(fuentes|evidencias)/[A-Za-z0-9_./-]+", decoded)
-        or any(part in {".", ".."} for part in decoded.split("/"))
-        or Path(decoded).suffix.lower() not in DOCUMENT_SUFFIXES
-    ):
-        raise ValueError("La ruta debe apuntar a un documento permitido.")
+    if not re.fullmatch(r"/(fuentes|evidencias)/[\w .()/-]+", decoded):
+        raise ValueError("La ruta debe apuntar a un documento o carpeta permitidos.")
+    parts = decoded.split("/", 2)
+    relative = parts[2] if len(parts) == 3 else ""
+    if not relative or any(part in {"", ".", ".."} for part in relative.split("/")):
+        raise ValueError("La ruta no puede salir de las carpetas del proyecto.")
     root = DOCUMENTACION if decoded.startswith("/fuentes/") else EVIDENCIAS
-    source = (root / decoded.split("/", 2)[2]).resolve()
-    if not source.is_relative_to(root.resolve()) or not source.is_file():
-        raise ValueError("No se encontró el documento en su carpeta local.")
+    source = (root / relative).resolve()
+    if not source.is_relative_to(root.resolve()) or not source.exists():
+        raise ValueError("No se encontró el documento o carpeta en su ruta local.")
+    if not source.is_dir() and source.suffix.lower() not in DOCUMENT_SUFFIXES:
+        raise ValueError("El tipo de documento no está permitido.")
     return source
 
 
@@ -58,8 +63,9 @@ def open_local_document(url: object) -> Path:
     if os.name != "nt":
         raise ValueError("Abrir la carpeta está disponible en Windows.")
     source = resolve_local_document(url)
+    command = ["explorer.exe", str(source)] if source.is_dir() else ["explorer.exe", f"/select,{source}"]
     subprocess.Popen(
-        ["explorer.exe", f"/select,{source}"],
+        command,
         stdin=subprocess.DEVNULL,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
@@ -74,6 +80,45 @@ def project_data() -> dict:
 
 def timestamp() -> str:
     return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def clean_dashboard_state(raw: object) -> dict:
+    """Valida el snapshot del dashboard antes de guardarlo o integrarlo al HTML."""
+    if not isinstance(raw, dict) or raw.get("schema") != DASHBOARD_STATE_SCHEMA:
+        raise ValueError("El seguimiento del dashboard tiene un formato desconocido.")
+    cleaned = {"schema": DASHBOARD_STATE_SCHEMA}
+    selected = raw.get("selectedSprint", "")
+    if not isinstance(selected, str) or len(selected) > 120:
+        raise ValueError("El sprint seleccionado no es válido.")
+    cleaned["selectedSprint"] = selected
+    map_fields = ("taskOverrides", "sprintStates", "storyOverrides", "requirementOverrides", "criteriaDone")
+    for field in map_fields:
+        value = raw.get(field, {})
+        if not isinstance(value, dict) or len(value) > 3000:
+            raise ValueError(f"El campo {field} no es válido.")
+        if any(not isinstance(key, str) or len(key) > 160 or key in {"__proto__", "constructor", "prototype"} for key in value):
+            raise ValueError(f"El campo {field} contiene claves no válidas.")
+        cleaned[field] = value
+    array_limits = {
+        "customTasks": 1000,
+        "customSprints": 100,
+        "customStories": 1000,
+        "customRequirements": 1000,
+        "storyOrder": 2000,
+        "audit": 750,
+    }
+    for field, limit in array_limits.items():
+        value = raw.get(field, [])
+        if not isinstance(value, list) or len(value) > limit:
+            raise ValueError(f"El campo {field} no es válido.")
+        cleaned[field] = value
+    try:
+        encoded = json.dumps(cleaned, ensure_ascii=False, allow_nan=False).encode("utf-8")
+    except (TypeError, ValueError) as error:
+        raise ValueError("El seguimiento contiene datos no serializables.") from error
+    if len(encoded) > MAX_BODY:
+        raise ValueError("El seguimiento supera el tamaño permitido.")
+    return cleaned
 
 
 def clean_record(raw: object, *, imported: bool = False) -> dict:
@@ -521,10 +566,51 @@ class Store:
 class LocalServer(ThreadingHTTPServer):
     daemon_threads = True
 
-    def __init__(self, store: Store):
-        super().__init__(("127.0.0.1", 0), Handler)
+    def __init__(self, store: Store, dashboard_state_file: Path = DASHBOARD_STATE_FILE, port: int = DEFAULT_PORT):
+        super().__init__(("127.0.0.1", port), Handler)
         self.store = store
+        self.dashboard_state_file = dashboard_state_file
+        self.dashboard_lock = threading.RLock()
         self.base_url = f"http://127.0.0.1:{self.server_port}"
+
+    def read_dashboard_state(self) -> dict:
+        with self.dashboard_lock:
+            if not self.dashboard_state_file.exists():
+                return {"schema": DASHBOARD_STATE_SCHEMA, "state": None, "updatedAt": None}
+            stored = json.loads(self.dashboard_state_file.read_text(encoding="utf-8"))
+            if not isinstance(stored, dict) or stored.get("schema") != DASHBOARD_STATE_SCHEMA:
+                raise ValueError("El archivo de avance del dashboard tiene un formato desconocido.")
+            state = clean_dashboard_state(stored.get("state"))
+            updated = stored.get("updatedAt")
+            if not isinstance(updated, str) or len(updated) > 40:
+                raise ValueError("La fecha del seguimiento no es válida.")
+            return {"schema": DASHBOARD_STATE_SCHEMA, "state": state, "updatedAt": updated}
+
+    def save_dashboard_state(self, raw: object) -> dict:
+        state = clean_dashboard_state(raw)
+        updated = timestamp()
+        payload = {"schema": DASHBOARD_STATE_SCHEMA, "updatedAt": updated, "state": state}
+        self.dashboard_state_file.parent.mkdir(parents=True, exist_ok=True)
+        with self.dashboard_lock:
+            descriptor, temporary = tempfile.mkstemp(prefix="dashboard-v5-", suffix=".tmp", dir=self.dashboard_state_file.parent)
+            try:
+                with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+                    json.dump(payload, stream, ensure_ascii=False, indent=2)
+                    stream.write("\n")
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                try:
+                    os.replace(temporary, self.dashboard_state_file)
+                except PermissionError:
+                    with self.dashboard_state_file.open("w", encoding="utf-8") as stream:
+                        json.dump(payload, stream, ensure_ascii=False, indent=2)
+                        stream.write("\n")
+                        stream.flush()
+                        os.fsync(stream.fileno())
+            finally:
+                if os.path.exists(temporary):
+                    os.unlink(temporary)
+        return {"ok": True, "updatedAt": updated}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -533,13 +619,14 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, format: str, *args: object) -> None:
         print(f"{self.address_string()} - {format % args}")
 
-    def _send(self, status: int, body: bytes, content_type: str) -> None:
+    def _send(self, status: int, body: bytes, content_type: str, *, csp: str | None = None) -> None:
         self.send_response(status)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
-        self.send_header("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; object-src 'none'; base-uri 'none'")
+        policy = csp or "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; object-src 'none'; base-uri 'none'"
+        self.send_header("Content-Security-Policy", policy)
         self.end_headers()
         self.wfile.write(body)
 
@@ -557,6 +644,9 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if path == "/api/seguimiento":
                 self._json(200, self.server.store.read())
+                return
+            if path == "/api/dashboard-state":
+                self._json(200, self.server.read_dashboard_state())
                 return
             fixed = {
                 "/": (WEB / "index.html", "text/html; charset=utf-8"),
@@ -587,7 +677,23 @@ class Handler(BaseHTTPRequestHandler):
                 mime = "text/plain; charset=utf-8" if source.suffix.lower() in {".md", ".txt"} else mimetypes.guess_type(source.name)[0] or "application/octet-stream"
             else:
                 raise FileNotFoundError
-            self._send(200, source.read_bytes(), mime)
+            content = source.read_bytes()
+            csp = None
+            if path in {"/", "/index.html"}:
+                stored = self.server.read_dashboard_state()
+                if stored["state"] is not None:
+                    serialized = json.dumps(stored["state"], ensure_ascii=False, allow_nan=False)
+                    serialized = serialized.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+                    data_script = re.search(rb"<script>\s*window\.APP_DATA\s*=.*?</script>", content, re.DOTALL)
+                    if not data_script:
+                        raise ValueError("No se encontró el bloque de datos del dashboard.")
+                    state_script = b'<script>window.APP_SERVER_STATE=' + serialized.encode("utf-8") + b';</script>'
+                    content = content[:data_script.end()] + state_script + content[data_script.end():]
+                nonce = secrets.token_urlsafe(18)
+                nonce_bytes = nonce.encode("ascii")
+                content = re.sub(rb"<script(?=[\s>])", b'<script nonce="' + nonce_bytes + b'"', content, flags=re.IGNORECASE)
+                csp = f"default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://unpkg.com 'nonce-{nonce}'; object-src 'none'; base-uri 'none'"
+            self._send(200, content, mime, csp=csp)
         except FileNotFoundError:
             self._json(404, {"error": "Página o documento no encontrado."})
         except (OSError, ValueError) as error:
@@ -606,7 +712,11 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("El archivo enviado tiene un tamaño no permitido.")
             data = json.loads(self.rfile.read(size))
             path = urlsplit(self.path).path
-            if path == "/api/seguimiento":
+            if path == "/api/dashboard-state":
+                if not isinstance(data, dict) or "state" not in data:
+                    raise ValueError("Solicitud de seguimiento no válida.")
+                self._json(200, self.server.save_dashboard_state(data["state"]))
+            elif path == "/api/seguimiento":
                 if not isinstance(data, dict):
                     raise ValueError("Solicitud no válida.")
                 saved = self.server.store.save_task(data.get("id", ""), data.get("record"))
@@ -647,13 +757,13 @@ class Handler(BaseHTTPRequestHandler):
             self._json(500, {"error": f"No se pudo guardar el archivo: {error}"})
 
 
-def make_server(state_file: Path = STATE_FILE) -> LocalServer:
+def make_server(state_file: Path = STATE_FILE, dashboard_state_file: Path = DASHBOARD_STATE_FILE, port: int = DEFAULT_PORT) -> LocalServer:
     data = project_data()
     task_ids = {item["id"] for item in data["items"] if item["kind"] == "task"}
     resource_data = json.loads((WEB / "recursos-sprints.json").read_text(encoding="utf-8"))
     sprint_ids = {item["id"] for item in data["sprints"]} | {item["id"] for item in resource_data["sprints"]}
     closed_sprints = {item["id"] for item in resource_data["sprints"] if item.get("status") == "Cerrado"}
-    return LocalServer(Store(state_file, task_ids, data["edition"], sprint_ids, closed_sprints))
+    return LocalServer(Store(state_file, task_ids, data["edition"], sprint_ids, closed_sprints), dashboard_state_file, port)
 
 
 def instance_lock(state_file: Path):
@@ -674,10 +784,14 @@ def instance_lock(state_file: Path):
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Abre el cronograma local en un puerto libre.")
+    parser = argparse.ArgumentParser(description="Abre el cronograma local en 127.0.0.1:55478.")
     parser.add_argument("--no-browser", action="store_true", help="Inicia solo el servidor (uso de pruebas).")
+    parser.add_argument("--port", type=int, default=DEFAULT_PORT, help="Puerto local; usa 0 para asignar uno libre en pruebas.")
     parser.add_argument("--state-file", type=Path, default=STATE_FILE, help=argparse.SUPPRESS)
+    parser.add_argument("--dashboard-state-file", type=Path, default=DASHBOARD_STATE_FILE, help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if not 0 <= args.port <= 65535:
+        parser.error("El puerto debe estar entre 0 y 65535.")
     lock = instance_lock(args.state_file)
     url_file = args.state_file.with_suffix(".url")
     if lock is None:
@@ -689,7 +803,7 @@ def main() -> None:
         else:
             print("El cronograma ya está abierto. Vuelve a la ventana del navegador.", flush=True)
         return
-    server = make_server(args.state_file)
+    server = make_server(args.state_file, args.dashboard_state_file, args.port)
     url_file.write_text(server.base_url + "\n", encoding="utf-8")
     print(f"Cronograma disponible en {server.base_url}", flush=True)
     print("Cierra esta ventana o pulsa Ctrl+C para detenerlo.", flush=True)

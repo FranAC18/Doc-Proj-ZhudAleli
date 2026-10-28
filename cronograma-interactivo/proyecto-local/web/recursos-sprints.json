@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-20",
+  "edition": "2026-10-27",
   "sprints": [
     {
       "id": "S0",
@@ -37,99 +37,51 @@
     {
       "id": "S1",
       "title": "Requisitos y diseño",
-      "period": "15 sep–12 oct 2026",
-      "status": "Parcial",
-      "statusDetail": "Timebox cerrado administrativamente el 20 de octubre de 2026 con resultado parcialmente completo. El seguimiento local se concilió con el backlog: tres tareas en curso, dos bloqueadas y ninguna verificada. Persisten criterios, validaciones y estimaciones pendientes.",
+      "period": "15 sep–27 oct 2026 · periodo concluido",
+      "status": "Periodo concluido · resultado parcial",
+      "statusDetail": "El cierre administrativo se registró el 20/10; el periodo reordenado llega al 27/10. Los pendientes no se consideran completados.",
       "resources": [
         {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Plan vigente; revisión académica pendiente."
+          "group": "Plan vigente",
+          "label": "Plan de sprints v1.6 · preparado para revisión",
+          "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md",
+          "note": "Fechas y alcance propuestos; entrega objetivo 23/12."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Incluye tareas, relaciones y evidencia prevista."
+          "group": "Pila e historias",
+          "label": "Pila de producto v1.8 · propuesta",
+          "url": "/fuentes/pila_producto/pila_producto_v1.8_2026-10-27.md",
+          "note": "Orden por valor y dependencias, sin compromiso automático."
         },
         {
-          "group": "Requisitos y trazabilidad",
-          "label": "Requisitos generales v2.0",
-          "url": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
-          "note": "Edición documental vigente según el índice local."
+          "group": "Pila e historias",
+          "label": "Historias de usuario v2.6 · propuesta",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "note": "51 historias base y cinco candidatas de superadministración."
         },
         {
-          "group": "Requisitos y trazabilidad",
-          "label": "Priorización de requisitos v1.3",
-          "url": "/fuentes/requisitos/priorizacion/priorizacion_requisitos_v1.3_2026-10-13.md",
-          "note": "Prioridades y decisiones abiertas."
+          "group": "Requisitos",
+          "label": "Requisitos generales v2.1 · propuesta",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "note": "Línea base v2.0 preservada; RF-ACC-005 propuesto."
         },
         {
-          "group": "Requisitos y trazabilidad",
-          "label": "Registro de entrevista v1.1",
-          "url": "/fuentes/levantamiento/registro_entrevista_v1.1_2026-10-13.md",
-          "note": "Fuente del levantamiento de requisitos."
+          "group": "Historial de tareas",
+          "label": "Sprint backlog v1.4 · corte anterior",
+          "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
+          "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
         },
         {
-          "group": "Requisitos y trazabilidad",
-          "label": "Pendientes de cobertura de historias y pila",
-          "url": "/fuentes/seguimiento/pendientes_trazabilidad_v1.0_2026-10-19.md",
-          "note": "Identifica siete RF sin referencia y seis ampliaciones por cotejar."
-        },
-        {
-          "group": "Historias y producto",
-          "label": "Historias de usuario v2.5",
-          "url": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
-          "note": "Historias documentadas; cobertura pendiente de actualización."
-        },
-        {
-          "group": "Historias y producto",
-          "label": "Historias técnicas v1.6",
-          "url": "/fuentes/historias/tecnicas/historias_tecnicas_v1.6_2026-10-14.md",
-          "note": "Incluye las historias técnicas planificadas para S1."
-        },
-        {
-          "group": "Historias y producto",
-          "label": "Pila de producto v1.6",
-          "url": "/fuentes/pila_producto/pila_producto_v1.6_2026-10-14.md",
-          "note": "Pila vigente; estimación y capacidad siguen pendientes."
-        },
-        {
-          "group": "Arquitectura y diseño",
-          "label": "Arquitectura v1.1",
-          "url": "/fuentes/arquitectura/arquitectura_v1.1_2026-10-19.md",
-          "note": "Edición preparada el 19 de octubre."
-        },
-        {
-          "group": "Arquitectura y diseño",
-          "label": "Criterios de diseño v1.0",
-          "url": "/fuentes/diseno/criterios_diseno_v1.0_2026-10-12.md",
-          "note": "Criterios documentales de interfaz y diseño."
-        },
-        {
-          "group": "Evidencia y revisión",
-          "label": "Temas organizacionales de la entrevista",
-          "url": "/evidencias/requirements/2026-10-12-resumen-entrevista-temas-organizacionales.md",
-          "note": "Registro de temas que requieren decisiones o validación."
-        },
-        {
-          "group": "Evidencia y revisión",
-          "label": "Reporte de revisión en clase",
-          "url": "/evidencias/requirements/2026-10-13-reporte-revision-docente-en-clase.md",
-          "note": "Antecedente reportado por el tesista; no acredita una revisión académica formal."
-        },
-        {
-          "group": "Evidencia y revisión",
-          "label": "Estado de Sprint 0 y continuidad",
-          "url": "/fuentes/seguimiento/cierre_sprint_0_y_continuidad_v1.0_2026-10-19.md",
-          "note": "Resume por qué S1 se conserva como parcial y qué falta para su cierre."
+          "group": "Cierre",
+          "label": "Cierre parcial de S1 v1.2",
+          "url": "/fuentes/seguimiento/cierre_sprint_1_y_vistos_buenos_v1.2_2026-10-21.md",
+          "note": "Evidencia histórica del cierre administrativo parcial."
         }
       ],
       "planningInputs": {
         "scope": "Todas las HU como insumo de revisión; HU-PWA-001 se destaca explícitamente para revisar los recorridos móviles. Las HUs conservan su sprint de entrega.",
         "requirementScope": "all",
-        "allUserStoriesAsInput": true,
+        "allUserStoriesAsInput": false,
         "spotlightUserStories": [
           {
             "id": "HU-PWA-001",
@@ -201,127 +153,196 @@
     },
     {
       "id": "S2",
-      "title": "Acceso y administración",
-      "period": "13–26 oct 2026",
-      "status": "Plan de referencia",
-      "statusDetail": "Las fechas indican una ventana del plan; no demuestran por sí mismas ejecución ni aceptación.",
+      "title": "Acceso y superadministración",
+      "period": "En curso · cierre propuesto 8 nov 2026",
+      "status": "En curso",
+      "statusDetail": "Trabajo local de acceso en curso. El cierre del 8/11 y el alcance nuevo son propuestas sujetas a criterios y capacidad.",
       "resources": [
         {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Criterios previstos para el incremento."
+          "group": "Plan vigente",
+          "label": "Plan de sprints v1.6 · preparado para revisión",
+          "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md",
+          "note": "Fechas y alcance propuestos; entrega objetivo 23/12."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Tareas candidatas; estimación y responsable pendientes."
+          "group": "Pila e historias",
+          "label": "Pila de producto v1.8 · propuesta",
+          "url": "/fuentes/pila_producto/pila_producto_v1.8_2026-10-27.md",
+          "note": "Orden por valor y dependencias, sin compromiso automático."
+        },
+        {
+          "group": "Pila e historias",
+          "label": "Historias de usuario v2.6 · propuesta",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "note": "51 historias base y cinco candidatas de superadministración."
+        },
+        {
+          "group": "Requisitos",
+          "label": "Requisitos generales v2.1 · propuesta",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "note": "Línea base v2.0 preservada; RF-ACC-005 propuesto."
+        },
+        {
+          "group": "Historial de tareas",
+          "label": "Sprint backlog v1.4 · corte anterior",
+          "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
+          "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
         }
       ]
     },
     {
       "id": "S3",
-      "title": "Actividades y encargos",
-      "period": "27 oct–9 nov 2026",
-      "status": "Planificado",
-      "statusDetail": "Ventana planificada. Añade evidencia cuando se produzca una prueba, revisión o entrega.",
+      "title": "Planificación organizacional",
+      "period": "9–19 nov 2026 · propuesta",
+      "status": "Planificado · propuesta",
+      "statusDetail": "Ventana propuesta; la ubicación de historias no compromete ni acredita implementación.",
       "resources": [
         {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Objetivo y evidencia prevista del sprint."
+          "group": "Plan vigente",
+          "label": "Plan de sprints v1.6 · preparado para revisión",
+          "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md",
+          "note": "Fechas y alcance propuestos; entrega objetivo 23/12."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Tareas candidatas sujetas a estimación y capacidad."
+          "group": "Pila e historias",
+          "label": "Pila de producto v1.8 · propuesta",
+          "url": "/fuentes/pila_producto/pila_producto_v1.8_2026-10-27.md",
+          "note": "Orden por valor y dependencias, sin compromiso automático."
+        },
+        {
+          "group": "Pila e historias",
+          "label": "Historias de usuario v2.6 · propuesta",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "note": "51 historias base y cinco candidatas de superadministración."
+        },
+        {
+          "group": "Requisitos",
+          "label": "Requisitos generales v2.1 · propuesta",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "note": "Línea base v2.0 preservada; RF-ACC-005 propuesto."
+        },
+        {
+          "group": "Historial de tareas",
+          "label": "Sprint backlog v1.4 · corte anterior",
+          "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
+          "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
         }
       ]
     },
     {
       "id": "S4",
-      "title": "Asistencia y continuidad",
-      "period": "10–23 nov 2026",
-      "status": "Planificado",
-      "statusDetail": "Ventana planificada. Añade evidencia cuando se produzca una prueba, revisión o entrega.",
+      "title": "Asistencia y participación",
+      "period": "20–30 nov 2026 · propuesta",
+      "status": "Planificado · propuesta",
+      "statusDetail": "Ventana propuesta; la ubicación de historias no compromete ni acredita implementación.",
       "resources": [
         {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Objetivo y evidencia prevista del sprint."
+          "group": "Plan vigente",
+          "label": "Plan de sprints v1.6 · preparado para revisión",
+          "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md",
+          "note": "Fechas y alcance propuestos; entrega objetivo 23/12."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Tareas candidatas sujetas a decisiones abiertas."
+          "group": "Pila e historias",
+          "label": "Pila de producto v1.8 · propuesta",
+          "url": "/fuentes/pila_producto/pila_producto_v1.8_2026-10-27.md",
+          "note": "Orden por valor y dependencias, sin compromiso automático."
+        },
+        {
+          "group": "Pila e historias",
+          "label": "Historias de usuario v2.6 · propuesta",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "note": "51 historias base y cinco candidatas de superadministración."
+        },
+        {
+          "group": "Requisitos",
+          "label": "Requisitos generales v2.1 · propuesta",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "note": "Línea base v2.0 preservada; RF-ACC-005 propuesto."
+        },
+        {
+          "group": "Historial de tareas",
+          "label": "Sprint backlog v1.4 · corte anterior",
+          "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
+          "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
         }
       ]
     },
     {
       "id": "S5",
-      "title": "Producción y rendición",
-      "period": "24 nov–7 dic 2026",
-      "status": "Planificado",
-      "statusDetail": "Ventana planificada. Añade evidencia cuando se produzca una prueba, revisión o entrega.",
+      "title": "Trazabilidad productiva",
+      "period": "1–20 dic 2026 · propuesta",
+      "status": "Planificado · propuesta",
+      "statusDetail": "Ventana propuesta; la ubicación de historias no compromete ni acredita implementación.",
       "resources": [
         {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Objetivo y evidencia prevista del sprint."
+          "group": "Plan vigente",
+          "label": "Plan de sprints v1.6 · preparado para revisión",
+          "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md",
+          "note": "Fechas y alcance propuestos; entrega objetivo 23/12."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Tareas candidatas sujetas a estimación y capacidad."
-        }
-      ]
-    },
-    {
-      "id": "S6",
-      "title": "Reportes e integración",
-      "period": "8–21 dic 2026",
-      "status": "Planificado",
-      "statusDetail": "Ventana planificada. Añade evidencia cuando se produzca una prueba, revisión o entrega.",
-      "resources": [
-        {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Objetivo y evidencia prevista del sprint."
+          "group": "Pila e historias",
+          "label": "Pila de producto v1.8 · propuesta",
+          "url": "/fuentes/pila_producto/pila_producto_v1.8_2026-10-27.md",
+          "note": "Orden por valor y dependencias, sin compromiso automático."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Tareas candidatas sujetas a estimación y capacidad."
+          "group": "Pila e historias",
+          "label": "Historias de usuario v2.6 · propuesta",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "note": "51 historias base y cinco candidatas de superadministración."
+        },
+        {
+          "group": "Requisitos",
+          "label": "Requisitos generales v2.1 · propuesta",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "note": "Línea base v2.0 preservada; RF-ACC-005 propuesto."
+        },
+        {
+          "group": "Historial de tareas",
+          "label": "Sprint backlog v1.4 · corte anterior",
+          "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
+          "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
         }
       ]
     },
     {
       "id": "Cierre",
-      "title": "Validación y entrega",
-      "period": "22–23 dic 2026",
-      "status": "Planificado",
-      "statusDetail": "La entrega se limita a lo que realmente se complete y valide.",
+      "title": "Integración y entrega",
+      "period": "21–23 dic 2026 · propuesta",
+      "status": "Planificado · propuesta",
+      "statusDetail": "Ventana propuesta; la ubicación de historias no compromete ni acredita implementación.",
       "resources": [
         {
-          "group": "Plan y backlog",
-          "label": "Plan de sprints v1.3",
-          "url": "/fuentes/sprints/plan_sprints_v1.3_2026-10-14.md",
-          "note": "Criterios previstos para validación y cierre."
+          "group": "Plan vigente",
+          "label": "Plan de sprints v1.6 · preparado para revisión",
+          "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md",
+          "note": "Fechas y alcance propuestos; entrega objetivo 23/12."
         },
         {
-          "group": "Plan y backlog",
-          "label": "Sprint backlog v1.3",
-          "url": "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md",
-          "note": "Registrar resultados reales y pendientes explícitos."
+          "group": "Pila e historias",
+          "label": "Pila de producto v1.8 · propuesta",
+          "url": "/fuentes/pila_producto/pila_producto_v1.8_2026-10-27.md",
+          "note": "Orden por valor y dependencias, sin compromiso automático."
+        },
+        {
+          "group": "Pila e historias",
+          "label": "Historias de usuario v2.6 · propuesta",
+          "url": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "note": "51 historias base y cinco candidatas de superadministración."
+        },
+        {
+          "group": "Requisitos",
+          "label": "Requisitos generales v2.1 · propuesta",
+          "url": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "note": "Línea base v2.0 preservada; RF-ACC-005 propuesto."
+        },
+        {
+          "group": "Historial de tareas",
+          "label": "Sprint backlog v1.4 · corte anterior",
+          "url": "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md",
+          "note": "Sus tareas se seleccionan y reestiman por recorrido; S6 histórico no es un sprint vigente."
         }
       ]
     }

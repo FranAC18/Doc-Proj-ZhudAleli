@@ -1,31 +1,31 @@
+import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { createRequire } from "node:module";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
+import vm from "node:vm";
 import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const require = createRequire(import.meta.url);
-const { chromium } = require("playwright");
-const root = resolve("cronograma-interactivo/proyecto-local");
+const root = dirname(fileURLToPath(import.meta.url));
 const python = process.env.PYTHON || "python";
-const chrome = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const temporary = await mkdtemp(join(tmpdir(), "zhud-gantt-test-"));
+const temporary = await mkdtemp(join(tmpdir(), "zhud-dashboard-test-"));
 const statePath = join(temporary, "seguimiento.json");
-const processes = [];
+const dashboardStatePath = join(temporary, "dashboard_v5.json");
+let server;
 
-function startServer(path) {
+function startServer() {
   return new Promise((resolveStart, rejectStart) => {
-    const child = spawn(python, [join(root, "servidor.py"), "--no-browser", "--state-file", path], { cwd: root });
-    processes.push(child);
+    const child = spawn(python, [join(root, "servidor.py"), "--no-browser", "--port", "0", "--state-file", statePath, "--dashboard-state-file", dashboardStatePath], { cwd: root, windowsHide: true });
+    server = child;
     let output = "";
     let failure = "";
-    child.stderr.on("data", chunk => { failure += chunk.toString(); });
-    const timeout = setTimeout(() => rejectStart(Error("El servidor no arrancó.")), 10000);
+    const timeout = setTimeout(() => rejectStart(Error("El servidor local no arrancó.")), 10000);
     child.stdout.on("data", chunk => {
       output += chunk.toString();
       const match = output.match(/http:\/\/127\.0\.0\.1:\d+/);
-      if (match) { clearTimeout(timeout); resolveStart({ child, url: match[0] }); }
+      if (match) { clearTimeout(timeout); resolveStart(match[0]); }
     });
+    child.stderr.on("data", chunk => { failure += chunk.toString(); });
     child.on("error", error => { clearTimeout(timeout); rejectStart(error); });
     child.on("exit", code => {
       if (!output.includes("http://127.0.0.1:")) {
@@ -36,120 +36,99 @@ function startServer(path) {
   });
 }
 
-let browser;
 try {
-  const first = await startServer(statePath);
-  const second = await startServer(join(temporary, "otro-estado.json"));
-  if (first.url === second.url) throw Error("Los dos proyectos eligieron el mismo puerto.");
-  second.child.kill();
-  const duplicate = await startServer(statePath);
-  if (duplicate.url !== first.url) throw Error("Se abrió otro servidor para el mismo archivo.");
-  await new Promise(resolveWait => duplicate.child.exitCode !== null ? resolveWait() : duplicate.child.once("exit", resolveWait));
-
-  browser = await chromium.launch({ executablePath: chrome, headless: true, args: ["--no-sandbox"] });
-  const page = await browser.newPage({ viewport: { width: 1360, height: 900 } });
-  const errors = [];
-  page.on("pageerror", error => errors.push(error.message));
-  await page.goto(first.url);
-  await page.waitForFunction(() => document.querySelector("#file-status").textContent.includes("Avance cargado"));
-  if (await page.locator("#metric-tasks").innerText() !== "27") throw Error("Faltan tareas.");
-  const sprintSummary = page.locator("#sprint-overview > summary");
-  await sprintSummary.click();
-  if (await page.locator("#sprint-cards").isVisible()) throw Error("El resumen de sprints no se colapsó.");
-  await sprintSummary.click();
-  await page.locator("#sprint-next").click();
-  await page.waitForFunction(() => document.querySelector("#sprint-cards").scrollLeft > 0);
-  await page.locator("#sprint-prev").click();
-  await page.locator("#tab-matrix").click();
-  if (!(await page.locator("#panel-matrix").isVisible())) throw Error("El menú no abrió el seguimiento de tareas.");
-  await page.locator("#tab-gantt").click();
-  await page.locator('[data-open-resources="S1"]').click();
-  if (!(await page.locator(".sprint-task-row").count())) throw Error("El detalle del sprint no muestra sus tareas.");
-  await page.locator('[data-open="SB-S1-01"]').first().click();
-  if (!(await page.locator("#status-form").isVisible())) throw Error("No se pudo editar una tarea desde el sprint.");
-  await page.locator("#close-drawer").click();
-  const catalog = await (await page.request.get(first.url + "/recursos-sprints.json")).json();
-  if (!catalog.sprints.some(item => item.id === "S0") || !catalog.sprints.some(item => item.id === "S1")) throw Error("Faltan accesos de S0 o S1.");
-  const evidence = await page.request.get(first.url + "/evidencias/S0/2026-07-21-verificacion-cierre-sprint-0.md");
-  if (evidence.status() !== 200) throw Error("No se pudo abrir una evidencia de Sprint 0.");
-
-  await page.locator('[data-open="SB-S2-01"]').first().click();
-  await page.selectOption("#edit-status", "en_curso");
-  await page.locator("#edit-evidence").fill("https://example.org/evidencia-sb-s2-01");
-  await page.locator("#status-form button[type=submit]").click();
-  await page.waitForFunction(() => document.querySelector("#file-status").textContent.includes("Avance guardado"));
-  const written = JSON.parse(await readFile(statePath, "utf8"));
-  if (written.updates["SB-S2-01"]?.status !== "en_curso") throw Error("El avance no llegó al archivo.");
-  await page.locator('[data-open-resources="S0"]').click();
-  await page.locator(".resource-add-panel > summary").click();
-  await page.locator("#resource-label").fill("Acceso de prueba");
-  await page.locator("#resource-url").fill("https://example.org/evidencia-s0");
-  await page.locator('#resource-form button[type="submit"]').click();
-  await page.waitForFunction(() => document.querySelector("#toast").textContent.includes("Acceso agregado"));
-  const withResource = JSON.parse(await readFile(statePath, "utf8"));
-  if (withResource.resources?.[0]?.sprint !== "S0") throw Error("El acceso de evidencia no se guardó.");
-  await page.locator("#close-drawer").click();
-  const [download] = await Promise.all([
-    page.waitForEvent("download"),
-    page.locator("#export-button").click(),
-  ]);
-  const exported = JSON.parse(await readFile(await download.path(), "utf8"));
-  if (exported.updates["SB-S2-01"]?.status !== "en_curso") throw Error("La copia exportada no contiene el avance guardado.");
-  if (!exported.resources?.some(item => item.label === "Acceso de prueba")) throw Error("La copia exportada no contiene los accesos por sprint.");
-
-  const invalid = await page.request.post(first.url + "/api/seguimiento", {
-    headers: { "Content-Type": "application/json" },
-    data: JSON.stringify({ id: "SB-S2-01", record: { status: "verificada" } }),
-  });
-  if (invalid.status() !== 403) throw Error("El servidor aceptó una solicitud sin origen local.");
-  const invalidDocument = await page.request.post(first.url + "/api/abrir-documento", {
-    headers: { "Content-Type": "application/json", Origin: first.url },
-    data: JSON.stringify({ url: "/fuentes/../secreto.md" }),
-  });
-  if (invalidDocument.status() !== 400) throw Error("El servidor aceptó una ruta documental insegura.");
-  const source = await page.request.get(first.url + "/fuentes/sprints/sprint_backlog_v1.3_2026-10-14.md");
-  if (source.status() !== 200) throw Error("No se pudo abrir una fuente documental.");
-  await page.close();
-  first.child.kill();
-  await new Promise(resolveWait => first.child.once("exit", resolveWait));
-
-  const restarted = await startServer(statePath);
-  const reopened = await browser.newPage();
-  reopened.on("pageerror", error => errors.push(error.message));
-  await reopened.goto(restarted.url);
-  await reopened.waitForFunction(() => document.querySelector("#file-status").textContent.includes("Avance cargado"));
-  await reopened.locator('[data-open="SB-S2-01"]').first().click();
-  if (await reopened.locator("#edit-status").inputValue() !== "en_curso") throw Error("El avance no se recuperó tras reiniciar.");
-  if (await reopened.locator(".task-evidence-access a").getAttribute("href") !== "https://example.org/evidencia-sb-s2-01") throw Error("El enlace de evidencia no quedó clicable.");
-  await reopened.locator("#close-drawer").click();
-  await reopened.locator('[data-open-resources="S0"]').click();
-  if (!(await reopened.locator(".resource-row").filter({ hasText: "Acceso de prueba" }).count())) throw Error("El acceso del sprint no se recuperó al reiniciar.");
-
-  const imported = {
-    format: "zhud-aleli-gantt-v1", edition: "1.1", exportedAt: new Date().toISOString(),
-    updates: { "SB-S2-02": { status: "en_curso", evidence: "", reviewer: "", date: "", notes: "Desde el HTML anterior", updatedAt: new Date().toISOString() } },
+  const html = await readFile(join(root, "web", "index.html"), "utf8");
+  const sourceHtml = await readFile(join(root, "..", "index.html"), "utf8");
+  assert.ok(html.includes('id="view-backlog"') && html.includes('id="view-requirements"') && html.includes('id="view-kanban"') && html.includes('id="view-gantt"') && html.includes('id="view-audit"'), "La copia local contiene las cinco vistas del dashboard v5.");
+  assert.ok(html.includes('data-open-evidence=') && html.includes("local-evidence-bridge"), "La copia incluye el puente para abrir evidencias locales.");
+  assert.ok(html.includes("window.APP_SERVER_STATE") && html.includes("saveServerSnapshot") && html.includes("/api/dashboard-state"), "El dashboard lee y sincroniza el estado con el servidor local.");
+  const getData = input => {
+    const match = input.match(/window\.APP_DATA\s*=\s*(\{[\s\S]*?\})\s*;\s*<\/script>/);
+    assert.ok(match, "El HTML integra los datos del proyecto.");
+    return JSON.parse(match[1]);
   };
-  await reopened.locator("#import-file").setInputFiles({
-    name: "seguimiento-anterior.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(imported)),
+  assert.deepEqual(getData(html), getData(sourceHtml), "La copia local conserva exactamente los datos integrados en el dashboard fuente.");
+  for (const [index, match] of [...html.matchAll(/<script(?=[\s>])([^>]*)>([\s\S]*?)<\/script>/gi)].entries()) {
+    if (/\bsrc\s*=/.test(match[1])) continue;
+    new vm.Script(match[2], { filename: `inline-${index}.js` });
+  }
+
+  const url = await startServer();
+  const response = await fetch(url);
+  assert.equal(response.status, 200, "El servidor entrega el dashboard local.");
+  const csp = response.headers.get("content-security-policy") || "";
+  assert.match(csp, /script-src[^;]*'nonce-[^']+'/i, "El servidor permite los scripts en línea con nonce CSP.");
+  assert.doesNotMatch(csp, /script-src[^;]*unsafe-inline/i, "La política de scripts no habilita unsafe-inline.");
+  const servedHtml = await response.text();
+  const nonceMatch = csp.match(/'nonce-([^']+)'/);
+  assert.ok(nonceMatch, "El CSP contiene un nonce de esta respuesta.");
+  const scriptTags = [...servedHtml.matchAll(/<script(?=[\s>])([^>]*)>/gi)];
+  assert.ok(scriptTags.length > 0 && scriptTags.every(match => match[1].includes(`nonce="${nonceMatch[1]}"`)), "El nonce se aplica a todos los scripts del dashboard servido.");
+  assert.ok(servedHtml.includes("local-evidence-bridge"));
+
+  const snapshot = {
+    schema: "tesis_scrum_multireq_v1",
+    selectedSprint: "S1",
+    taskOverrides: {},
+    customTasks: [],
+    customSprints: [],
+    sprintStates: { S1: { closed: true } },
+    storyOverrides: { "HU-TEST": { title: "<script>alert(1)</script>" } },
+    customStories: [],
+    requirementOverrides: {},
+    customRequirements: [],
+    criteriaDone: {},
+    storyOrder: ["HU-01", "HU-02"],
+    audit: [],
+  };
+  const saved = await fetch(url + "/api/dashboard-state", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: url },
+    body: JSON.stringify({ state: snapshot }),
   });
-  await reopened.waitForFunction(() => document.querySelector("#toast").textContent.includes("1 registros"));
-  const afterImport = JSON.parse(await readFile(statePath, "utf8"));
-  if (afterImport.updates["SB-S2-02"]?.notes !== "Desde el HTML anterior") throw Error("La importación no llegó al archivo.");
-  if (!afterImport.resources?.some(item => item.label === "Acceso de prueba")) throw Error("La importación alteró los accesos existentes.");
-  await reopened.locator('[data-remove-resource]').click();
-  await reopened.waitForFunction(() => document.querySelector("#toast").textContent.includes("Acceso quitado"));
-  const removed = JSON.parse(await readFile(statePath, "utf8"));
-  if (removed.resources.some(item => item.label === "Acceso de prueba")) throw Error("El acceso quitado todavía está guardado.");
-  if (errors.length) throw Error(errors.join(" | "));
-  console.log("OK: carrusel plegable, menú, tareas por sprint, accesos S0/S1, alta/baja de enlaces, evidencia clicable, persistencia, importación, exportación y protección local.");
+  assert.equal(saved.status, 200, `El servidor guarda el snapshot del dashboard. Respuesta: ${await saved.text()}`);
+  const stored = await (await fetch(url + "/api/dashboard-state")).json();
+  assert.deepEqual(stored.state, snapshot, "El snapshot queda persistido en el JSON local.");
+  const unsafeState = await fetch(url + "/api/dashboard-state", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: url },
+    body: JSON.stringify({ state: { ...snapshot, schema: "otro-formato" } }),
+  });
+  assert.equal(unsafeState.status, 400, "El servidor rechaza snapshots con formato desconocido.");
+
+  const sourceResponse = await fetch(url + "/fuentes/sprints/sprint_backlog_v1.4_2026-10-21.md");
+  assert.equal(sourceResponse.status, 200, "Los documentos fuente siguen disponibles.");
+  const unsafe = await fetch(url + "/api/abrir-documento", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: url },
+    body: JSON.stringify({ url: "/fuentes/../secreto.md" }),
+  });
+  assert.equal(unsafe.status, 400, "El servidor rechaza rutas que salen de las carpetas permitidas.");
+  const loadedPage = await (await fetch(url + "/")).text();
+  assert.ok(loadedPage.includes("window.APP_SERVER_STATE="), "El servidor carga el seguimiento guardado al servir la aplicación.");
+  assert.ok(!loadedPage.includes("<script>alert(1)</script>"), "El estado guardado se escapa al integrarse al HTML.");
+  const external = await fetch(url + "/api/abrir-documento", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: "http://example.org" },
+    body: JSON.stringify({ url: "/fuentes/alcance" }),
+  });
+  assert.equal(external.status, 403, "El servidor rechaza solicitudes que no vienen del dashboard local.");
+  const oldUrl = url;
+  const stopped = new Promise(resolveStop => server.once("exit", resolveStop));
+  server.kill();
+  await stopped;
+  const restartedUrl = await startServer();
+  assert.notEqual(restartedUrl, oldUrl, "La prueba vuelve a abrir el servidor en un puerto distinto.");
+  const restored = await (await fetch(restartedUrl + "/api/dashboard-state")).json();
+  assert.deepEqual(restored.state, snapshot, "Los cambios sobreviven el reinicio del servidor y el cambio de puerto.");
+  const restoredHtml = await (await fetch(restartedUrl + "/")).text();
+  assert.ok(restoredHtml.includes("window.APP_SERVER_STATE="), "El dashboard recibe el estado persistido en la reapertura.");
+  console.log("OK: estado JSON persistente entre reinicios/puertos, carga al reabrir, CSP con nonce, cinco vistas y rutas locales seguras.");
 } finally {
-  if (browser) await browser.close();
-  for (const process of processes) {
-    if (process.exitCode === null && process.signalCode === null) {
-      const stopped = new Promise(resolveWait => process.once("exit", resolveWait));
-      process.kill();
-      await stopped;
-    }
+  if (server && server.exitCode === null && server.signalCode === null) {
+    const stopped = new Promise(resolveStop => server.once("exit", resolveStop));
+    server.kill();
+    await stopped;
   }
   await rm(temporary, { recursive: true, force: true });
 }

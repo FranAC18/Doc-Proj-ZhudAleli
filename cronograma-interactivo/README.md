@@ -1,8 +1,8 @@
 ---
 titulo: Dashboard ágil y trazabilidad del proyecto Zhud Alelí
 tipo: herramienta-interna
-version: "5.0"
-fecha: 2026-10-20
+version: "5.1"
+fecha: 2026-10-27
 ---
 
 # Dashboard ágil del proyecto
@@ -27,7 +27,7 @@ Cerrar un sprint solicita confirmación; las tareas no completadas y las histori
 
 ## Datos del proyecto
 
-El HTML integra `proyecto-local/web/datos-proyecto.json`, `recursos-sprints.json` y `proyecto-local/estado/seguimiento_sprints_zhud_aleli.json`. El catálogo actual incluye siete sprints, 51 HUs, 51 RF, nueve RNF, 19 historias técnicas y 27 tareas del backlog. Los puntos que no constan en las fuentes empiezan como **Sin estimar**; no se inventan estimaciones. Las fechas planificadas no demuestran por sí solas ejecución ni aceptación académica.
+El HTML integra `proyecto-local/web/datos-proyecto.json`, `recursos-sprints.json` y el seguimiento histórico local. El calendario vigente presenta S1–S5 e integración del 21 al 23 de diciembre. El catálogo contiene 56 HU (51 de línea base y cinco candidatas de superadministración), 59 RF (incluido `RF-ACC-005` propuesto), nueve RNF, 19 historias técnicas y 27 tareas históricas. Las tareas con código S6 se conservan en el backlog para selección y estimación posterior. Los puntos ausentes empiezan como **Sin estimar**; la ubicación propuesta de una historia no acredita compromiso, ejecución ni aceptación académica.
 
 La clave de guardado es `tesis_scrum_multireq_v1`. Migra el seguimiento de `thesis_agile_traceability_v1`, `tesis_scrum_app_v2`, `tesis_scrum_light_v1` y `zhud-aleli-gantt-v1`. Cada HU conserva una colección de requisitos asociados; los estados de cobertura se calculan desde las historias enlazadas. El avance global y el del sprint se miden por Story Points, sin inventar estimaciones ausentes. Los datos son locales al perfil y navegador. Las URL `http/https` abren en una pestaña nueva; las rutas de evidencia ya registradas se conservan y se pueden copiar desde la tarjeta.
 
@@ -42,6 +42,6 @@ python generar_dashboard.py
 node verificar_dashboard.mjs
 ```
 
-El generador integra los JSON fuente en `index.html` y crea `cronograma_interactivo_v5.0_2026-10-20.html`. Los cambios del backlog fuente requieren regenerar el HTML; los cambios locales guardados en el navegador se respaldan desde la aplicación.
+El generador integra los JSON fuente en `index.html` y crea `cronograma_interactivo_v5.1_2026-10-27.html`. Luego, `proyecto-local/actualizar_dashboard_local.py` actualiza la copia usada por el servidor local. Los cambios de estado guardados se conservan al actualizar el calendario.
 
 Google Fonts y Lucide Icons se cargan vía CDN; si no hay conexión, la tipografía usa fuentes del sistema y la aplicación mantiene su lógica y datos integrados.

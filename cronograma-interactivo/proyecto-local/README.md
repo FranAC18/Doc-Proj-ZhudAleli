@@ -1,112 +1,61 @@
 ---
-titulo: Cronograma interactivo como proyecto local
-tipo: analisis-interno
-version: "2.1"
-fecha: 2026-10-20
+titulo: Cronograma interactivo local de Zhud Aleli
+tipo: herramienta-interna
+version: "5.1"
+fecha: 2026-10-27
 estado: herramienta-local
 publicacion: no-destinada-al-repositorio-docente
 ---
 
-# Cronograma local de Zhud Alelí
+# Cronograma interactivo local
 
-Esta herramienta interna integra en una sola aplicación el tablero Kanban,
-Product Backlog, cronograma Gantt, matriz de trazabilidad, pendientes,
-bitácora y gestión de evidencias. Consulta sprints, tareas, historias y
-requisitos derivados de los documentos del proyecto, y registra cambios en
-el seguimiento local. No es la aplicación Django de la asociación ni modifica
-los documentos formales.
+El acceso directo **Abrir cronograma de sprints** inicia esta aplicación en el navegador y sirve el dashboard de trazabilidad v5.1. Incluye Product Backlog, Catálogo de Requisitos, Kanban, Gantt y Bitácora. La vista **Historias HU y HT** reúne 56 historias de usuario (cinco candidatas de superadministración) y 19 técnicas. El calendario vigente muestra S1–S5 e integración hasta el 23 de diciembre; S6 permanece solo como referencia histórica en las tareas que aún requieren selección. La constancia v1.2 conserva el cierre parcial de S1 sin declarar pendientes completados.
 
-## Abrir con doble clic
+## Abrir
 
 1. Tener Python 3.9 o posterior instalado en Windows.
 2. Abrir [Abrir cronograma.cmd](Abrir%20cronograma.cmd) con doble clic.
-3. Se abrirá el navegador en `http://127.0.0.1:<puerto libre>`.
-4. Dejar abierta la ventana negra mientras se usa el cronograma. Al cerrarla,
-   se detiene el servidor. Abrir de nuevo el mismo archivo para continuar.
+3. Se abre el navegador en `http://127.0.0.1:55478/`. Dejar abierta la ventana del servidor mientras se usa la aplicación.
 
-El puerto se elige automáticamente en cada inicio para evitar conflictos con
-otros proyectos. Si se abre el lanzador dos veces, la segunda apertura muestra
-la instancia existente en el navegador.
+El servidor escucha solo en `127.0.0.1`. Además de servir el HTML, permite abrir rutas locales permitidas de `documentacion/` y `docs/evidence/` en el Explorador de archivos. Los enlaces web de evidencia se abren en una pestaña nueva.
 
-## Guardado del avance
+## Actualizar el dashboard local
 
-**Guardar seguimiento** escribe en `estado/seguimiento_sprints_zhud_aleli.json`.
-Al abrir de nuevo la herramienta, se lee ese archivo. La carpeta `estado/` se
-crea al iniciar y el JSON al guardar la primera tarea; ambos quedan excluidos
-de Git. **Exportar copia**
-descarga un respaldo; **Importar seguimiento** incorpora un JSON anterior y
-conserva el registro más reciente por tarea. El mismo JSON incluye tareas
-locales, ediciones de planificación, estados de sprint y bitácora.
+Los JSON de `web/` son las fuentes del calendario. Después de regenerar `../index.html`, ejecuta desde esta carpeta:
 
-Si se registró avance en el HTML autónomo anterior, abrirlo, usar **Exportar
-copia** y después importar ese JSON en este proyecto. El navegador impide que
-un sitio en `localhost` lea automáticamente el almacenamiento de una página
-abierta como `file://`.
+```powershell
+python actualizar_dashboard_local.py
+```
 
-## Organización
+El actualizador copia el HTML actualizado a `web/index.html` y conserva el puente local de apertura de evidencias. Las fechas antiguas guardadas para tareas e historias conocidas se concilian con el plan nuevo; el avance, la evidencia y las ediciones propias permanecen. El servidor aplica un nonce CSP a los scripts en línea y mantiene la política restrictiva para el resto del contenido.
 
-| Ruta | Qué contiene |
+## Guardado y migración
+
+Los cambios se guardan en dos lugares: en `localStorage` con la clave `tesis_scrum_multireq_v1` y en `estado/dashboard_v5.json`, mediante el servidor local. El archivo JSON es el respaldo persistente del proyecto. Al iniciar, el dashboard carga ese archivo y lo combina con los datos del navegador. También conserva la importación y exportación de respaldos JSON.
+
+El archivo histórico `estado/seguimiento_sprints_zhud_aleli.json` se conserva intacto; la versión v5 guarda en `dashboard_v5.json`. La carpeta `estado/` no se publica en Git. Para mover el progreso a otro equipo o perfil, exporta un respaldo desde la aplicación y luego impórtalo.
+
+## Archivos principales
+
+| Ruta | Función |
 |---|---|
-| `Abrir cronograma.cmd` | Acceso de doble clic para Windows. |
-| `servidor.py` | Servidor local y guardado del avance. |
-| `web/index.html` | Estructura de la pantalla. |
-| `web/assets/styles.css` | Presentación visual. |
-| `web/assets/app.js` | Interacción del Gantt y comunicación con el servidor. |
-| `web/assets/interaction.css` | Tarjetas adaptables y panel de documentos por sprint. |
-| `web/datos-proyecto.json` | Sprints, tareas y relaciones generadas desde los documentos. |
-| `web/recursos-sprints.json` | Accesos documentales iniciales para S0–S6 y cierre. |
-| `estado/` | Avance local; se crea al usar la herramienta y no se versiona. |
-| `verificar_proyecto.mjs` | Prueba de puerto, guardado, reinicio e importación. |
+| `Abrir cronograma.cmd` | Inicia el servidor local para abrir el dashboard. |
+| `servidor.py` | Sirve el dashboard y abre archivos/carpetas permitidos en el Explorador. |
+| `actualizar_dashboard_local.py` | Sincroniza el último HTML raíz y añade el puente de evidencias local. |
+| `web/index.html` | Copia local autocontenida del dashboard v5. |
+| `web/datos-proyecto.json` y `recursos-sprints.json` | Fuentes vigentes del calendario, historias, requisitos y enlaces documentales. |
+| `estado/dashboard_v5.json` | Cambios del dashboard v5, guardados en el equipo y reutilizados entre sesiones. |
+| `estado/seguimiento_sprints_zhud_aleli.json` | Seguimiento histórico del dashboard anterior; se conserva sin cambios. |
+| `verificar_proyecto.mjs` | Prueba de persistencia entre reinicios y puertos, servidor, CSP y rutas seguras. |
 
-Para actualizar las referencias documentales, ejecutar
-`python ../generar_gantt.py` desde esta carpeta. Ese proceso regenera
-`web/datos-proyecto.json` sin tocar `estado/`.
+## Verificación
 
-## Documentos y evidencias por sprint
+Ejecuta:
 
-El resumen de sprints es un carrusel horizontal desplegable. Usa las flechas, el teclado o el desplazamiento táctil para elegir una etapa. Cada tarjeta abre el detalle con su lista de tareas, el avance registrado y los accesos documentales. Desde cada fila se puede editar una tarea y regresar al sprint sin perder el contexto.
+```powershell
+python actualizar_dashboard_local.py
+node ..\verificar_dashboard.mjs
+node verificar_proyecto.mjs
+```
 
-Los botones **Abrir en carpeta** y **Abrir evidencia** abren el Explorador de Windows y seleccionan el archivo local. Los documentos locales no se muestran dentro del navegador. Los enlaces web se abren en otra pestaña. La sección **Documentos fuente** usa el mismo comportamiento.
-
-En cada tarjeta, **Tareas y documentos** abre el detalle del sprint. Sprint 0
-incluye su cierre y pruebas históricas; S1 aparece como parcial, con sus
-pendientes de revisión visibles. El formulario del panel permite agregar o
-quitar enlaces web y rutas locales de `documentacion/` (`/fuentes/...`) o
-`docs/evidence/` (`/evidencias/...`). Se admiten documentos comunes como
-Markdown, PDF, Word, Excel, PowerPoint e imágenes. Los accesos agregados se
-guardan junto al seguimiento local y se incluyen en **Exportar avance**.
-
-En el detalle de una tarea, el campo de evidencia también acepta una URL o una
-ruta documental. Si es local y válida, el botón **Abrir evidencia** selecciona
-el archivo en su carpeta después de guardar. Los documentos fuente no se editan
-desde el cronograma.
-
-## Vistas y edición
-
-La navegación superior permite cambiar entre **Kanban**, **Product Backlog**,
-**Cronograma**, **Tareas y avance**, **Bitácora** y **Pendientes**. El Kanban
-muestra el estado de cada tarea y permite cambiarlo arrastrando tarjetas. La
-tabla del backlog reúne las historias, historias técnicas, requisitos y tareas
-del proyecto. Las búsquedas y filtros de sprints facilitan localizar elementos.
-
-El formulario **Nueva tarea** agrega tareas locales con prioridad, estimación,
-sprint, fechas y evidencia. Las tareas fuente se pueden editar para registrar
-su planificación y seguimiento local; no se reescriben las historias,
-requisitos ni documentos de origen. Solo las tareas agregadas localmente se
-pueden eliminar. El Gantt, las relaciones y la matriz conservan las tareas y
-trazabilidad del documento fuente.
-
-La bitácora registra cambios de estado, evidencia, estimación, tareas, accesos
-y apertura o cierre de sprints. Los estados de cierre se guardan como datos de
-seguimiento y no alteran el calendario planificado. Las tareas locales y sus
-ediciones se incluyen en el respaldo de seguimiento.
-
-## Verificación y límites
-
-La prueba de navegador comprobó la carga de 27 tareas, un puerto libre,
-guardado en JSON, recuperación tras reiniciar, importación, fuentes
-documentales y rechazo de solicitudes ajenas a la página local. El servidor
-escucha únicamente en `127.0.0.1`; no publica contenido en internet.
-
-La herramienta está en `F:\Tesis\App Tesis\cronograma-interactivo`; el acceso directo está en la raíz del proyecto. El repositorio del docente recibe
-solo los documentos finales de `documentacion/` tras confirmación específica.
+Google Fonts y Lucide Icons se cargan desde CDN. Sin conexión, la aplicación conserva la lógica y los datos integrados, y usa tipografía del sistema.

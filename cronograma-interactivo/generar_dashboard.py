@@ -12,7 +12,7 @@ TEMPLATE = HERE / "dashboard_template.html"
 TRACKING_FILE = HERE / "proyecto-local" / "estado" / "seguimiento_sprints_zhud_aleli.json"
 OUTPUTS = [
     HERE / "index.html",
-    HERE / "cronograma_interactivo_v5.0_2026-10-20.html",
+    HERE / "cronograma_interactivo_v5.1_2026-10-27.html",
 ]
 
 
