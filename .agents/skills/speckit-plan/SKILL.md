@@ -16,6 +16,14 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Zhud Alelí: ubicación de los artefactos
+
+La spec y el plan se escriben en el repositorio general `ZhudAleli`. El árbol de
+código planificado usa rutas desde la raíz Git independiente de `App-zhudaleli`
+(`config/`, `apps/`, `templates/`, `static/`, `tests/`), sin duplicar `specs/` o
+`docs/` en la app. Un RF y sprint vigentes permiten desarrollo directo aunque no
+se invoque esta skill; si existe un plan aprobado, se respeta.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before planning)**:

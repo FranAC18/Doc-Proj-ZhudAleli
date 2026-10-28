@@ -16,6 +16,13 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Zhud Alelí: propagación local
+
+La constitución y sus templates viven solo en `ZhudAleli`. Al cambiar reglas
+de Git, sincroniza el contrato común, roles canónicos y adaptadores/skills
+locales afectados, además de las plantillas. `App-zhudaleli` conserva únicamente
+la configuración técnica de la app; no se copia allí la constitución.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before constitution update)**:

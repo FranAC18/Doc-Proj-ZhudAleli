@@ -16,6 +16,14 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Zhud Alelí: ubicación de tareas y código
+
+Genera `tasks.md` solo en el repositorio general. Distingue en cada tarea las
+rutas de código relativas a la raíz Git de `App-zhudaleli` de las rutas de
+evidencia/matriz relativas a `ZhudAleli`. No crea agentes, specs ni docs de
+proceso en la app. La ausencia de `tasks.md` no veta desarrollo directo
+fundado en un RF y sprint vigentes.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before tasks generation)**:

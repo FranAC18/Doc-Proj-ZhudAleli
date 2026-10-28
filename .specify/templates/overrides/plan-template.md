@@ -27,6 +27,10 @@ write_owner: "[owner]"
 
 ## Comprobación de la constitución (Constitution Check)
 
+Este plan se guarda en el repositorio general. Su existencia no es una condición
+universal para iniciar código: el mínimo documental es RF y sprint vigentes. Si el plan
+existe y está aprobado, sus decisiones obligan al cambio afectado.
+
 | Puerta | Evidencia en este plan | Resultado |
 |---|---|---|
 | Requisito confirmado | [enlace/registro] | [pass/fail] |
@@ -38,6 +42,7 @@ write_owner: "[owner]"
 | UX/accesibilidad | [criterios] | [pass/fail] |
 | Trazabilidad | [IDs] | [pass/fail] |
 | Control humano/privacidad | [medidas] | [pass/fail] |
+| Raíz y remoto de código | App-zhudaleli; RF y sprint en ZhudAleli | [pass/fail] |
 
 Un `fail` bloquea la implementación del trabajo afectado o requiere ADR y aprobación
 explícita. No impide que el tesista cierre administrativamente el sprint y traslade pendientes.
@@ -83,6 +88,7 @@ aparecer en logs o evidencias.
 ## Estructura del proyecto (Project Structure)
 
 ```text
+# Raíz del repositorio App-zhudaleli
 apps/<module>/
 ├── models.py
 ├── migrations/
@@ -94,6 +100,8 @@ apps/<module>/
 └── tests/
 templates/components/
 static/
+
+# Solo en el repositorio general ZhudAleli
 specs/[###-feature]/
 docs/evidence/
 ```
@@ -117,7 +125,8 @@ Conservar descubrimiento nativo de modelos/migraciones; no crear apps futuras o 
 - Versión/contenido disponible y entorno piloto, si forma parte del alcance.
 - Migraciones, recursos, arranque, permisos, respaldo y recuperación antes de publicar.
 - Tareas y evidencia de prueba con socias, sin convertir hallazgos en requisitos aprobados.
-- Autorización concreta para Git/publicación; aceptar arquitectura no autoriza estas acciones.
+- Autorización concreta para Git/publicación; confirmar ruta y remoto de la app antes
+  de un push de código. Aceptar arquitectura no autoriza estas acciones.
 
 ## Evidencia y documentación
 

@@ -16,6 +16,23 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Zhud Alelí: dos repositorios
+
+Este comando procesa `specs/<id>/tasks.md` del repositorio general `ZhudAleli` y
+escribe código, migraciones y pruebas de producto solo en la raíz Git de
+`App-zhudaleli`. Antes de crear archivos, confirma ambas raíces y remotos. El
+paso genérico de `.gitignore` se aplica únicamente al repositorio de la app;
+nunca crea ni ajusta el `.gitignore` general para artefactos de código.
+
+Este flujo Spec Kit requiere sus artefactos por diseño. Su ausencia no bloquea el
+desarrollo directo autorizado por un RF y sprint vigentes: en ese caso usa el
+implementer sin invocar este comando. Un checklist incompleto es un hallazgo que
+se informa y prioriza según riesgo; no impone una aprobación documental extra
+para iniciar o commitear una porción independiente. Las decisiones materiales
+sin fuente y las verificaciones necesarias para declarar terminado el trabajo
+siguen siendo obligatorias. El implementer informa los resultados; el coordinador
+actualiza `tasks.md` y la matriz en el repositorio general.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before implementation)**:
@@ -54,7 +71,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
-1. Run `.specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
+1. Run `.specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks` from the general `ZhudAleli` repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
 2. **Check checklists status** (if FEATURE_DIR/checklists/ exists):
    - Scan all checklist files in the checklists/ directory
@@ -77,11 +94,9 @@ You **MUST** consider the user input before proceeding (if not empty).
      - **FAIL**: One or more checklists have incomplete items
 
    - **If any checklist is incomplete**:
-     - Display the table with incomplete item counts
-     - **STOP** and ask: "Some checklists are incomplete. Do you want to proceed with implementation anyway? (yes/no)"
-     - Wait for user response before continuing
-     - If user says "no" or "wait" or "stop", halt execution
-     - If user says "yes" or "proceed" or "continue", proceed to step 3
+     - Display the table with incomplete item counts and affected criteria.
+     - Continue independent work with a valid RF and sprint. Stop only the
+       specific behavior whose material decision or safety criterion is unresolved.
 
    - **If all checklists are complete**:
      - Display the table showing all checklists passed
@@ -100,7 +115,8 @@ You **MUST** consider the user input before proceeding (if not empty).
    - **REQUIRED**: Create/verify ignore files based on actual project setup:
 
    **Detection & Creation Logic**:
-   - Check if the following command succeeds to determine if the repository is a git repo (create/verify .gitignore if so):
+   - In `App-zhudaleli`, check if the following command succeeds to determine if
+     it is a git repo (create/verify its `.gitignore` if so):
 
      ```sh
      git rev-parse --git-dir 2>/dev/null
@@ -166,7 +182,9 @@ You **MUST** consider the user input before proceeding (if not empty).
    - For parallel tasks [P], continue with successful tasks, report failed ones
    - Provide clear error messages with context for debugging
    - Suggest next steps if implementation cannot proceed
-   - **IMPORTANT** For completed tasks, make sure to mark the task off as [X] in the tasks file.
+   - **IMPORTANT** For completed tasks, report the verification so the coordinator
+     can mark [X] in `tasks.md` of the general repository. Do not write that file
+     from the app worktree without a specific documentation assignment.
 
 9. Completion validation:
    - Verify all required tasks are completed

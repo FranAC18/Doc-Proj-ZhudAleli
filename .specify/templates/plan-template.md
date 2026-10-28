@@ -1,10 +1,12 @@
 # Implementation Plan: [FEATURE]
 
 <!-- Zhud Alelí: prefer templates/overrides/plan-template.md. Fallbacks MUST follow
-constitution 1.0.0 and ADR-0006: modular Django at repository root, explicit ownership,
+constitution 2.0.0, ADR-0006 and ADR-0008: modular Django at application repository root,
+explicit ownership,
 pragmatic layers, transactions, compatibility and incremental joint releases. The tesista
 may close a sprint administratively at any time; that does not mark unfinished work complete.
-Generic src/backend/frontend examples below MUST be replaced with approved config/apps paths. -->
+Generic src/backend/frontend examples below MUST be replaced with approved config/apps paths.
+Specs/plans live in the general repo; code, migrations and product tests live only in the app repo. -->
 
 **Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
 
@@ -63,7 +65,7 @@ specs/[###-feature]/
 └── tasks.md             # Phase 2 output (/speckit-tasks command - NOT created by /speckit-plan)
 ```
 
-### Source Code (repository root)
+### Source Code (App-zhudaleli repository root)
 <!--
   ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
   for this feature. Delete unused options and expand the chosen structure with

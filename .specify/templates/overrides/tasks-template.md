@@ -20,6 +20,11 @@ Formato: `[ID] [P?] [HU] [writer] acción con ruta exacta → verificación`.
   trasladar pendientes sin acta ni aprobación adicional. El cierre del periodo no completa tareas.
 - Constitución vigente y ADR-0006 gobiernan capas proporcionales, propiedad de escrituras
   y entrega conjunta; eliminar tareas/capas que el incremento no necesita.
+- ADR-0008: código, migraciones y pruebas de producto se escriben en la raíz Git de
+  `App-zhudaleli`; este `tasks.md`, la matriz y evidencia viven en `ZhudAleli`.
+- Un RF y sprint vigentes permiten iniciar desarrollo directo. Si este archivo existe,
+  sus tareas aprobadas se respetan; no se copia a la app ni se crea como requisito
+  para cada commit.
 
 ## Fase 1 — Preparación de la porción vertical
 
@@ -66,7 +71,8 @@ no comparten archivos ni una migración ordenada.
 - [ ] Migraciones/contratos compatibles y recuperación comprobada donde haya cambios.
 - [ ] Interfaz revisada en móvil y escritorio.
 - [ ] `git diff --check` y diff completo revisados.
-- [ ] Evidencia, matriz y documentación actualizadas.
+- [ ] Evidencia y matriz general actualizadas para declarar el incremento terminado;
+      su ausencia dentro del repo de la app no bloquea commits intermedios.
 - [ ] El tesista puede cerrar el periodo con pendientes; no se exige una puerta adicional ni
       cambiar el estado de tareas que no estén verificadas.
 - [ ] No hay credenciales, datos personales ni cambios fuera de alcance.

@@ -16,6 +16,13 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Zhud Alelí: comparación entre repositorios
+
+Lee spec, plan y tareas del repositorio general; compara con código y pruebas
+de `App-zhudaleli`. Confirma ambas raíces Git antes de evaluar cobertura y
+agrega tareas solo al `tasks.md` general. No interpreta la ausencia de docs de
+proceso en la app como defecto de implementación.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before convergence)**:

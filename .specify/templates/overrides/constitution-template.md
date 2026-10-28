@@ -10,11 +10,14 @@
 
 Cada funcionalidad resuelve un problema identificado para un actor y enlaza una fuente. Una
 propuesta de IA no se convierte en requisito aprobado.
+Para iniciar código basta un requisito vigente con criterios verificables y su sprint;
+las specs, planes y tareas aprobados se respetan cuando existen.
 
 ### II. Portabilidad del proceso
 
 Requisitos, especificaciones, decisiones, tareas, pruebas y evidencias son artefactos abiertos
-versionados. Cambiar de motor no cambia el alcance ni la definición de terminado.
+versionados en sus repositorios respectivos. Cambiar de motor no cambia el alcance ni la
+definición de terminado.
 
 ### III. Calidad demostrable
 
@@ -40,7 +43,8 @@ valida con perfiles reales.
 ### VI. Trazabilidad académica continua
 
 Cada requisito enlaza objetivo, fuente, sprint, diseño, código, prueba, evidencia y evaluación.
-Obsidian muestra los mismos archivos de Git.
+La matriz del repositorio general enlaza RF, sprint y PR/tag de la app. Obsidian muestra
+los archivos del repositorio general.
 
 ### VII. Control humano y privacidad
 
@@ -49,6 +53,16 @@ acta adicional. Registra fecha, resultado y pendientes en el estado, backlog o c
 ya use. El cierre no completa tareas ni aprueba requisitos o entregables. El tesista controla
 alcance y Git. No se publican credenciales ni datos personales. Cambios irreversibles o externos
 requieren autorización explícita.
+
+## Repositorios y Git
+
+El repositorio general conserva constitución, specs, requisitos, sprints, agentes y
+documentación; ignora `/app/`. `App-zhudaleli` contiene solo código y configuración
+técnica de producto. Los commits de código usan
+`tipo(scope): descripción [RF-XXX][SPRINT-N]`, ramas feature y PR a `main` protegida.
+Antes de push se verifican ruta, raíz Git y `git remote -v`. No se usa `git add .`
+desde el workspace general ni force push a `main`. La ausencia de documentos de
+proceso en la app no bloquea commits.
 
 ## Restricciones técnicas
 
@@ -62,11 +76,10 @@ requieren autorización explícita.
 
 ## Puertas de calidad
 
-1. Requisito validado.
-2. Plan de datos, permisos, UX y pruebas.
-3. Tareas acotadas y propiedad de archivos.
-4. Implementación probada y revisada.
-5. Cierre administrativo decidido por el tesista, con registro breve del resultado y los
+1. Requisito y sprint vigentes, con decisiones materiales resueltas.
+2. Preparación proporcional del cambio sin exigir un documento adicional.
+3. Implementación probada y revisada antes de declararla terminada.
+4. Cierre administrativo decidido por el tesista, con registro breve del resultado y los
    pendientes; no requiere una revisión previa, aprobación adicional ni acta formal.
 
 El cierre del periodo puede ser parcial o bloqueado. La evidencia sigue siendo necesaria para

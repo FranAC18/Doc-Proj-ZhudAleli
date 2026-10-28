@@ -1,30 +1,31 @@
 <!--
 Sync Impact Report — 2026-10-20
-Version change: 0.2.0 → 1.0.0 (MAJOR: se redefine la puerta de cierre administrativo del sprint).
-Modified principles: III. Calidad demostrable; VII. Control humano, privacidad y cambios reversibles.
+Version change: 1.0.0 → 2.0.0 (MAJOR: se elimina la dependencia obligatoria de
+spec/plan/tasks como trámite previo a todo desarrollo y se separan los repositorios).
+Modified principles: I. Valor validado antes que volumen de código;
+II. Portabilidad del proceso, no dependencia del modelo;
+VI. Trazabilidad académica continua; VII. Control humano, privacidad y cambios reversibles.
 Modified sections: Puertas del flujo; Gobierno.
-Added guidance: autoridad exclusiva del tesista para cerrar/reabrir periodos, registro mínimo
-de estado y pendientes, y separación entre cierre del periodo y finalización del trabajo.
-Removed rule: fallar una puerta de calidad ya no impide cerrar administrativamente el sprint.
-✅ Sincronización: templates base plan/tasks; overrides constitution/plan/tasks/README;
-AGENTS.md; agents/tesis/OBSIDIAN_POLICY.md y PROJECT_CONTEXT.md;
-docs/context/context-index.md y feature-index.md; docs/traceability/MATRIZ-TRAZABILIDAD.md;
-docs/bitacora/ESTADO-ACTIVO.md.
-✅ Revisión de templates spec/checklist y skills/comandos Spec Kit: no añaden una aprobación
-al cierre; la autoridad de la constitución prevalece sobre los ejemplos genéricos.
-Decision: docs/decisions/ADR-0007-autoridad-del-tesista-para-cierre-de-sprints.md.
-Approval: solicitud explícita del tesista del 2026-10-20.
-No follow-up approval is required for administrative sprint closure. No placeholders deferred.
-This amendment does not claim unfinished tasks, criteria or product validations are complete.
+Added section: Repositorios y Git.
+Removed rule: la ausencia de spec, plan, tareas o checklist bloquea por sí sola un
+commit de código vinculado a un requisito y sprint vigentes.
+✅ Sincronización: AGENTS.md, README.md, roles/adaptadores de implementer, documenter y
+git-manager; skills locales relevantes; templates base y overrides plan/tasks;
+docs/context/context-index.md, feature-index.md, PLAN-DESDE-CERO.md,
+OBSIDIAN_POLICY.md y matriz de trazabilidad.
+Decision: docs/decisions/ADR-0008-separacion-repositorios-y-flujo-git.md.
+Approval: plan confirmado expresamente por el tesista el 2026-10-20.
+No placeholders deferred. Esta enmienda no declara implementada la aplicación ni cerrados
+los criterios pendientes del Sprint 1.
 -->
 
 # Constitución de ingeniería de Zhud Alelí
 
 - **Estado**: Aprobada por el tesista
-- **Versión**: 1.0.0
+- **Versión**: 2.0.0
 - **Propuesta**: 2026-07-21
 - **Ratificación**: 2026-07-21 por el tesista
-- **Última enmienda**: 2026-10-20, solicitud explícita del tesista registrada en ADR-0007.
+- **Última enmienda**: 2026-10-20, separación de repositorios registrada en ADR-0008.
 
 ## Principios centrales
 
@@ -36,13 +37,22 @@ implementan reglas organizativas, fórmulas, permisos o reportes que dependan de
 campo pendientes. Cuando falte una decisión material, la funcionalidad permanece en borrador
 o bloqueada.
 
+Para iniciar una porción de código basta como base documental un requisito vigente con
+fuente, alcance y criterios verificables, y el sprint al que pertenece. Las specs, planes,
+tareas y checklists aprobados se respetan cuando existen; su ausencia no exige producir
+documentos adicionales antes de programar o registrar un commit. Si el requisito no permite
+determinar con seguridad el comportamiento, se aclara esa decisión concreta antes de
+implementarla, sin bloquear otras porciones independientes.
+
 ### II. Portabilidad del proceso, no dependencia del modelo
 
 Requisitos, especificaciones, decisiones, tareas, pruebas y evidencias deben ser Markdown,
-código o datos abiertos versionados en Git. Ningún comportamiento esencial depende del
-historial privado de un proveedor. `AGENTS.md` es el contrato común; los directorios de cada
-motor solo lo adaptan a su interfaz. Cambiar de Codex a Kimi o GLM no puede cambiar el alcance
-aprobado ni la definición de terminado.
+código o datos abiertos versionados en los repositorios que les corresponden. Ningún
+comportamiento esencial depende del historial privado de un proveedor. `AGENTS.md` del
+repositorio general es el contrato común; los directorios de cada motor solo lo adaptan a
+su interfaz. Cambiar de Codex a Kimi o GLM no puede cambiar el alcance aprobado ni la
+definición de terminado. El código consulta el requisito y sprint vigentes en el repositorio
+general; esos documentos no se duplican en el repositorio de la aplicación.
 
 ### III. Calidad demostrable
 
@@ -87,8 +97,10 @@ interfaz principal no será el Django Admin y se validarán recorridos con usuar
 
 Cada requisito aprobado enlaza objetivo específico, fuente, sprint, diseño, código, prueba,
 evidencia y resultado de evaluación ISO/IEC 25010:2023 cuando corresponda. La documentación
-se actualiza durante el desarrollo, no al final. Obsidian visualiza los mismos archivos del
-repositorio; no crea una segunda fuente de verdad.
+se actualiza durante el desarrollo sin convertirse en una barrera para cada commit de código.
+La matriz del repositorio general enlaza requisito, sprint, PR y tag de la aplicación cuando
+exista una entrega de código. Obsidian visualiza los archivos del repositorio general; no
+crea una segunda fuente de verdad.
 
 ### VII. Control humano, privacidad y cambios reversibles
 
@@ -109,6 +121,36 @@ El tesista también conserva control de alcance, aprobación, Git y publicación
 hace `commit`, `push`, `merge`, reescritura de historia ni acciones irreversibles sin solicitud
 explícita. No se versionan credenciales ni datos personales innecesarios. Las afirmaciones de
 cumplimiento normativo necesitan fuente oficial y validación humana.
+
+## Repositorios y Git
+
+- **Repositorio general `ZhudAleli`**: contiene `.specify/`, `specs/`, `docs/`,
+  `documentacion/` revisada, `agents/`, `.agents/`, adaptadores de agentes, plantillas,
+  requisitos, sprints y herramientas del proceso. Excluye `/app/` mediante `.gitignore`.
+  Nunca recibe commits de código de la aplicación, migraciones Django ni pruebas de producto.
+- **Repositorio de aplicación `FranAC18/App-zhudaleli`**: contiene únicamente código Django,
+  migraciones, pruebas de producto, plantillas y estáticos fuente, dependencias,
+  configuración de ejecución/CI, `.gitignore` y un README técnico breve. No contiene
+  agentes, skills, specs, requisitos, bitácoras, matriz ni documentación de proceso.
+- Todo commit y push de código se hace desde la raíz Git de la aplicación. Antes de cada
+  push se comprueban la ruta actual, `git rev-parse --show-toplevel`, `git remote -v`, la
+  URL de push, rama y archivos incluidos. Está prohibido usar `git add .` desde la raíz
+  del workspace general y hacer force push a `main`.
+- Los commits de la aplicación usan Conventional Commits y referencias reales:
+  `tipo(scope): descripción [RF-XXX][SPRINT-N]`. `RF-XXX` representa el ID completo
+  vigente, por ejemplo `RF-ACC-001`; `N` es el sprint de ejecución del cambio,
+  que puede diferir del sprint originalmente planificado. No se inventan IDs.
+- `main` de la aplicación se protege en GitHub. El desarrollo usa ramas
+  `feature/RF-XXX-descripcion` y entra a `main` mediante PR. Las operaciones iniciales
+  necesarias para establecer un repositorio vacío se documentan como bootstrap; después
+  se configura protección con PR requerido y force push deshabilitado.
+- Cada cierre de sprint con código integrado identifica el commit de la app mediante un
+  tag `sprint-N` y actualiza en el repositorio general la matriz requisito → sprint →
+  PR/tag. Si no hubo entrega de código, la matriz declara `sin entrega de código`; no
+  se crea un tag que sugiera una versión inexistente.
+- La ausencia de documentos del proceso en la app nunca bloquea un commit. Para desarrollar
+  se consulta en el repositorio general el requisito y sprint vigentes; las pruebas,
+  revisión de permisos y seguridad siguen siendo proporcionales al cambio.
 
 ## Restricciones técnicas
 
@@ -131,11 +173,15 @@ cumplimiento normativo necesitan fuente oficial y validación humana.
 
 ## Puertas del flujo
 
-1. **Puerta de requisito**: fuente, actor, alcance, criterios y dudas materiales resueltas.
-2. **Puerta de plan**: datos, permisos, interfaz, pruebas, riesgos y trazabilidad definidos.
-3. **Puerta de implementación**: tareas con rutas y un escritor asignado.
-4. **Puerta de revisión**: pruebas pasan, diff revisado y hallazgos críticos resueltos.
-5. **Cierre administrativo del sprint**: lo decide exclusivamente el tesista, en la fecha
+1. **Base para desarrollo**: requisito y sprint vigentes, alcance y criterios verificables;
+   decisiones materiales del comportamiento resueltas. No exige un archivo adicional.
+2. **Preparación proporcional**: rutas, escritor, datos, permisos y verificación esperada
+   definidos para el cambio. Puede registrarse en una tarea, PR o handoff; no obliga a
+   crear `plan.md` o `tasks.md` cuando no existen.
+3. **Revisión del trabajo**: pruebas proporcionales, diff revisado y hallazgos críticos
+   resueltos antes de declarar terminado o publicar un incremento. Un commit intermedio
+   puede conservar trabajo incompleto con su estado indicado con veracidad.
+4. **Cierre administrativo del sprint**: lo decide exclusivamente el tesista, en la fecha
    que elija. No requiere aprobación externa, acta, revisión previa de todas las evidencias ni
    completar las puertas anteriores. La decisión se anota brevemente en el estado activo,
    backlog o checkpoint existente, al cerrar o después; el apunte no es una condición previa,
@@ -156,6 +202,8 @@ automáticamente requisitos, decisiones o entregables.
   requisitos aprobados ni la metodología académica, y no requiere esa revisión.
 - Una puerta de calidad puede impedir declarar terminado el trabajo afectado, pero no puede
   exigir permiso o trámite adicional para que el tesista cierre un sprint o continúe al siguiente.
+- La separación de repositorios y la base documental mínima de desarrollo se registran en
+  ADR-0008. El repositorio de aplicación no se usa para suplir decisiones de requisitos.
 - Los agentes deben señalar una contradicción en vez de escoger silenciosamente una fuente.
 - Las enmiendas usan versión semántica: MAJOR para cambios incompatibles de principios,
   MINOR para ampliación material y PATCH para ajustes no semánticos. La revisión de planes
@@ -164,4 +212,4 @@ automáticamente requisitos, decisiones o entregables.
   cierre administrativo; ninguno aprueba automáticamente requisitos futuros, specs,
   infraestructura ni acciones Git/publicación.
 
-**Versión**: 1.0.0 | **Propuesta**: 2026-07-21 | **Última modificación**: 2026-10-20
+**Versión**: 2.0.0 | **Propuesta**: 2026-07-21 | **Última modificación**: 2026-10-20

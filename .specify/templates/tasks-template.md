@@ -5,11 +5,13 @@ description: "Task list template for feature implementation"
 
 # Tasks: [FEATURE NAME]
 
-<!-- Zhud Alelí: prefer templates/overrides/tasks-template.md. Constitution 1.0.0 and ADR-0006
-override generic examples: use approved repository-root config/apps paths, a single writer,
+<!-- Zhud Alelí: prefer templates/overrides/tasks-template.md. Constitution 2.0.0,
+ADR-0006 and ADR-0008 override generic examples: use approved App-zhudaleli root
+config/apps paths, a single writer,
 behavior tests proportional to risk, explicit module dependencies and incremental joint
 releases. The tesista may close a sprint with unfinished tasks; do not relabel them complete.
-Do not generate empty services/apps. Git/publication require user authorization. -->
+Do not generate empty services/apps. Specs/tasks remain in the general repo and do not
+need copies in the app. Git/publication require user authorization. -->
 
 **Input**: Design documents from `/specs/[###-feature-name]/`
 
