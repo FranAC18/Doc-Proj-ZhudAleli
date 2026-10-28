@@ -19,11 +19,11 @@ publicacion: pendiente-de-confirmacion
 
 # Pila de producto
 
-La copia mantiene sin cambios la línea base de 51 historias de usuario y 9 historias técnicas (60 elementos), y su lista principal de 65 filas, que incluye las cinco HT-PRE aceptadas para S1 el 2026-10-21. Esta v1.8 es una propuesta interna basada en la [pila v1.7](../../../documentacion/pila_producto/pila_producto_v1.7_2026-10-21.md): agrega cinco historias candidatas fuera de la línea base, sin sprint, prioridad ni estimación. Las historias de usuario se detallan en [[2026-10-27-historias-usuario-v2.6-superadmin|la propuesta v2.6]]; las historias técnicas vigentes están en [v1.7](../../../documentacion/historias/tecnicas/historias_tecnicas_v1.7_2026-10-21.md). La petición de panel se reporta como proveniente de la presidenta por el tesista; su validación directa está pendiente.
+La copia mantiene la línea base de 51 historias de usuario y 9 historias técnicas (60 elementos), y su lista principal de 65 filas, que incluye las cinco HT-PRE aceptadas para S1 el 2026-10-21. Esta v1.8 es una propuesta interna basada en la [pila v1.7](../../../documentacion/pila_producto/pila_producto_v1.7_2026-10-21.md) y agrega cinco historias candidatas fuera de la línea base. El tesista decidió el 2026-10-27 definir el acceso y la superadministración en S1, implementar la base de acceso y permisos en S2 y las funciones de cada módulo en S3–S5. La presidenta validó el rol de superadministradora con autoridad para gestionar todo el sistema, según el tesista; la evidencia queda pendiente de adjuntar. Las historias de usuario se detallan en [[2026-10-27-historias-usuario-v2.6-superadmin|la propuesta v2.6]]; las historias técnicas vigentes están en [v1.7](../../../documentacion/historias/tecnicas/historias_tecnicas_v1.7_2026-10-21.md). La capacidad comunicada es 16–25 horas semanales; prioridades y estimaciones por historia siguen pendientes.
 
-## Listado principal ordenado por primer sprint previsto
+## Listado principal del corte anterior, ordenado por primer sprint previsto
 
-El listado principal reúne las 60 historias de la línea base y las cinco historias técnicas aceptadas para S1 el 2026-10-21 (65 registros en total). Las cinco HT-PRE se incorporan en el bloque S1; la columna «Origen» distingue las entradas de línea base de las aceptadas por el tesista. Las filas se ordenan por el primer sprint previsto y se conservan los rangos transversales originales. La aceptación no reabre el timebox de S1, no completa tareas ni valida requisitos o criterios.
+El listado principal reúne las 60 historias de la línea base y las cinco historias técnicas aceptadas para S1 el 2026-10-21 (65 registros en total). Las cinco HT-PRE se incorporan en el bloque S1; la columna «Origen» distingue las entradas de línea base de las aceptadas por el tesista. Las filas y su columna de sprint conservan el corte del 2026-10-21 para trazabilidad; la ejecución S2–S5 se rige por la hoja de ruta del 2026-10-27 y se afina al seleccionar historias. La nota del 2026-10-21 decía que esa aceptación no reabría el timebox; la decisión expresa del tesista del 2026-10-27 amplía el periodo documental de S1 hasta esa fecha para definir acceso y superadministración. La ampliación no completa tareas ni valida por sí sola requisitos o criterios.
 
 | Orden | Código | Tipo | Nombre | Prioridad propuesta | Sprint previsto | Origen |
 |---:|---|---|---|---|---|---|
@@ -107,26 +107,56 @@ Estas cinco historias permanecen separadas del listado principal: no forman part
 
 ## Elementos candidatos de administración organizacional
 
-Estas historias no se añaden a la lista principal ni a las 60 posiciones de la línea base; no
-representan planificación ni alteran los sprints S1–S6. La nota “posterior al trabajo de acceso
-activo” es únicamente una restricción de secuencia para evaluar después, no una asignación.
+Estas historias permanecen fuera de las 60 posiciones de la línea base y conservan estado
+propuesto. Su definición general corresponde a S1; la base de cuentas y permisos se
+ubica en S2 y las operaciones de negocio en S3–S5 con el módulo propietario.
+El tesista decidió que la Superadministradora podrá realizar todas las acciones de una
+usuaria normal en cada módulo y además administrar registros, valores de campos
+existentes y opciones publicadas desde su panel. Esta autoridad transversal no exige
+asignación individual de módulo y no crea campos físicos desde la interfaz.
 
 | Código | Tipo | Nombre | Prioridad | Sprint | Estado |
 |---|---|---|---|---|---|
-| `HU-ACC-005` | Usuario | Asignar o retirar acceso a módulos | Pendiente | Sin asignación | Propuesta |
-| `HU-ACC-006` | Usuario | Conceder o revocar autoridad administrativa | Pendiente | Sin asignación | Propuesta |
-| `HU-ACC-007` | Usuario | Consultar intentos recientes y configurar bloqueo de acceso | Pendiente | Sin asignación | Propuesta |
-| `HU-ACC-008` | Usuario | Gestionar catálogos y fórmulas expuestos por los módulos | Pendiente | Sin asignación | Propuesta |
-| `HU-ACC-009` | Usuario | Consultar y corregir registros mediante el módulo propietario | Pendiente | Sin asignación | Propuesta |
+| `HU-ACC-005` | Usuario | Asignar o retirar acceso a módulos | Pendiente | Definición S1; implementación S2 | Propuesta |
+| `HU-ACC-006` | Usuario | Conceder o revocar autoridad administrativa | Pendiente | Alta inicial autorizada en S2; delegación posterior sujeta a regla | Propuesta |
+| `HU-ACC-007` | Usuario | Consultar intentos recientes y configurar bloqueo de acceso | Pendiente | Definición S1; implementación S2 | Propuesta |
+| `HU-ACC-008` | Usuario | Editar opciones, valores de campos existentes, catálogos y fórmulas expuestos por los módulos | Pendiente | Permisos base S2; detalle e implementación por módulo S3–S5 | Propuesta |
+| `HU-ACC-009` | Usuario | Crear, consultar y corregir asistencia y otros registros mediante el módulo propietario | Pendiente | Permisos base S2; detalle e implementación por módulo S3–S5 | Propuesta |
 
 Los refinamientos de HU-ACC-002 y HU-ACC-003 continúan vinculados a sus posiciones de la línea
-base y no cambian su prioridad o sprint propuestos en la fuente. Su inclusión en esta revisión
-no activa esos trabajos ni modifica `SB-S2-02` / `SB-S2-03`. Los nuevos elementos se evaluarán
-después del trabajo de acceso actualmente activo cuando el tesista decida la prioridad.
+base. Su definición se incorpora al trabajo documental de S1; la prioridad y la estimación
+siguen pendientes. `SB-S2-02` permanece como implementación activa de S2 y no se declara
+terminado por este cambio.
+
+## Decisión operativa del tesista: S1 documental y S2 de implementación — 2026-10-27
+
+| Campo | Registro |
+|---|---|
+| Autor y fecha | Tesista, 2026-10-27 |
+| S1 | Definición documental integral de login, sesión y superadministración, con término indicado para el 2026-10-27. La fuente v1.4 inicia S1 el 2026-09-15. |
+| Entregables de definición y validación | Requisitos, historias, especificación, matriz de permisos y diseño de pantallas, con registro de la validación correspondiente. |
+| S2 | Acceso, cuentas y estructura de permisos; comenzó el 2026-10-14 y tiene cierre propuesto para el 2026-11-08 tras la replanificación. |
+| S3–S5 | Funciones de gestión organizacional y trazabilidad por módulos, según capacidad y reglas validadas. |
+| Capacidad y estimaciones | El tesista comunicó 16–25 horas semanales; estimaciones por historia pendientes. |
+| Estado de cumplimiento | La fecha de término de S1 queda fijada por la decisión; el cotejo de entregables y su finalización real siguen pendientes. |
+| Solapamiento | Las fechas comunicadas hacen que S1 y S2 se solapen del 2026-10-14 al 2026-10-27. Se registra el intervalo reportado sin inferir un corte distinto. |
+| Validación presidencial del rol | «validado por la presidenta (según el tesista)»; evidencia: pendiente de adjuntar. |
+
+Esta decisión reemplaza para acceso y superadministración la nota previa de no alterar S1–S6 y
+de dejar la administración para después del trabajo activo de acceso. También sustituye, para
+este alcance, la nota del 2026-10-21 de que las HT-PRE aceptadas no reabrían el timebox de S1.
+Los registros anteriores se conservan como historia. La decisión de asignación a sprint no
+aprueba `RF-ACC-005`, SPEC-002 ni cada criterio candidato.
+
+En S1 se define el proceso completo de login, sesiones, cuentas, política de acceso,
+superadministración y configuración base de acceso. También se identifica qué configuraciones
+y operaciones ofrece cada módulo. La profundidad de altas, cambios, bajas y correcciones de
+datos, así como las fórmulas y catálogos concretos, se define módulo por módulo; esos detalles
+no quedan cerrados en S1 por esta decisión.
 
 ## Pendientes para planificar
 
-Las reglas P-02 a P-14, la revisión académica, la estimación y la capacidad se registran antes de comprometer una historia. Las necesidades adicionales de entrevista permanecen en la [edición anterior](../../../documentacion/pila_producto/pila_producto_v1.4_2026-10-13.md) hasta que se validen. El orden puede cambiar con una decisión humana registrada.
+Las reglas P-02 a P-14, la revisión académica y la estimación se registran antes de cerrar cada detalle afectado. Las necesidades adicionales de entrevista permanecen en la [edición anterior](../../../documentacion/pila_producto/pila_producto_v1.4_2026-10-13.md) hasta que se validen. La capacidad histórica de S1 y la estimación del trabajo de S2 siguen pendientes.
 
 ## Historial de cambios
 
@@ -136,4 +166,4 @@ Las reglas P-02 a P-14, la revisión académica, la estimación y la capacidad s
 | 1.5 | 2026-10-13 | Columnas independientes y tabla aparte para HT adicionales. |
 | 1.6 | 2026-10-14 | Se separan cinco HT planificadas para S1 de cinco propuestas posteriores; la base conserva 60 posiciones. |
 | 1.7 | 2026-10-21 | Se ordena el listado principal por sprint desde S1 y se integran HT-PRE-001 a HT-PRE-005 como adiciones aceptadas; se mantienen las 60 historias de línea base y sus estados de cumplimiento. |
-| 1.8 | 2026-10-27 | Candidata interna: conserva la lista base de 65 filas y añade cinco historias del superpanel en una tabla separada, sin prioridad, estimación ni sprint. |
+| 1.8 | 2026-10-27 | Candidata interna: conserva la lista base de 65 filas y añade cinco historias del superpanel; registra por decisión del tesista la definición en S1 y la implementación en S2, con fechas comunicadas, capacidad pendiente y validación presidencial del rol atribuida al tesista. |

@@ -14,7 +14,67 @@ publicacion: pendiente-de-confirmacion
 
 # Historias de usuario
 
-Esta propuesta conserva las 51 historias de la edición [v2.5](../../../documentacion/historias/usuario/historias_usuario_v2.5_2026-10-13.md) y añade un anexo candidato para refinar HU-ACC-002/003 e incorporar HU-ACC-005 a HU-ACC-009. El número y las fichas de línea base no acreditan implementación ni validación. Las prioridades heredadas siguen siendo propuestas; no se asigna sprint, prioridad ni estimación a las cinco historias nuevas. La validación directa de la presidenta está pendiente.
+Esta propuesta conserva las 51 historias de la edición [v2.5](../../../documentacion/historias/usuario/historias_usuario_v2.5_2026-10-13.md) y añade un anexo candidato para refinar HU-ACC-002/003 e incorporar HU-ACC-005 a HU-ACC-009. El número y las fichas de línea base no acreditan implementación ni validación. El tesista decidió el 2026-10-27 que S1 define documentalmente el acceso y la superadministración; S2 implementa acceso, cuentas y estructura de permisos, mientras las operaciones de cada módulo se desarrollan en S3–S5. Las historias nuevas siguen propuestas y sin prioridad ni estimación.
+
+## Definición documental de login y superadministración asignada a S1
+
+El tesista indicó el 2026-10-27 que S1 termina el 2026-10-27 y que S2 comenzó el
+2026-10-14. El cierre anterior del 2026-10-29 quedó reemplazado por una propuesta de
+cierre el 2026-11-08. La capacidad comunicada es 16–25 horas semanales; las estimaciones
+por historia están pendientes. Esta asignación establece el
+alcance documental; no declara completas las tareas ni aprueba por sí sola los requisitos.
+
+La definición completa de S1 debe producir y validar requisitos, historias, especificación,
+matriz de permisos y diseño de pantallas para el proceso de acceso; cada validación se registra
+por separado y con su alcance. El desarrollo de acceso corresponde a S2 y las funciones
+organizacionales y productivas a S3–S5. El tesista declaró
+que la presidenta validó expresamente el rol de superadministradora
+con autoridad para gestionar todo el sistema. Estado: «validado por la presidenta (según el
+tesista)». Evidencia: pendiente de adjuntar; se solicitó la referencia. La autoridad se
+concreta mediante las operaciones administrativas definidas para el sistema y los módulos.
+
+### Proceso de login y sesión
+
+- Mantener los mensajes de acceso específicos aprobados de SPEC-001 por decisión del tesista.
+- Definir conteo de intentos fallidos, bloqueo temporal, consulta del estado de bloqueo y
+  desbloqueo administrativo.
+- Definir duración de sesión, expiración por inactividad y cierre de sesiones activas cuando
+  se desactive una cuenta o se revoquen sus permisos.
+- No hay autorregistro: la Superadministradora crea cuentas después del alta inicial;
+  durante la instalación el tesista designa la primera con autorización de la presidenta
+  registrada.
+- Definir credencial inicial, cambio obligatorio en el primer acceso, expiración y uso único.
+- Definir el restablecimiento administrado: canal, verificación de identidad, expiración, uso
+  único, revocación y auditoría. El sistema nunca muestra una contraseña existente.
+- Una cuenta desactivada no puede iniciar sesión y no conserva sesiones activas.
+- Documentar la constancia de autorización presidencial y el arranque seguro de la
+  primera Superadministradora, sin exponer credenciales ni introducir puertas traseras.
+- Mantener como valores por defecto de SPEC-001, hasta que se valide un cambio, tres fallos en
+  tres minutos, bloqueo durante tres minutos y expiración por 30 minutos de inactividad.
+- La propuesta de mensajes genéricos queda descartada por decisión del tesista; los
+  criterios diferenciados CA-ACC-001-02/03 de SPEC-001 permanecen vigentes.
+
+### Capacidades de superadministración
+
+- Crear usuarios; activar y desactivar cuentas.
+- Asignar y retirar módulos por usuario, indicando qué cuenta accede a cada módulo.
+- Conceder y revocar roles y permisos, con autoridad para gestionar el sistema conforme a la
+  validación reportada y a las operaciones administrativas definidas.
+- Consultar intentos fallidos por cuenta y estado de bloqueo, y desbloquear cuentas.
+- Permitir configurar desde la interfaz el umbral de intentos fallidos, la duración del
+  bloqueo y el tiempo de inactividad. Definir rangos mínimo y máximo, validación y registro
+  histórico de cada cambio con actor, fecha, valor anterior, valor nuevo y motivo. No se fijan
+  aquí valores numéricos de rangos no comunicados.
+- Gestionar fórmulas de pesaje (incluida merma y rendimiento), tipos de plantas y otros
+  catálogos o parámetros que cada módulo declare configurables, sin acceso directo a la base
+  de datos.
+- Tratar fórmulas como expresiones restringidas, validadas, versionadas y con vigencia; ofrecer
+  prueba previa y prohibir código arbitrario. Los registros históricos conservan el cálculo y
+  la versión que se les aplicó; no se recalculan retroactivamente por una nueva fórmula.
+- Consultar y gestionar datos de todos los módulos mediante operaciones administrativas
+  ofrecidas por cada módulo, con auditoría. La profundidad de alta, modificación, baja o
+  corrección histórica se define módulo por módulo. En S1 se cierra la definición del acceso y
+  de la configuración base; la profundidad operativa restante se especifica por módulo.
 
 ## Sprint 2
 
@@ -999,10 +1059,15 @@ Esta propuesta conserva las 51 historias de la edición [v2.5](../../../document
 
 ## Anexo propuesto — Administración organizacional por módulos
 
-**Estado común:** propuestas preparadas a partir de la solicitud reportada por el tesista el
-2026-10-27, citando a la presidenta. No se recibió validación directa de ella. La
-Superadministradora es un rol organizacional candidato; no equivale a `is_staff` o
-`is_superuser` de Django ni le concede una capacidad universal para cambiar datos.
+**Estado común:** las historias y sus criterios siguen propuestos. El tesista declaró el
+2026-10-27 que la presidenta validó expresamente el rol de superadministradora con autoridad
+para gestionar todo el sistema. Estado: «validado por la presidenta (según el tesista)»;
+evidencia: pendiente de adjuntar. Esta declaración no aprueba automáticamente todas las
+historias ni sus criterios. El rol organizacional no equivale a `is_staff` o `is_superuser` de
+Django; el tesista decidió que pueda ejecutar todas las acciones ordinarias de cada
+módulo y editar registros, valores de campos existentes y opciones publicadas desde
+su panel, sin asignación individual a cada módulo. Sus operaciones conservan las
+validaciones y la auditoría del módulo propietario.
 
 ### Refinamiento candidato de HU-ACC-002 — Administrar membresías y acceso por módulo
 
@@ -1011,8 +1076,8 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | **Código de referencia** | `HU-ACC-002` (refinamiento propuesto de la ficha de v2.5) |
 | **Usuario** | persona con autoridad organizacional vigente, pendiente de definir |
 | **Descripción** | Como persona autorizada, quiero activar o desactivar una cuenta y asignar o retirar el acceso a módulos concretos, para mantener accesos organizacionales vigentes y limitados. |
-| **Prioridad / sprint / responsable** | Se conservan como propuestas heredadas de v2.5. No ratifica S2 ni cambia el alcance de `SB-S2-02` o `SB-S2-03`. |
-| **Criterios candidatos** | 1. Dada una autoridad y un módulo vigentes, cuando la persona autorizada asigna o retira acceso mediante la operación del módulo de acceso, entonces el cambio queda limitado a esa cuenta y módulo y se audita. 2. Dada una solicitud sin permiso vigente o sobre un módulo no disponible, cuando se intenta el cambio, entonces se deniega en backend y no cambia el acceso. 3. Dada una cuenta desactivada, cuando intenta iniciar una sesión nueva, entonces no obtiene acceso y conserva sus registros organizacionales. 4. Dada una sesión previa a una revocación, cuando solicita una operación protegida, entonces el backend verifica el permiso vigente; el tratamiento de esa sesión queda sujeto a la decisión pendiente de expiración/revocación global. |
+| **Prioridad / sprint / responsable** | La definición completa se asigna a S1 y la implementación a S2 por decisión del tesista del 2026-10-27. Prioridad, estimación y responsable siguen pendientes. |
+| **Criterios candidatos** | 1. Dada una autoridad y un módulo vigentes, cuando la persona autorizada asigna o retira acceso mediante la operación del módulo de acceso, entonces el cambio queda limitado a esa cuenta y módulo y se audita. 2. Dada una solicitud sin permiso vigente o sobre un módulo no disponible, cuando se intenta el cambio, entonces se deniega en backend y no cambia el acceso. 3. Dada una cuenta desactivada, cuando intenta iniciar una sesión nueva, entonces no obtiene acceso y conserva sus registros organizacionales. 4. Dada una cuenta desactivada o con acceso administrativo revocado, entonces se cierran de inmediato todas sus sesiones abiertas y una petición posterior no usa el permiso anterior. |
 | **Requisito de origen** | `RF-ACC-002` confirmado para membresías; `RF-ACC-005` candidato para asignación de módulos |
 | **Dependencias** | HU-ACC-001, HU-ACC-003, HT-GEN-002 |
 
@@ -1021,10 +1086,10 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | Campo | Dato |
 |---|---|
 | **Código de referencia** | `HU-ACC-003` (refinamiento propuesto de la ficha de v2.5) |
-| **Usuario** | usuaria interna; Superadministradora solo para operaciones administrativas concedidas |
+| **Usuario** | usuaria interna; Superadministradora con acceso transversal a las operaciones publicadas de todos los módulos |
 | **Descripción** | Como usuaria interna, quiero que cada operación se limite a los módulos, recursos y acciones que me fueron concedidos, para proteger los registros y respetar las responsabilidades de la organización. |
-| **Prioridad / sprint / responsable** | Se conservan como propuestas heredadas de v2.5; no cambia el plan vigente. |
-| **Criterios candidatos** | 1. Dada una usuaria con permiso para consultar un recurso, cuando solicita una acción no concedida sobre ese recurso, entonces el backend la deniega sin modificar datos. 2. Dada una persona sin autoridad administrativa, cuando intenta asignar módulos, delegar autoridad o configurar un módulo, entonces se deniega aunque conozca la dirección de la operación. 3. Dada una Superadministradora con permiso para una acción, cuando solicita operar un recurso fuera de ese alcance, entonces se deniega; el nombre del rol no permite acceso universal. 4. Dada una solicitud autorizada de corrección, cuando el módulo la procesa, entonces ejecuta su propia validación y crea una rectificación auditable en vez de reescribir el evento original cuando este tenga historia. |
+| **Prioridad / sprint / responsable** | La base de autorización se prepara en S2; las operaciones y correcciones de cada módulo se implementan en S3–S5 con su módulo propietario. Prioridad, estimación y responsable siguen pendientes. |
+| **Criterios candidatos** | 1. Dada una usuaria con permiso para consultar un recurso, cuando solicita una acción no concedida sobre ese recurso, entonces el backend la deniega sin modificar datos. 2. Dada una persona sin autoridad administrativa, cuando intenta asignar módulos, delegar autoridad o configurar un módulo, entonces se deniega aunque conozca la dirección de la operación. 3. Dada la Superadministradora activa, cuando ejecuta una acción ordinaria o administrativa de cualquier módulo, entonces el backend reconoce su autoridad transversal sin asignación individual y el módulo valida y audita el cambio. 4. Dada una corrección de registro histórico, cuando el módulo la acepta, entonces crea una rectificación auditable en vez de reescribir el evento original. 5. Dada una opción o valor de campo existente declarado configurable, cuando la Superadministradora lo cambia desde el panel, entonces quedan valor anterior, nuevo, actor y vigencia cuando aplique. |
 | **Requisito de origen** | `RF-ACC-003` confirmado; `RF-ACC-005` candidato |
 | **Dependencias** | HU-ACC-001, HT-GEN-002, HT-GEN-003 |
 
@@ -1033,10 +1098,10 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | Campo | Dato |
 |---|---|
 | **Código de referencia** | `HU-ACC-005` |
-| **Usuario** | Superadministradora organizacional (rol propuesto) |
+| **Usuario** | Superadministradora organizacional (rol reportado como validado por la presidenta según el tesista; evidencia pendiente de adjuntar) |
 | **Descripción** | Como persona con autoridad vigente, quiero asignar o retirar módulos por cuenta para limitar el acceso a las funciones necesarias. |
-| **Prioridad / sprint** | Pendientes de decisión; sin sprint asignado. Posterior al trabajo de acceso activo, sujeto a decisión del tesista. |
-| **Criterios de aceptación** | 1. Dada una asignación permitida, cuando se agrega un módulo mediante la operación pública de acceso, entonces queda asociada a la cuenta correcta y se registra quién, cuándo y por qué la cambió. 2. Dada una solicitud fuera de la autoridad o de una lista de módulos habilitados, cuando se presenta, entonces el backend la rechaza sin cambios. 3. Dado que se retira un módulo, cuando la persona intenta acceder a una operación del módulo, entonces se vuelve a verificar la asignación vigente; la regla sobre sesiones ya abiertas está pendiente. |
+| **Prioridad / sprint** | Base de asignación de accesos en S2; las acciones de cada módulo se entregan en S3–S5 según reglas y capacidad. |
+| **Criterios de aceptación** | 1. Dada una asignación permitida, cuando se agrega un módulo mediante la operación pública de acceso, entonces queda asociada a la cuenta correcta y se registra quién, cuándo y por qué la cambió. 2. Dada una solicitud fuera de la autoridad o de una lista de módulos habilitados, cuando se presenta, entonces el backend la rechaza sin cambios. 3. Dado que se retira un módulo, cuando la persona intenta acceder a una operación del módulo, entonces se vuelve a verificar la asignación vigente. Si se revoca acceso administrativo, se cierran de inmediato todas las sesiones abiertas de esa cuenta. |
 | **Requisito de origen** | `RF-ACC-005` candidato |
 | **Dependencias** | HU-ACC-001, HU-ACC-003, HT-GEN-002 |
 
@@ -1045,9 +1110,9 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | Campo | Dato |
 |---|---|
 | **Código de referencia** | `HU-ACC-006` |
-| **Usuario** | persona que ya tenga permiso expreso para delegar autoridad; responsable inicial pendiente |
+| **Usuario** | persona que ya tenga permiso expreso para delegar autoridad; la primera Superadministradora la designa el tesista durante instalación con autorización registrada de la presidenta |
 | **Descripción** | Como delegante autorizado, quiero conceder o retirar a otra cuenta una autoridad delimitada, para mantener el control del panel cuando cambien responsabilidades. |
-| **Prioridad / sprint** | Pendientes de decisión; sin sprint asignado. |
+| **Prioridad / sprint** | Definición en S1; emisión inicial en S2 conforme a la autorización presidencial registrada. Delegación posterior solo cuando se valide su regla; prioridad y estimación pendientes. |
 | **Criterios de aceptación** | 1. Dada una delegación permitida, cuando se concede o revoca autoridad a otra cuenta, entonces se guarda el alcance, vigencia, actor, motivo y resultado. 2. Dado un intento de conceder autoridad a la propia cuenta, cuando se procesa, entonces se deniega y no cambia ningún permiso. 3. Dada una persona sin permiso de delegación, cuando intenta transferir la autoridad, entonces se deniega en backend. 4. Dado un cambio de presidencia o ausencia de la persona delegante, cuando se necesita transferir la autoridad, entonces se aplica el procedimiento que se acuerde antes de habilitar esa operación; el procedimiento actual está pendiente de definición. |
 | **Requisito de origen** | `RF-ACC-005` candidato |
 | **Dependencias** | HU-ACC-003, HT-GEN-002, HT-GEN-003 |
@@ -1059,7 +1124,7 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | **Código de referencia** | `HU-ACC-007` |
 | **Usuario** | administradora con permiso de seguridad de acceso |
 | **Descripción** | Como administradora autorizada, quiero consultar el conteo disponible de intentos fallidos recientes por cuenta y proponer límites de bloqueo acotados, para proteger el acceso sin exponer credenciales. |
-| **Prioridad / sprint** | Pendientes de decisión; sin sprint asignado. |
+| **Prioridad / sprint** | Definición en S1; consulta y configuración de acceso candidatas para S2 según criterios validados, capacidad y actualización de SPEC-001. |
 | **Criterios de aceptación** | 1. Dado un permiso válido, cuando se consulta una cuenta, entonces se muestra solo el conteo y estado temporal que el sistema conserva, sin contraseña, token ni supuesto historial no almacenado. 2. Dado un umbral o duración fuera de los rangos aprobados, cuando se intenta guardar, entonces se rechaza. 3. Dada una política propuesta, cuando se guarda con autorización y validación, entonces queda auditada y versionada; la política nueva no toma efecto hasta la validación y actualización requeridas de SPEC-001. 4. Dado un usuario sin permiso de seguridad, cuando solicita esa vista o el cambio, entonces se deniega. |
 | **Requisito de origen** | `RF-ACC-005` candidato; `SPEC-001` confirmado requiere revisión antes de cambiar sus valores |
 | **Dependencias** | HU-ACC-001, HT-GEN-002, HT-GEN-003 |
@@ -1069,9 +1134,9 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | Campo | Dato |
 |---|---|
 | **Código de referencia** | `HU-ACC-008` |
-| **Usuario** | administradora autorizada para la configuración del módulo propietario |
-| **Descripción** | Como administradora autorizada, quiero gestionar catálogos y fórmulas mediante las operaciones que cada módulo expone, para mantener configuraciones validadas sin acceso directo a la base de datos. |
-| **Prioridad / sprint** | Pendientes de decisión; sin sprint asignado. |
+| **Usuario** | Superadministradora activa con autoridad transversal de configuración sobre opciones publicadas por el módulo |
+| **Descripción** | Como Superadministradora, quiero editar desde el panel los valores y opciones de campos existentes, catálogos y fórmulas que cada módulo expone, para mantener la configuración sin cambiar el esquema de la base de datos. |
+| **Prioridad / sprint** | Límites generales y permisos en S2; catálogos y fórmulas se implementan con cada módulo propietario en S3–S5, según reglas y capacidad validadas. |
 | **Criterios de aceptación** | 1. Dado un módulo que expone un catálogo editable, cuando una persona autorizada guarda un cambio válido, entonces el módulo propietario valida y conserva la versión anterior. 2. Dada una fórmula, cuando se prueba antes de activarla, entonces el módulo muestra entradas, unidades y resultado de prueba para revisión. 3. Dada una fórmula válida, cuando se activa con aprobación y vigencia definidas, entonces obtiene una versión y fecha de vigencia; cálculos históricos conservan la versión previamente aplicada. 4. Dado código arbitrario, una fórmula inválida o una usuaria sin permiso, cuando se intenta guardar, entonces se rechaza sin ejecutar ni cambiar registros. |
 | **Requisito de origen** | `RF-ACC-005` candidato; reglas productivas existentes que correspondan, por confirmar módulo a módulo |
 | **Dependencias** | HU-ACC-003, HT-GEN-002, HT-GEN-003 y operaciones futuras de cada módulo propietario |
@@ -1081,9 +1146,9 @@ Superadministradora es un rol organizacional candidato; no equivale a `is_staff`
 | Campo | Dato |
 |---|---|
 | **Código de referencia** | `HU-ACC-009` |
-| **Usuario** | persona con permiso explícito para el tipo de dato y operación del módulo |
-| **Descripción** | Como persona autorizada, quiero consultar y solicitar la corrección de datos dentro de flujos controlados, para resolver errores sin borrar su origen ni alterar la historia. |
-| **Prioridad / sprint** | Pendientes de decisión; sin sprint asignado. |
+| **Usuario** | Superadministradora activa; otras personas solo con permiso explícito para el dato y la operación |
+| **Descripción** | Como Superadministradora, quiero crear, consultar y corregir desde el panel registros como asistencia, cantidades y valores que cada módulo ofrezca, para resolver el trabajo operativo y los errores sin borrar su origen ni alterar la historia. |
+| **Prioridad / sprint** | S1 define los límites generales de acceso y configuración base. La profundidad, prioridad, capacidad, estimación e implementación de cada operación se asignan módulo por módulo. |
 | **Criterios de aceptación** | 1. Dada una consulta dentro del alcance concedido, cuando se solicita, entonces se muestran únicamente campos autorizados y el propósito de uso se conserva pendiente de validar por categoría sensible. 2. Dada una corrección permitida, cuando el módulo la acepta, entonces conserva el original y registra una rectificación con actor, fecha, resultado, motivo y campos cambiados. 3. Dada una edición directa genérica, eliminación de auditoría o cambio a un dato fuera del permiso, cuando se solicita, entonces se deniega sin mutación. 4. Dada una corrección que afecta varias entidades, cuando falla una validación, entonces no queda una operación parcial; las reglas transaccionales pertenecen al módulo propietario. |
 | **Requisito de origen** | `RF-ACC-005` candidato; RNF-AUD-001 y RNF-SEC-001 confirmados, según corresponda |
 | **Dependencias** | HU-ACC-003, HT-GEN-002, HT-GEN-003 y operación de corrección del módulo propietario |
@@ -1099,7 +1164,7 @@ Fuentes: [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/c
 
 ## Condiciones
 
-Las 51 historias de línea base proceden de RF confirmados. Los nueve temas de la entrevista permanecen como exploración en la [edición anterior](../../../documentacion/historias/usuario/historias_usuario_v2.4_2026-10-13.md); no tienen estimación ni sprint comprometido. Las cinco historias adicionales HU-ACC-005 a HU-ACC-009 son candidatas, no están confirmadas y no pertenecen a la línea base de 51 historias. Ninguna ficha acredita implementación o prueba.
+Las 51 historias de línea base proceden de RF confirmados. Los nueve temas de la entrevista permanecen como exploración en la [edición anterior](../../../documentacion/historias/usuario/historias_usuario_v2.4_2026-10-13.md); no tienen estimación ni sprint comprometido. Las cinco historias adicionales HU-ACC-005 a HU-ACC-009 son candidatas, no están confirmadas y no pertenecen a la línea base de 51 historias. La base de acceso y permisos se ubica en S2; las operaciones de negocio de HU-ACC-008/009 se distribuyen con sus módulos en S3–S5. Ninguna ficha acredita implementación o prueba.
 
 ## Historial de cambios
 
@@ -1107,4 +1172,4 @@ Las 51 historias de línea base proceden de RF confirmados. Los nueve temas de l
 |---|---|---|
 | 2.4 | 2026-10-13 | Tablas resumidas por prioridad y criterios por sección. |
 | 2.5 | 2026-10-13 | Ficha individual por historia, con campos separados como la referencia visual. |
-| 2.6 | 2026-10-27 | Candidata interna: se refinan HU-ACC-002/003 y se proponen cinco historias adicionales de administración por módulos; quedan pendientes validación, prioridad, estimación y sprint. |
+| 2.6 | 2026-10-27 | Candidata interna: se refinan HU-ACC-002/003, se añaden historias de administración y alcance de definición para S1 e implementación en S2 por decisión del tesista. La validación presidencial del rol se atribuye al tesista; evidencia pendiente de adjuntar. Requisitos detallados, prioridad, capacidad y estimación permanecen pendientes. |
