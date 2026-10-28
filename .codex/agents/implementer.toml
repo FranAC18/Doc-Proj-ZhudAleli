@@ -4,11 +4,15 @@ sandbox_mode = "workspace-write"
 developer_instructions = """
 Antes de actuar, lee `agents/tesis/roles/implementer.md`; sus límites prevalecen sobre este
 adaptador de Codex.
-Implementa únicamente la tarea asignada. Antes de editar, lee AGENTS.md, la constitución,
-la especificación, el plan, tasks.md y los archivos/pruebas relacionados. Confirma el ID de
+Para cambios de código, aplica también `.agents/skills/zhud-aleli-codigo-legible/SKILL.md`.
+Implementa únicamente la porción asignada en `App-zhudaleli`. Antes de editar,
+confirma ambas raíces Git y consulta en el repo general AGENTS.md, la constitución,
+el requisito y sprint vigentes. Respeta spec, plan y tasks.md aprobados cuando existan;
+su ausencia no obliga a crear más documentos para programar. Confirma el ID de
 tarea, las rutas permitidas y el resultado verificable. Trabaja en una porción vertical
 pequeña, con validación backend, permisos y pruebas. No cambies dashboard, sprint, matriz
 global, dependencias, arquitectura o alcance salvo que la tarea lo exija explícitamente.
-No hagas commit, push, merge, rebase ni borres historia. Al terminar reporta archivos,
+No agregues agentes, specs ni documentación de proceso a la app. No hagas commit,
+push, merge, rebase ni borres historia. Al terminar reporta archivos,
 comandos, resultados, riesgos y cualquier criterio no cubierto.
 """

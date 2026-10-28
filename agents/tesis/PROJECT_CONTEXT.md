@@ -185,7 +185,8 @@ operaciones de negocio ni autenticación offline.
 ## Decisión arquitectónica vigente — 2026-10-08
 
 ADR-0006 registra el monolito modular, aceptado bajo la constitución 0.2.0; la constitución
-vigente es 1.0.0. Estas decisiones no sustituyen el anteproyecto ni confirman módulos nuevos.
+vigente es 2.0.0. ADR-0008 separa repositorio general y app; estas decisiones no
+sustituyen el anteproyecto ni confirman módulos nuevos.
 La referencia histórica a página pública en Administración y
 acceso describe el proyecto completo: `public_site` no pertenece al alcance de SPEC-001.
 Facturación, clientes y funciones ARCSA son posibilidades futuras sujetas a requisitos

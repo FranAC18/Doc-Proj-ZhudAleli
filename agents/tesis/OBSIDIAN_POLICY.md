@@ -14,7 +14,8 @@ IDE, proveedor o modelo.
 
 La ubicación canónica es:
 
-- `documentacion/`: ediciones académicas finales, versionadas y preparadas para publicación.
+- `documentacion/`: ediciones académicas con estado explícito; solo archivos revisados
+  se incorporan de forma selectiva al repositorio general para posible publicación.
 - `analisis/`: trabajo interno organizado por fecha y tema.
 - `_archivo/`: material sustituido o retirado con un registro de motivo y reemplazo.
 - `docs/bitacora/`: sesiones y checkpoints.
