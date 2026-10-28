@@ -114,6 +114,12 @@ Una conversación, inferencia o propuesta de IA nunca aprueba un requisito.
 
 ## Arquitectura de producto
 
+Al crear, modificar o revisar código, plantillas o recursos de la app, selecciona y aplica
+[`zhud-aleli-codigo-legible`](.agents/skills/zhud-aleli-codigo-legible/SKILL.md).
+Esta skill concreta la organización aprobada por módulo, las responsabilidades del backend,
+el frontend por pantalla y las verificaciones de transición, sin autorizar traslados ajenos
+a la tarea ni cambiar requisitos de negocio.
+
 La aplicación usa Python, Django, PostgreSQL, Bootstrap 5 y plantillas MTV en un
 monolito modular. Se construye por incrementos: una base técnica o laboratorio aún no
 acredita funcionalidad de negocio entregada. Las reglas de autorización viven en backend y

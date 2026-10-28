@@ -3,7 +3,7 @@ title: Arquitectura objetivo de la aplicación
 type: architecture
 status: accepted
 date: 2026-07-21
-updated: 2026-10-08
+updated: 2026-10-28
 accepted_by: tesista
 accepted_date: 2026-10-08
 task_id: ARCH-ADOPT-001
@@ -144,6 +144,29 @@ el árbol aprobado de `models.py`, `forms.py`, `views.py`, `urls.py`, migracione
 Los modelos siguen en `models.py` o registrados desde `models/__init__.py`, y las migraciones
 en la ubicación nativa salvo excepción configurada y probada.
 [Fuente: registro de apps Django](https://docs.djangoproject.com/en/5.2/ref/applications/#how-applications-are-loaded).
+
+### Adenda aprobada: organización de backend y frontend — 2026-10-28
+
+El tesista aprobó expresamente la propuesta de organización por módulo y solicitó reglas
+para la generación de código por IA. Se conserva la arquitectura y el backend nativo descritos
+arriba. La aprobación corresponde a esta convención técnica, sin ampliar requisitos, permisos
+ni funcionalidades de negocio y sin declarar realizada la migración del código existente.
+
+La ubicación objetivo de cada pantalla es
+`apps/<modulo>/frontend/<modulo>/<pantalla>/`: HTML junto a un directorio `recursos/` para sus
+CSS, JS e imágenes exclusivos, cuando existan. Los directorios de recursos públicos se
+configuran de forma independiente a las raíces de plantillas. Se mantienen los componentes
+HTML generales y los estáticos compartidos con un único propietario fuera de las pantallas.
+Esta ubicación sustituye la convención de plantillas y estáticos separados por app para las
+pantallas que se adapten; el árbol anterior puede coexistir hasta completar una transición
+verificada por porciones. No se duplican fuentes activas ni se publica `frontend/` completo.
+
+Las reglas operativas se mantienen en
+[`zhud-aleli-codigo-legible`](../../.agents/skills/zhud-aleli-codigo-legible/SKILL.md), que se
+aplica al generar, modificar y revisar código. La adaptación comprueba descubrimiento de
+plantillas y estáticos, rutas, comportamiento, migraciones cuando corresponda y política PWA.
+La estructura descrita para SPEC-001 conserva su valor como registro de implementación previo;
+esta adenda no altera retroactivamente sus criterios funcionales.
 
 ## Integridad y auditoría
 

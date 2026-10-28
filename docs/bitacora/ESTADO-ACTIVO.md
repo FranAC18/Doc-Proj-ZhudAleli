@@ -2,13 +2,13 @@
 title: Estado activo de continuidad
 type: state
 status: in-progress
-updated: 2026-10-27
+updated: 2026-10-28
 task_id: SB-S2-02
 active_task: SB-S2-02
 phase: implementation
 branch: docs/requisitos-y-organizacion-del-vault
-head: 74778c50c3310f44985468bc09a2b97ad1527886
-last_commit: 74778c50c3310f44985468bc09a2b97ad1527886
+head: fd10b3f9f5fe1efce730c4b5c346faf6b2d21109
+last_commit: fd10b3f9f5fe1efce730c4b5c346faf6b2d21109
 commit: pending
 current_agent: codex
 current_role: coordinator
@@ -35,7 +35,7 @@ repository: ZhudAleli
 app_root: "app/"
 app_remote: "https://github.com/FranAC18/App-zhudaleli.git"
 app_branch: feature/RF-ACC-001-base-proyecto
-app_head: 903f1f9a55777992468ad88575d1f58463318516
+app_head: 8f19c0ea14e9f3209ff2bdc2599ed70c0126f746
 allowed_paths:
   - AGENTS.md
   - README.md
@@ -48,6 +48,7 @@ allowed_paths:
   - .specify/templates/overrides/tasks-template.md
   - .specify/templates/overrides/README.md
   - .agents/skills/zhud-aleli-context/SKILL.md
+  - .agents/skills/zhud-aleli-codigo-legible/SKILL.md
   - .agents/skills/zhud-aleli-git-manager/SKILL.md
   - .agents/skills/zhud-aleli-documenter/SKILL.md
   - .agents/skills/zhud-aleli-handoff/SKILL.md
@@ -79,6 +80,7 @@ allowed_paths:
   - specs/001-acceso-usuarias-internas/quickstart.md
   - specs/001-acceso-usuarias-internas/research.md
   - docs/architecture/PLAN-DESDE-CERO.md
+  - docs/architecture/ARQUITECTURA-OBJETIVO.md
   - docs/git/REPOSITORIOS-Y-PRE-PUSH.md
   - docs/decisions/ADR-0008-separacion-repositorios-y-flujo-git.md
   - docs/templates/PLANTILLA-HANDOFF-UNIVERSAL.md
@@ -150,6 +152,27 @@ blockers: []
 ---
 
 # Estado activo de continuidad
+
+## Reglas aprobadas de organización de código — 2026-10-28
+
+El tesista aprobó expresamente la propuesta de backend nativo por módulo y frontend por
+pantalla con HTML y recursos exclusivos cercanos, y pidió incorporarla a la skill
+`zhud-aleli-codigo-legible`. La skill define propietarios, responsabilidades, crecimiento
+proporcional, recursos compartidos y transición verificable hacia
+`apps/<modulo>/frontend/<modulo>/<pantalla>/`, con archivos públicos en `recursos/`.
+`AGENTS.md` requiere aplicarla al crear, modificar o revisar código de la app; la adenda de
+[[../architecture/ARQUITECTURA-OBJETIVO]] registra la convención aprobada y su relación con
+la estructura anterior. La aprobación no cambia requisitos ni permisos funcionales.
+
+Esta tarea modifica reglas y documentación. La app conserva los cambios locales de la
+reorganización anterior; todavía no se han trasladado sus pantallas a `frontend/` ni adaptado
+sus cargadores. La futura implementación debe verificar una porción completa antes de
+extenderla. SB-S2-02 sigue activo; no hubo commit, push ni publicación.
+
+Verificación de esta actualización: `quick_validate.py` de `skill-creator` devuelve
+`Skill is valid!`; enlaces locales y bloques Markdown correctos; revisión del diff y
+`git diff --check` sin errores. No se repitieron pruebas de producto porque solo cambiaron
+instrucciones y documentación.
 
 ## Reordenación ágil solicitada por el tesista — 2026-10-27
 
