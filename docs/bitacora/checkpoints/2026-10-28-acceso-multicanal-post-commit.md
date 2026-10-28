@@ -12,7 +12,7 @@ head: 39ac9b8b65e7faf83db06cb5dc1228cbed7e6879
 commit: 39ac9b8b65e7faf83db06cb5dc1228cbed7e6879
 parent_commit: 6c09fc3d8fa5228249185ab7e3e93d5a8c29104e
 remote: https://github.com/FranAC18/Doc-Proj-ZhudAleli
-push: pending
+push: completed
 app_repository: App-zhudaleli
 app_branch: feature/RF-ACC-001-base-proyecto
 app_head: 54e7c1717b6623febe07dc07c104845548e185fb
