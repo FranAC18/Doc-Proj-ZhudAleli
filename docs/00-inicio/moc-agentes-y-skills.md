@@ -6,19 +6,21 @@ tags:
   - proyecto/tesis
   - tipo/moc
   - estado/activo
-verified_at: "2026-08-25"
-verified_against_commit: "73e3c0f"
+verified_at: "2026-10-27"
+verified_against_commit: "pending"
 ---
 
 # Mapa de agentes y skills
 
 Este MOC conecta la configuración real del arnés con sus notas de Obsidian.
+El inventario se cotejó con el árbol local del 2026-10-27 en `74778c50`, que contiene
+cambios sin commit; por eso la verificación contra un commit nuevo sigue pendiente.
 
 ## Capas
 
 | Capa | Ubicación | Función |
 |---|---|---|
-| Roles host | `.codex/agents/` | Define responsabilidades, permisos y límites de agentes. |
+| Adaptación Codex | `.codex/agents/` | Expone los roles canónicos al host. |
 | Roles canónicos | `agents/tesis/roles/` | Fuente común de responsabilidades, rutas y handoffs. |
 | Adaptación OpenCode | `.opencode/agents/` | Perfiles que apuntan a los contratos canónicos. |
 | Comandos OpenCode | `.opencode/commands/` | Prompts `/route`, `/architect`, `/implement`, `/frontend`, `/review` y `/research`. |
@@ -62,6 +64,7 @@ handoff universal.
 Skills operativas de Zhud Alelí:
 
 - `.agents/skills/zhud-aleli-context/SKILL.md`
+- `.agents/skills/zhud-aleli-codigo-legible/SKILL.md`
 - `.agents/skills/zhud-aleli-documenter/SKILL.md`
 - `.agents/skills/zhud-aleli-git-manager/SKILL.md`
 - `.agents/skills/zhud-aleli-handoff/SKILL.md`

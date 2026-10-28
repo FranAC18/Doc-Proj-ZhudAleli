@@ -33,8 +33,10 @@ directora cuando una decisión de metodología o alcance afecta el anteproyecto.
 La aplicación es una PWA para la gestión organizacional y productiva del Comité de Mujeres
 Indígenas «Tránsito Amaguaña» de Zhud y su unidad productiva Zhud Alelí. El horizonte es de 16
 semanas, con un desarrollador único, validación progresiva con usuarias y despliegue de bajo
-costo. No se crea código ni se cambian requisitos confirmados desde este roadmap; cada módulo
-funcional deberá tener su propia spec, plan, tareas y puerta de aprobación.
+costo. Este roadmap no cambia requisitos confirmados. Por ADR-0008, un RF y sprint
+vigentes son la base documental mínima para desarrollar; spec, plan y tareas se usan
+cuando existen o la complejidad los justifica. Las decisiones materiales pendientes
+siguen requiriendo fuente y validación antes de implementar su comportamiento.
 
 La arquitectura vigente se confirma en [[../decisions/ADR-0006-monolito-modular-y-entrega-incremental|ADR-0006]]:
 **monolito modular Django con capas internas pragmáticas, alta cohesión y bajo acoplamiento**.
@@ -122,13 +124,14 @@ reglas de autorización requieren separación, se abrirá una spec y un ADR ante
   obligatoria añadiría complejidad sin una frontera de despliegue.
 - **gRPC:** queda fuera de v1 porque no existe una frontera de red independiente.
 
-## 4. Estructura física del repositorio
+## 4. Estructura física de los repositorios
 
-La aplicación se ubicará en la raíz ya aceptada por ADR-0003. Se comienza con archivos simples
+ADR-0008 traslada la estructura Django interna de ADR-0003 a la raíz Git independiente
+de `App-zhudaleli`. Se comienza con archivos simples
 cuando la app sea pequeña y se promueve a paquetes internos cuando una regla real lo requiera.
 
 ```text
-F:/Tesis/App Tesis/
+F:/Tesis/App Tesis/app/  # raíz Git de App-zhudaleli, ignorada por el repo general
 ├── manage.py
 ├── pyproject.toml
 ├── uv.lock
@@ -154,13 +157,15 @@ F:/Tesis/App Tesis/
 │   └── public_site/
 ├── templates/{base.html,components/}
 ├── static/{css,js,pwa,manifest.json,vendor/}
-├── tests/{architecture,contract,integration}/
+└── tests/{architecture,contract,integration}/
+
+F:/Tesis/App Tesis/      # raíz Git general y vault
 ├── specs/
 ├── docs/
+├── documentacion/
 ├── agents/
 ├── .agents/
-├── .codex/
-└── tools/
+└── .codex/
 ```
 
 La primera implementación solo crea `config`, `apps/accounts` y los recursos globales que
@@ -330,7 +335,9 @@ documentación no dependiente, y queda registrada en un checkpoint.
 
 ## 12. Documentación y cierre
 
-- Cada fase actualiza su spec, plan, tareas, contrato y evidencia sin sobrescribir notas aprobadas.
+- Cada fase conserva trazabilidad y evidencia en el repositorio general, sin sobrescribir
+  notas aprobadas. Spec, plan, tareas y contratos se actualizan cuando existen y aplican;
+  no son trámite previo para cada commit de código.
 - Las decisiones se registran como ADR o propuesta con estado visible.
 - La matriz de trazabilidad enlaza requisito, actor, sprint, módulo, prueba, evidencia y resultado.
 - El manual técnico describe instalación, configuración por entorno, migraciones, sincronización,
@@ -341,10 +348,10 @@ documentación no dependiente, y queda registrada en un checkpoint.
 
 ## Regla de avance
 
-Este roadmap está aprobado para planificación por el tesista, pero ninguna fase puede saltar
-la puerta de requisito, plan, implementación, revisión o cierre. `SPEC-001` continúa siendo la
-única porción confirmada para implementación inmediata; las fases de planificación, asistencia,
-trazabilidad, PWA offline y reportes requieren sus specs y tareas antes de escribir código.
+Este roadmap está aprobado para planificación por el tesista. La constitución 2.0.0 y
+ADR-0008 permiten iniciar porciones con RF y sprint vigentes sin exigir spec, plan o
+tareas adicionales; las decisiones materiales y los controles de calidad aplicables
+se respetan. `SPEC-001` conserva sus decisiones aprobadas y pendientes específicos.
 
 ## Control de coherencia del 2026-09-28
 

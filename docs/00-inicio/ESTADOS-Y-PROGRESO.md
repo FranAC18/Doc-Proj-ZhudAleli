@@ -68,9 +68,9 @@ status: blocked
 sprint: S1
 module: acceso
 related:
-  - "[[RF-001-autenticacion]]"
-  - "[[Tarea-configurar-rbac]]"
-  - "[[SPRINT-01-acceso]]"
+  - "[[../requirements/CAT-REQ-001.md|RF-ACC-001]]"
+  - "[[../sprints/SPRINT-02-HOJA-DE-RUTA.md|SB-S2-02]]"
+  - "[[../sprints/PLAN-HASTA-2026-12-23.md|Sprint 2]]"
 tags:
   - proyecto/tesis
   - tipo/error
