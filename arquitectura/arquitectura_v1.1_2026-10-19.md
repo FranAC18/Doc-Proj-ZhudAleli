@@ -57,7 +57,6 @@ flowchart TB
 **Lectura:** el navegador no se conecta a la base de datos. Las operaciones privadas pasan por el servidor.
 
 ## 3. Contenedores y frontera PWA
-#PWA
 
 “Contenedor” describe unidades lógicas; no significa que se haya elegido Docker o un proveedor.
 

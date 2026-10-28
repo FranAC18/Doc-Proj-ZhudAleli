@@ -87,13 +87,13 @@ La línea base ordenada conserva 51 historias de usuario y 9 historias técnicas
 
 Estas cinco historias se incluyen en S1 por indicación del tesista y no forman parte de las 60 posiciones de la línea base. El estado real de sus tareas y evidencias se registra en el sprint backlog; la asignación no declara el sprint completo.
 
-| N.º | Código       | Nombre                                                                                      | Prioridad | Sprint |
-| --: | ------------ | ------------------------------------------------------------------------------------------- | --------- | ------ |
-|   1 | `HT-PRE-001` | Levantar y consolidar entrevistas, observación y documentos disponibles.                    | Alta      | S1     |
-|   2 | `HT-PRE-002` | Validar alcance, requisitos, reglas y criterios de aceptación con las personas competentes. | Crítica   | S1     |
-|   3 | `HT-PRE-003` | Preparar arquitectura, modelo conceptual y límites de datos por módulo.                     | Alta      | S1     |
-|   4 | `HT-PRE-004` | Diseñar recorridos móviles y preparación PWA sin afirmar que la aplicación ya funciona.     | Alta      | S1     |
-|   5 | `HT-PRE-005` | Refinar historias, pila, dependencias, estimaciones y calendario con capacidad real.        | Alta      | S1     |
+| N.º | Código | Nombre | Prioridad | Sprint |
+|---:|---|---|---|---|
+| 1 | `HT-PRE-001` | Levantar y consolidar entrevistas, observación y documentos disponibles. | Alta | S1 |
+| 2 | `HT-PRE-002` | Validar alcance, requisitos, reglas y criterios de aceptación con las personas competentes. | Crítica | S1 |
+| 3 | `HT-PRE-003` | Preparar arquitectura, modelo conceptual y límites de datos por módulo. | Alta | S1 |
+| 4 | `HT-PRE-004` | Diseñar recorridos móviles y preparación PWA sin afirmar que la aplicación ya funciona. | Alta | S1 |
+| 5 | `HT-PRE-005` | Refinar historias, pila, dependencias, estimaciones y calendario con capacidad real. | Alta | S1 |
 
 ## Historias técnicas aún propuestas para S3–S6
 

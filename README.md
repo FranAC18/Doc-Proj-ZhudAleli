@@ -1,9 +1,9 @@
 ---
 titulo: Índice de documentación final de Zhud Alelí
-version: "5.1"
-fecha: 2026-10-28
+version: "5.0"
+fecha: 2026-10-27
 autor: Tesista
-estado: preparado-para-revision-academica
+estado: final-documental
 publicacion: parcialmente-publicada
 ---
 
@@ -18,8 +18,6 @@ Los demás documentos de esta tabla conservan su estado de revisión o publicaci
 **Preparado** no significa revisado por la directora. Las ediciones actualizadas el 2026-10-21 y los planes de sprints y superadministración del 2026-10-27 permanecen preparados localmente para revisión; no se han transferido al repositorio documental del docente. La edición actual registra que la Superadministradora realizará las acciones normales de todos los módulos y administrará sus registros y opciones publicadas desde un panel, según decisión expresa del tesista; los detalles por módulo siguen en propuesta.
 
 La edición de seguimiento del 19 de octubre documenta el cierre histórico de S0 y los pendientes posteriores; está preparada para revisión y pendiente de transferencia al repositorio del docente. La arquitectura detallada v1.1 fue aprobada por el tesista para documentación; su transferencia sigue pendiente. El informe de S1 v1.2 registra el cierre administrativo parcial y la aceptación del tesista del 2026-10-21 para asignar HT-PRE-001 a HT-PRE-005 a S1, con los estados y pendientes registrados entonces. El 2026-10-27 el tesista decidió extender hasta ese día la definición documental de acceso y superadministración en S1 y concentrar login, cuentas, permisos y estructura de módulos en S2. Las funciones de los módulos se distribuyen entre S3 y S5. El cierre propuesto de S2 es el 8 de noviembre; las fechas intermedias están sujetas a revisión. El periodo de S1 se registra concluido por calendario; la finalización de sus entregables requiere cotejo y evidencia. El tesista comunicó una disponibilidad de 16–25 horas semanales, aún no convertida en estimaciones por historia.
-
-La edición del 2026-10-28 incorpora arquitectura v1.2 con la organización modular de backend y frontend aprobada por el tesista. Conserva las ediciones anteriores y diferencia esa aprobación técnica de la revisión de la nueva edición completa. La aplicación cuenta con desarrollo local parcial; la adaptación más reciente del frontend no se presenta como una entrega aceptada. Esta edición permanece local, sin transferencia al docente.
 
 ## Documentos vigentes
 
@@ -46,10 +44,10 @@ La edición del 2026-10-28 incorpora arquitectura v1.2 con la organización modu
 | Planificación | [Criterios de acceso y superadministración](sprints/plan_implementacion_superadmin_v1.4_2026-10-27.md) | 1.4 | Autoridad transversal y edición de registros, valores y opciones desde el panel, con criterios S2 y S3–S5. RF-ACC-005 y detalles por módulo siguen propuestos; evidencia presidencial pendiente. |
 | Planificación | [Plan incremental y sprint backlog Word, edición conservada](sprints/plan_incremental_y_sprint_backlog_v1.7_2026-10-14.docx) | 1.7 | Última edición Word existente; no se modificó en la actualización Markdown del 2026-10-21. |
 | Evaluación | [Factibilidad, corte anterior](factibilidad/factibilidad_v1.4_2026-10-13.md) | 1.4 | Costos y escenarios de ahorro conservados; su calendario S1–S6 corresponde al corte anterior y requiere revisión frente al plan v1.6. |
-| Diseño | [Arquitectura detallada](arquitectura/arquitectura_v1.2_2026-10-28.md) | 1.2 | Backend por módulo y frontend por pantalla según convención aprobada; recursos compartidos y transición verificable. Implementación local parcial y adaptación presente sin acreditar entrega completa. Edición preparada para revisión académica. |
+| Diseño | [Arquitectura detallada](arquitectura/arquitectura_v1.1_2026-10-19.md) | 1.1 | Arquitectura base, comportamiento, módulos, requisitos y entrevista explicados con diagramas; aprobada por el tesista para documentación. Producto sin implementar; decisiones abiertas y validaciones pendientes. |
 | Diseño | [Criterios de interfaz](diseno/criterios_diseno_v1.0_2026-10-12.md) | 1.0 | Criterios de uso; identidad visual pendiente de validar. |
 | Pruebas | [Plan de pruebas](pruebas/plan_pruebas_v1.0_2026-10-12.md) | 1.0 | Pruebas previstas; ningún resultado adelantado. |
-| Gobierno | [Control de cambios](control_de_cambios/registro_v5.1_2026-10-28.md) | 5.1 | Registra arquitectura v1.2, la convención aprobada de modularidad y la diferencia entre diseño e implementación local; revisión académica y transferencia pendientes. |
+| Gobierno | [Control de cambios](control_de_cambios/registro_v5.0_2026-10-27.md) | 5.0 | Registra las nuevas ediciones completas de requisitos, historias y pila; revisión académica y transferencia pendientes. |
 
 ## Ediciones anteriores conservadas
 
@@ -63,7 +61,7 @@ También se conservan las ediciones HU v2.3–v2.4, HT v1.4, pila v1.3–v1.4,
 sprint backlog v1.0–v1.1 y plan Word v1.2–v1.3. Las ediciones vigentes usan
 fichas individuales y dejan los códigos como referencias secundarias.
 
-Las arquitecturas [v1.0](arquitectura/arquitectura_v1.0_2026-10-12.md) y [v1.1](arquitectura/arquitectura_v1.1_2026-10-19.md) se conservan como ediciones anteriores. La v1.1 mantiene su aprobación editorial histórica; la v1.2 de la tabla es la edición actual preparada para revisión. El [control de cambios v5.0](control_de_cambios/registro_v5.0_2026-10-27.md) conserva el corte documental anterior.
+La [arquitectura v1.0](arquitectura/arquitectura_v1.0_2026-10-12.md) se conserva como edición anterior; la vigente es la v1.1 de la tabla.
 
 El registro de entrevista v1.0 se conserva como antecedente; el registro vigente es v1.1,
 cotejado con CAT-REQ-001 v1.2. El informe de S1 documenta los vistos buenos verbales que
@@ -134,4 +132,3 @@ Cada publicación requiere revisión y confirmación del tesista.
 | 4.8 | 2026-10-27 | Se indexan el plan de sprints v1.5 y los criterios de superadministración v1.3; el backlog v1.4 se identifica como corte anterior, sin alterar estados. |
 | 4.9 | 2026-10-27 | Se indexan el plan v1.6 y los criterios v1.4 con autoridad transversal de la Superadministradora sobre todos los módulos y edición de registros y opciones desde el panel. |
 | 5.0 | 2026-10-27 | Se incorporan ediciones académicas completas de requisitos v2.1, historias v2.6 y pila v1.8; línea base aprobada y ampliaciones propuestas permanecen diferenciadas. |
-| 5.1 | 2026-10-28 | Se incorpora arquitectura v1.2 con backend por módulo, frontend por pantalla, recursos compartidos y verificación de transición. Se conserva v1.1 y se distinguen convención aprobada, implementación local parcial y revisión académica pendiente. |

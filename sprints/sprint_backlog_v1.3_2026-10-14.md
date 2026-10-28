@@ -21,149 +21,149 @@ Las cinco HT-PRE están asignadas a S1; sus estados de evidencia se muestran en 
 
 ### Tarea 1 — Consolidar entrevistas, observación y documentos fuente
 
-| Campo                               | Dato                                                                                                     |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **Número de tarea**                 | 1                                                                                                        |
-| **Código de referencia**            | `SB-S1-01`                                                                                               |
-| **Sprint**                          | S1                                                                                                       |
-| **Nombre**                          | Consolidar entrevistas, observación y documentos fuente                                                  |
-| **Prioridad de planificación**      | Alta (propuesta)                                                                                         |
-| **Historia de usuario relacionada** | Referencia a todas las HU                                                                                |
-| **Historia técnica relacionada**    | HT-PRE-001                                                                                               |
-| **Resultado o prueba esperada**     | Registro con actor, fecha, necesidad y dudas; cotejo con catálogo.                                       |
-| **Estimación**                      | Completa                                                                                                 |
-| **Responsable**                     | Franklin                                                                                                 |
-| **Estado**                          | Completado<br>[[registro_entrevista_v1.1_2026-10-13]]<br>[[registro_entrevista_v1.0_2026-10-12]]<br><br> |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 1 |
+| **Código de referencia** | `SB-S1-01` |
+| **Sprint** | S1 |
+| **Nombre** | Consolidar entrevistas, observación y documentos fuente |
+| **Prioridad de planificación** | Alta (propuesta) |
+| **Historia de usuario relacionada** | Referencia a todas las HU |
+| **Historia técnica relacionada** | HT-PRE-001 |
+| **Resultado o prueba esperada** | Registro con actor, fecha, necesidad y dudas; cotejo con catálogo. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Evidencia parcial |
 
 ### Tarea 2 — Separar y validar alcance, RF/RNF y decisiones abiertas
 
-| Campo                               | Dato                                                                                                      |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Número de tarea**                 | 2                                                                                                         |
-| **Código de referencia**            | `SB-S1-02`                                                                                                |
-| **Sprint**                          | S1                                                                                                        |
-| **Nombre**                          | Separar y validar alcance, RF/RNF y decisiones abiertas                                                   |
-| **Prioridad de planificación**      | Esencial (propuesta)                                                                                      |
-| **Historia de usuario relacionada** | Referencia a todas las HU                                                                                 |
-| **Historia técnica relacionada**    | HT-PRE-002                                                                                                |
-| **Resultado o prueba esperada**     | Matriz confirmado/propuesto/pendiente y acta cuando exista; P-02 a P-14 visibles.                         |
-| **Estimación**                      | Completa                                                                                                  |
-| **Responsable**                     | Franklin                                                                                                  |
-| **Estado**                          | Completado<br>[[requisitos_funcionales_v1.1_2026-10-12]]<br>[[requisitos_no_funcionales_v1.1_2026-10-12]] |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 2 |
+| **Código de referencia** | `SB-S1-02` |
+| **Sprint** | S1 |
+| **Nombre** | Separar y validar alcance, RF/RNF y decisiones abiertas |
+| **Prioridad de planificación** | Esencial (propuesta) |
+| **Historia de usuario relacionada** | Referencia a todas las HU |
+| **Historia técnica relacionada** | HT-PRE-002 |
+| **Resultado o prueba esperada** | Matriz confirmado/propuesto/pendiente y acta cuando exista; P-02 a P-14 visibles. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Validación académica pendiente |
 
 ### Tarea 3 — Preparar arquitectura, datos, permisos y operaciones conjuntas
 
-| Campo                               | Dato                                                                                                        |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Número de tarea**                 | 3                                                                                                           |
-| **Código de referencia**            | `SB-S1-03`                                                                                                  |
-| **Sprint**                          | S1                                                                                                          |
-| **Nombre**                          | Preparar arquitectura, datos, permisos y operaciones conjuntas                                              |
-| **Prioridad de planificación**      | Alta (propuesta)                                                                                            |
-| **Historia de usuario relacionada** | Referencia a todas las HU                                                                                   |
-| **Historia técnica relacionada**    | HT-PRE-003                                                                                                  |
-| **Resultado o prueba esperada**     | Modelo conceptual trazado a RF, dueños de escritura y dependencias; revisión de la Directiva según alcance. |
-| **Estimación**                      | Completa                                                                                                    |
-| **Responsable**                     | Franklin                                                                                                    |
-| **Estado**                          | Completado <br>[[arquitectura_v1.1_2026-10-19]]                                                             |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 3 |
+| **Código de referencia** | `SB-S1-03` |
+| **Sprint** | S1 |
+| **Nombre** | Preparar arquitectura, datos, permisos y operaciones conjuntas |
+| **Prioridad de planificación** | Alta (propuesta) |
+| **Historia de usuario relacionada** | Referencia a todas las HU |
+| **Historia técnica relacionada** | HT-PRE-003 |
+| **Resultado o prueba esperada** | Modelo conceptual trazado a RF, dueños de escritura y dependencias; revisión de la Directiva según alcance. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Diseño por verificar |
 
 ### Tarea 4 — Revisar recorridos móviles y preparar diseño de PWA
 
-| Campo                               | Dato                                                               |
-| ----------------------------------- | ------------------------------------------------------------------ |
-| **Número de tarea**                 | 4                                                                  |
-| **Código de referencia**            | `SB-S1-04`                                                         |
-| **Sprint**                          | S1                                                                 |
-| **Nombre**                          | Revisar recorridos móviles y preparar diseño de PWA                |
-| **Prioridad de planificación**      | Alta (propuesta)                                                   |
-| **Historia de usuario relacionada** | HU-PWA-001                                                         |
-| **Historia técnica relacionada**    | HT-PRE-004                                                         |
-| **Resultado o prueba esperada**     | Pantallas, errores y límites de datos locales; P-13/P-14 visibles. |
-| **Estimación**                      | Completa                                                           |
-| **Responsable**                     | Franklin                                                           |
-| **Estado**                          | Completado<br>[[arquitectura_v1.1_2026-10-19]]                     |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 4 |
+| **Código de referencia** | `SB-S1-04` |
+| **Sprint** | S1 |
+| **Nombre** | Revisar recorridos móviles y preparar diseño de PWA |
+| **Prioridad de planificación** | Alta (propuesta) |
+| **Historia de usuario relacionada** | HU-PWA-001 |
+| **Historia técnica relacionada** | HT-PRE-004 |
+| **Resultado o prueba esperada** | Pantallas, errores y límites de datos locales; P-13/P-14 visibles. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Validación de interfaz pendiente |
 
 ### Tarea 5 — Ordenar, estimar y relacionar historias con sprints y pruebas
 
-| Campo                               | Dato                                                                                                     |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **Número de tarea**                 | 5                                                                                                        |
-| **Código de referencia**            | `SB-S1-05`                                                                                               |
-| **Sprint**                          | S1                                                                                                       |
-| **Nombre**                          | Ordenar, estimar y relacionar historias con sprints y pruebas                                            |
-| **Prioridad de planificación**      | Alta (propuesta)                                                                                         |
-| **Historia de usuario relacionada** | Referencia a todas las HU                                                                                |
-| **Historia técnica relacionada**    | HT-PRE-005, HT-GEN-008                                                                                   |
-| **Resultado o prueba esperada**     | Prioridades, dependencias y capacidad revisadas; exploración de entorno y recuperación sin aprobar P-11. |
-| **Estimación**                      | Completa                                                                                                 |
-| **Responsable**                     | Franklin                                                                                                 |
-| **Estado**                          | Completo <br>[[historias_usuario_v2.5_2026-10-13]]<br>[[SPRINT-02-HOJA-DE-RUTA]]                         |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 5 |
+| **Código de referencia** | `SB-S1-05` |
+| **Sprint** | S1 |
+| **Nombre** | Ordenar, estimar y relacionar historias con sprints y pruebas |
+| **Prioridad de planificación** | Alta (propuesta) |
+| **Historia de usuario relacionada** | Referencia a todas las HU |
+| **Historia técnica relacionada** | HT-PRE-005, HT-GEN-008 |
+| **Resultado o prueba esperada** | Prioridades, dependencias y capacidad revisadas; exploración de entorno y recuperación sin aprobar P-11. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Estimación pendiente |
 
 ## Sprint 2
 
 ### Tarea 1 — Preparar proyecto, usuario y base de datos
 
-| Campo                               | Dato                                                                |
-| ----------------------------------- | ------------------------------------------------------------------- |
-| **Número de tarea**                 | 1                                                                   |
-| **Código de referencia**            | `SB-S2-01`                                                          |
-| **Sprint**                          | S2                                                                  |
-| **Nombre**                          | Preparar proyecto, usuario y base de datos                          |
-| **Prioridad de planificación**      | Esencial (propuesta)                                                |
-| **Historia de usuario relacionada** | HU-ACC-001                                                          |
-| **Historia técnica relacionada**    | HT-GEN-001, HT-GEN-009                                              |
-| **Resultado o prueba esperada**     | Comprobación Django y migraciones PostgreSQL; vínculo RF–HU–prueba. |
-| **Estimación**                      | Pendiente del equipo                                                |
-| **Responsable**                     | Franklin                                                            |
-| **Estado**                          |                                                                     |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 1 |
+| **Código de referencia** | `SB-S2-01` |
+| **Sprint** | S2 |
+| **Nombre** | Preparar proyecto, usuario y base de datos |
+| **Prioridad de planificación** | Esencial (propuesta) |
+| **Historia de usuario relacionada** | HU-ACC-001 |
+| **Historia técnica relacionada** | HT-GEN-001, HT-GEN-009 |
+| **Resultado o prueba esperada** | Comprobación Django y migraciones PostgreSQL; vínculo RF–HU–prueba. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Candidata; sin estimación ni responsable |
 
 ### Tarea 2 — Entrar, salir y proteger contenido privado
 
-| Campo                               | Dato                                                                              |
-| ----------------------------------- | --------------------------------------------------------------------------------- |
-| **Número de tarea**                 | 2                                                                                 |
-| **Código de referencia**            | `SB-S2-02`                                                                        |
-| **Sprint**                          | S2                                                                                |
-| **Nombre**                          | Entrar, salir y proteger contenido privado                                        |
-| **Prioridad de planificación**      | Esencial (propuesta)                                                              |
-| **Historia de usuario relacionada** | HU-ACC-001                                                                        |
-| **Historia técnica relacionada**    | HT-GEN-002                                                                        |
-| **Resultado o prueba esperada**     | Cuenta activa accede; cuenta inactiva y petición directa sin permiso se rechazan. |
-| **Estimación**                      | Pendiente del equipo                                                              |
-| **Responsable**                     | Franklin                                                                          |
-| **Estado**                          | Candidata; sin estimación ni responsable                                          |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 2 |
+| **Código de referencia** | `SB-S2-02` |
+| **Sprint** | S2 |
+| **Nombre** | Entrar, salir y proteger contenido privado |
+| **Prioridad de planificación** | Esencial (propuesta) |
+| **Historia de usuario relacionada** | HU-ACC-001 |
+| **Historia técnica relacionada** | HT-GEN-002 |
+| **Resultado o prueba esperada** | Cuenta activa accede; cuenta inactiva y petición directa sin permiso se rechazan. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Candidata; sin estimación ni responsable |
 
 ### Tarea 3 — Administrar membresías y responsabilidades
 
-| Campo                               | Dato                                                              |
-| ----------------------------------- | ----------------------------------------------------------------- |
-| **Número de tarea**                 | 3                                                                 |
-| **Código de referencia**            | `SB-S2-03`                                                        |
-| **Sprint**                          | S2                                                                |
-| **Nombre**                          | Administrar membresías y responsabilidades                        |
-| **Prioridad de planificación**      | Alta (propuesta)                                                  |
-| **Historia de usuario relacionada** | HU-ACC-002, HU-ACC-003                                            |
-| **Historia técnica relacionada**    | HT-GEN-002                                                        |
-| **Resultado o prueba esperada**     | Alta/baja autorizada y denegación sin cambios; permisos vigentes. |
-| **Estimación**                      | Pendiente del equipo                                              |
-| **Responsable**                     | Franklin                                                          |
-| **Estado**                          | Candidata; sin estimación ni responsable                          |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 3 |
+| **Código de referencia** | `SB-S2-03` |
+| **Sprint** | S2 |
+| **Nombre** | Administrar membresías y responsabilidades |
+| **Prioridad de planificación** | Alta (propuesta) |
+| **Historia de usuario relacionada** | HU-ACC-002, HU-ACC-003 |
+| **Historia técnica relacionada** | HT-GEN-002 |
+| **Resultado o prueba esperada** | Alta/baja autorizada y denegación sin cambios; permisos vigentes. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Candidata; sin estimación ni responsable |
 
 ### Tarea 4 — Mostrar opciones propias en móvil y revisar regresión
 
-| Campo                               | Dato                                                                                   |
-| ----------------------------------- | -------------------------------------------------------------------------------------- |
-| **Número de tarea**                 | 4                                                                                      |
-| **Código de referencia**            | `SB-S2-04`                                                                             |
-| **Sprint**                          | S2                                                                                     |
-| **Nombre**                          | Mostrar opciones propias en móvil y revisar regresión                                  |
-| **Prioridad de planificación**      | Alta (propuesta)                                                                       |
-| **Historia de usuario relacionada** | HU-ACC-004                                                                             |
-| **Historia técnica relacionada**    | HT-GEN-004, HT-GEN-009                                                                 |
-| **Resultado o prueba esperada**     | Inicio privado solo con acciones propias; teclado, 360 px y cierre de sesión probados. |
-| **Estimación**                      | Pendiente del equipo                                                                   |
-| **Responsable**                     | Franklin                                                                               |
-| **Estado**                          | Candidata; sin estimación ni responsable                                               |
+| Campo | Dato |
+|---|---|
+| **Número de tarea** | 4 |
+| **Código de referencia** | `SB-S2-04` |
+| **Sprint** | S2 |
+| **Nombre** | Mostrar opciones propias en móvil y revisar regresión |
+| **Prioridad de planificación** | Alta (propuesta) |
+| **Historia de usuario relacionada** | HU-ACC-004 |
+| **Historia técnica relacionada** | HT-GEN-004, HT-GEN-009 |
+| **Resultado o prueba esperada** | Inicio privado solo con acciones propias; teclado, 360 px y cierre de sesión probados. |
+| **Estimación** | Pendiente del equipo |
+| **Responsable** | Pendiente de asignar |
+| **Estado** | Candidata; sin estimación ni responsable |
 
 ## Sprint 3
 
