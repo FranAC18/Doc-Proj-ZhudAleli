@@ -1,0 +1,755 @@
+{
+  "engine": "postgresql",
+  "database_role": "development",
+  "rows_read": false,
+  "tables": [
+    {
+      "name": "accounts_authattempt",
+      "columns": [
+        "id",
+        "scope_digest",
+        "attempts",
+        "window_started_at",
+        "locked_until",
+        "updated_at"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "scope_digest"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_authattempt_scope_digest_f7288d38_like",
+          "columns": [
+            "scope_digest"
+          ]
+        },
+        {
+          "name": "acct_auth_attempt_upd_idx",
+          "columns": [
+            "updated_at"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "accounts_authchallenge",
+      "columns": [
+        "id",
+        "purpose",
+        "token_digest",
+        "expires_at",
+        "consumed_at",
+        "created_at",
+        "contact_id",
+        "user_id"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "contact_id"
+          ],
+          "target_table": "accounts_contactchannel",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target_table": "accounts_user",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "token_digest"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_authchallenge_contact_id_193646ab",
+          "columns": [
+            "contact_id"
+          ]
+        },
+        {
+          "name": "accounts_authchallenge_token_digest_9beaca92_like",
+          "columns": [
+            "token_digest"
+          ]
+        },
+        {
+          "name": "accounts_authchallenge_user_id_364eeac5",
+          "columns": [
+            "user_id"
+          ]
+        },
+        {
+          "name": "acct_challenge_active_idx",
+          "columns": [
+            "user_id",
+            "purpose",
+            "expires_at"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "accounts_contactchannel",
+      "columns": [
+        "id",
+        "type",
+        "value",
+        "verified_at",
+        "created_at",
+        "updated_at",
+        "user_id"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target_table": "accounts_user",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "user_id",
+            "type",
+            "value"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "type",
+            "value"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_contactchannel_user_id_3c006575",
+          "columns": [
+            "user_id"
+          ]
+        },
+        {
+          "name": "acct_contact_verified_idx",
+          "columns": [
+            "type",
+            "value",
+            "verified_at"
+          ]
+        },
+        {
+          "name": "acct_contact_verified_uniq",
+          "columns": [
+            "type",
+            "value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "accounts_loginthrottle",
+      "columns": [
+        "id",
+        "identifier_digest",
+        "failed_attempts",
+        "window_started_at",
+        "locked_until",
+        "updated_at"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "identifier_digest"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_loginthrottle_identifier_digest_b841d341_like",
+          "columns": [
+            "identifier_digest"
+          ]
+        },
+        {
+          "name": "acct_login_throttle_upd_idx",
+          "columns": [
+            "updated_at"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "accounts_user",
+      "columns": [
+        "id",
+        "password",
+        "last_login",
+        "is_superuser",
+        "first_name",
+        "last_name",
+        "email",
+        "is_staff",
+        "is_active",
+        "date_joined",
+        "username",
+        "must_change_password"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "username"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_user_username_6088629e_like",
+          "columns": [
+            "username"
+          ]
+        },
+        {
+          "name": "accounts_user_username_canon_uniq",
+          "columns": []
+        }
+      ]
+    },
+    {
+      "name": "accounts_user_groups",
+      "columns": [
+        "id",
+        "user_id",
+        "group_id"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target_table": "accounts_user",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "group_id"
+          ],
+          "target_table": "auth_group",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "user_id",
+            "group_id"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_user_groups_group_id_bd11a704",
+          "columns": [
+            "group_id"
+          ]
+        },
+        {
+          "name": "accounts_user_groups_user_id_52b62117",
+          "columns": [
+            "user_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "accounts_user_user_permissions",
+      "columns": [
+        "id",
+        "user_id",
+        "permission_id"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target_table": "accounts_user",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "permission_id"
+          ],
+          "target_table": "auth_permission",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "user_id",
+            "permission_id"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "accounts_user_user_permissions_permission_id_113bb443",
+          "columns": [
+            "permission_id"
+          ]
+        },
+        {
+          "name": "accounts_user_user_permissions_user_id_e4f0a161",
+          "columns": [
+            "user_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auth_group",
+      "columns": [
+        "id",
+        "name"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "name"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "auth_group_name_a6ea08ec_like",
+          "columns": [
+            "name"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auth_group_permissions",
+      "columns": [
+        "id",
+        "group_id",
+        "permission_id"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "group_id"
+          ],
+          "target_table": "auth_group",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "permission_id"
+          ],
+          "target_table": "auth_permission",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "group_id",
+            "permission_id"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "auth_group_permissions_group_id_b120cbf9",
+          "columns": [
+            "group_id"
+          ]
+        },
+        {
+          "name": "auth_group_permissions_permission_id_84c5c92e",
+          "columns": [
+            "permission_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auth_permission",
+      "columns": [
+        "id",
+        "name",
+        "content_type_id",
+        "codename"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "content_type_id"
+          ],
+          "target_table": "django_content_type",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "content_type_id",
+            "codename"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "auth_permission_content_type_id_2f476e4b",
+          "columns": [
+            "content_type_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "django_content_type",
+      "columns": [
+        "id",
+        "app_label",
+        "model"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        },
+        {
+          "columns": [
+            "app_label",
+            "model"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "django_migrations",
+      "columns": [
+        "id",
+        "app",
+        "name",
+        "applied"
+      ],
+      "primary_keys": [
+        [
+          "id"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "id"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "django_session",
+      "columns": [
+        "session_key",
+        "session_data",
+        "expire_date"
+      ],
+      "primary_keys": [
+        [
+          "session_key"
+        ]
+      ],
+      "foreign_keys": [],
+      "unique_constraints": [
+        {
+          "columns": [
+            "session_key"
+          ],
+          "condition": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "django_session_expire_date_a5c62663",
+          "columns": [
+            "expire_date"
+          ]
+        },
+        {
+          "name": "django_session_session_key_c0390e0f_like",
+          "columns": [
+            "session_key"
+          ]
+        }
+      ]
+    }
+  ],
+  "applied_non_framework_migrations": [
+    "accounts.0001_initial",
+    "accounts.0002_loginthrottle",
+    "accounts.0003_contactchannel_authchallenge_authattempt"
+  ],
+  "table_count": 13,
+  "applied_migrations": [
+    "accounts.0001_initial",
+    "accounts.0002_loginthrottle",
+    "accounts.0003_contactchannel_authchallenge_authattempt",
+    "auth.0001_initial",
+    "auth.0002_alter_permission_name_max_length",
+    "auth.0003_alter_user_email_max_length",
+    "auth.0004_alter_user_username_opts",
+    "auth.0005_alter_user_last_login_null",
+    "auth.0006_require_contenttypes_0002",
+    "auth.0007_alter_validators_add_error_messages",
+    "auth.0008_alter_user_username_max_length",
+    "auth.0009_alter_user_last_name_max_length",
+    "auth.0010_alter_group_name_max_length",
+    "auth.0011_update_proxy_permissions",
+    "auth.0012_alter_user_first_name_max_length",
+    "contenttypes.0001_initial",
+    "contenttypes.0002_remove_content_type_name",
+    "sessions.0001_initial"
+  ],
+  "makemigrations_check": "No changes detected",
+  "table_names": [
+    "accounts_authattempt",
+    "accounts_authchallenge",
+    "accounts_contactchannel",
+    "accounts_loginthrottle",
+    "accounts_user",
+    "accounts_user_groups",
+    "accounts_user_user_permissions",
+    "auth_group",
+    "auth_group_permissions",
+    "auth_permission",
+    "django_content_type",
+    "django_migrations",
+    "django_session"
+  ],
+  "erd_validation": {
+    "mermaid_diagrams": 6,
+    "diagrams": [
+      {
+        "diagram": 1,
+        "entities": 13,
+        "relationship_endpoints_declared": true
+      },
+      {
+        "diagram": 2,
+        "entities": 28,
+        "relationship_endpoints_declared": true
+      },
+      {
+        "diagram": 3,
+        "entities": 27,
+        "relationship_endpoints_declared": true
+      },
+      {
+        "diagram": 4,
+        "entities": 20,
+        "relationship_endpoints_declared": true
+      },
+      {
+        "diagram": 5,
+        "entities": 17,
+        "relationship_endpoints_declared": true
+      },
+      {
+        "diagram": 6,
+        "entities": 20,
+        "relationship_endpoints_declared": true
+      }
+    ],
+    "undeclared_relation_endpoints": 0,
+    "broken_local_links": 0
+  },
+  "raw_business_rows_read": false,
+  "aggregate_checks": {
+    "accounts_authchallenge_rows": 0,
+    "cross_user_challenge_rows": 0,
+    "duplicate_verified_contact_groups_case_insensitive": 0
+  },
+  "account_aggregate_checks": {
+    "accounts_user_rows": 1,
+    "is_superuser_true": 0,
+    "is_staff_true": 0,
+    "organization_member_rows": "not modeled in current schema",
+    "identities_read": false
+  }
+}
