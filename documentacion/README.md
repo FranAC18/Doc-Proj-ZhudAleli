@@ -1,13 +1,19 @@
 ---
 titulo: Índice de documentación final de Zhud Alelí
-version: "5.2"
-fecha: 2026-10-28
+version: "5.11"
+fecha: 2026-10-30
 autor: Tesista
 estado: preparado-para-revision-academica
 publicacion: parcialmente-publicada
 ---
 
 # Documentación final de Zhud Alelí
+
+## Diseño de base de datos — 2026-10-30
+
+La [base consolidada v2.1](arquitectura/diseno_base_datos_v2.1_2026-10-30.md), el [ER integral v2.1](arquitectura/modelo_er_integral_v2.1_2026-10-30.md) y la [nota de correspondencia con las tablas Django](arquitectura/uso_tablas_django_login_en_diseno_v1.0_2026-10-30.md) están preparados para revisión. El ER distingue las 13 tablas físicas verificadas de las entidades de negocio propuestas y documenta la reutilización de las cuentas y permisos técnicos.
+
+Control de cambios: [registro v5.11](control_de_cambios/registro_v5.11_2026-10-30.md). La implementación de dominio y la publicación al docente siguen pendientes.
 
 Este índice reúne las ediciones documentales del proyecto de la materia Aplicaciones
 Informáticas II. Cada documento indica versión, fecha, autor, estado e historial.
@@ -152,3 +158,4 @@ Cada publicación requiere revisión y confirmación del tesista.
 | 5.1 | 2026-10-28 | Se incorpora arquitectura v1.2 con backend por módulo, frontend por pantalla, recursos compartidos y verificación de transición. Se conserva v1.1 y se distinguen convención aprobada, implementación local parcial y revisión académica pendiente. |
 
 | 5.2 | 2026-10-28 | Indexa requisitos v2.2, HU v2.7, HT v1.8, pila v1.9 y backlog v1.5 del acceso aceptado; revisión académica, implementación y transferencia pendientes. |
+| 5.11 | 2026-10-30 | Indexa el diseño lógico y ER v2.1 y la nota de reutilización de las 13 tablas Django; implementación, revisión académica y publicación al docente pendientes. |
