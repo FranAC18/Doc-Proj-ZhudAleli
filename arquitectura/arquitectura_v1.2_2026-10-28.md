@@ -11,13 +11,13 @@ editorial_review: pending
 decision: "ADR-0006; decisión técnica aceptada el 2026-10-08"
 review_academic: pending
 organizational_validation: pending
-publication: pending-transfer
+publication: published-for-academic-review
 implementation_status: "partial-local; frontend-transition-observed; integration-verification-pending"
 ---
 
 # Arquitectura detallada y comportamiento de Zhud Alelí
 
-> **Estado:** edición v1.2 preparada para revisión académica. Conserva la arquitectura base de la v1.1 e incorpora la organización modular de backend y frontend aprobada por el tesista el 2026-10-28. La app Django ya cuenta con una implementación local parcial de acceso y una adaptación de presentación en el árbol de trabajo. Los diagramas generales siguen representando el diseño previsto de los demás módulos. La aprobación de la convención no implica aceptación de esta edición completa, nuevas funcionalidades, despliegue ni transferencia al docente.
+> **Estado:** edición v1.2 preparada para revisión académica. Conserva la arquitectura base de la v1.1 e incorpora la organización modular de backend y frontend aprobada por el tesista el 2026-10-28. La app Django ya cuenta con una implementación local parcial de acceso y una adaptación de presentación en el árbol de trabajo. Los diagramas generales siguen representando el diseño previsto de los demás módulos. La convención técnica está aprobada y esta edición se publica para revisión docente. La publicación no implica aceptación académica, nuevas funcionalidades ni despliegue.
 
 ## 1. Propósito y alcance
 
@@ -647,4 +647,4 @@ caché. El esquema de datos y las migraciones se comprueban cuando el cambio los
 | Versión | Fecha | Cambio | Estado |
 |---|---|---|---|
 | 1.1 | 2026-10-19 | Añade diagramas, matriz de los 58 RF y 9 RNF, cotejo de entrevista, brechas de trazabilidad, componentes, PWA, transacciones, reportes, despliegue y pendientes. | Aprobada por el tesista para documentación; revisión académica, validación organizacional y transferencia pendientes. |
-| 1.2 | 2026-10-28 | Incorpora la convención de backend por módulo y frontend por pantalla, recursos compartidos, crecimiento proporcional y verificación de transición; actualiza el estado local y corrige mensajes de acceso conforme a SPEC-001. | Preparada para revisión académica; convención técnica aprobada, edición completa y transferencia pendientes. |
+| 1.2 | 2026-10-28 | Incorpora la convención de backend por módulo y frontend por pantalla, recursos compartidos, crecimiento proporcional y verificación de transición; actualiza el estado local y corrige mensajes de acceso conforme a SPEC-001. | Publicada para revisión académica; convención técnica aprobada y aceptación de la edición completa pendiente. |
