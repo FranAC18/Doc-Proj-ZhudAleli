@@ -7,7 +7,7 @@ estado: preparado-para-revision
 validacion_organizacional: pendiente
 implementacion: sin-cambios-de-codigo-ni-migraciones
 publicacion: pendiente
-commit: pending
+commit: a35363d
 ---
 
 # Reutilización de las tablas de login de Django

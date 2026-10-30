@@ -7,7 +7,7 @@ estado: consolidado-para-diseno-logico
 validacion_organizacional: evidencia-directa-pendiente
 implementacion: no-realizada
 publicacion: pendiente
-commit: pending
+commit: a35363d
 tarea: SB-S1-03 / HT-PRE-003
 ---
 

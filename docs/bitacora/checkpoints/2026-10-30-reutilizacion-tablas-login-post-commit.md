@@ -1,9 +1,12 @@
 ---
 fecha: 2026-10-30
-fase: pre_commit
+fase: post_commit
 tarea: documentación del ER y compatibilidad con las tablas Django existentes
-estado: revisado-localmente
-commit: pending
+estado: registrado-postcommit
+repositorio: ZhudAleli
+rama: docs/requisitos-y-organizacion-del-vault
+commit: a35363d
+push: realizado
 publicacion_academica: pendiente
 ---
 
@@ -33,4 +36,4 @@ La documentación deja explícita la brecha de integridad en `accounts_authchall
 
 ## Próximo paso
 
-Crear el commit documental en `docs/requisitos-y-organizacion-del-vault` y hacer push a su upstream `origin`. Registrar el hash y resultado reales en la fase `post_commit`. No publicar al repositorio del docente.
+El commit `a35363d` se creó y publicó en `origin/docs/requisitos-y-organizacion-del-vault`; `git ls-remote` confirmó ese mismo hash en la rama. Incluyó la base consolidada v2.1, el ER integral v2.1, la nota de reutilización de tablas, el control 5.11, la introspección PostgreSQL y el checkpoint pre_commit. `git diff --cached --check` no reportó errores; no se ejecutaron pruebas de producto ni se modificó la app. La publicación al repositorio del docente sigue pendiente.

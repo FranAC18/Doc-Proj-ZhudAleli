@@ -4,7 +4,7 @@ fecha: 2026-10-30
 autor: Codex por solicitud del tesista
 estado: preparado-para-revision
 publicacion: pendiente
-commit: pending
+commit: a35363d
 ---
 
 # Control de cambios 5.11
