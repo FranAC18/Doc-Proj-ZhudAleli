@@ -29,6 +29,10 @@ related:
 - **Rama propuesta**: `feature/RF-ACC-005-superadministracion` (solo sugerencia; no creada)
 - **Entrada del usuario**: definir criterios para la superadministración y preparar en S2 la estructura y los permisos de los módulos; sus funciones se desarrollan en S3-S5.
 
+## Criterio de diseño consolidado — 2026-10-30
+
+Las respuestas expresas posteriores sustituyen D28: Superadministradora puede ejecutar, aprobar y sustituir decisiones de negocio sin autorización previa, pero no vender personalmente. Toda actuación conserva actor real, autoridad usada y evidencia. La concesión/revocación del rol mantiene autorización presidencial D19, sin autoconcesión. Esta spec conserva estado propuesto y no acredita validación organizacional ni implementación. Los criterios detallados de esta revisión están en la [consolidación](../../docs/requirements/proposals/2026-10-30-consolidacion-reglas-diseno-datos.md); cualquier escenario histórico inferior se interpreta dentro de esos límites.
+
 ## Control de validación
 
 | Elemento | Valor |

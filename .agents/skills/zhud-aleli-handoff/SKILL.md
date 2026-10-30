@@ -7,6 +7,8 @@ description: Persiste el estado de una tarea para continuarla desde Codex, Antig
 
 Usa la plantilla `docs/templates/PLANTILLA-HANDOFF-UNIVERSAL.md` y registra el handoff en
 `docs/bitacora/checkpoints/` con un nombre único.
+Un checkpoint puede cubrir también el resumen de sesión. Enlaza evidencia extensa y
+conserva aquí resultado, pendientes y siguiente acción, sin copiar el historial.
 
 El handoff debe incluir como mínimo:
 
@@ -20,6 +22,8 @@ El handoff debe incluir como mínimo:
 - `branch`, `commit` (`pending` si aún no existe), `remote` y `handoff_to`.
 
 Un cambio de proveedor no autoriza a cambiar de tarea ni de alcance. La herramienta siguiente
-debe leer el último handoff, comprobar el estado de Git y confirmar la raíz del
+debe leer el handoff enlazado para esa tarea, comprobar el estado de Git y confirmar la raíz del
 repositorio correspondiente antes de escribir.
+Consulta `scope_file` desde el estado activo para las rutas vigentes. No cargues todos
+los checkpoints ni las fuentes ya vigentes en el chat.
 Si hay cambios sin commit, no se abre otro escritor sobre el mismo worktree.

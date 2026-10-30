@@ -3,9 +3,10 @@ description: Clasifica una solicitud separando intención, estado, autorización
 agent: plan
 ---
 
-Clasifica la solicitud siguiente usando `tools/agent-routes.toml`,
-`docs/context/context-index.md`, `docs/context/feature-index.md` y
-`docs/bitacora/ESTADO-ACTIVO.md`.
+Clasifica la solicitud con `docs/context/context-index.md`, el estado activo y el
+bloque pertinente de `task_types` en `tools/agent-routes.toml`. Abre el índice de
+funcionalidades solo si la solicitud afecta una funcionalidad. Para comprobar rutas
+de escritura, consulta el `scope_file` indicado por el estado activo.
 
 Tu responsabilidad termina en clasificar, comprobar autorización y recomendar el siguiente
 paso. No edites archivos, no ejecutes comandos de modificación, no selecciones skills, no

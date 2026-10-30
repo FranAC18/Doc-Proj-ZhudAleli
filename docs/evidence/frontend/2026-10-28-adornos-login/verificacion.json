@@ -1,0 +1,212 @@
+{
+  "comparaciones": [
+    {
+      "screen": "login",
+      "width": 360,
+      "overflow": false,
+      "errors": [],
+      "hash": "0755f4ff35fbaa08e44b5d7732d3c6ba14012e233e855c438af5bf0889d98536",
+      "identical": true
+    },
+    {
+      "screen": "login",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "hash": "074531d531803ac5d0f433d9c0f487ea3e4dcec46a021ef0ead7b5ab9ba8e88f",
+      "identical": true
+    },
+    {
+      "screen": "login",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "hash": "7f7806013f8e735f754962c5d94f1365815a4381ff1bd540d8b73d87e3d08c51",
+      "identical": true
+    },
+    {
+      "screen": "login",
+      "width": 1280,
+      "overflow": false,
+      "errors": [],
+      "hash": "71b85e89c38d15c8c466b43559c69873aa8079b6340100b4faefbd1781ee2843",
+      "identical": true
+    },
+    {
+      "screen": "login",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "hash": "516ab3a7ec92fdb190a942f1903e068358d761f3f398a0873e722e0cc97cd318",
+      "identical": true
+    },
+    {
+      "screen": "login-error",
+      "width": 360,
+      "overflow": false,
+      "errors": [],
+      "hash": "4638c9d0ed598a6c9e495f224e7c8565d9c6a147a4564a711ed23b6d44adfbcd",
+      "identical": true
+    },
+    {
+      "screen": "login-error",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "hash": "ef17c22ebdf8a9eb911752d7cd8ead3697f94cd8fc186a9e9a61068f57b11b63",
+      "identical": true
+    },
+    {
+      "screen": "login-error",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "hash": "926a2de53901f67189ce59bc9e2b1b1318097346868a68c69418e80a0c8babb9",
+      "identical": true
+    },
+    {
+      "screen": "login-error",
+      "width": 1280,
+      "overflow": false,
+      "errors": [],
+      "hash": "105b1b25e1101e95ac1d8efff5b11c97564db997752a5d1d7cd22011b22bfbf3",
+      "identical": true
+    },
+    {
+      "screen": "login-error",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "hash": "2122d31c9930f47855b77fe14e61ec4373da42ab3e2143a89837ce76f587b83e",
+      "identical": true
+    },
+    {
+      "screen": "cambio",
+      "width": 360,
+      "overflow": false,
+      "errors": [],
+      "hash": "30e9fa1008eb484a216a20756772e9b0fc356e5093b667d2a1772f8e9b7f7109",
+      "identical": true
+    },
+    {
+      "screen": "cambio",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "hash": "50843059636c38d0b426b43d44b2e73be154bdf831243c6fb70f754ca6509362",
+      "identical": true
+    },
+    {
+      "screen": "cambio",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "hash": "67ec46a9fad380c4d6340959208e5f4e46909fe83ec6bd8ec6c46b69ae12d4a5",
+      "identical": true
+    },
+    {
+      "screen": "cambio",
+      "width": 1280,
+      "overflow": false,
+      "errors": [],
+      "hash": "a1273d1394c33edbe8d6978799dfe6d4cb5b812caf227e45033476c781e1cd56",
+      "identical": true
+    },
+    {
+      "screen": "cambio",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "hash": "30e5f41d8ab9466d3adffaaa6fdf95b8c9fce529c19f7d824842ff22b6ec85e4",
+      "identical": true
+    },
+    {
+      "screen": "primer-acceso",
+      "width": 360,
+      "overflow": false,
+      "errors": [],
+      "hash": "c42be21a3a105c5f2e8b5f6a9ea28198b5f5cf1c717130fee28f8b6936bac928",
+      "identical": true
+    },
+    {
+      "screen": "primer-acceso",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "hash": "1d7d6f029933c456656302ae51d73b1774c452e90aa3061e7fc191d396183d95",
+      "identical": true
+    },
+    {
+      "screen": "primer-acceso",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "hash": "b8f7170a611ee3a254c93eae6ed2979eb74a194b0318f303ce4c14abfd979e7f",
+      "identical": true
+    },
+    {
+      "screen": "primer-acceso",
+      "width": 1280,
+      "overflow": false,
+      "errors": [],
+      "hash": "86d014357fe47ceae2e57b2067d0a28384f2e9160deecc0fdce9cd832c5fc434",
+      "identical": true
+    },
+    {
+      "screen": "primer-acceso",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "hash": "aa8b7d62c8a8f9a9cdb9976987e366d098c7df82138a25e5ef55a7310c3bf356",
+      "identical": true
+    }
+  ],
+  "galeria_independiente": true,
+  "svg_decorativos": [
+    {
+      "hidden": "true",
+      "focusable": "false",
+      "animation": "none"
+    },
+    {
+      "hidden": "true",
+      "focusable": "false",
+      "animation": "none"
+    }
+  ],
+  "teclado": true,
+  "alternar_contrasena": true,
+  "animaciones": [
+    "za-adorno-vino-flotar",
+    "za-adorno-onda-flotar"
+  ],
+  "pwa": {
+    "names": [
+      "zhud-aleli-public-shell-v11"
+    ],
+    "urls": [
+      "/static/pwa/offline.html",
+      "/static/manifest.json",
+      "/static/pwa/pwa-register.js",
+      "/static/compartido/password-toggle.js",
+      "/static/compartido/form-feedback.js",
+      "/static/compartido/base.css",
+      "/static/compartido/formularios.css",
+      "/static/compartido/adornos-formulario.css",
+      "/static/accounts/login/login.css",
+      "/static/portal/inicio/inicio.css",
+      "/static/accounts/login/imagenes/login-hero-2.png",
+      "/static/brand/zhud-aleli-wordmark.png",
+      "/static/brand/zhud-aleli-emblem-white.png",
+      "/static/brand/zhud-aleli-wordmark-white.png",
+      "/static/brand/favicon-32.png",
+      "/static/vendor/bootstrap/bootstrap.min.css",
+      "/static/vendor/bootstrap/bootstrap.bundle.min.js",
+      "/static/pwa/icons/icon-192.png",
+      "/static/pwa/icons/icon-512.png",
+      "/static/pwa/icons/apple-touch-icon.png"
+    ]
+  },
+  "alternativa_offline": true,
+  "limites": "Capturas sobre plantillas Django renderizadas con datos ficticios; las pruebas PostgreSQL verifican el acceso por separado. No es aceptacion con usuarias."
+}

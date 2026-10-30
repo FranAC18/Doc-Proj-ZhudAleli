@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-30",
+  "latest_design": "documentacion/arquitectura/modelo_er_integral_v2.1_2026-10-30.md",
+  "latest_logical_design": "documentacion/arquitectura/diseno_base_datos_v2.1_2026-10-30.md",
+  "database": "PostgreSQL development zhud_aleli_dev",
+  "physical_tables": 13,
+  "applied_migrations": 18,
+  "makemigrations_check": "No changes detected",
+  "current_user_rows": 1,
+  "technical_is_superuser_rows": 0,
+  "technical_is_staff_rows": 0,
+  "organization_reported": {
+    "members": 6,
+    "member_accounts": 6,
+    "business_roles": [
+      "General",
+      "Presidenta",
+      "Tesorera",
+      "Secretaria"
+    ],
+    "combinable": true,
+    "external_superadmin_account": 1,
+    "inferred_minimum_accounts": 7,
+    "count_is_schema_limit": false
+  },
+  "development_roster_loaded": false,
+  "erd_diagrams": [
+    {
+      "diagram": 1,
+      "entities": 13,
+      "duplicate_entities": 0,
+      "unresolved_endpoints": 0
+    },
+    {
+      "diagram": 2,
+      "entities": 29,
+      "duplicate_entities": 0,
+      "unresolved_endpoints": 0
+    },
+    {
+      "diagram": 3,
+      "entities": 28,
+      "duplicate_entities": 0,
+      "unresolved_endpoints": 0
+    },
+    {
+      "diagram": 4,
+      "entities": 22,
+      "duplicate_entities": 0,
+      "unresolved_endpoints": 0
+    },
+    {
+      "diagram": 5,
+      "entities": 18,
+      "duplicate_entities": 0,
+      "unresolved_endpoints": 0
+    },
+    {
+      "diagram": 6,
+      "entities": 20,
+      "duplicate_entities": 0,
+      "unresolved_endpoints": 0
+    }
+  ],
+  "broken_markdown_links": 0,
+  "schema_table_name_conflicts": 0,
+  "potential_authchallenge_user_contact_fk_gap": true,
+  "authchallenge_rows": 0,
+  "manager_resources_http_200": true,
+  "git_diff_check": 0,
+  "application_code_changed": false,
+  "hashes": {
+    "documentacion/arquitectura/modelo_er_integral_v2.1_2026-10-30.md": "277d7123e275b4c222b09732d96305bcc4b52bce6dcc7c1e36c5221603c43797",
+    "documentacion/arquitectura/diseno_base_datos_v2.1_2026-10-30.md": "8275ee673dfc5d344bf5b4435145ac50f0855f610afb00fc58e8e731c58b82e3",
+    "documentacion/README.md": "0cce86a2bbb1700030ba2c87c8551f3c4f7a25378bbaecd784c8e307c726cc89",
+    "documentacion/control_de_cambios/registro_v5.10_2026-10-30.md": "59d3c122ff34d967011dee30eec3940666e1b93599cc2515086e8d93ac8f5f76",
+    "docs/bitacora/ESTADO-ACTIVO.md": "ca2ac737e2b2099ceb06bb0fdff8349cd0c5ebf49de0048e5c9c507d01c983dc",
+    "docs/bitacora/checkpoints/2026-10-30-identidad-y-roles-er.md": "5ad45c53b972ecca02e122613496ec0e647c28a6e1150b84072a95a49f68da7e",
+    "docs/evidence/architecture/2026-10-30-er-integral/postgres-introspeccion.json": "092a8ac1ecd1eb01b24ce16081acbffa22a6c252ebb8d3ccc9d982a0bd82e467"
+  }
+}

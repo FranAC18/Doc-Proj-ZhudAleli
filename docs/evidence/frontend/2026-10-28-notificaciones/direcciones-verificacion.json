@@ -1,0 +1,727 @@
+{
+  "resultados": [
+    {
+      "ancho": 360,
+      "entrada": [
+        {
+          "tiempo": 0,
+          "x": 12,
+          "y": -186.953125,
+          "opacidad": 0,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 12,
+          "y": -22.692989349365234,
+          "opacidad": 0.825622,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 12,
+          "y": 6.385365009307861,
+          "opacidad": 0.971779,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 12,
+          "y": 11.537845611572266,
+          "opacidad": 0.997677,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 639,
+          "x": 12,
+          "y": 12,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "visible": {
+        "x": 12,
+        "y": 12,
+        "ancho": 336,
+        "alto": 166.953125,
+        "oculto": false,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": "true",
+        "fondoInerte": true,
+        "foco": "ASIDE"
+      },
+      "salida": [
+        {
+          "tiempo": 0,
+          "x": 12,
+          "y": 12,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 12,
+          "y": -16.54981231689453,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 12,
+          "y": -93.5,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 12,
+          "y": -170.4501953125,
+          "opacidad": 0.940112,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 600,
+          "x": 12,
+          "y": -197.25527954101562,
+          "opacidad": 0.0939008,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "cerrado": {
+        "x": 0,
+        "y": 0,
+        "ancho": 0,
+        "alto": 0,
+        "oculto": true,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": null,
+        "fondoInerte": false,
+        "foco": "id_username"
+      }
+    },
+    {
+      "ancho": 375,
+      "entrada": [
+        {
+          "tiempo": 0,
+          "x": 12,
+          "y": -186.953125,
+          "opacidad": 0,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 12,
+          "y": -22.692989349365234,
+          "opacidad": 0.825622,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 12,
+          "y": 6.385365009307861,
+          "opacidad": 0.971779,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 12,
+          "y": 11.537845611572266,
+          "opacidad": 0.997677,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 639,
+          "x": 12,
+          "y": 12,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "visible": {
+        "x": 12,
+        "y": 12,
+        "ancho": 351,
+        "alto": 166.953125,
+        "oculto": false,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": "true",
+        "fondoInerte": true,
+        "foco": "ASIDE"
+      },
+      "salida": [
+        {
+          "tiempo": 0,
+          "x": 12,
+          "y": 12,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 12,
+          "y": -16.54981231689453,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 12,
+          "y": -93.5,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 12,
+          "y": -170.4501953125,
+          "opacidad": 0.940112,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 600,
+          "x": 12,
+          "y": -197.25527954101562,
+          "opacidad": 0.0939008,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "cerrado": {
+        "x": 0,
+        "y": 0,
+        "ancho": 0,
+        "alto": 0,
+        "oculto": true,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": null,
+        "fondoInerte": false,
+        "foco": "id_username"
+      }
+    },
+    {
+      "ancho": 768,
+      "entrada": [
+        {
+          "tiempo": 0,
+          "x": 784,
+          "y": 16,
+          "opacidad": 0,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 394.3062744140625,
+          "y": 16,
+          "opacidad": 0.825622,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 325.32025146484375,
+          "y": 16,
+          "opacidad": 0.971779,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 313.096435546875,
+          "y": 16,
+          "opacidad": 0.997677,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 639,
+          "x": 312,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "visible": {
+        "x": 312,
+        "y": 16,
+        "ancho": 440,
+        "alto": 166.953125,
+        "oculto": false,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": "true",
+        "fondoInerte": true,
+        "foco": "ASIDE"
+      },
+      "salida": [
+        {
+          "tiempo": 0,
+          "x": 312,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 375.864990234375,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 548,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 720.135009765625,
+          "y": 16,
+          "opacidad": 0.940112,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 600,
+          "x": 780.09716796875,
+          "y": 16,
+          "opacidad": 0.0939008,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "cerrado": {
+        "x": 0,
+        "y": 0,
+        "ancho": 0,
+        "alto": 0,
+        "oculto": true,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": null,
+        "fondoInerte": false,
+        "foco": "id_username"
+      }
+    },
+    {
+      "ancho": 1280,
+      "entrada": [
+        {
+          "tiempo": 0,
+          "x": 1296,
+          "y": 16,
+          "opacidad": 0,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 906.3062744140625,
+          "y": 16,
+          "opacidad": 0.825622,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 837.3202514648438,
+          "y": 16,
+          "opacidad": 0.971779,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 825.096435546875,
+          "y": 16,
+          "opacidad": 0.997677,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 639,
+          "x": 824,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "visible": {
+        "x": 824,
+        "y": 16,
+        "ancho": 440,
+        "alto": 166.953125,
+        "oculto": false,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": "true",
+        "fondoInerte": true,
+        "foco": "ASIDE"
+      },
+      "salida": [
+        {
+          "tiempo": 0,
+          "x": 824,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 887.864990234375,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 1060,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 1232.135009765625,
+          "y": 16,
+          "opacidad": 0.940112,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 600,
+          "x": 1292.09716796875,
+          "y": 16,
+          "opacidad": 0.0939008,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "cerrado": {
+        "x": 0,
+        "y": 0,
+        "ancho": 0,
+        "alto": 0,
+        "oculto": true,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": null,
+        "fondoInerte": false,
+        "foco": "id_username"
+      }
+    },
+    {
+      "ancho": 1440,
+      "entrada": [
+        {
+          "tiempo": 0,
+          "x": 1456,
+          "y": 16,
+          "opacidad": 0,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 1066.3062744140625,
+          "y": 16,
+          "opacidad": 0.825622,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 997.3202514648438,
+          "y": 16,
+          "opacidad": 0.971779,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 985.096435546875,
+          "y": 16,
+          "opacidad": 0.997677,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 639,
+          "x": 984,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "visible": {
+        "x": 984,
+        "y": 16,
+        "ancho": 440,
+        "alto": 166.953125,
+        "oculto": false,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": "true",
+        "fondoInerte": true,
+        "foco": "ASIDE"
+      },
+      "salida": [
+        {
+          "tiempo": 0,
+          "x": 984,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 160,
+          "x": 1047.864990234375,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 320,
+          "x": 1220,
+          "y": 16,
+          "opacidad": 1,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 480,
+          "x": 1392.135009765625,
+          "y": 16,
+          "opacidad": 0.940112,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        },
+        {
+          "tiempo": 600,
+          "x": 1452.09716796875,
+          "y": 16,
+          "opacidad": 0.0939008,
+          "oculto": false,
+          "desbordePagina": false,
+          "barraHorizontal": "hidden",
+          "scrollHorizontal": 0
+        }
+      ],
+      "cerrado": {
+        "x": 0,
+        "y": 0,
+        "ancho": 0,
+        "alto": 0,
+        "oculto": true,
+        "opacidad": 1,
+        "radio": "12px",
+        "radioCampo": "12px",
+        "desbordePagina": false,
+        "barraHorizontal": "hidden",
+        "scrollHorizontal": 0,
+        "modal": null,
+        "fondoInerte": false,
+        "foco": "id_username"
+      }
+    },
+    {
+      "caso": "pausa-hover-y-autocierre",
+      "correcto": true
+    },
+    {
+      "caso": "cierre-boton",
+      "correcto": true
+    },
+    {
+      "caso": "enlace-al-campo",
+      "correcto": true
+    },
+    {
+      "caso": "cierre-durante-entrada-sin-salto",
+      "correcto": true
+    },
+    {
+      "caso": "reflujo-200-texto-largo-pausa-foco",
+      "correcto": true,
+      "desplazamiento": 2966
+    },
+    {
+      "caso": "movimiento-reducido",
+      "nombre": "za-modal-fade-entrada",
+      "duracion": "1e-05s",
+      "transformacion": "none"
+    }
+  ],
+  "errores": []
+}

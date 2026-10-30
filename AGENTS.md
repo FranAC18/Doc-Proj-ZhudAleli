@@ -13,8 +13,8 @@ documentación detallada se recupera bajo demanda.
    el repositorio de la aplicación (`App-zhudaleli`). Para cambios de código, comprueba
    ambas raíces Git antes de escribir.
 2. Lee [`docs/context/context-index.md`](docs/context/context-index.md) en el repositorio general.
-3. Lee [`docs/bitacora/ESTADO-ACTIVO.md`](docs/bitacora/ESTADO-ACTIVO.md) en el general y confirma rama,
-   `HEAD`, tarea y rutas permitidas antes de escribir.
+3. Lee [`docs/bitacora/ESTADO-ACTIVO.md`](docs/bitacora/ESTADO-ACTIVO.md) en el general; antes de
+   escribir, confirma rama, `HEAD`, tarea y las rutas del archivo indicado por `scope_file`.
 4. Clasifica la solicitud según `task_types` en `tools/agent-routes.toml`.
 5. Carga solamente el contexto indicado por esa clasificación. No leas todo `docs/`, todo
    `.specify/` ni todo el directorio de una funcionalidad por defecto.
@@ -26,13 +26,26 @@ documentación detallada se recupera bajo demanda.
 - Implementación: requisito y sprint vigentes, código y pruebas; `tasks.md` y secciones
   relevantes de `spec.md` cuando existan. Contratos y modelo de datos solo si el cambio
   los toca.
-- Frontend: reglas UI, componentes, archivos visuales y criterios de accesibilidad relevantes.
+- Frontend: aplicar siempre [`docs/ui/REGLAS-DISENO-INTERFACES.md`](docs/ui/REGLAS-DISENO-INTERFACES.md)
+  y consultar el sistema de diseño, componentes y archivos visuales relevantes. Sus ocho reglas
+  son obligatorias al diseñar, modificar o revisar interfaces; registrar lo verificado y pendiente.
 - Investigación: solo las fuentes necesarias para la pregunta.
 - Revisión: diff, archivos modificados, contratos, pruebas y reglas aplicables.
 - Documentación: la plantilla o fuente concreta y las rutas autorizadas del documenter.
 
 Las skills completas se leen únicamente cuando se seleccionan. Los MOCs, auditorías antiguas,
 propuestas e historial son referencias, no contexto inicial.
+
+Reutiliza lo ya leído en el mismo chat mientras siga vigente. Tras un cambio de tarea, host,
+compactación o archivos, revalida Git y recupera solo el contexto faltante o afectado. Busca
+con `rg` y lee secciones; si una salida se trunca, acota la consulta. Para clasificar, basta
+el bloque `task_types.<tipo>` de `tools/agent-routes.toml`, sin cargar todas las rutas.
+Una consulta sobre la herramienta o cuota no requiere abrir requisitos, sprints ni specs
+de producto. El ahorro no reduce verificaciones, evidencia, controles de seguridad ni
+sincronizaciones exigidas. Los perfiles de rutas orientan; no cambian el modelo del host.
+Para implementar, buscar por ID la tarea y sus RF/HU/HT; leer solo criterios, arquitectura
+y evidencia pertinentes. Sin fichas nuevas ni auditoría global previa. La [guía de lectura](docs/context/recorrido-tarea.md)
+es una referencia si hay dudas, no otra lectura obligatoria en cada tarea.
 
 ## Fuentes de verdad
 
@@ -64,7 +77,8 @@ Una conversación, inferencia o propuesta de IA nunca aprueba un requisito.
   aprobación adicional. La continuidad se anota en el estado operativo existente, sin que el
   apunte sea precondición. El cierre del periodo no marca trabajo pendiente como completado.
 - No hagas `commit`, `push`, `merge`, `rebase`, `reset`, `clean` ni cambies la identidad Git
-  sin autorización explícita del tesista.
+  sin autorización explícita del tesista. Para programación de la app rige la autorización
+  permanente del 2026-10-29 descrita en «Repositorios y Git»; no requiere confirmación por tarea.
 - No guardes secretos, datos personales innecesarios ni bases locales en Git.
 - Si usas `speckit-implement` con una spec, esta debe estar aprobada. El desarrollo
   directo puede avanzar con el requisito y sprint vigentes sin exigir spec, plan,
@@ -93,6 +107,16 @@ Una conversación, inferencia o propuesta de IA nunca aprueba un requisito.
 
 ## Repositorios y Git
 
+- **Autorización permanente del tesista — 2026-10-29:** después de cada porción coherente
+  de programación de la app que pase las pruebas y verificaciones aplicables y la revisión
+  del diff, hacer `commit` descriptivo y `push` a su rama de trabajo en
+  `FranAC18/App-zhudaleli`, sin pedir nueva confirmación. Preparar solo los cambios de esa
+  tarea; excluir cambios ajenos o previos no verificados. Si no hay cambios, no crear commit.
+  El mensaje explica qué se hizo y la validación, con RF y sprint reales. Si falla una
+  verificación, no publicar; si falla el push, conservar el commit e informar el pendiente.
+  Esta autorización no cubre Git del vault/documentación, push directo a `main`, merge,
+  tags, rebase, reset, clean, force push, identidad Git ni despliegue. Una instrucción
+  puntual del tesista puede suspenderla para una tarea.
 - `ZhudAleli` es el repositorio general y vault: constitución, `specs/`, requisitos,
   sprints, `docs/`, `documentacion/` revisada, agentes, skills, plantillas y herramientas
   de proceso. `/app/` está ignorada y nunca se commitea aquí.
@@ -153,7 +177,9 @@ constitución. Confirmar arquitectura no aprueba nuevas funcionalidades, Git ni 
   el tesista lo solicite expresamente; publicación requiere su confirmación específica.
   Nunca se incluyen código, agentes, skills, secretos, `.env` ni evidencia interna.
 - El estado operativo se conserva en `docs/bitacora/ESTADO-ACTIVO.md`; el detalle de pausas y
-  handoffs va en `docs/bitacora/checkpoints/`.
+  handoffs va en `docs/bitacora/checkpoints/`. Mantén el estado breve: resultado vigente,
+  pendientes y siguiente acción con enlaces. Un checkpoint puede servir también de resumen
+  de sesión; no dupliques el relato ni generes notas por cada lectura o comando.
 - No sobrescribas notas aprobadas. Las propuestas usan estado `proposed` y sus rutas autorizadas.
 - Antes de cerrar una tarea ejecuta verificaciones proporcionales, revisa el diff y ejecuta
   `git diff --check` cuando exista un repositorio Git.

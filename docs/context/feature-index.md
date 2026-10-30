@@ -93,6 +93,8 @@ compatibilidad y las correcciones de dependencias de tasks.md, sin marcar tareas
 
 ## Panel administrativo — candidato de integración
 
+**Consolidación 2026-10-30:** Superadministradora ejecuta y aprueba negocio y puede sustituir cargos con auditoría; no vende personalmente. D19 conserva designación presidencial. Regla anterior D28 sustituida; RF-ACC-005 sigue propuesto. Referencia: [[../requirements/proposals/2026-10-30-consolidacion-reglas-diseno-datos|consolidación de datos]] y [[../../documentacion/arquitectura/diseno_base_datos_v2.0_2026-10-30|diseño v2.0]].
+
 **Estado funcional: `proposed`; estructura y permisos previstos para S2 por decisión
 del tesista del 2026-10-27.** El tesista precisó después que la Superadministradora
 podrá hacer todas las acciones ordinarias de cada módulo y editar desde su panel

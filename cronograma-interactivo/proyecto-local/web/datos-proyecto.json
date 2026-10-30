@@ -1,6 +1,6 @@
 {
   "title": "Zhud Alelí — cronograma integral",
-  "edition": "2.2 · acceso multicanal aceptado el 28 de octubre de 2026; implementación pendiente",
+  "edition": "2.2 · acceso multicanal aceptado el 28 de octubre de 2026; implementación pendiente · reglas UI-01 a UI-08 del tesista; cumplimiento pendiente",
   "window": {
     "start": "2026-09-15",
     "end": "2026-12-23"
@@ -160,7 +160,7 @@
       "start": "2026-10-13",
       "end": "2026-11-08",
       "priority": "Esencial (propuesta)",
-      "description": "Cuenta activa accede; cuenta inactiva y petición directa sin permiso se rechazan.",
+      "description": "Cuenta activa accede; cuenta inactiva y petición directa sin permiso se rechazan. Aplicar UI-01 a UI-08 de criterios de diseño v1.1; verificación de interfaz pendiente.",
       "sourceState": "Candidata; sin estimación ni responsable",
       "hu": [
         "HU-ACC-001"
@@ -1860,7 +1860,7 @@
       "start": "2026-10-13",
       "end": "2026-12-20",
       "priority": "Alta (propuesta)",
-      "description": "establecer patrones de formularios, mensajes y controles con Bootstrap 5 y plantillas Django que permitan uso móvil, teclado y lenguaje comprensible, sin convertir el Django Admin en interfaz principal.",
+      "description": "establecer patrones de formularios, mensajes y controles con Bootstrap 5 y plantillas Django que permitan uso móvil, teclado y lenguaje comprensible, sin convertir el Django Admin en interfaz principal. Aplicar UI-01 a UI-08 de criterios de diseño v1.1; verificación de interfaz pendiente.",
       "sourceState": "Línea base",
       "tasks": [
         "SB-S2-04",
@@ -1872,7 +1872,8 @@
       "criteria": [
         "Un recorrido esencial implementado funciona desde 360 px sin desplazamiento horizontal accidental ni controles ocultos.",
         "Los controles de ese recorrido tienen etiqueta, foco visible, contraste AA y errores recuperables, comprobados con teclado y zoom al 200 %.",
-        "Los estados se expresan con texto además de color y no exigen que la socia seleccione permisos técnicos."
+        "Los estados se expresan con texto además de color y no exigen que la socia seleccione permisos técnicos.",
+        "Comprobar UI-01 a UI-08 en la porción nueva o modificada, con evidencia de adaptación, estados, interacción y accesibilidad; señalar pendientes y no aplicables."
       ]
     },
     {
@@ -3325,7 +3326,7 @@
       "start": "2026-10-13",
       "end": "2026-12-20",
       "priority": "Esencial",
-      "description": "La interfaz debe permitir completar las tareas esenciales en móviles desde 360 px, con acciones claras y formularios breves.",
+      "description": "La interfaz debe permitir completar las tareas esenciales en móviles desde 360 px, con acciones claras y formularios breves. Aplicar UI-01 a UI-08 de criterios de diseño v1.1; verificación de interfaz pendiente.",
       "criteria": [
         "Recorrer tareas críticas en pantallas pequeñas y dispositivos reales sin desplazamiento horizontal accidental ni controles ocultos."
       ],
@@ -3342,7 +3343,7 @@
       "start": "2026-10-13",
       "end": "2026-12-20",
       "priority": "Esencial",
-      "description": "La interfaz debe ser accesible: contraste AA, teclado, foco visible, etiquetas comprensibles y errores recuperables.",
+      "description": "La interfaz debe ser accesible: contraste AA, teclado, foco visible, etiquetas comprensibles y errores recuperables. Aplicar UI-01 a UI-08 de criterios de diseño v1.1; verificación de interfaz pendiente.",
       "criteria": [
         "Revisar zoom de 200 %, navegación por teclado, foco, resumen de errores y objetivos táctiles de al menos 44 px."
       ],
@@ -3359,7 +3360,7 @@
       "start": "2026-10-13",
       "end": "2026-12-20",
       "priority": "Alta",
-      "description": "Se usa lenguaje cotidiano y el sistema calcula lo que no corresponde calcular manualmente a las socias.",
+      "description": "Se usa lenguaje cotidiano y el sistema calcula lo que no corresponde calcular manualmente a las socias. Aplicar UI-01 a UI-08 de criterios de diseño v1.1; verificación de interfaz pendiente.",
       "criteria": [
         "Usuarias completan recorridos sin seleccionar roles técnicos ni hacer fórmulas manuales."
       ],
@@ -3728,7 +3729,7 @@
       "sprint": "S2",
       "priority": "Alta",
       "sourceState": "Confirmado por el tesista el 2026-10-28; implementación y validación pendientes",
-      "source": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "source": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     },
     {
       "id": "HU-ACC-010",
@@ -3762,7 +3763,7 @@
       "storyPoints": null,
       "pilePosition": 6.1,
       "sourceState": "Alcance aceptado por el tesista; pendiente de implementación",
-      "source": "/fuentes/historias/usuario/historias_usuario_v2.7_2026-10-28.md"
+      "source": "/fuentes/historias/usuario/historias_usuario_v2.8_2026-10-28.md"
     },
     {
       "id": "RF-ACC-007",
@@ -3790,7 +3791,7 @@
       "sprint": "S2",
       "priority": "Alta",
       "sourceState": "Confirmado por el tesista el 2026-10-28; implementación y validación pendientes",
-      "source": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "source": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     },
     {
       "id": "HU-ACC-011",
@@ -3825,7 +3826,7 @@
       "storyPoints": null,
       "pilePosition": 6.2,
       "sourceState": "Alcance aceptado por el tesista; pendiente de implementación",
-      "source": "/fuentes/historias/usuario/historias_usuario_v2.7_2026-10-28.md"
+      "source": "/fuentes/historias/usuario/historias_usuario_v2.8_2026-10-28.md"
     },
     {
       "id": "RF-ACC-008",
@@ -3853,7 +3854,7 @@
       "sprint": "S2",
       "priority": "Alta",
       "sourceState": "Confirmado por el tesista el 2026-10-28; implementación y validación pendientes",
-      "source": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "source": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     },
     {
       "id": "HU-ACC-012",
@@ -3888,7 +3889,7 @@
       "storyPoints": null,
       "pilePosition": 6.3,
       "sourceState": "Alcance aceptado por el tesista; pendiente de implementación",
-      "source": "/fuentes/historias/usuario/historias_usuario_v2.7_2026-10-28.md"
+      "source": "/fuentes/historias/usuario/historias_usuario_v2.8_2026-10-28.md"
     },
     {
       "id": "RF-ACC-009",
@@ -3915,7 +3916,7 @@
       "sprint": "S2",
       "priority": "Alta",
       "sourceState": "Confirmado por el tesista el 2026-10-28; implementación y validación pendientes",
-      "source": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "source": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     },
     {
       "id": "HU-ACC-013",
@@ -3949,7 +3950,7 @@
       "storyPoints": null,
       "pilePosition": 6.4,
       "sourceState": "Alcance aceptado por el tesista; pendiente de implementación",
-      "source": "/fuentes/historias/usuario/historias_usuario_v2.7_2026-10-28.md"
+      "source": "/fuentes/historias/usuario/historias_usuario_v2.8_2026-10-28.md"
     },
     {
       "id": "HT-ACC-001",
@@ -3971,7 +3972,7 @@
       "sprint": "S2",
       "priority": "Alta",
       "sourceState": "Descomposición del plan aceptado; pendiente de implementación",
-      "source": "/fuentes/historias/tecnicas/historias_tecnicas_v1.8_2026-10-28.md"
+      "source": "/fuentes/historias/tecnicas/historias_tecnicas_v1.9_2026-10-28.md"
     },
     {
       "id": "HT-ACC-002",
@@ -3991,7 +3992,7 @@
       "sprint": "S2",
       "priority": "Alta",
       "sourceState": "Descomposición del plan aceptado; pendiente de implementación",
-      "source": "/fuentes/historias/tecnicas/historias_tecnicas_v1.8_2026-10-28.md"
+      "source": "/fuentes/historias/tecnicas/historias_tecnicas_v1.9_2026-10-28.md"
     },
     {
       "id": "SB-S2-05",
@@ -4018,7 +4019,7 @@
       "status": "todo",
       "evidence": "",
       "sourceState": "Pendiente de implementación; seleccionada para S2",
-      "source": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md"
+      "source": "/fuentes/sprints/sprint_backlog_v1.6_2026-10-28.md"
     },
     {
       "id": "SB-S2-06",
@@ -4042,7 +4043,7 @@
       "status": "todo",
       "evidence": "",
       "sourceState": "Pendiente de implementación; prueba real depende de credencial local de correo",
-      "source": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md"
+      "source": "/fuentes/sprints/sprint_backlog_v1.6_2026-10-28.md"
     },
     {
       "id": "SB-S2-07",
@@ -4066,7 +4067,7 @@
       "status": "todo",
       "evidence": "",
       "sourceState": "Pendiente de implementación; aceptación en dispositivos y HTTPS por verificar",
-      "source": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md"
+      "source": "/fuentes/sprints/sprint_backlog_v1.6_2026-10-28.md"
     },
     {
       "id": "SB-S2-08",
@@ -4090,7 +4091,7 @@
       "status": "todo",
       "evidence": "",
       "sourceState": "Pendiente de implementación; activación real condicionada a proveedor y costo",
-      "source": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md"
+      "source": "/fuentes/sprints/sprint_backlog_v1.6_2026-10-28.md"
     },
     {
       "id": "SB-S2-09",
@@ -4122,7 +4123,7 @@
       "status": "todo",
       "evidence": "",
       "sourceState": "Pendiente de implementación y verificación; ningún criterio aceptado por adelantado",
-      "source": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md"
+      "source": "/fuentes/sprints/sprint_backlog_v1.6_2026-10-28.md"
     },
     {
       "id": "RF-COS-001",
@@ -4138,7 +4139,7 @@
       "tasks": [],
       "sprint": "",
       "sourceState": "Propuesto previamente en CAT-REQ-001; sin aprobación ni implementación",
-      "source": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "source": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     },
     {
       "id": "RNF-OPS-001",
@@ -4154,7 +4155,7 @@
       "tasks": [],
       "sprint": "",
       "sourceState": "Propuesto previamente en CAT-REQ-001; sin aprobación ni implementación",
-      "source": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "source": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     }
   ],
   "pending": [
@@ -4381,24 +4382,28 @@
       "url": "/fuentes/sprints/plan_sprints_v1.6_2026-10-27.md"
     },
     {
-      "label": "Pila de producto v1.9 · acceso aceptado; ejecución pendiente",
-      "url": "/fuentes/pila_producto/pila_producto_v1.9_2026-10-28.md"
+      "label": "Pila de producto v2.0 · acceso aceptado; ejecución pendiente",
+      "url": "/fuentes/pila_producto/pila_producto_v2.0_2026-10-28.md"
     },
     {
-      "label": "Historias de usuario v2.7 · acceso aceptado; ejecución pendiente",
-      "url": "/fuentes/historias/usuario/historias_usuario_v2.7_2026-10-28.md"
+      "label": "Historias de usuario v2.8 · acceso aceptado; ejecución pendiente",
+      "url": "/fuentes/historias/usuario/historias_usuario_v2.8_2026-10-28.md"
     },
     {
-      "label": "Requisitos generales v2.2 · acceso aceptado; ejecución pendiente",
-      "url": "/fuentes/requisitos/requisitos_generales_v2.2_2026-10-28.md"
+      "label": "Requisitos generales v2.3 · acceso aceptado; ejecución pendiente",
+      "url": "/fuentes/requisitos/requisitos_generales_v2.3_2026-10-28.md"
     },
     {
-      "label": "Sprint backlog v1.5 · acceso aceptado; ejecución pendiente",
-      "url": "/fuentes/sprints/sprint_backlog_v1.5_2026-10-28.md"
+      "label": "Sprint backlog v1.6 · acceso aceptado; ejecución pendiente",
+      "url": "/fuentes/sprints/sprint_backlog_v1.6_2026-10-28.md"
     },
     {
       "label": "Cierre parcial de S1 v1.2",
       "url": "/fuentes/seguimiento/cierre_sprint_1_y_vistos_buenos_v1.2_2026-10-21.md"
+    },
+    {
+      "label": "Criterios de diseño v1.1 · ocho reglas obligatorias",
+      "url": "/fuentes/diseno/criterios_diseno_v1.1_2026-10-28.md"
     }
   ]
 }

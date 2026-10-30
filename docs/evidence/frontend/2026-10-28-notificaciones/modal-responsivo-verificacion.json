@@ -1,0 +1,57 @@
+{
+  "desktop": {
+    "role": "dialog",
+    "ariaModal": "true",
+    "inert": true,
+    "overlayAnimation": "za-overlay-entrada",
+    "noticeAnimation": "za-modal-entrada-escritorio",
+    "keyframes": [
+      "translateX(110%)",
+      "translateX(0px)"
+    ],
+    "borders": [
+      "0px",
+      "0px",
+      "0px",
+      "0px"
+    ],
+    "outline": "none",
+    "shadow": "none",
+    "text": "!\nNo se pudo ingresar\nUsuario\nEscribe tu nombre de usuario.\nContraseña\nEscribe tu contraseña."
+  },
+  "mobile": {
+    "animation": "za-modal-entrada-movil",
+    "keyframes": [
+      "translateY(calc(-100% - 24px))",
+      "translateY(0px)"
+    ]
+  },
+  "exitDesktop": {
+    "animation": "za-modal-salida-escritorio",
+    "keyframes": [
+      "translateX(0px)",
+      "translateX(-1408px)"
+    ]
+  },
+  "exitMobile": {
+    "animation": "za-modal-salida-movil",
+    "keyframes": [
+      "translateY(0px)",
+      "translateY(-893.2px)"
+    ]
+  },
+  "reduced": {
+    "animation": "za-modal-fade-entrada",
+    "keyframes": [
+      {
+        "opacity": "0"
+      },
+      {
+        "opacity": "1"
+      }
+    ]
+  },
+  "focusTrap": true,
+  "escape": true,
+  "errors": []
+}

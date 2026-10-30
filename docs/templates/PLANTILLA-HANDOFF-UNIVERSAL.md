@@ -32,12 +32,9 @@ Describe el resultado observable de la tarea, no una instrucción abierta.
 
 ## Contexto leído
 
-- `AGENTS.md`
-- `.specify/memory/constitution.md`
-- `agents/tesis/PROJECT_CONTEXT.md`
-- `docs/00-inicio/00-dashboard.md`
-- Requisito y sprint vigentes en el repositorio general.
-- Apartados pertinentes de `specs/<id>/spec.md`, `plan.md` y `tasks.md`, si existen.
+Indicar solo fuentes y secciones realmente consultadas o ya disponibles en el chat.
+Aplicar `docs/context/context-index.md`; esta plantilla no exige abrir constitución,
+contexto de dominio, dashboard ni todos los artefactos de una spec para cada handoff.
 
 ## Estado
 
@@ -86,6 +83,8 @@ Describe el resultado observable de la tarea, no una instrucción abierta.
 La herramienta siguiente debe leer este handoff, confirmar la raíz, remoto y estado de Git antes
 de escribir. No puede cambiar `allowed_paths`, alcance, requisito o criterio sin devolver una
 pregunta al coordinador.
+Leer solo el checkpoint enlazado para la tarea y sus fuentes necesarias; no recorrer
+cronológicamente la bitácora. Este checkpoint también puede ser el resumen de sesión.
 
 ## Commit
 

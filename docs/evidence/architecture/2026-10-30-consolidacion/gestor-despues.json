@@ -1,0 +1,2853 @@
+{
+  "dashboard": {
+    "schema": "tesis_scrum_multireq_v1",
+    "state": {
+      "schema": "tesis_scrum_multireq_v1",
+      "selectedSprint": "S2",
+      "taskOverrides": {
+        "SB-S1-02": {
+          "status": "done",
+          "evidence": "F:\\Tesis\\App Tesis\\documentacion\\alcance",
+          "reviewer": "Franklin",
+          "date": "2026-10-19",
+          "notes": ""
+        },
+        "SB-S1-04": {
+          "status": "done",
+          "evidence": "F:\\Tesis\\App Tesis\\documentacion\\diseno",
+          "reviewer": "Franklin",
+          "date": "2026-10-19",
+          "notes": ""
+        },
+        "SB-S1-01": {
+          "status": "done",
+          "evidence": "F:\\Tesis\\App Tesis\\documentacion\\levantamiento",
+          "reviewer": "Franklin",
+          "date": "2026-10-19",
+          "notes": ""
+        },
+        "SB-S1-03": {
+          "status": "done",
+          "evidence": "F:\\Tesis\\App Tesis\\documentacion\\arquitectura",
+          "reviewer": "Franklin",
+          "date": "2026-10-19",
+          "notes": "Diseño consolidado v2.0 y 20 casos definidos. Trabajo documental listo para diseño físico; no certifica implementación ni cierre de tarea. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Revisión 0.2 (2026-10-29): D-24 a D-30; venta sin crédito, custodia/rendición interna, secado de un acopio y Superadministradora sin ejecución/aprobación de negocio. Modelo e integridad corregidos; 15 casos DAT definidos, no ejecutados en BD. Reembolsos y parámetros pendientes. Evidencia: /evidencias/architecture/2026-10-29-revision-datos/revision.md. Estado previo conservado; no acredita cierre total de SB-S1-03.\nD-30: redondeo y desempate de reparto definidos por tesista.\nEdición documental 2026-10-30: diseño lógico v1.0 consolidado en /fuentes/arquitectura/diseno_base_datos_v1.0_2026-10-30.md. Conserva 19 apartados de la revisión 0.2, 6 diagramas y 15 casos DAT. Transcripción/enlaces/tablas revisados; ninguna migración o prueba de producto nueva. Estados y pendientes anteriores conservados."
+        },
+        "SB-S1-05": {
+          "status": "done",
+          "evidence": "\"F:\\Tesis\\App Tesis\\documentacion\\sprints\\plan_incremental_y_sprint_backlog_v1.7_2026-10-14.docx\"",
+          "reviewer": "Franklin",
+          "date": "2026-10-12",
+          "notes": ""
+        },
+        "SB-S2-01": {
+          "id": "SB-S2-01",
+          "kind": "task",
+          "title": "Preparar proyecto, usuario y base de datos",
+          "description": "Comprobación Django y migraciones PostgreSQL; vínculo RF–HU–prueba.",
+          "sprint": "S2",
+          "status": "progress",
+          "evidence": "",
+          "hu": [
+            "HU-ACC-001"
+          ],
+          "ht": [
+            "HT-GEN-001",
+            "HT-GEN-009"
+          ],
+          "storyId": "HU-ACC-001"
+        },
+        "SB-S2-02": {
+          "id": "SB-S2-02",
+          "kind": "task",
+          "title": "Entrar, salir y proteger contenido privado",
+          "description": "Cuenta activa accede; cuenta inactiva y petición directa sin permiso se rechazan. Aplicar UI-01 a UI-08 de criterios de diseño v1.1; verificación de interfaz pendiente.",
+          "sprint": "S2",
+          "status": "progress",
+          "evidence": "",
+          "hu": [
+            "HU-ACC-001"
+          ],
+          "ht": [
+            "HT-GEN-002"
+          ],
+          "storyId": "HU-ACC-001"
+        },
+        "SB-S2-04": {
+          "id": "SB-S2-04",
+          "kind": "task",
+          "title": "Mostrar opciones propias en móvil y revisar regresión",
+          "description": "Inicio privado solo con acciones propias; teclado, 360 px y cierre de sesión probados.",
+          "sprint": "S2",
+          "status": "progress",
+          "evidence": "",
+          "hu": [
+            "HU-ACC-004"
+          ],
+          "ht": [
+            "HT-GEN-004",
+            "HT-GEN-009"
+          ]
+        },
+        "SB-S2-03": {
+          "id": "SB-S2-03",
+          "kind": "task",
+          "title": "Administrar membresías y responsabilidades",
+          "description": "Alta/baja autorizada y denegación sin cambios; permisos vigentes.",
+          "sprint": "S2",
+          "status": "progress",
+          "evidence": "",
+          "hu": [
+            "HU-ACC-002",
+            "HU-ACC-003"
+          ],
+          "ht": [
+            "HT-GEN-002"
+          ]
+        },
+        "SB-S5-01": {
+          "notes": "Catálogo, valores versionados, recetas conocidas y kits 50 L sin fórmula secreta; parámetros incompletos inactivos. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Criterios afectados por diseño 0.2 / D-24 a D-29. Ver /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md; estimaciones, fechas y avance conservados."
+        },
+        "SB-S5-02": {
+          "notes": "Acopio, secado único y lotes; cantidades efectivas y conversiones compatibles. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Criterios afectados por diseño 0.2 / D-24 a D-29. Ver /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md; estimaciones, fechas y avance conservados."
+        },
+        "SB-S5-03": {
+          "notes": "Transformación, kits y movimientos; linaje hasta salida, stock por titular/feria/condición. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Criterios afectados por diseño 0.2 / D-24 a D-29. Ver /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md; estimaciones, fechas y avance conservados."
+        },
+        "SB-S5-04": {
+          "notes": "Custodia sin deuda; rendición periódica y anticipos; conciliación de capturas provisionales y stock. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Criterios afectados por diseño 0.2 / D-24 a D-29. Ver /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md; estimaciones, fechas y avance conservados."
+        },
+        "SB-S5-05": {
+          "notes": "Ventas pagadas, resúmenes de feria, delegación y propiedad del excedente; permisos y prohibición de venta Superadministradora. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Criterios afectados por diseño 0.2 / D-24 a D-29. Ver /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md; estimaciones, fechas y avance conservados."
+        },
+        "SB-S5-06": {
+          "notes": "Dinero, gastos, reembolsos, faltantes y reparto compartido exacto; ejecución separada de autorización y acuerdo. Referencia vigente: /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md Estados, fechas y evidencia de cumplimiento anteriores conservados.",
+          "notesBeforeConsolidation20261030": "Criterios afectados por diseño 0.2 / D-24 a D-29. Ver /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md; estimaciones, fechas y avance conservados."
+        }
+      },
+      "sprintStates": {
+        "S1": {
+          "closed": true,
+          "closedAt": "2026-10-20T04:58:59.992766Z",
+          "updatedAt": "2026-10-20T04:58:59.992766Z"
+        }
+      },
+      "storyOverrides": {
+        "HU-ACC-001": {
+          "id": "HU-ACC-001",
+          "kind": "hu",
+          "title": "Entrar y salir de la parte privada",
+          "sprint": "S2",
+          "priority": "Esencial",
+          "description": "Como usuaria interna con cuenta activa, quiero iniciar y cerrar sesión, para proteger mi información organizacional.",
+          "sourceState": "Historia de línea base; avance no verificado",
+          "rf": [
+            "RF-ACC-001"
+          ],
+          "tasks": [
+            "SB-S2-01",
+            "SB-S2-02"
+          ],
+          "pilePosition": 6,
+          "criteria": [
+            "Dada una cuenta activa, cuando ingresa con credenciales correctas, entonces accede solo a información autorizada.",
+            "Dada una cuenta inactiva o credenciales incorrectas, cuando intenta entrar, entonces no obtiene acceso ni información privada.",
+            "Dada una sesión activa, cuando la usuaria la cierra, entonces deja de poder acceder a información privada con esa sesión."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "requirementIds": [
+            "RF-ACC-001"
+          ],
+          "requirementId": "RF-ACC-001",
+          "storyPoints": 5,
+          "deleted": false
+        },
+        "HU-ACC-004": {
+          "id": "HU-ACC-004",
+          "kind": "hu",
+          "title": "Ver mis opciones disponibles",
+          "sprint": "S2",
+          "priority": "Complementaria",
+          "description": "Como usuaria interna, quiero consultar mis actividades, pendientes y encargos disponibles, para saber qué puedo hacer ahora.",
+          "sourceState": "Historia de línea base; avance no verificado",
+          "rf": [
+            "RF-ACC-004"
+          ],
+          "tasks": [
+            "SB-S2-04"
+          ],
+          "pilePosition": 15,
+          "criteria": [
+            "Dada una sesión válida, cuando la usuaria consulta su inicio privado, entonces encuentra únicamente actividades y acciones que le corresponden."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "requirementIds": [
+            "RF-ACC-004"
+          ],
+          "requirementId": "RF-ACC-004",
+          "storyPoints": null,
+          "deleted": false
+        },
+        "HU-ACC-002": {
+          "id": "HU-ACC-002",
+          "kind": "hu",
+          "title": "Administrar membresías",
+          "sprint": "S2",
+          "priority": "Alta",
+          "description": "Como integrante autorizada de la Directiva, quiero activar o desactivar cuentas de socias, para mantener vigentes los accesos sin perder la historia.",
+          "sourceState": "Historia de línea base; avance no verificado",
+          "rf": [
+            "RF-ACC-002"
+          ],
+          "tasks": [
+            "SB-S2-03"
+          ],
+          "pilePosition": 7,
+          "requirementIds": [
+            "RF-ACC-002"
+          ],
+          "requirementId": "RF-ACC-002",
+          "storyPoints": null,
+          "deleted": false
+        },
+        "HU-ACC-003": {
+          "id": "HU-ACC-003",
+          "kind": "hu",
+          "title": "Usar funciones según responsabilidades",
+          "sprint": "S2",
+          "priority": "Esencial",
+          "description": "Como usuaria interna, quiero realizar solo operaciones permitidas por mi perfil, cargo o encargo, para respetar las responsabilidades de la organización.",
+          "sourceState": "Historia de línea base; avance no verificado",
+          "rf": [
+            "RF-ACC-003"
+          ],
+          "tasks": [
+            "SB-S2-03"
+          ],
+          "pilePosition": 8,
+          "requirementIds": [
+            "RF-ACC-003"
+          ],
+          "requirementId": "RF-ACC-003",
+          "storyPoints": null,
+          "deleted": false
+        },
+        "HU-VEN-001": {
+          "id": "HU-VEN-001",
+          "kind": "hu",
+          "title": "Registrar una venta",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Venta pagada antes de entrega; distinguir contexto feria/individual y origen individual/compartido. Dueña, vendedora y registradora diferentes; Superadministradora no vende.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-VEN-001"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "pilePosition": 38,
+          "criteria": [
+            "Venta pagada antes de entrega; distinguir contexto feria/individual y origen individual/compartido. Dueña, vendedora y registradora diferentes; Superadministradora no vende.",
+            "Ver reglas C01-C03, C14-C15 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia encargada de feria, quiero registrar varios productos y su forma de pago, para conocer el total sin vender más de lo disponible.",
+          "criteriaBeforeRevision": [
+            "Dado stock autorizado suficiente, cuando se confirma una venta de varios productos, entonces se registra completa con total calculado.",
+            "Dado stock insuficiente, cuando se intenta confirmar, entonces no se registra ninguna parte de la venta."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-VEN-001",
+            "kind": "hu",
+            "title": "Registrar una venta",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Venta desde custodia propia o encargo autorizado; cobro completo antes de entregar; Superadministradora no vende.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-VEN-001"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "pilePosition": 38,
+            "criteria": [
+              "Venta desde custodia propia o encargo autorizado; cobro completo antes de entregar; Superadministradora no vende."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia encargada de feria, quiero registrar varios productos y su forma de pago, para conocer el total sin vender más de lo disponible.",
+            "criteriaBeforeRevision": [
+              "Dado stock autorizado suficiente, cuando se confirma una venta de varios productos, entonces se registra completa con total calculado.",
+              "Dado stock insuficiente, cuando se intenta confirmar, entonces no se registra ninguna parte de la venta."
+            ]
+          }
+        },
+        "HU-VEN-002": {
+          "id": "HU-VEN-002",
+          "kind": "hu",
+          "title": "Identificar comprador según la venta",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-VEN-002"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "pilePosition": 39,
+          "criteria": [
+            "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+            "Ver reglas C01, C15 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia encargada de venta, quiero registrar los datos de comprador necesarios, para conservar un cobro rastreable sin pedir datos de más.",
+          "criteriaBeforeRevision": [
+            "Dada una venta a crédito o institucional, cuando se intenta confirmar sin comprador identificado, entonces se rechaza.",
+            "Dada una venta al contado ordinaria, cuando se registra, entonces puede usar Público general sin pedir datos personales innecesarios."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-VEN-002",
+            "kind": "hu",
+            "title": "Identificar comprador según la venta",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Cero crédito al comprador. Público general para contado ordinario; identificación mínima para institucional. Medio de pago no concede plazo.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-VEN-002"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "pilePosition": 39,
+            "criteria": [
+              "Cero crédito al comprador. Público general para contado ordinario; identificación mínima para institucional. Medio de pago no concede plazo."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia encargada de venta, quiero registrar los datos de comprador necesarios, para conservar un cobro rastreable sin pedir datos de más.",
+            "criteriaBeforeRevision": [
+              "Dada una venta a crédito o institucional, cuando se intenta confirmar sin comprador identificado, entonces se rechaza.",
+              "Dada una venta al contado ordinaria, cuando se registra, entonces puede usar Público general sin pedir datos personales innecesarios."
+            ]
+          }
+        },
+        "HU-VEN-007": {
+          "id": "HU-VEN-007",
+          "kind": "hu",
+          "title": "Registrar venta institucional",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Venta institucional identificada, pago completo antes de entregar y sin excedente individual; la prohibición de venta personal incluye a Superadministración.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-VEN-007"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "pilePosition": 44,
+          "criteria": [
+            "Venta institucional identificada, pago completo antes de entregar y sin excedente individual; la prohibición de venta personal incluye a Superadministración.",
+            "Ver reglas C01 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como Tesorera, quiero registrar una venta desde stock general, para rendir cuentas sin atribuir excedente a una socia.",
+          "criteriaBeforeRevision": [
+            "Dado stock general y una compradora institucional identificada, cuando se confirma la venta, entonces quedan su tipo y responsable sin asignar excedente individual."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-VEN-007",
+            "kind": "hu",
+            "title": "Registrar venta institucional",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Tesorera registra venta institucional desde stock general con comprador identificado y pago completo antes de entrega; sin excedente individual.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-VEN-007"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "pilePosition": 44,
+            "criteria": [
+              "Tesorera registra venta institucional desde stock general con comprador identificado y pago completo antes de entrega; sin excedente individual."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como Tesorera, quiero registrar una venta desde stock general, para rendir cuentas sin atribuir excedente a una socia.",
+            "criteriaBeforeRevision": [
+              "Dado stock general y una compradora institucional identificada, cuando se confirma la venta, entonces quedan su tipo y responsable sin asignar excedente individual."
+            ]
+          }
+        },
+        "HU-CXC-001": {
+          "id": "HU-CXC-001",
+          "kind": "hu",
+          "title": "Distinguir deudas y custodia",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Custodia sin deuda. Base acumulada visible y obligación interna al cierre del periodo, con fuente por venta o resolución de faltante. No crédito externo.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-CXC-001"
+          ],
+          "tasks": [
+            "SB-S5-06"
+          ],
+          "pilePosition": 47,
+          "criteria": [
+            "Custodia sin deuda. Base acumulada visible y obligación interna al cierre del periodo, con fuente por venta o resolución de faltante. No crédito externo.",
+            "Ver reglas C01, C04-C05 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como Tesorera, quiero distinguir deuda de socia, cuenta por cobrar externa y custodia física, para evitar cargos monetarios incorrectos.",
+          "criteriaBeforeRevision": [
+            "Dado un retiro individual impago, cuando se registra, entonces genera deuda con valor base histórico.",
+            "Dada custodia de stock compartido, cuando se registra la entrega, entonces no crea deuda individual."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-CXC-001",
+            "kind": "hu",
+            "title": "Distinguir deudas y custodia",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Separar custodia y obligación interna por rendir: recibir producto no crea deuda; vender desde custodia individual causa la base por rendir. Sin cuenta por cobrar externa.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-CXC-001"
+            ],
+            "tasks": [
+              "SB-S5-06"
+            ],
+            "pilePosition": 47,
+            "criteria": [
+              "Separar custodia y obligación interna por rendir: recibir producto no crea deuda; vender desde custodia individual causa la base por rendir. Sin cuenta por cobrar externa."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como Tesorera, quiero distinguir deuda de socia, cuenta por cobrar externa y custodia física, para evitar cargos monetarios incorrectos.",
+            "criteriaBeforeRevision": [
+              "Dado un retiro individual impago, cuando se registra, entonces genera deuda con valor base histórico.",
+              "Dada custodia de stock compartido, cuando se registra la entrega, entonces no crea deuda individual."
+            ]
+          }
+        },
+        "HU-CXC-002": {
+          "id": "HU-CXC-002",
+          "kind": "hu",
+          "title": "Registrar un abono",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Entregas de dinero durante jornada o al final, aplicadas una sola vez al periodo y liquidación. Abonos internos sin duplicar cobro ni saldo.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-CXC-002"
+          ],
+          "tasks": [
+            "SB-S5-06"
+          ],
+          "pilePosition": 48,
+          "criteria": [
+            "Entregas de dinero durante jornada o al final, aplicadas una sola vez al periodo y liquidación. Abonos internos sin duplicar cobro ni saldo.",
+            "Ver reglas C04-C05 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como Tesorera, quiero registrar pagos parciales sobre un saldo identificado, para conocer cuánto queda pendiente.",
+          "criteriaBeforeRevision": [
+            "Dado un saldo y un abono válido, cuando se aplica el pago, entonces quedan monto, fecha, forma y responsable y se reduce solo ese saldo."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-CXC-002",
+            "kind": "hu",
+            "title": "Registrar un abono",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Abonos de rendición interna sobre saldo identificado; no cuotas de crédito de compradores. Aplicación no mayor a pago o saldo.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-CXC-002"
+            ],
+            "tasks": [
+              "SB-S5-06"
+            ],
+            "pilePosition": 48,
+            "criteria": [
+              "Abonos de rendición interna sobre saldo identificado; no cuotas de crédito de compradores. Aplicación no mayor a pago o saldo."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como Tesorera, quiero registrar pagos parciales sobre un saldo identificado, para conocer cuánto queda pendiente.",
+            "criteriaBeforeRevision": [
+              "Dado un saldo y un abono válido, cuando se aplica el pago, entonces quedan monto, fecha, forma y responsable y se reduce solo ese saldo."
+            ]
+          }
+        },
+        "HU-TRA-002": {
+          "id": "HU-TRA-002",
+          "kind": "hu",
+          "title": "Registrar secado",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Secado de un solo acopio, consumos efectivos, lote húmedo/seco y linaje conservado.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-TRA-002"
+          ],
+          "tasks": [
+            "SB-S5-02"
+          ],
+          "pilePosition": 31,
+          "criteria": [
+            "Secado de un solo acopio, consumos efectivos, lote húmedo/seco y linaje conservado.",
+            "Ver reglas C16 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia encargada de producción, quiero registrar pesos, temperatura e inicio y fin del secado, para seguir cada proceso productivo.",
+          "criteriaBeforeRevision": [
+            "Dados peso inicial y temperatura válidos, cuando se inicia el secado, entonces se conservan sus datos y el momento correspondiente.",
+            "Dados peso final y cierre válidos, cuando termina el secado, entonces queda el cierre sin exigir humedad opcional."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-TRA-002",
+            "kind": "hu",
+            "title": "Registrar secado",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Cada secado corresponde a un único acopio. Consumos del lote húmedo y resultado seco conservan origen, peso, unidad y responsable.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-TRA-002"
+            ],
+            "tasks": [
+              "SB-S5-02"
+            ],
+            "pilePosition": 31,
+            "criteria": [
+              "Cada secado corresponde a un único acopio. Consumos del lote húmedo y resultado seco conservan origen, peso, unidad y responsable."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia encargada de producción, quiero registrar pesos, temperatura e inicio y fin del secado, para seguir cada proceso productivo.",
+            "criteriaBeforeRevision": [
+              "Dados peso inicial y temperatura válidos, cuando se inicia el secado, entonces se conservan sus datos y el momento correspondiente.",
+              "Dados peso final y cierre válidos, cuando termina el secado, entonces queda el cierre sin exigir humedad opcional."
+            ]
+          }
+        },
+        "HU-TRA-003": {
+          "id": "HU-TRA-003",
+          "kind": "hu",
+          "title": "Conocer duración y merma",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Transformación por receta autorizada o kit por variante, referencia 50 L y salida real separada. Fórmula secreta de shampoo no se almacena.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-TRA-003"
+          ],
+          "tasks": [
+            "SB-S5-02"
+          ],
+          "pilePosition": 32,
+          "criteria": [
+            "Transformación por receta autorizada o kit por variante, referencia 50 L y salida real separada. Fórmula secreta de shampoo no se almacena.",
+            "Ver reglas C16-C17 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como responsable de producción, quiero conocer la duración y pérdida de peso de un secado, para evaluar el resultado del proceso.",
+          "criteriaBeforeRevision": [
+            "Dado un secado con inicio, fin y pesos válidos, cuando se consulta su resultado, entonces se muestran duración y merma absoluta con unidad y fórmula.",
+            "Dado un peso final mayor que el inicial, cuando se calcula el resultado, entonces queda pendiente de revisión o excepción autorizada."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-TRA-003",
+            "kind": "hu",
+            "title": "Conocer duración y merma",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Derivar merma de pesajes y conservar correcciones auditadas; secado de un solo acopio y movimientos sin reescritura histórica.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-TRA-003"
+            ],
+            "tasks": [
+              "SB-S5-02"
+            ],
+            "pilePosition": 32,
+            "criteria": [
+              "Derivar merma de pesajes y conservar correcciones auditadas; secado de un solo acopio y movimientos sin reescritura histórica."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como responsable de producción, quiero conocer la duración y pérdida de peso de un secado, para evaluar el resultado del proceso.",
+            "criteriaBeforeRevision": [
+              "Dado un secado con inicio, fin y pesos válidos, cuando se consulta su resultado, entonces se muestran duración y merma absoluta con unidad y fórmula.",
+              "Dado un peso final mayor que el inicial, cuando se calcula el resultado, entonces queda pendiente de revisión o excepción autorizada."
+            ]
+          }
+        },
+        "HU-ACC-009": {
+          "id": "HU-ACC-009",
+          "kind": "hu",
+          "title": "Crear y corregir registros de cualquier módulo",
+          "sprint": "",
+          "start": "",
+          "end": "",
+          "priority": "Pendiente de validar",
+          "description": "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ACC-005"
+          ],
+          "tasks": [],
+          "pilePosition": 56,
+          "criteria": [
+            "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "suggestedSprint": "S3–S5 con cada módulo implementado",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "descriptionBeforeRevision": "Como Superadministradora, quiero realizar las acciones normales y crear o corregir desde el panel asistencia, cantidades, valores y otros registros ofrecidos por cada módulo para resolver el trabajo y los errores.",
+          "criteriaBeforeRevision": [
+            "La Superadministradora ejecuta una operación ordinaria de cualquier módulo sin asignación individual; una cuenta sin permiso recibe denegación.",
+            "El módulo aplica sus validaciones y aprobaciones a la captura o corrección.",
+            "Una corrección histórica conserva el original y añade rectificación auditable; un fallo no deja cambios parciales."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ACC-009",
+            "kind": "hu",
+            "title": "Crear y corregir registros de cualquier módulo",
+            "sprint": "",
+            "start": "",
+            "end": "",
+            "priority": "Pendiente de validar",
+            "description": "Revisar/corregir registros con motivo, historial y validaciones; no crear, ejecutar ni aprobar operaciones de negocio por autoridad administrativa.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ACC-005"
+            ],
+            "tasks": [],
+            "pilePosition": 56,
+            "criteria": [
+              "Revisar/corregir registros con motivo, historial y validaciones; no crear, ejecutar ni aprobar operaciones de negocio por autoridad administrativa."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "suggestedSprint": "S3–S5 con cada módulo implementado",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+            "descriptionBeforeRevision": "Como Superadministradora, quiero realizar las acciones normales y crear o corregir desde el panel asistencia, cantidades, valores y otros registros ofrecidos por cada módulo para resolver el trabajo y los errores.",
+            "criteriaBeforeRevision": [
+              "La Superadministradora ejecuta una operación ordinaria de cualquier módulo sin asignación individual; una cuenta sin permiso recibe denegación.",
+              "El módulo aplica sus validaciones y aprobaciones a la captura o corrección.",
+              "Una corrección histórica conserva el original y añade rectificación auditable; un fallo no deja cambios parciales."
+            ]
+          }
+        },
+        "HU-ACC-005": {
+          "id": "HU-ACC-005",
+          "kind": "hu",
+          "title": "Asignar o retirar acceso a módulos",
+          "sprint": "S2",
+          "start": "2026-10-13",
+          "end": "2026-11-08",
+          "priority": "Pendiente de validar",
+          "description": "Administrar permisos existentes sin concesión por módulo; autoridad organizacional separada de is_superuser. No habilitar venta personal.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ACC-005"
+          ],
+          "tasks": [],
+          "pilePosition": 52,
+          "criteria": [
+            "Administrar permisos existentes sin concesión por módulo; autoridad organizacional separada de is_superuser. No habilitar venta personal.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "suggestedSprint": "Base de accesos S2; operaciones de cada módulo S3–S5",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "descriptionBeforeRevision": "Como Superadministradora, quiero asignar o retirar el acceso de otras cuentas a módulos concretos para mantener sus funciones vigentes. Mi propio rol accede a todos los módulos sin asignación individual.",
+          "criteriaBeforeRevision": [
+            "Un cambio autorizado afecta solo a la cuenta y módulo indicados y registra actor, fecha y motivo.",
+            "Una petición sin autoridad se deniega sin modificar accesos.",
+            "Al revocar acceso administrativo se cierran de inmediato todas las sesiones abiertas de la cuenta; el servidor rechaza nuevas operaciones protegidas."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ACC-005",
+            "kind": "hu",
+            "title": "Asignar o retirar acceso a módulos",
+            "sprint": "S2",
+            "start": "2026-10-13",
+            "end": "2026-11-08",
+            "priority": "Pendiente de validar",
+            "description": "Administrar permisos existentes de cuentas; no concesión individual de autoridad Superadministradora por módulo ni bypass de reglas.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ACC-005"
+            ],
+            "tasks": [],
+            "pilePosition": 52,
+            "criteria": [
+              "Administrar permisos existentes de cuentas; no concesión individual de autoridad Superadministradora por módulo ni bypass de reglas."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "suggestedSprint": "Base de accesos S2; operaciones de cada módulo S3–S5",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+            "descriptionBeforeRevision": "Como Superadministradora, quiero asignar o retirar el acceso de otras cuentas a módulos concretos para mantener sus funciones vigentes. Mi propio rol accede a todos los módulos sin asignación individual.",
+            "criteriaBeforeRevision": [
+              "Un cambio autorizado afecta solo a la cuenta y módulo indicados y registra actor, fecha y motivo.",
+              "Una petición sin autoridad se deniega sin modificar accesos.",
+              "Al revocar acceso administrativo se cierran de inmediato todas las sesiones abiertas de la cuenta; el servidor rechaza nuevas operaciones protegidas."
+            ]
+          }
+        },
+        "HU-ACC-008": {
+          "id": "HU-ACC-008",
+          "kind": "hu",
+          "title": "Editar opciones y valores configurables de módulos",
+          "sprint": "",
+          "start": "",
+          "end": "",
+          "priority": "Pendiente de validar",
+          "description": "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ACC-005"
+          ],
+          "tasks": [],
+          "pilePosition": 55,
+          "criteria": [
+            "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "suggestedSprint": "S3–S5 con el módulo propietario",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "descriptionBeforeRevision": "Como Superadministradora, quiero editar desde el panel los valores de campos existentes, opciones, catálogos y fórmulas que cada módulo ofrezca para mantener la configuración aprobada.",
+          "criteriaBeforeRevision": [
+            "Un valor u opción válida se guarda con actor, fecha, valor anterior y nuevo y vigencia cuando aplique.",
+            "Un valor fuera de rango o código arbitrario se rechaza sin cambios.",
+            "Una fórmula se prueba y versiona antes de activarse; cálculos históricos conservan su versión.",
+            "El panel no crea campos físicos ni altera tablas."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ACC-008",
+            "kind": "hu",
+            "title": "Editar opciones y valores configurables de módulos",
+            "sprint": "",
+            "start": "",
+            "end": "",
+            "priority": "Pendiente de validar",
+            "description": "Configurar valores/opciones de políticas aprobadas con versión y auditoría; no nuevas fórmulas arbitrarias ni aprobación de negocio.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ACC-005"
+            ],
+            "tasks": [],
+            "pilePosition": 55,
+            "criteria": [
+              "Configurar valores/opciones de políticas aprobadas con versión y auditoría; no nuevas fórmulas arbitrarias ni aprobación de negocio."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "suggestedSprint": "S3–S5 con el módulo propietario",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+            "descriptionBeforeRevision": "Como Superadministradora, quiero editar desde el panel los valores de campos existentes, opciones, catálogos y fórmulas que cada módulo ofrezca para mantener la configuración aprobada.",
+            "criteriaBeforeRevision": [
+              "Un valor u opción válida se guarda con actor, fecha, valor anterior y nuevo y vigencia cuando aplique.",
+              "Un valor fuera de rango o código arbitrario se rechaza sin cambios.",
+              "Una fórmula se prueba y versiona antes de activarse; cálculos históricos conservan su versión.",
+              "El panel no crea campos físicos ni altera tablas."
+            ]
+          }
+        },
+        "HT-PRE-003": {
+          "id": "HT-PRE-003",
+          "kind": "ht",
+          "title": "Preparar arquitectura, modelo conceptual y límites de datos por módulo.",
+          "sprint": "S1",
+          "start": "2026-09-15",
+          "end": "2026-10-12",
+          "priority": "Alta",
+          "description": "Preparar esquema por módulo con identidades, flujos de stock y dinero, cierre periódico, devoluciones, reparto, políticas e idempotencia; pruebas PostgreSQL y migraciones pendientes.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "tasks": [
+            "SB-S1-03"
+          ],
+          "related": "Diseño para HU-ACC, HU-PLA, HU-ASI, HU-TRA, HU-INV, HU-VEN y HU-REP.",
+          "pilePosition": null,
+          "source": "/fuentes/historias/tecnicas/historias_tecnicas_v2.1_2026-10-30.md",
+          "criteria": [
+            "Preparar esquema por módulo con identidades, flujos de stock y dinero, cierre periódico, devoluciones, reparto, políticas e idempotencia; pruebas PostgreSQL y migraciones pendientes.",
+            "Ver reglas C01-C18 / DB-01 a DB-20 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceBeforeRevision": "/fuentes/historias/tecnicas/historias_tecnicas_v1.7_2026-10-21.md",
+          "descriptionBeforeRevision": "Preparar arquitectura, modelo conceptual y límites de datos por módulo.",
+          "criteriaBeforeRevision": [
+            "Entidades, dueños de escritura, relaciones, permisos y operaciones conjuntas trazados a requisitos."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HT-PRE-003",
+            "kind": "ht",
+            "title": "Preparar arquitectura, modelo conceptual y límites de datos por módulo.",
+            "sprint": "S1",
+            "start": "2026-09-15",
+            "end": "2026-10-12",
+            "priority": "Alta",
+            "description": "Diseño de datos revisión 0.2: relaciones, unicidad, linaje, cobro/entrega/rendición, permisos y 15 casos DAT definidos. Pruebas físicas y conformidad de fuentes pendientes.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "tasks": [
+              "SB-S1-03"
+            ],
+            "related": "Diseño para HU-ACC, HU-PLA, HU-ASI, HU-TRA, HU-INV, HU-VEN y HU-REP.",
+            "pilePosition": null,
+            "source": "/fuentes/historias/tecnicas/historias_tecnicas_v2.0_2026-10-29.md",
+            "criteria": [
+              "Diseño de datos revisión 0.2: relaciones, unicidad, linaje, cobro/entrega/rendición, permisos y 15 casos DAT definidos. Pruebas físicas y conformidad de fuentes pendientes."
+            ],
+            "sourceBeforeRevision": "/fuentes/historias/tecnicas/historias_tecnicas_v1.7_2026-10-21.md",
+            "descriptionBeforeRevision": "Preparar arquitectura, modelo conceptual y límites de datos por módulo.",
+            "criteriaBeforeRevision": [
+              "Entidades, dueños de escritura, relaciones, permisos y operaciones conjuntas trazados a requisitos."
+            ]
+          }
+        },
+        "HU-VEN-006": {
+          "id": "HU-VEN-006",
+          "kind": "hu",
+          "title": "Distinguir stock individual y compartido",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Repartir solo fondo compartido: proporcional a ventas compartidas por vendedora o montos negociados. Excedente individual de dueña excluido; suma exacta al cierre.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-VEN-006"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "pilePosition": 43,
+          "criteria": [
+            "Repartir solo fondo compartido: proporcional a ventas compartidas por vendedora o montos negociados. Excedente individual de dueña excluido; suma exacta al cierre.",
+            "Ver reglas C03, C06, C18 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia encargada de feria, quiero identificar el origen de cada línea vendida, para separar resultados individuales y compartidos.",
+          "criteriaBeforeRevision": [
+            "Dada una venta de feria, cuando se confirma una línea, entonces conserva si el producto procede de stock individual o compartido.",
+            "Dado excedente de stock compartido, cuando se presenta el resultado, entonces no se reparte automáticamente."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-VEN-006",
+            "kind": "hu",
+            "title": "Distinguir stock individual y compartido",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Distinguir origen individual y compartido por línea y lote, con pago antes de entrega. Superadministradora no vende; excedente individual fuera del fondo.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-VEN-006"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "pilePosition": 43,
+            "criteria": [
+              "Distinguir origen individual y compartido por línea y lote, con pago antes de entrega. Superadministradora no vende; excedente individual fuera del fondo."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia encargada de feria, quiero identificar el origen de cada línea vendida, para separar resultados individuales y compartidos.",
+            "criteriaBeforeRevision": [
+              "Dada una venta de feria, cuando se confirma una línea, entonces conserva si el producto procede de stock individual o compartido.",
+              "Dado excedente de stock compartido, cuando se presenta el resultado, entonces no se reparte automáticamente."
+            ]
+          }
+        },
+        "HU-VEN-008": {
+          "id": "HU-VEN-008",
+          "kind": "hu",
+          "title": "Conciliar comprobante manual de feria",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-VEN-008"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "pilePosition": 45,
+          "criteria": [
+            "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+            "Ver reglas C01, C15 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia encargada de feria, quiero incorporar una venta respaldada por comprobante de contingencia, para evitar pérdidas y duplicados durante fallos.",
+          "criteriaBeforeRevision": [
+            "Dado un comprobante manual con folio único, cuando se incorpora después de la contingencia, entonces se conserva su origen y momento declarado.",
+            "Dado un folio ya registrado, cuando se intenta incorporarlo de nuevo, entonces no descuenta stock dos veces."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-VEN-008",
+            "kind": "hu",
+            "title": "Conciliar comprobante manual de feria",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Comprobante manual exclusivo de una venta con cobro anterior a entrega y registro hasta día siguiente; conciliación conjunta y sin crédito.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-VEN-008"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "pilePosition": 45,
+            "criteria": [
+              "Comprobante manual exclusivo de una venta con cobro anterior a entrega y registro hasta día siguiente; conciliación conjunta y sin crédito."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia encargada de feria, quiero incorporar una venta respaldada por comprobante de contingencia, para evitar pérdidas y duplicados durante fallos.",
+            "criteriaBeforeRevision": [
+              "Dado un comprobante manual con folio único, cuando se incorpora después de la contingencia, entonces se conserva su origen y momento declarado.",
+              "Dado un folio ya registrado, cuando se intenta incorporarlo de nuevo, entonces no descuenta stock dos veces."
+            ]
+          }
+        },
+        "HU-TRA-004": {
+          "id": "HU-TRA-004",
+          "kind": "hu",
+          "title": "Seguir la procedencia de lotes",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Lotes y consumos conservan origen; unidades compatibles, etiqueta oficial del kit sin fórmula secreta.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-TRA-004"
+          ],
+          "tasks": [
+            "SB-S5-02"
+          ],
+          "pilePosition": 33,
+          "criteria": [
+            "Lotes y consumos conservan origen; unidades compatibles, etiqueta oficial del kit sin fórmula secreta.",
+            "Ver reglas C16-C17 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como responsable de producción, quiero relacionar un lote con sus orígenes y derivados, para reconstruir la procedencia de un producto.",
+          "criteriaBeforeRevision": [
+            "Dada una mezcla física permitida, cuando se crea un lote derivado, entonces sus lotes de origen permanecen identificables.",
+            "Dado un lote cerrado, cuando aún tiene existencias, entonces no se confunde cierre productivo con stock agotado."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-TRA-004",
+            "kind": "hu",
+            "title": "Seguir la procedencia de lotes",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Conservar origen por lotes húmedos/secos/productivos y cada salida; transferencia de custodia no crea lote nuevo.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-TRA-004"
+            ],
+            "tasks": [
+              "SB-S5-02"
+            ],
+            "pilePosition": 33,
+            "criteria": [
+              "Conservar origen por lotes húmedos/secos/productivos y cada salida; transferencia de custodia no crea lote nuevo."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como responsable de producción, quiero relacionar un lote con sus orígenes y derivados, para reconstruir la procedencia de un producto.",
+            "criteriaBeforeRevision": [
+              "Dada una mezcla física permitida, cuando se crea un lote derivado, entonces sus lotes de origen permanecen identificables.",
+              "Dado un lote cerrado, cuando aún tiene existencias, entonces no se confunde cierre productivo con stock agotado."
+            ]
+          }
+        },
+        "HU-TRA-005": {
+          "id": "HU-TRA-005",
+          "kind": "hu",
+          "title": "Registrar transformación",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Salida de venta por lote y presentación permite reconstruir acopio o kit, sin ciclos ni origen inventado.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-TRA-005"
+          ],
+          "tasks": [
+            "SB-S5-03"
+          ],
+          "pilePosition": 34,
+          "criteria": [
+            "Salida de venta por lote y presentación permite reconstruir acopio o kit, sin ciclos ni origen inventado.",
+            "Ver reglas C16 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia encargada de producción, quiero registrar insumos consumidos y producto resultante, para conservar la composición y cantidad de cada lote.",
+          "criteriaBeforeRevision": [
+            "Dados insumos y composición válidos, cuando se confirma la transformación, entonces el producto resultante queda vinculado a consumos, versión y lote."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-TRA-005",
+            "kind": "hu",
+            "title": "Registrar transformación",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Transformación con receta versionada completa, consumos y rendimiento efectivos; linaje de todos los lotes; no activar proporciones desconocidas.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-TRA-005"
+            ],
+            "tasks": [
+              "SB-S5-03"
+            ],
+            "pilePosition": 34,
+            "criteria": [
+              "Transformación con receta versionada completa, consumos y rendimiento efectivos; linaje de todos los lotes; no activar proporciones desconocidas."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia encargada de producción, quiero registrar insumos consumidos y producto resultante, para conservar la composición y cantidad de cada lote.",
+            "criteriaBeforeRevision": [
+              "Dados insumos y composición válidos, cuando se confirma la transformación, entonces el producto resultante queda vinculado a consumos, versión y lote."
+            ]
+          }
+        },
+        "HU-ACC-006": {
+          "id": "HU-ACC-006",
+          "kind": "hu",
+          "title": "Conceder o revocar autoridad administrativa",
+          "sprint": "S2",
+          "start": "2026-10-13",
+          "end": "2026-11-08",
+          "priority": "Pendiente de validar",
+          "description": "Concesión/revocación con autorización presidencial D19 y evidencia; varias administradoras posibles, sin autoconcesión.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ACC-005"
+          ],
+          "tasks": [],
+          "pilePosition": 53,
+          "criteria": [
+            "Concesión/revocación con autorización presidencial D19 y evidencia; varias administradoras posibles, sin autoconcesión.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "suggestedSprint": "Primera designación S2; delegación posterior sujeta a regla validada",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "descriptionBeforeRevision": "Como delegante autorizado, quiero conceder o retirar autoridad administrativa a otra cuenta para mantener la administración cuando cambien las responsabilidades.",
+          "criteriaBeforeRevision": [
+            "El tesista designa la primera Superadministradora durante la instalación solo con autorización registrada de la presidenta.",
+            "Una delegación futura registra alcance, actor, fecha, motivo y resultado; la autoelevación se rechaza.",
+            "Revocar autoridad cierra de inmediato las sesiones abiertas de la cuenta."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ACC-006",
+            "kind": "hu",
+            "title": "Conceder o revocar autoridad administrativa",
+            "sprint": "S2",
+            "start": "2026-10-13",
+            "end": "2026-11-08",
+            "priority": "Pendiente de validar",
+            "description": "Autoridad administrativa exige autorización presidencial registrada para alta/revocación; no autootorgamiento ni permiso de ejecutar negocio.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ACC-005"
+            ],
+            "tasks": [],
+            "pilePosition": 53,
+            "criteria": [
+              "Autoridad administrativa exige autorización presidencial registrada para alta/revocación; no autootorgamiento ni permiso de ejecutar negocio."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "suggestedSprint": "Primera designación S2; delegación posterior sujeta a regla validada",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+            "descriptionBeforeRevision": "Como delegante autorizado, quiero conceder o retirar autoridad administrativa a otra cuenta para mantener la administración cuando cambien las responsabilidades.",
+            "criteriaBeforeRevision": [
+              "El tesista designa la primera Superadministradora durante la instalación solo con autorización registrada de la presidenta.",
+              "Una delegación futura registra alcance, actor, fecha, motivo y resultado; la autoelevación se rechaza.",
+              "Revocar autoridad cierra de inmediato las sesiones abiertas de la cuenta."
+            ]
+          }
+        },
+        "HU-ACC-007": {
+          "id": "HU-ACC-007",
+          "kind": "hu",
+          "title": "Consultar intentos y configurar acceso",
+          "sprint": "S2",
+          "start": "2026-10-13",
+          "end": "2026-11-08",
+          "priority": "Pendiente de validar",
+          "description": "Conservar historial de concesión/revocación y actor real; la autonomía operativa no cambia la designación del rol.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ACC-005"
+          ],
+          "tasks": [],
+          "pilePosition": 54,
+          "criteria": [
+            "Conservar historial de concesión/revocación y actor real; la autonomía operativa no cambia la designación del rol.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "suggestedSprint": "S2, solo con límites validados y actualización de SPEC-001",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+          "descriptionBeforeRevision": "Como Superadministradora, quiero ver el estado de intentos disponible y ajustar parámetros de bloqueo desde el panel para administrar el acceso sin exponer credenciales.",
+          "criteriaBeforeRevision": [
+            "La consulta muestra solo datos de intentos realmente conservados, sin contraseñas ni tokens.",
+            "Un valor fuera de límites aprobados o una petición sin autoridad se rechaza.",
+            "Un cambio aceptado conserva valor anterior, nuevo, actor, motivo y vigencia; no toma efecto antes de la actualización validada de SPEC-001."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ACC-007",
+            "kind": "hu",
+            "title": "Consultar intentos y configurar acceso",
+            "sprint": "S2",
+            "start": "2026-10-13",
+            "end": "2026-11-08",
+            "priority": "Pendiente de validar",
+            "description": "Consultar intentos y configurar valores de política aprobada con auditoría; no alterar secretos ni aprobar una nueva regla organizativa.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ACC-005"
+            ],
+            "tasks": [],
+            "pilePosition": 54,
+            "criteria": [
+              "Consultar intentos y configurar valores de política aprobada con auditoría; no alterar secretos ni aprobar una nueva regla organizativa."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "suggestedSprint": "S2, solo con límites validados y actualización de SPEC-001",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.6_2026-10-27.md",
+            "descriptionBeforeRevision": "Como Superadministradora, quiero ver el estado de intentos disponible y ajustar parámetros de bloqueo desde el panel para administrar el acceso sin exponer credenciales.",
+            "criteriaBeforeRevision": [
+              "La consulta muestra solo datos de intentos realmente conservados, sin contraseñas ni tokens.",
+              "Un valor fuera de límites aprobados o una petición sin autoridad se rechaza.",
+              "Un cambio aceptado conserva valor anterior, nuevo, actor, motivo y vigencia; no toma efecto antes de la actualización validada de SPEC-001."
+            ]
+          }
+        },
+        "HU-ASI-003": {
+          "id": "HU-ASI-003",
+          "kind": "hu",
+          "title": "Corregir asistencia con historial",
+          "sprint": "S4",
+          "start": "2026-11-20",
+          "end": "2026-11-30",
+          "priority": "Esencial",
+          "description": "Cargo competente o sustitución por Superadministradora decide con actor real, motivo y evidencia; no suplantar autoridad ajena.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ASI-003"
+          ],
+          "tasks": [
+            "SB-S4-02"
+          ],
+          "pilePosition": 24,
+          "criteria": [
+            "Cargo competente o sustitución por Superadministradora decide con actor real, motivo y evidencia; no suplantar autoridad ajena.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como integrante de la Directiva o encargada autorizada, quiero corregir un registro sensible con motivo, para resolver errores sin borrar la historia.",
+          "criteriaBeforeRevision": [
+            "Dado un registro de asistencia y autorización vigente, cuando se corrige con motivo, entonces se conservan actor, fecha, valor anterior y nuevo valor.",
+            "Dada una persona sin permiso, cuando intenta corregir, entonces no cambia el registro."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ASI-003",
+            "kind": "hu",
+            "title": "Corregir asistencia con historial",
+            "sprint": "S4",
+            "start": "2026-11-20",
+            "end": "2026-11-30",
+            "priority": "Esencial",
+            "description": "Corrección auditada con antes/después y motivo; intervención administrativa no suplanta identidad ni aprobación del cargo competente.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ASI-003"
+            ],
+            "tasks": [
+              "SB-S4-02"
+            ],
+            "pilePosition": 24,
+            "criteria": [
+              "Corrección auditada con antes/después y motivo; intervención administrativa no suplanta identidad ni aprobación del cargo competente."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como integrante de la Directiva o encargada autorizada, quiero corregir un registro sensible con motivo, para resolver errores sin borrar la historia.",
+            "criteriaBeforeRevision": [
+              "Dado un registro de asistencia y autorización vigente, cuando se corrige con motivo, entonces se conservan actor, fecha, valor anterior y nuevo valor.",
+              "Dada una persona sin permiso, cuando intenta corregir, entonces no cambia el registro."
+            ]
+          }
+        },
+        "HU-ASI-006": {
+          "id": "HU-ASI-006",
+          "kind": "hu",
+          "title": "Resolver una inconsistencia de asistencia",
+          "sprint": "S4",
+          "start": "2026-11-20",
+          "end": "2026-11-30",
+          "priority": "Alta",
+          "description": "Justificaciones e impugnaciones conservan su revisión y evidencia; Superadministradora puede sustituir la decisión y deja auditoría.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ASI-006"
+          ],
+          "tasks": [
+            "SB-S4-02"
+          ],
+          "pilePosition": 27,
+          "criteria": [
+            "Justificaciones e impugnaciones conservan su revisión y evidencia; Superadministradora puede sustituir la decisión y deja auditoría.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como integrante autorizada de la Directiva, quiero registrar el acuerdo de la asamblea sobre una inconsistencia, para conservar una decisión justa y rastreable.",
+          "criteriaBeforeRevision": [
+            "Dada una inconsistencia pendiente, cuando se registra una decisión de la asamblea, entonces quedan acuerdo, actor, fecha y motivo sin sanción automática."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ASI-006",
+            "kind": "hu",
+            "title": "Resolver una inconsistencia de asistencia",
+            "sprint": "S4",
+            "start": "2026-11-20",
+            "end": "2026-11-30",
+            "priority": "Alta",
+            "description": "Presidenta resuelve justificativo; Tesorera valida multa y decide impugnación/cobro. Superadministradora no ejecuta ni aprueba esos actos.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ASI-006"
+            ],
+            "tasks": [
+              "SB-S4-02"
+            ],
+            "pilePosition": 27,
+            "criteria": [
+              "Presidenta resuelve justificativo; Tesorera valida multa y decide impugnación/cobro. Superadministradora no ejecuta ni aprueba esos actos."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como integrante autorizada de la Directiva, quiero registrar el acuerdo de la asamblea sobre una inconsistencia, para conservar una decisión justa y rastreable.",
+            "criteriaBeforeRevision": [
+              "Dada una inconsistencia pendiente, cuando se registra una decisión de la asamblea, entonces quedan acuerdo, actor, fecha y motivo sin sanción automática."
+            ]
+          }
+        },
+        "HU-ASI-007": {
+          "id": "HU-ASI-007",
+          "kind": "hu",
+          "title": "Registrar asistencia con QR o alternativa",
+          "sprint": "S4",
+          "start": "2026-11-20",
+          "end": "2026-11-30",
+          "priority": "Alta",
+          "description": "Secretaria o Superadministradora opera fases QR; vigencia y correcciones auditadas, tokens protegidos.",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "rf": [
+            "RF-ASI-007"
+          ],
+          "tasks": [
+            "SB-S4-03"
+          ],
+          "pilePosition": 28,
+          "criteria": [
+            "Secretaria o Superadministradora opera fases QR; vigencia y correcciones auditadas, tokens protegidos.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "source": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+          "descriptionBeforeRevision": "Como socia, quiero usar un QR temporal o código alternativo para mi asistencia, para registrarla por un medio disponible y auditable.",
+          "criteriaBeforeRevision": [
+            "Dado un QR válido para la fase habilitada, cuando la socia registra su evento, entonces queda identificado como autorregistro.",
+            "Dado un token vencido, repetido o para otra acción, cuando se intenta registrar asistencia, entonces no se modifica el evento.",
+            "Dado un registro delegado autorizado, cuando se confirma, entonces quedan identificadas la socia, la persona delegada y el motivo."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "HU-ASI-007",
+            "kind": "hu",
+            "title": "Registrar asistencia con QR o alternativa",
+            "sprint": "S4",
+            "start": "2026-11-20",
+            "end": "2026-11-30",
+            "priority": "Alta",
+            "description": "Secretaria abre/cierra fases QR y delega con motivo; Superadministradora configura parámetros aprobados, sin ejecutar QR.",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "rf": [
+              "RF-ASI-007"
+            ],
+            "tasks": [
+              "SB-S4-03"
+            ],
+            "pilePosition": 28,
+            "criteria": [
+              "Secretaria abre/cierra fases QR y delega con motivo; Superadministradora configura parámetros aprobados, sin ejecutar QR."
+            ],
+            "source": "/fuentes/historias/usuario/historias_usuario_v2.9_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/historias/usuario/historias_usuario_v2.5_2026-10-13.md",
+            "descriptionBeforeRevision": "Como socia, quiero usar un QR temporal o código alternativo para mi asistencia, para registrarla por un medio disponible y auditable.",
+            "criteriaBeforeRevision": [
+              "Dado un QR válido para la fase habilitada, cuando la socia registra su evento, entonces queda identificado como autorregistro.",
+              "Dado un token vencido, repetido o para otra acción, cuando se intenta registrar asistencia, entonces no se modifica el evento.",
+              "Dado un registro delegado autorizado, cuando se confirma, entonces quedan identificadas la socia, la persona delegada y el motivo."
+            ]
+          }
+        }
+      },
+      "requirementOverrides": {
+        "RF-VEN-001": {
+          "id": "RF-VEN-001",
+          "kind": "rf",
+          "title": "Venta pagada antes de entrega; distinguir contexto feria/individual y origen individual/compartido. Dueña, vendedora y registradora diferentes; Superadministradora no vende.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Venta pagada antes de entrega; distinguir contexto feria/individual y origen individual/compartido. Dueña, vendedora y registradora diferentes; Superadministradora no vende.",
+          "criteria": [
+            "Venta pagada antes de entrega; distinguir contexto feria/individual y origen individual/compartido. Dueña, vendedora y registradora diferentes; Superadministradora no vende.",
+            "Ver reglas C01-C03, C14-C15 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-VEN-001"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Venta pagada antes de entrega; distinguir contexto feria/individual y origen individual/compartido. Dueña, vendedora y registradora diferentes; Superadministradora no vende.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "La socia encargada registra ventas de varios productos desde stock autorizado, con cantidad, precio, total y forma de pago.",
+          "criteriaBeforeRevision": [
+            "El total se calcula; no se vende más de lo disponible; la venta completa se confirma o se revierte."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-VEN-001",
+            "kind": "rf",
+            "title": "Venta desde custodia propia o encargo autorizado; cobro completo antes de entregar; Superadministradora no vende.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Venta desde custodia propia o encargo autorizado; cobro completo antes de entregar; Superadministradora no vende.",
+            "criteria": [
+              "Venta desde custodia propia o encargo autorizado; cobro completo antes de entregar; Superadministradora no vende."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-VEN-001"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "El total se calcula; no se vende más de lo disponible; la venta completa se confirma o se revierte.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "La socia encargada registra ventas de varios productos desde stock autorizado, con cantidad, precio, total y forma de pago.",
+            "criteriaBeforeRevision": [
+              "El total se calcula; no se vende más de lo disponible; la venta completa se confirma o se revierte."
+            ]
+          }
+        },
+        "RF-VEN-002": {
+          "id": "RF-VEN-002",
+          "kind": "rf",
+          "title": "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+          "criteria": [
+            "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+            "Ver reglas C01, C15 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-VEN-002"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Sin crédito al comprador. Resumen de feria sin datos de cliente obligatorios y nota opcional; precio, base y política históricos por línea.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Se pide identificación del comprador solo según el riesgo: contado puede usar «Público general»; crédito o venta institucional exige datos mínimos aprobados.",
+          "criteriaBeforeRevision": [
+            "Crédito sin comprador se rechaza; contado no solicita datos innecesarios."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-VEN-002",
+            "kind": "rf",
+            "title": "Cero crédito al comprador. Público general para contado ordinario; identificación mínima para institucional. Medio de pago no concede plazo.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Cero crédito al comprador. Público general para contado ordinario; identificación mínima para institucional. Medio de pago no concede plazo.",
+            "criteria": [
+              "Cero crédito al comprador. Público general para contado ordinario; identificación mínima para institucional. Medio de pago no concede plazo."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-VEN-002"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Crédito sin comprador se rechaza; contado no solicita datos innecesarios.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Se pide identificación del comprador solo según el riesgo: contado puede usar «Público general»; crédito o venta institucional exige datos mínimos aprobados.",
+            "criteriaBeforeRevision": [
+              "Crédito sin comprador se rechaza; contado no solicita datos innecesarios."
+            ]
+          }
+        },
+        "RF-VEN-007": {
+          "id": "RF-VEN-007",
+          "kind": "rf",
+          "title": "Venta institucional identificada, pago completo antes de entregar y sin excedente individual; la prohibición de venta personal incluye a Superadministración.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Venta institucional identificada, pago completo antes de entregar y sin excedente individual; la prohibición de venta personal incluye a Superadministración.",
+          "criteria": [
+            "Venta institucional identificada, pago completo antes de entregar y sin excedente individual; la prohibición de venta personal incluye a Superadministración.",
+            "Ver reglas C01 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-VEN-007"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Venta institucional identificada, pago completo antes de entregar y sin excedente individual; la prohibición de venta personal incluye a Superadministración.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "La organización registra ventas institucionales desde stock general mediante la Tesorera.",
+          "criteriaBeforeRevision": [
+            "Quedan claros tipo y responsable; no se atribuye excedente a una socia."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-VEN-007",
+            "kind": "rf",
+            "title": "Tesorera registra venta institucional desde stock general con comprador identificado y pago completo antes de entrega; sin excedente individual.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Tesorera registra venta institucional desde stock general con comprador identificado y pago completo antes de entrega; sin excedente individual.",
+            "criteria": [
+              "Tesorera registra venta institucional desde stock general con comprador identificado y pago completo antes de entrega; sin excedente individual."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-VEN-007"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Quedan claros tipo y responsable; no se atribuye excedente a una socia.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "La organización registra ventas institucionales desde stock general mediante la Tesorera.",
+            "criteriaBeforeRevision": [
+              "Quedan claros tipo y responsable; no se atribuye excedente a una socia."
+            ]
+          }
+        },
+        "RF-CXC-001": {
+          "id": "RF-CXC-001",
+          "kind": "rf",
+          "title": "Custodia sin deuda. Base acumulada visible y obligación interna al cierre del periodo, con fuente por venta o resolución de faltante. No crédito externo.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Custodia sin deuda. Base acumulada visible y obligación interna al cierre del periodo, con fuente por venta o resolución de faltante. No crédito externo.",
+          "criteria": [
+            "Custodia sin deuda. Base acumulada visible y obligación interna al cierre del periodo, con fuente por venta o resolución de faltante. No crédito externo.",
+            "Ver reglas C01, C04-C05 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-CXC-001"
+          ],
+          "tasks": [
+            "SB-S5-06"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Custodia sin deuda. Base acumulada visible y obligación interna al cierre del periodo, con fuente por venta o resolución de faltante. No crédito externo.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Se separan custodia física, deuda de socia y cuenta por cobrar externa; retiro individual impago usa valor base congelado.",
+          "criteriaBeforeRevision": [
+            "Custodia compartida no crea deuda individual; pagos afectan solo el saldo elegido. P-09 rige devoluciones y ajustes monetarios."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-CXC-001",
+            "kind": "rf",
+            "title": "Separar custodia y obligación interna por rendir: recibir producto no crea deuda; vender desde custodia individual causa la base por rendir. Sin cuenta por cobrar externa.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Separar custodia y obligación interna por rendir: recibir producto no crea deuda; vender desde custodia individual causa la base por rendir. Sin cuenta por cobrar externa.",
+            "criteria": [
+              "Separar custodia y obligación interna por rendir: recibir producto no crea deuda; vender desde custodia individual causa la base por rendir. Sin cuenta por cobrar externa."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-CXC-001"
+            ],
+            "tasks": [
+              "SB-S5-06"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Custodia compartida no crea deuda individual; pagos afectan solo el saldo elegido. P-09 rige devoluciones y ajustes monetarios.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Se separan custodia física, deuda de socia y cuenta por cobrar externa; retiro individual impago usa valor base congelado.",
+            "criteriaBeforeRevision": [
+              "Custodia compartida no crea deuda individual; pagos afectan solo el saldo elegido. P-09 rige devoluciones y ajustes monetarios."
+            ]
+          }
+        },
+        "RF-CXC-002": {
+          "id": "RF-CXC-002",
+          "kind": "rf",
+          "title": "Entregas de dinero durante jornada o al final, aplicadas una sola vez al periodo y liquidación. Abonos internos sin duplicar cobro ni saldo.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Entregas de dinero durante jornada o al final, aplicadas una sola vez al periodo y liquidación. Abonos internos sin duplicar cobro ni saldo.",
+          "criteria": [
+            "Entregas de dinero durante jornada o al final, aplicadas una sola vez al periodo y liquidación. Abonos internos sin duplicar cobro ni saldo.",
+            "Ver reglas C04-C05 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-CXC-002"
+          ],
+          "tasks": [
+            "SB-S5-06"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Entregas de dinero durante jornada o al final, aplicadas una sola vez al periodo y liquidación. Abonos internos sin duplicar cobro ni saldo.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Se registran abonos con monto, fecha, forma, responsable y saldo aplicado.",
+          "criteriaBeforeRevision": [
+            "Un abono válido reduce el saldo elegido; el tratamiento de sobrepagos depende de P-09."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-CXC-002",
+            "kind": "rf",
+            "title": "Abonos de rendición interna sobre saldo identificado; no cuotas de crédito de compradores. Aplicación no mayor a pago o saldo.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Abonos de rendición interna sobre saldo identificado; no cuotas de crédito de compradores. Aplicación no mayor a pago o saldo.",
+            "criteria": [
+              "Abonos de rendición interna sobre saldo identificado; no cuotas de crédito de compradores. Aplicación no mayor a pago o saldo."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-CXC-002"
+            ],
+            "tasks": [
+              "SB-S5-06"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Un abono válido reduce el saldo elegido; el tratamiento de sobrepagos depende de P-09.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Se registran abonos con monto, fecha, forma, responsable y saldo aplicado.",
+            "criteriaBeforeRevision": [
+              "Un abono válido reduce el saldo elegido; el tratamiento de sobrepagos depende de P-09."
+            ]
+          }
+        },
+        "RF-CXC-003": {
+          "id": "RF-CXC-003",
+          "kind": "rf",
+          "title": "Conciliación de cancelaciones, devoluciones, sobrepagos y faltantes; autorización separada de ejecución. Defecto de fabricación a cargo de asociación sin recuperar excedente de socia.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Conciliación de cancelaciones, devoluciones, sobrepagos y faltantes; autorización separada de ejecución. Defecto de fabricación a cargo de asociación sin recuperar excedente de socia.",
+          "criteria": [
+            "Conciliación de cancelaciones, devoluciones, sobrepagos y faltantes; autorización separada de ejecución. Defecto de fabricación a cargo de asociación sin recuperar excedente de socia.",
+            "Ver reglas C07-C12 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-CXC-003"
+          ],
+          "tasks": [
+            "SB-S5-06"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Conciliación de cancelaciones, devoluciones, sobrepagos y faltantes; autorización separada de ejecución. Defecto de fabricación a cargo de asociación sin recuperar excedente de socia.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "La rendición de feria muestra recibido, vendido, devuelto, sobrante, dinero, base, excedente y diferencias.",
+          "criteriaBeforeRevision": [
+            "Una discrepancia deja el encargo por conciliar y explica qué falta."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-CXC-003",
+            "kind": "rf",
+            "title": "Conciliar ventas, cobros y rendiciones; reembolsos/anulaciones/pérdidas/sobrepagos sin regla permanecen incidentes sin efecto monetario automático.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Conciliar ventas, cobros y rendiciones; reembolsos/anulaciones/pérdidas/sobrepagos sin regla permanecen incidentes sin efecto monetario automático.",
+            "criteria": [
+              "Conciliar ventas, cobros y rendiciones; reembolsos/anulaciones/pérdidas/sobrepagos sin regla permanecen incidentes sin efecto monetario automático."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-CXC-003"
+            ],
+            "tasks": [
+              "SB-S5-06"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Una discrepancia deja el encargo por conciliar y explica qué falta.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "La rendición de feria muestra recibido, vendido, devuelto, sobrante, dinero, base, excedente y diferencias.",
+            "criteriaBeforeRevision": [
+              "Una discrepancia deja el encargo por conciliar y explica qué falta."
+            ]
+          }
+        },
+        "RF-ACC-005": {
+          "id": "RF-ACC-005",
+          "kind": "rf",
+          "title": "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+          "sprint": "S2",
+          "start": "2026-10-13",
+          "end": "2026-11-08",
+          "priority": "Pendiente de validar",
+          "description": "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+          "criteria": [
+            "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-ACC-005",
+            "HU-ACC-006",
+            "HU-ACC-007",
+            "HU-ACC-008",
+            "HU-ACC-009"
+          ],
+          "tasks": [],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Superadministradora ejecuta, aprueba y sustituye cargos sin permiso previo; no vende personalmente. Actor y autoridad auditados. Concesión/revocación conserva D19.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+          "descriptionBeforeRevision": "La Superadministradora activa realiza las acciones ordinarias de todos los módulos y gestiona accesos, registros y opciones publicadas desde el panel; las operaciones de cada módulo se incorporan en S3–S5.",
+          "criteriaBeforeRevision": [
+            "Una operación autorizada se valida en el servidor y conserva las reglas y auditoría del módulo.",
+            "La desactivación de una cuenta o revocación administrativa cierra inmediatamente sus sesiones.",
+            "El panel cambia valores y opciones previstas; no crea campos físicos ni modifica directamente tablas o secretos."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-ACC-005",
+            "kind": "rf",
+            "title": "Superadministradora administra cuentas, permisos y parámetros y corrige con auditoría; no ejecuta ni aprueba operaciones de negocio.",
+            "sprint": "S2",
+            "start": "2026-10-13",
+            "end": "2026-11-08",
+            "priority": "Pendiente de validar",
+            "description": "Superadministradora administra cuentas, permisos y parámetros y corrige con auditoría; no ejecuta ni aprueba operaciones de negocio.",
+            "criteria": [
+              "Superadministradora administra cuentas, permisos y parámetros y corrige con auditoría; no ejecuta ni aprueba operaciones de negocio."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-ACC-005",
+              "HU-ACC-006",
+              "HU-ACC-007",
+              "HU-ACC-008",
+              "HU-ACC-009"
+            ],
+            "tasks": [],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Criterios por módulo y autoridad inicial sujetos a validación.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.1_2026-10-27.md",
+            "descriptionBeforeRevision": "La Superadministradora activa realiza las acciones ordinarias de todos los módulos y gestiona accesos, registros y opciones publicadas desde el panel; las operaciones de cada módulo se incorporan en S3–S5.",
+            "criteriaBeforeRevision": [
+              "Una operación autorizada se valida en el servidor y conserva las reglas y auditoría del módulo.",
+              "La desactivación de una cuenta o revocación administrativa cierra inmediatamente sus sesiones.",
+              "El panel cambia valores y opciones previstas; no crea campos físicos ni modifica directamente tablas o secretos."
+            ]
+          }
+        },
+        "RF-TRA-002": {
+          "id": "RF-TRA-002",
+          "kind": "rf",
+          "title": "Secado de un solo acopio, consumos efectivos, lote húmedo/seco y linaje conservado.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Secado de un solo acopio, consumos efectivos, lote húmedo/seco y linaje conservado.",
+          "criteria": [
+            "Secado de un solo acopio, consumos efectivos, lote húmedo/seco y linaje conservado.",
+            "Ver reglas C16 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-TRA-002"
+          ],
+          "tasks": [
+            "SB-S5-02"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Secado de un solo acopio, consumos efectivos, lote húmedo/seco y linaje conservado.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "El secado registra peso inicial y final, temperatura en °C, inicio y fin; humedad es opcional. Pesajes habilitados pueden capturarse provisionalmente sin red.",
+          "criteriaBeforeRevision": [
+            "En línea se usa hora del servidor; el cierre exige valores válidos. P-13 debe definir el tratamiento temporal de capturas sin red antes de calcular duraciones."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-TRA-002",
+            "kind": "rf",
+            "title": "Cada secado corresponde a un único acopio. Consumos del lote húmedo y resultado seco conservan origen, peso, unidad y responsable.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Cada secado corresponde a un único acopio. Consumos del lote húmedo y resultado seco conservan origen, peso, unidad y responsable.",
+            "criteria": [
+              "Cada secado corresponde a un único acopio. Consumos del lote húmedo y resultado seco conservan origen, peso, unidad y responsable."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-TRA-002"
+            ],
+            "tasks": [
+              "SB-S5-02"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "En línea se usa hora del servidor; el cierre exige valores válidos. P-13 debe definir el tratamiento temporal de capturas sin red antes de calcular duraciones.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "El secado registra peso inicial y final, temperatura en °C, inicio y fin; humedad es opcional. Pesajes habilitados pueden capturarse provisionalmente sin red.",
+            "criteriaBeforeRevision": [
+              "En línea se usa hora del servidor; el cierre exige valores válidos. P-13 debe definir el tratamiento temporal de capturas sin red antes de calcular duraciones."
+            ]
+          }
+        },
+        "RF-TRA-003": {
+          "id": "RF-TRA-003",
+          "kind": "rf",
+          "title": "Transformación por receta autorizada o kit por variante, referencia 50 L y salida real separada. Fórmula secreta de shampoo no se almacena.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Transformación por receta autorizada o kit por variante, referencia 50 L y salida real separada. Fórmula secreta de shampoo no se almacena.",
+          "criteria": [
+            "Transformación por receta autorizada o kit por variante, referencia 50 L y salida real separada. Fórmula secreta de shampoo no se almacena.",
+            "Ver reglas C16-C17 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-TRA-003"
+          ],
+          "tasks": [
+            "SB-S5-02"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Transformación por receta autorizada o kit por variante, referencia 50 L y salida real separada. Fórmula secreta de shampoo no se almacena.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Se calculan duración y merma absoluta con fórmula y unidad visibles; el porcentaje espera reglas de redondeo.",
+          "criteriaBeforeRevision": [
+            "Peso final mayor que inicial exige revisión o excepción autorizada."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-TRA-003",
+            "kind": "rf",
+            "title": "Derivar merma de pesajes y conservar correcciones auditadas; secado de un solo acopio y movimientos sin reescritura histórica.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Derivar merma de pesajes y conservar correcciones auditadas; secado de un solo acopio y movimientos sin reescritura histórica.",
+            "criteria": [
+              "Derivar merma de pesajes y conservar correcciones auditadas; secado de un solo acopio y movimientos sin reescritura histórica."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-TRA-003"
+            ],
+            "tasks": [
+              "SB-S5-02"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Peso final mayor que inicial exige revisión o excepción autorizada.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Se calculan duración y merma absoluta con fórmula y unidad visibles; el porcentaje espera reglas de redondeo.",
+            "criteriaBeforeRevision": [
+              "Peso final mayor que inicial exige revisión o excepción autorizada."
+            ]
+          }
+        },
+        "RF-TRA-004": {
+          "id": "RF-TRA-004",
+          "kind": "rf",
+          "title": "Lotes y consumos conservan origen; unidades compatibles, etiqueta oficial del kit sin fórmula secreta.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Lotes y consumos conservan origen; unidades compatibles, etiqueta oficial del kit sin fórmula secreta.",
+          "criteria": [
+            "Lotes y consumos conservan origen; unidades compatibles, etiqueta oficial del kit sin fórmula secreta.",
+            "Ver reglas C16-C17 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-TRA-004"
+          ],
+          "tasks": [
+            "SB-S5-02"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Lotes y consumos conservan origen; unidades compatibles, etiqueta oficial del kit sin fórmula secreta.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Cada lote conserva su procedencia; cierre productivo y agotamiento de stock son conceptos distintos. Solo una mezcla física crea un lote derivado.",
+          "criteriaBeforeRevision": [
+            "Se recorren orígenes; una mezcla incompatible se rechaza; atender un pedido desde varios lotes no los fusiona. P-05 rige excepciones."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-TRA-004",
+            "kind": "rf",
+            "title": "Conservar linaje desde lote de acopio/secado a transformación y venta; transferir custodia no crea lote nuevo.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Conservar linaje desde lote de acopio/secado a transformación y venta; transferir custodia no crea lote nuevo.",
+            "criteria": [
+              "Conservar linaje desde lote de acopio/secado a transformación y venta; transferir custodia no crea lote nuevo."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-TRA-004"
+            ],
+            "tasks": [
+              "SB-S5-02"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Se recorren orígenes; una mezcla incompatible se rechaza; atender un pedido desde varios lotes no los fusiona. P-05 rige excepciones.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Cada lote conserva su procedencia; cierre productivo y agotamiento de stock son conceptos distintos. Solo una mezcla física crea un lote derivado.",
+            "criteriaBeforeRevision": [
+              "Se recorren orígenes; una mezcla incompatible se rechaza; atender un pedido desde varios lotes no los fusiona. P-05 rige excepciones."
+            ]
+          }
+        },
+        "RF-INV-005": {
+          "id": "RF-INV-005",
+          "kind": "rf",
+          "module": "Inventario",
+          "hu": [],
+          "tasks": [],
+          "title": "Retorno segregado; faltante solo causa cargo tras responsabilidad decidida; transferencias y correcciones auditadas, sin borrar hechos.",
+          "description": "Retorno segregado; faltante solo causa cargo tras responsabilidad decidida; transferencias y correcciones auditadas, sin borrar hechos.",
+          "priority": "Alta",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "conformance": "Retorno segregado; faltante solo causa cargo tras responsabilidad decidida; transferencias y correcciones auditadas, sin borrar hechos.",
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "El sistema distingue inventario bajo custodia individual del inventario organizacional y concilia transferencias sin convertir custodia automáticamente en deuda.",
+          "criteriaBeforeRevision": [],
+          "criteria": [
+            "Retorno segregado; faltante solo causa cargo tras responsabilidad decidida; transferencias y correcciones auditadas, sin borrar hechos.",
+            "Ver reglas C08, C12, C14 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-INV-005",
+            "kind": "rf",
+            "module": "Inventario",
+            "hu": [],
+            "tasks": [],
+            "title": "Custodia individual por lote/presentación/titular/feria. Socia recibe en custodia y rinde después; recibir producto no causa deuda.",
+            "description": "Custodia individual por lote/presentación/titular/feria. Socia recibe en custodia y rinde después; recibir producto no causa deuda.",
+            "priority": "Alta",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión, sin certificar implementación ni validación organizacional.",
+            "conformance": "Cada transferencia identifica origen, destino, responsable y cantidad; diferencias quedan pendientes. Propiedad, faltantes y conciliación monetaria se detallan antes de implementar.",
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "El sistema distingue inventario bajo custodia individual del inventario organizacional y concilia transferencias sin convertir custodia automáticamente en deuda.",
+            "criteriaBeforeRevision": [],
+            "criteria": [
+              "Custodia individual por lote/presentación/titular/feria. Socia recibe en custodia y rinde después; recibir producto no causa deuda."
+            ]
+          }
+        },
+        "RF-TRA-005": {
+          "id": "RF-TRA-005",
+          "kind": "rf",
+          "title": "Salida de venta por lote y presentación permite reconstruir acopio o kit, sin ciclos ni origen inventado.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Esencial",
+          "description": "Salida de venta por lote y presentación permite reconstruir acopio o kit, sin ciclos ni origen inventado.",
+          "criteria": [
+            "Salida de venta por lote y presentación permite reconstruir acopio o kit, sin ciclos ni origen inventado.",
+            "Ver reglas C16 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-TRA-005"
+          ],
+          "tasks": [
+            "SB-S5-03"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Salida de venta por lote y presentación permite reconstruir acopio o kit, sin ciclos ni origen inventado.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "La transformación registra insumos consumidos según una composición y versión de receta aprobada, resultado, cantidad, residuos, responsable, fecha y lote.",
+          "criteriaBeforeRevision": [
+            "El producto resultante enlaza sus consumos; cantidades incompatibles se rechazan."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-TRA-005",
+            "kind": "rf",
+            "title": "Transformación con receta versionada completa, consumos y rendimiento efectivos; linaje de todos los lotes; no activar proporciones desconocidas.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Esencial",
+            "description": "Transformación con receta versionada completa, consumos y rendimiento efectivos; linaje de todos los lotes; no activar proporciones desconocidas.",
+            "criteria": [
+              "Transformación con receta versionada completa, consumos y rendimiento efectivos; linaje de todos los lotes; no activar proporciones desconocidas."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-TRA-005"
+            ],
+            "tasks": [
+              "SB-S5-03"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "El producto resultante enlaza consumos y unidades; cantidades incompatibles se rechazan. No se usa la fórmula 50 litros = 100 unidades hasta validación.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "La transformación registra insumos consumidos según una composición y versión de receta aprobada, resultado, cantidad, residuos, responsable, fecha y lote.",
+            "criteriaBeforeRevision": [
+              "El producto resultante enlaza sus consumos; cantidades incompatibles se rechazan."
+            ]
+          }
+        },
+        "RF-INV-003": {
+          "id": "RF-INV-003",
+          "kind": "rf",
+          "title": "Entrega en custodia conserva lote, presentación, titular, feria y condición. No crea deuda ni venta.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Entrega en custodia conserva lote, presentación, titular, feria y condición. No crea deuda ni venta.",
+          "criteria": [
+            "Entrega en custodia conserva lote, presentación, titular, feria y condición. No crea deuda ni venta.",
+            "Ver reglas C01-C03 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-INV-003"
+          ],
+          "tasks": [
+            "SB-S5-04"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Entrega en custodia conserva lote, presentación, titular, feria y condición. No crea deuda ni venta.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Cada entrega de feria identifica encargo, socia, producto, lote, cantidad y modalidad individual o compartida.",
+          "criteriaBeforeRevision": [
+            "No excede el stock; quien recibe confirma o informa diferencia; el origen permanece visible."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-INV-003",
+            "kind": "rf",
+            "title": "Transferir producto a feria o socia con dos movimientos equivalentes, lote/presentación y ámbito de custodia; no crear deuda por recibir.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Transferir producto a feria o socia con dos movimientos equivalentes, lote/presentación y ámbito de custodia; no crear deuda por recibir.",
+            "criteria": [
+              "Transferir producto a feria o socia con dos movimientos equivalentes, lote/presentación y ámbito de custodia; no crear deuda por recibir."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-INV-003"
+            ],
+            "tasks": [
+              "SB-S5-04"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "No excede el stock; quien recibe confirma o informa diferencia; el origen permanece visible.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Cada entrega de feria identifica encargo, socia, producto, lote, cantidad y modalidad individual o compartida.",
+            "criteriaBeforeRevision": [
+              "No excede el stock; quien recibe confirma o informa diferencia; el origen permanece visible."
+            ]
+          }
+        },
+        "RF-INV-004": {
+          "id": "RF-INV-004",
+          "kind": "rf",
+          "title": "Conciliar stock físico, capturas y dinero al cierre; provisional compartido offline conserva diferencias hasta resolución, sin stock confirmado negativo.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Conciliar stock físico, capturas y dinero al cierre; provisional compartido offline conserva diferencias hasta resolución, sin stock confirmado negativo.",
+          "criteria": [
+            "Conciliar stock físico, capturas y dinero al cierre; provisional compartido offline conserva diferencias hasta resolución, sin stock confirmado negativo.",
+            "Ver reglas C05, C14 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-INV-004"
+          ],
+          "tasks": [
+            "SB-S5-04"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Conciliar stock físico, capturas y dinero al cierre; provisional compartido offline conserva diferencias hasta resolución, sin stock confirmado negativo.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Se concilian productos recibidos, transferidos, vendidos, devueltos y retornados sin mezclarlos con deudas monetarias.",
+          "criteriaBeforeRevision": [
+            "Una diferencia queda visible para conciliar y no produce stock negativo silencioso."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-INV-004",
+            "kind": "rf",
+            "title": "Conciliar sobrantes, ventas cobradas y dinero rendido por feria; cierre conjunto encargada y Tesorera; conservar fuentes/versiones.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Conciliar sobrantes, ventas cobradas y dinero rendido por feria; cierre conjunto encargada y Tesorera; conservar fuentes/versiones.",
+            "criteria": [
+              "Conciliar sobrantes, ventas cobradas y dinero rendido por feria; cierre conjunto encargada y Tesorera; conservar fuentes/versiones."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-INV-004"
+            ],
+            "tasks": [
+              "SB-S5-04"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Una diferencia queda visible para conciliar y no produce stock negativo silencioso.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Se concilian productos recibidos, transferidos, vendidos, devueltos y retornados sin mezclarlos con deudas monetarias.",
+            "criteriaBeforeRevision": [
+              "Una diferencia queda visible para conciliar y no produce stock negativo silencioso."
+            ]
+          }
+        },
+        "RF-ASI-003": {
+          "id": "RF-ASI-003",
+          "kind": "rf",
+          "title": "Cargo competente o sustitución por Superadministradora decide con actor real, motivo y evidencia; no suplantar autoridad ajena.",
+          "sprint": "S4",
+          "start": "2026-11-20",
+          "end": "2026-11-30",
+          "priority": "Esencial",
+          "description": "Cargo competente o sustitución por Superadministradora decide con actor real, motivo y evidencia; no suplantar autoridad ajena.",
+          "criteria": [
+            "Cargo competente o sustitución por Superadministradora decide con actor real, motivo y evidencia; no suplantar autoridad ajena.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-ASI-003"
+          ],
+          "tasks": [
+            "SB-S4-02"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Cargo competente o sustitución por Superadministradora decide con actor real, motivo y evidencia; no suplantar autoridad ajena.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Directiva o encargada autorizada corrige registros sensibles con motivo e historial.",
+          "criteriaBeforeRevision": [
+            "Quien carece de permiso no modifica; se reconstruyen valor anterior, nuevo valor, actor y fecha."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-ASI-003",
+            "kind": "rf",
+            "title": "Corrección auditada con antes/después y motivo; intervención administrativa no suplanta identidad ni aprobación del cargo competente.",
+            "sprint": "S4",
+            "start": "2026-11-20",
+            "end": "2026-11-30",
+            "priority": "Esencial",
+            "description": "Corrección auditada con antes/después y motivo; intervención administrativa no suplanta identidad ni aprobación del cargo competente.",
+            "criteria": [
+              "Corrección auditada con antes/después y motivo; intervención administrativa no suplanta identidad ni aprobación del cargo competente."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-ASI-003"
+            ],
+            "tasks": [
+              "SB-S4-02"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Quien carece de permiso no modifica; se reconstruyen valor anterior, nuevo valor, actor y fecha.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Directiva o encargada autorizada corrige registros sensibles con motivo e historial.",
+            "criteriaBeforeRevision": [
+              "Quien carece de permiso no modifica; se reconstruyen valor anterior, nuevo valor, actor y fecha."
+            ]
+          }
+        },
+        "RF-ASI-006": {
+          "id": "RF-ASI-006",
+          "kind": "rf",
+          "title": "Justificaciones e impugnaciones conservan su revisión y evidencia; Superadministradora puede sustituir la decisión y deja auditoría.",
+          "sprint": "S4",
+          "start": "2026-11-20",
+          "end": "2026-11-30",
+          "priority": "Esencial",
+          "description": "Justificaciones e impugnaciones conservan su revisión y evidencia; Superadministradora puede sustituir la decisión y deja auditoría.",
+          "criteria": [
+            "Justificaciones e impugnaciones conservan su revisión y evidencia; Superadministradora puede sustituir la decisión y deja auditoría.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-ASI-006"
+          ],
+          "tasks": [
+            "SB-S4-02"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Justificaciones e impugnaciones conservan su revisión y evidencia; Superadministradora puede sustituir la decisión y deja auditoría.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "Al cierre de la actividad, el sistema registra automáticamente una falta para cada participante asignada sin asistencia válida y admite justificación dentro de un máximo de tres días hábiles. La Tesorera valida la multa antes de aplicarla.",
+          "criteriaBeforeRevision": [
+            "No se genera una falta o sanción automática; quedan actor, fecha, motivo, acuerdo y cambios. P-03 define consecuencias aún abiertas."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-ASI-006",
+            "kind": "rf",
+            "title": "Presidenta resuelve justificativo; Tesorera valida multa y decide impugnación/cobro. Superadministradora no ejecuta ni aprueba esos actos.",
+            "sprint": "S4",
+            "start": "2026-11-20",
+            "end": "2026-11-30",
+            "priority": "Esencial",
+            "description": "Presidenta resuelve justificativo; Tesorera valida multa y decide impugnación/cobro. Superadministradora no ejecuta ni aprueba esos actos.",
+            "criteria": [
+              "Presidenta resuelve justificativo; Tesorera valida multa y decide impugnación/cobro. Superadministradora no ejecuta ni aprueba esos actos."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-ASI-006"
+            ],
+            "tasks": [
+              "SB-S4-02"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Registrar actividad, socia, cierre, aviso, fecha límite, justificativo, multa y validación con historial. Valores comunicados: USD 10 por falta, USD 0,01 por minuto de atraso y aviso a la tercera falta. P-03 deja abiertos inicio del plazo, canal, resolución del justificativo, redondeo, impugnación y cobro.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "Al cierre de la actividad, el sistema registra automáticamente una falta para cada participante asignada sin asistencia válida y admite justificación dentro de un máximo de tres días hábiles. La Tesorera valida la multa antes de aplicarla.",
+            "criteriaBeforeRevision": [
+              "No se genera una falta o sanción automática; quedan actor, fecha, motivo, acuerdo y cambios. P-03 define consecuencias aún abiertas."
+            ]
+          }
+        },
+        "RF-ASI-007": {
+          "id": "RF-ASI-007",
+          "kind": "rf",
+          "title": "Secretaria o Superadministradora opera fases QR; vigencia y correcciones auditadas, tokens protegidos.",
+          "sprint": "S4",
+          "start": "2026-11-20",
+          "end": "2026-11-30",
+          "priority": "Alta",
+          "description": "Secretaria o Superadministradora opera fases QR; vigencia y correcciones auditadas, tokens protegidos.",
+          "criteria": [
+            "Secretaria o Superadministradora opera fases QR; vigencia y correcciones auditadas, tokens protegidos.",
+            "Ver reglas C13 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-ASI-007"
+          ],
+          "tasks": [
+            "SB-S4-03"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Secretaria o Superadministradora opera fases QR; vigencia y correcciones auditadas, tokens protegidos.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "La organización puede habilitar fases QR distintas para entrada y salida; hay código alternativo y registro delegado auditable. El token temporal no contiene datos personales.",
+          "criteriaBeforeRevision": [
+            "Token vencido, repetido o de otra acción no modifica asistencia. Se distingue autorregistro de registro delegado y se conserva su motivo. P-02 define duración, responsables y casos de delegación; P-13 rige el uso offline."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-ASI-007",
+            "kind": "rf",
+            "title": "Secretaria abre/cierra fases QR y delega con motivo; Superadministradora configura parámetros aprobados, sin ejecutar QR.",
+            "sprint": "S4",
+            "start": "2026-11-20",
+            "end": "2026-11-30",
+            "priority": "Alta",
+            "description": "Secretaria abre/cierra fases QR y delega con motivo; Superadministradora configura parámetros aprobados, sin ejecutar QR.",
+            "criteria": [
+              "Secretaria abre/cierra fases QR y delega con motivo; Superadministradora configura parámetros aprobados, sin ejecutar QR."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-ASI-007"
+            ],
+            "tasks": [
+              "SB-S4-03"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Token vencido, repetido o de otra acción no modifica asistencia. Se distingue autorregistro de registro delegado y se conserva su motivo. P-02 define duración, responsables y casos de delegación; P-13 rige el uso offline.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "La organización puede habilitar fases QR distintas para entrada y salida; hay código alternativo y registro delegado auditable. El token temporal no contiene datos personales.",
+            "criteriaBeforeRevision": [
+              "Token vencido, repetido o de otra acción no modifica asistencia. Se distingue autorregistro de registro delegado y se conserva su motivo. P-02 define duración, responsables y casos de delegación; P-13 rige el uso offline."
+            ]
+          }
+        },
+        "RF-VEN-006": {
+          "id": "RF-VEN-006",
+          "kind": "rf",
+          "title": "Repartir solo fondo compartido: proporcional a ventas compartidas por vendedora o montos negociados. Excedente individual de dueña excluido; suma exacta al cierre.",
+          "sprint": "S5",
+          "start": "2026-12-01",
+          "end": "2026-12-20",
+          "priority": "Alta",
+          "description": "Repartir solo fondo compartido: proporcional a ventas compartidas por vendedora o montos negociados. Excedente individual de dueña excluido; suma exacta al cierre.",
+          "criteria": [
+            "Repartir solo fondo compartido: proporcional a ventas compartidas por vendedora o montos negociados. Excedente individual de dueña excluido; suma exacta al cierre.",
+            "Ver reglas C03, C06, C18 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "hu": [
+            "HU-VEN-006"
+          ],
+          "tasks": [
+            "SB-S5-05"
+          ],
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "conformance": "Repartir solo fondo compartido: proporcional a ventas compartidas por vendedora o montos negociados. Excedente individual de dueña excluido; suma exacta al cierre.",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "En feria, cada línea identifica si procede de stock individual o compartido.",
+          "criteriaBeforeRevision": [
+            "Los resultados individuales no se mezclan; el excedente compartido no se reparte automáticamente mientras P-07 esté abierto."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-VEN-006",
+            "kind": "rf",
+            "title": "Distinguir origen individual y compartido por línea y lote, con pago antes de entrega. Superadministradora no vende; excedente individual fuera del fondo.",
+            "sprint": "S5",
+            "start": "2026-12-01",
+            "end": "2026-12-20",
+            "priority": "Alta",
+            "description": "Distinguir origen individual y compartido por línea y lote, con pago antes de entrega. Superadministradora no vende; excedente individual fuera del fondo.",
+            "criteria": [
+              "Distinguir origen individual y compartido por línea y lote, con pago antes de entrega. Superadministradora no vende; excedente individual fuera del fondo."
+            ],
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "hu": [
+              "HU-VEN-006"
+            ],
+            "tasks": [
+              "SB-S5-05"
+            ],
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "conformance": "Los resultados individuales no se mezclan; el excedente compartido no se reparte automáticamente mientras P-07 esté abierto.",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "En feria, cada línea identifica si procede de stock individual o compartido.",
+            "criteriaBeforeRevision": [
+              "Los resultados individuales no se mezclan; el excedente compartido no se reparte automáticamente mientras P-07 esté abierto."
+            ]
+          }
+        },
+        "RF-VEN-009": {
+          "id": "RF-VEN-009",
+          "kind": "rf",
+          "module": "Ventas",
+          "hu": [],
+          "tasks": [],
+          "title": "Cuotas por socia y versión, acuerdo y pago separados; cambios exigen nuevas aceptaciones. Redondeo por restos y desempate por ID de asignación. Sin pago duplicado.",
+          "description": "Cuotas por socia y versión, acuerdo y pago separados; cambios exigen nuevas aceptaciones. Redondeo por restos y desempate por ID de asignación. Sin pago duplicado.",
+          "priority": "Esencial",
+          "sourceState": "Consolidación solicitada por tesista 2026-10-30; evidencia organizacional y pruebas de implementación pendientes.",
+          "conformance": "Cuotas por socia y versión, acuerdo y pago separados; cambios exigen nuevas aceptaciones. Redondeo por restos y desempate por ID de asignación. Sin pago duplicado.",
+          "source": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+          "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+          "descriptionBeforeRevision": "La Tesorera prepara la distribución de comisiones de feria aplicando una fórmula aprobada y rastreable.",
+          "criteriaBeforeRevision": [],
+          "criteria": [
+            "Cuotas por socia y versión, acuerdo y pago separados; cambios exigen nuevas aceptaciones. Redondeo por restos y desempate por ID de asignación. Sin pago duplicado.",
+            "Ver reglas C06, C18 y casos DB del diseño v2.0; implementación no certificada."
+          ],
+          "beforeConsolidation20261030": {
+            "id": "RF-VEN-009",
+            "kind": "rf",
+            "module": "Ventas",
+            "hu": [],
+            "tasks": [],
+            "title": "Tesorera prepara reparto de ventas compartidas cobradas menos base y gastos comunes; beneficiarias aceptan cuota de versión. ROUND_HALF_UP por importe de línea; mayor resto con empate por ID de asignación menor (D-30).",
+            "description": "Tesorera prepara reparto de ventas compartidas cobradas menos base y gastos comunes; beneficiarias aceptan cuota de versión. ROUND_HALF_UP por importe de línea; mayor resto con empate por ID de asignación menor (D-30).",
+            "priority": "Esencial",
+            "sourceState": "Cambio solicitado por tesista D-24 a D-30; adenda propuesta para revisión. Sin certificar implementación ni validación organizacional.",
+            "conformance": "La rendición muestra base, ventas, devoluciones, gastos y fórmula; no se distribuyen importes hasta acordar porcentajes, destinatarios y excepciones.",
+            "source": "/fuentes/requisitos/requisitos_generales_v2.4_2026-10-29.md",
+            "sourceBeforeRevision": "/fuentes/requisitos/requisitos_generales_v2.0_2026-10-13.md",
+            "descriptionBeforeRevision": "La Tesorera prepara la distribución de comisiones de feria aplicando una fórmula aprobada y rastreable.",
+            "criteriaBeforeRevision": [],
+            "criteria": [
+              "Tesorera prepara reparto de ventas compartidas cobradas menos base y gastos comunes; beneficiarias aceptan cuota de versión. ROUND_HALF_UP por importe de línea; mayor resto con empate por ID de asignación menor (D-30)."
+            ]
+          }
+        }
+      },
+      "criteriaDone": {
+        "HU-ACC-001": [
+          "Dada una sesión activa, cuando la usuaria la cierra, entonces deja de poder acceder a información privada con esa sesión.",
+          "Dada una cuenta inactiva o credenciales incorrectas, cuando intenta entrar, entonces no obtiene acceso ni información privada."
+        ]
+      },
+      "customTasks": [],
+      "customSprints": [],
+      "customStories": [],
+      "customRequirements": [],
+      "storyOrder": [],
+      "audit": [
+        {
+          "id": "3e82168e-720b-42d6-9795-4a9ac2acaf5a",
+          "at": "2026-10-30T16:36:41.870799+00:00",
+          "kind": "evidence",
+          "title": "Diseño de base de datos incorporado a documentación",
+          "detail": "Edición documental 2026-10-30: diseño lógico v1.0 consolidado en /fuentes/arquitectura/diseno_base_datos_v1.0_2026-10-30.md. Conserva 19 apartados de la revisión 0.2, 6 diagramas y 15 casos DAT. Transcripción/enlaces/tablas revisados; ninguna migración o prueba de producto nueva. Estados y pendientes anteriores conservados."
+        },
+        {
+          "id": "b53ca434-39ab-4f7c-a961-9d4ce98855dc",
+          "at": "2026-10-30T02:31:04.835363+00:00",
+          "kind": "evidence",
+          "title": "Corrección propuesta de diseño de datos D-24 a D-30",
+          "detail": "Revisión 0.2 (2026-10-29): D-24 a D-30; venta sin crédito, custodia/rendición interna, secado de un acopio y Superadministradora sin ejecución/aprobación de negocio. Modelo e integridad corregidos; 15 casos DAT definidos, no ejecutados en BD. Reembolsos y parámetros pendientes. Evidencia: /evidencias/architecture/2026-10-29-revision-datos/revision.md. Estado previo conservado; no acredita cierre total de SB-S1-03. D-30: ROUND_HALF_UP por línea y desempate por ID de asignación menor aceptados por tesista."
+        },
+        {
+          "id": "e63fad4eb57c4d9e",
+          "at": "2026-10-29T04:39:04.101556+00:00",
+          "kind": "evidence",
+          "taskId": "SB-S2-02",
+          "title": "Commit y push del aplicativo publicados",
+          "detail": "App-zhudaleli: e3cc0718c7b440472e899e3d9fba220a8ded771f en feature/RF-ACC-001-base-proyecto. 44 archivos, 31 pruebas PostgreSQL; Django, migraciones, Ruff y JS correctos. Remoto confirmado y app limpia. Sin PR/tag ni integración a main. Avances de RF/HU/HT y sprint conservados."
+        },
+        {
+          "id": "b21b6997a54d4d5d",
+          "at": "2026-10-29T04:27:09.891095+00:00",
+          "kind": "evidence",
+          "taskId": "SB-S2-02",
+          "title": "Direcciones de notificaciones corregidas por dispositivo",
+          "detail": "Escritorio entra y sale por la derecha; móvil entra desde arriba y sale hacia arriba. Conserva 640 ms, radios y ausencia de scroll horizontal. Evidencia: /evidencias/frontend/2026-10-28-notificaciones/direcciones.md. Avances y RF/HU/HT/pila/backlog conservados."
+        },
+        {
+          "id": "22484aab543f4470",
+          "at": "2026-10-29T04:19:57.639239+00:00",
+          "kind": "evidence",
+          "taskId": "SB-S2-02",
+          "title": "Notificaciones: movimiento suave y radios coherentes",
+          "detail": "Entrada derecha y salida izquierda en 640 ms; sin scroll horizontal; radio compartido 12 px. 18 pruebas Django y 11 escenarios de navegador correctos. Evidencia: /evidencias/frontend/2026-10-28-notificaciones/movimiento-suave.md. RF/HU/HT/pila/backlog y avances conservados."
+        },
+        {
+          "id": "399a8751ec5a806e",
+          "at": "2026-10-29T04:06:42Z",
+          "kind": "evidence",
+          "taskId": "",
+          "title": "Modal de notificaciones con animaciones responsivas",
+          "detail": "Overlay, foco contenido, Escape y animaciones 360 ms según breakpoint 768 px; reduced motion respetado. Estados de sprint preservados."
+        },
+        {
+          "id": "9aa24af4e8c24459",
+          "at": "2026-10-29T03:52:20Z",
+          "kind": "evidence",
+          "taskId": "",
+          "title": "Aviso sin bordes, mensajes claros y salida suave",
+          "detail": "Ajuste visual solicitado. 800 ms de salida, movimiento reducido y textos de campo explícitos; se conservan estados del sprint."
+        },
+        {
+          "id": "06671e3cd53cdbd5",
+          "at": "2026-10-29T03:46:06Z",
+          "kind": "evidence",
+          "taskId": "",
+          "title": "Notificaciones superiores con cierre a los 3 segundos",
+          "detail": "Ajuste visual solicitado; estado de SB-S2-02 preservado."
+        },
+        {
+          "id": "92d1e210-fe6b-4546-a1d8-1fdda3e7ce4b",
+          "at": "2026-10-21T13:53:39.975Z",
+          "kind": "criterion",
+          "title": "Criterio aceptado",
+          "detail": "HU-ACC-001 · Dada una cuenta inactiva o credenciales incorrectas, cuando intenta entrar, entonces no obtiene acceso ni información privada."
+        },
+        {
+          "id": "d9cfa261-8ff0-475b-a5a3-a2b8e7ac8a55",
+          "at": "2026-10-21T13:53:34.631Z",
+          "kind": "criterion",
+          "title": "Criterio aceptado",
+          "detail": "HU-ACC-001 · Dada una sesión activa, cuando la usuaria la cierra, entonces deja de poder acceder a información privada con esa sesión."
+        },
+        {
+          "id": "71d42f70-0acd-443d-b008-47b5b13b84a0",
+          "at": "2026-10-21T13:53:33.637Z",
+          "kind": "criterion",
+          "title": "Criterio reabierto",
+          "detail": "HU-ACC-001 · Dada una sesión activa, cuando la usuaria la cierra, entonces deja de poder acceder a información privada con esa sesión."
+        },
+        {
+          "id": "dfc89dc9-5048-4647-bed4-0a333db2199e",
+          "at": "2026-10-21T13:53:32.898Z",
+          "kind": "criterion",
+          "title": "Criterio aceptado",
+          "detail": "HU-ACC-001 · Dada una sesión activa, cuando la usuaria la cierra, entonces deja de poder acceder a información privada con esa sesión."
+        },
+        {
+          "id": "d3a498d8-2969-4fbc-aed6-61a3df5b4b4a",
+          "at": "2026-10-20T11:38:04.386Z",
+          "kind": "edit",
+          "title": "Historia de usuario editada",
+          "detail": "HU-ACC-001 · Entrar y salir de la parte privada"
+        },
+        {
+          "id": "246b2e27-c649-41aa-b0cf-909b191f5b5b",
+          "at": "2026-10-20T11:34:57.037Z",
+          "kind": "status",
+          "title": "Estado de tarea actualizado",
+          "detail": "SB-S2-03 · En Progreso"
+        },
+        {
+          "id": "e8eb1ad0-d23a-41d2-9ec5-03a1b5f41466",
+          "at": "2026-10-20T11:34:57.037Z",
+          "kind": "edit",
+          "title": "Tarea técnica editada",
+          "detail": "SB-S2-03 · Administrar membresías y responsabilidades · HU-ACC-002, HU-ACC-003, HT-GEN-002"
+        },
+        {
+          "id": "53715f35-58db-47bf-b32f-83cc067a9c19",
+          "at": "2026-10-20T11:34:50.488Z",
+          "kind": "status",
+          "title": "Estado de tarea actualizado",
+          "detail": "SB-S2-04 · En Progreso"
+        },
+        {
+          "id": "dc4a799c-c141-46df-95be-92cd0efb6e84",
+          "at": "2026-10-20T11:34:50.488Z",
+          "kind": "edit",
+          "title": "Tarea técnica editada",
+          "detail": "SB-S2-04 · Mostrar opciones propias en móvil y revisar regresión · HU-ACC-004, HT-GEN-004, HT-GEN-009"
+        },
+        {
+          "id": "699589e1-9f05-4002-922d-85218cf5f276",
+          "at": "2026-10-20T11:33:25.751Z",
+          "kind": "status",
+          "title": "Estado de tarea actualizado",
+          "detail": "SB-S2-02 · En Progreso"
+        },
+        {
+          "id": "f095d961-964b-4b90-8c3e-8f096642f8a7",
+          "at": "2026-10-20T11:33:25.751Z",
+          "kind": "edit",
+          "title": "Tarea técnica editada",
+          "detail": "SB-S2-02 · Entrar, salir y proteger contenido privado · HU-ACC-001, HT-GEN-002"
+        },
+        {
+          "id": "f12f4a8b-4596-4484-991d-373354b917ea",
+          "at": "2026-10-20T11:33:07.197Z",
+          "kind": "status",
+          "title": "Estado de tarea actualizado",
+          "detail": "SB-S2-01 · En Progreso"
+        },
+        {
+          "id": "68e94d45-37c2-430b-8999-ae29a7fa8c0d",
+          "at": "2026-10-20T11:33:07.197Z",
+          "kind": "edit",
+          "title": "Tarea técnica editada",
+          "detail": "SB-S2-01 · Preparar proyecto, usuario y base de datos · HU-ACC-001, HT-GEN-001, HT-GEN-009"
+        },
+        {
+          "id": "3826228011b9d03a",
+          "at": "2026-10-20T04:58:59.993770Z",
+          "kind": "sprint",
+          "taskId": "",
+          "title": "Sprint S1 cerrado",
+          "detail": "Cambio de estado registrado en la bitácora."
+        },
+        {
+          "id": "303f651e-a515-45f8-806f-c172171a10a7",
+          "at": "2026-10-29T00:41:41.825169+00:00",
+          "kind": "documentation",
+          "title": "Reglas de interfaces UI-01 a UI-08",
+          "detail": "Criterios de diseno v1.1 sincronizados con requisitos, HU, HT, pila y backlog. No cambia el avance ni acredita cumplimiento de pantallas."
+        },
+        {
+          "id": "0043f90a-f913-4953-a2ab-86193d59fed9",
+          "at": "2026-10-29T00:50:57.925350+00:00",
+          "kind": "evidence",
+          "title": "SVG y adornos de formularios extraidos",
+          "detail": "RF-ACC-001 / SB-S2-02 / HT-GEN-004: 18 pruebas, 20 parejas de capturas identicas. Estados y criterios conservados. Evidencia: /evidencias/frontend/2026-10-28-adornos-login/resumen.md"
+        },
+        {
+          "id": "3006c1e0-a663-40fc-8974-ce60ed3a970e",
+          "at": "2026-10-29T01:02:24.756963+00:00",
+          "kind": "evidence",
+          "title": "Componentes compartidos aplicados a vistas actuales",
+          "detail": "RF-ACC-001 / RF-ACC-006 / HT-GEN-004: 31 pruebas y 60 capturas; errores, envio, correo y contrasena comprobados. Se conservan criterios, prioridades, fechas y estados. Evidencia: /evidencias/frontend/2026-10-28-componentes-vistas/resumen.md"
+        },
+        {
+          "id": "921c93bf-1e83-4a49-88ba-646b88fcd4d4",
+          "at": "2026-10-29T03:41:00.928719+00:00",
+          "kind": "evidence",
+          "title": "Correccion del login y notificaciones solicitadas",
+          "detail": "Aviso unico inferior derecho en movil y escritorio, cierre manual/Escape y enlaces a campos. Control de contrasena y carga de estilos corregidos; 60 capturas. Sin cambios de requisitos o estados de terminacion. Evidencia: /evidencias/frontend/2026-10-28-notificaciones/resumen.md"
+        },
+        {
+          "id": "7c136433-8e25-443a-88f8-ea008aef5cd4",
+          "at": "2026-10-30T20:09:15.197257+00:00",
+          "kind": "evidence",
+          "title": "Consolidación de diseño de datos v2.0",
+          "detail": "Reglas C01-C18 y criterios DB-01 a DB-20. RF/HU/HT/pila/backlog sincronizados; sin acreditar pruebas de producto ni modificar estados. /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md"
+        }
+      ]
+    },
+    "updatedAt": "2026-10-30T20:09:15.224638Z"
+  },
+  "seguimiento": {
+    "format": "zhud-aleli-gantt-v1",
+    "edition": "2.0 · 13 de octubre de 2026",
+    "exportedAt": "2026-10-30T20:09:15.398733Z",
+    "updates": {
+      "SB-S1-02": {
+        "status": "bloqueada",
+        "evidence": "/evidencias/requirements/2026-10-20-reporte-aprobaciones-verbales-s1.md",
+        "reviewer": "",
+        "date": "",
+        "notes": "Conciliación 2026-10-20 con backlog Word v1.7: validación académica pendiente. El reporte verbal no precisa fecha, versión ni alcance y no hay acta; no acredita la validación de esta tarea. No verificada.",
+        "updatedAt": "2026-10-20T08:29:46Z"
+      },
+      "SB-S1-04": {
+        "status": "bloqueada",
+        "evidence": "/fuentes/diseno/criterios_diseno_v1.0_2026-10-12.md",
+        "reviewer": "",
+        "date": "",
+        "notes": "Conciliación 2026-10-20 con backlog Word v1.7: validación de interfaz pendiente. Hay criterios documentales, pero no evidencia de validación con usuarias de recorridos móviles, errores y límites de datos locales. No verificada.",
+        "updatedAt": "2026-10-20T08:29:46Z"
+      },
+      "SB-S1-01": {
+        "status": "en_curso",
+        "evidence": "/fuentes/levantamiento/registro_entrevista_v1.1_2026-10-13.md",
+        "reviewer": "",
+        "date": "",
+        "notes": "Conciliación 2026-10-20 con backlog Word v1.7: evidencia parcial. Registro de entrevista identificado; falta documentar el cotejo criterio por criterio de actor, fecha, necesidad, dudas y catálogo. No verificada.",
+        "updatedAt": "2026-10-20T08:29:46Z"
+      },
+      "SB-S1-03": {
+        "status": "en_curso",
+        "evidence": "/fuentes/arquitectura/arquitectura_v1.1_2026-10-19.md ; /fuentes/sprints/sprint_backlog_v1.7_2026-10-29.md ; /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md",
+        "reviewer": "",
+        "date": "",
+        "notes": "Diseño consolidado v2.0 y 20 casos definidos. Trabajo documental listo para diseño físico; no certifica implementación ni cierre de tarea. Referencia /fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md. Historial anterior conservado en evidencia gestor-antes.json. Dashboard done y seguimiento en_curso siguen discrepando; no se infiere terminación.",
+        "points": null,
+        "updatedAt": "2026-10-30T20:09:15.234713Z"
+      },
+      "SB-S1-05": {
+        "status": "en_curso",
+        "evidence": "/fuentes/sprints/plan_incremental_y_sprint_backlog_v1.7_2026-10-14.docx",
+        "reviewer": "",
+        "date": "",
+        "notes": "Conciliación 2026-10-20 con backlog Word v1.7: estimación, responsables y capacidad pendientes. El Gantt decía fecha de verificación 2026-10-12 y citaba este archivo fechado 2026-10-14; la fecha original no queda demostrada por la referencia y se conserva aquí como dato por aclarar. No verificada.",
+        "updatedAt": "2026-10-20T08:29:46Z"
+      }
+    },
+    "resources": [
+      {
+        "id": "7a2146741360dde3",
+        "sprint": "S1",
+        "label": "Diseño lógico de base de datos v1.0 — edición 2026-10-30",
+        "url": "/fuentes/arquitectura/diseno_base_datos_v1.0_2026-10-30.md",
+        "updatedAt": "2026-10-30T16:36:41.845458Z"
+      },
+      {
+        "id": "6f31f7cf6e812743",
+        "sprint": "S1",
+        "label": "Diseño de datos consolidado v2.0",
+        "url": "/fuentes/arquitectura/diseno_base_datos_v2.0_2026-10-30.md",
+        "updatedAt": "2026-10-30T20:09:15.241710Z"
+      },
+      {
+        "id": "1435c779b6b04a45",
+        "sprint": "S1",
+        "label": "Requisitos de datos v2.5",
+        "url": "/fuentes/requisitos/requisitos_generales_v2.5_2026-10-30.md",
+        "updatedAt": "2026-10-30T20:09:15.270866Z"
+      },
+      {
+        "id": "846469b5d086b224",
+        "sprint": "S1",
+        "label": "Historias de datos v3.0",
+        "url": "/fuentes/historias/usuario/historias_usuario_v3.0_2026-10-30.md",
+        "updatedAt": "2026-10-30T20:09:15.301255Z"
+      },
+      {
+        "id": "b85a64555f0ff9ef",
+        "sprint": "S1",
+        "label": "Historia técnica de datos v2.1",
+        "url": "/fuentes/historias/tecnicas/historias_tecnicas_v2.1_2026-10-30.md",
+        "updatedAt": "2026-10-30T20:09:15.331816Z"
+      },
+      {
+        "id": "09788f480c65e47d",
+        "sprint": "S1",
+        "label": "Pila de datos v2.2",
+        "url": "/fuentes/pila_producto/pila_producto_v2.2_2026-10-30.md",
+        "updatedAt": "2026-10-30T20:09:15.363861Z"
+      },
+      {
+        "id": "802416fa4cb95c6a",
+        "sprint": "S1",
+        "label": "Backlog de datos v1.8",
+        "url": "/fuentes/sprints/sprint_backlog_v1.8_2026-10-30.md",
+        "updatedAt": "2026-10-30T20:09:15.381667Z"
+      }
+    ],
+    "customTasks": [],
+    "taskEdits": {},
+    "sprintStates": {
+      "S1": {
+        "closed": true,
+        "closedAt": "2026-10-20T04:58:59.992766Z",
+        "updatedAt": "2026-10-20T04:58:59.992766Z"
+      }
+    },
+    "audit": [
+      {
+        "id": "2c9816834e56061b",
+        "at": "2026-10-30T20:09:15.398733Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Backlog de datos v1.8"
+      },
+      {
+        "id": "0050197f19dc51c5",
+        "at": "2026-10-30T20:09:15.374424Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Pila de datos v2.2"
+      },
+      {
+        "id": "5314646417cdb368",
+        "at": "2026-10-30T20:09:15.341086Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Historia técnica de datos v2.1"
+      },
+      {
+        "id": "2149e16b8c0015db",
+        "at": "2026-10-30T20:09:15.314285Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Historias de datos v3.0"
+      },
+      {
+        "id": "3eca5da199e854c5",
+        "at": "2026-10-30T20:09:15.281397Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Requisitos de datos v2.5"
+      },
+      {
+        "id": "72b75a09f76a3fb6",
+        "at": "2026-10-30T20:09:15.251405Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Diseño de datos consolidado v2.0"
+      },
+      {
+        "id": "a7d8d3587a14f724",
+        "at": "2026-10-30T20:09:15.234713Z",
+        "kind": "status",
+        "taskId": "SB-S1-03",
+        "title": "Seguimiento de SB-S1-03 actualizado",
+        "detail": "Cambios: evidencia, observaciones"
+      },
+      {
+        "id": "7c2b7e2219f16a79",
+        "at": "2026-10-30T16:36:41.866841Z",
+        "kind": "status",
+        "taskId": "SB-S1-03",
+        "title": "Seguimiento de SB-S1-03 actualizado",
+        "detail": "Cambios: observaciones"
+      },
+      {
+        "id": "5d4ae578f86e83ff",
+        "at": "2026-10-30T16:36:41.845458Z",
+        "kind": "evidence",
+        "taskId": "",
+        "title": "Acceso agregado al sprint S1",
+        "detail": "Diseño lógico de base de datos v1.0 — edición 2026-10-30"
+      },
+      {
+        "id": "b35e128fb3d36300",
+        "at": "2026-10-30T02:33:16.197889Z",
+        "kind": "status",
+        "taskId": "SB-S1-03",
+        "title": "Seguimiento de SB-S1-03 actualizado",
+        "detail": "Cambios: observaciones"
+      },
+      {
+        "id": "dc258577984fb9b3",
+        "at": "2026-10-30T02:31:04.866434Z",
+        "kind": "status",
+        "taskId": "SB-S1-03",
+        "title": "Seguimiento de SB-S1-03 actualizado",
+        "detail": "Cambios: evidencia, observaciones"
+      },
+      {
+        "id": "438199912174889a",
+        "at": "2026-10-20T08:29:46Z",
+        "kind": "status",
+        "taskId": "SB-S1-05",
+        "title": "Conciliación de SB-S1-05",
+        "detail": "Estado previo verificada corregido a en_curso según el estado canónico del backlog v1.7. Se retiraron verificador/fecha al no haber aceptación demostrada; notas preservan el criterio pendiente y la fecha original si aplica."
+      },
+      {
+        "id": "d297804111a88649",
+        "at": "2026-10-20T08:29:46Z",
+        "kind": "status",
+        "taskId": "SB-S1-04",
+        "title": "Conciliación de SB-S1-04",
+        "detail": "Estado previo verificada corregido a bloqueada según el estado canónico del backlog v1.7. Se retiraron verificador/fecha al no haber aceptación demostrada; notas preservan el criterio pendiente y la fecha original si aplica."
+      },
+      {
+        "id": "ee23eee209dcbb9e",
+        "at": "2026-10-20T08:29:46Z",
+        "kind": "status",
+        "taskId": "SB-S1-03",
+        "title": "Conciliación de SB-S1-03",
+        "detail": "Estado previo verificada corregido a en_curso según el estado canónico del backlog v1.7. Se retiraron verificador/fecha al no haber aceptación demostrada; notas preservan el criterio pendiente y la fecha original si aplica."
+      },
+      {
+        "id": "cd7d892ccf12a383",
+        "at": "2026-10-20T08:29:46Z",
+        "kind": "status",
+        "taskId": "SB-S1-02",
+        "title": "Conciliación de SB-S1-02",
+        "detail": "Estado previo verificada corregido a bloqueada según el estado canónico del backlog v1.7. Se retiraron verificador/fecha al no haber aceptación demostrada; notas preservan el criterio pendiente y la fecha original si aplica."
+      },
+      {
+        "id": "eed70060bd188338",
+        "at": "2026-10-20T08:29:46Z",
+        "kind": "status",
+        "taskId": "SB-S1-01",
+        "title": "Conciliación de SB-S1-01",
+        "detail": "Estado previo verificada corregido a en_curso según el estado canónico del backlog v1.7. Se retiraron verificador/fecha al no haber aceptación demostrada; notas preservan el criterio pendiente y la fecha original si aplica."
+      },
+      {
+        "id": "3826228011b9d03a",
+        "at": "2026-10-20T04:58:59.993770Z",
+        "kind": "sprint",
+        "taskId": "",
+        "title": "Sprint S1 cerrado",
+        "detail": "Cambio de estado registrado en la bitácora."
+      }
+    ]
+  }
+}

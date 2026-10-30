@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-30",
+  "app_checkout": "app",
+  "app_branch": "feature/RF-ACC-001-base-proyecto",
+  "app_head": "d208fba3e347bf2fffae1f91ff178a1d33414249",
+  "scope": "read-only schema introspection and documentation; no product files modified",
+  "database": "PostgreSQL development schema",
+  "table_count": 13,
+  "all_recorded_migrations_applied": true,
+  "model_migration_drift": "none",
+  "erd_diagrams": 6,
+  "unresolved_mermaid_references": 0,
+  "broken_links": 0,
+  "django_table_name_collisions_with_proposal": 0,
+  "findings": [
+    "AuthChallenge.user_id/contact_id ownership is not jointly constrained by PostgreSQL",
+    "Django auth groups and is_superuser are technical authority and must stay separate from organization roles"
+  ],
+  "manager_resource": "/fuentes/arquitectura/modelo_er_integral_v2.0_2026-10-30.md returned HTTP 200",
+  "git_diff_check": 0,
+  "hashes": {
+    "documentacion/arquitectura/modelo_er_integral_v2.0_2026-10-30.md": "ccc5e19e4d58a082ecfa2430e3f31ea81e347ca2e3ae009a2d2d447a1218b70e",
+    "documentacion/arquitectura/diseno_base_datos_v2.0_2026-10-30.md": "a621e5baba1eabd11dd17f314e9cf44ab8689ec811d7cc5563b2251be8062157",
+    "documentacion/README.md": "3c796b8a61e2dd246c800bc4b92dba2920336da6cc2846f42a8b84ae5b2f0452",
+    "documentacion/control_de_cambios/registro_v5.9_2026-10-30.md": "2aad7379da0712575431b36aa3ff0fe96fb817672090eb994b66efcf68972219",
+    "docs/bitacora/ESTADO-ACTIVO.md": "49b6c75ca7d67e3e27b564e057e486d9e84a1af28c16765b294964379daf860c",
+    "docs/bitacora/checkpoints/2026-10-30-er-django.md": "5b364045096c0c11ba0a47fa96d5fa4717c987dd6c8303f3532ff4d814b9315b",
+    "docs/evidence/architecture/2026-10-30-er-integral/postgres-introspeccion.json": "70f1e33f925686d4e16a274b4af359c9453471898084d93b586c6b02955e72ed"
+  },
+  "aggregate_checks": {
+    "authchallenge_rows": 0,
+    "cross_user_challenge_rows": 0,
+    "duplicate_verified_contact_groups_case_insensitive": 0,
+    "interpretation": "No se observó fila contradictoria; tabla de desafíos vacía, brecha del esquema sigue siendo potencial."
+  }
+}

@@ -1,6 +1,6 @@
 ---
 name: zhud-aleli-git-manager
-description: Revisa cambios y prepara commits únicamente con autorización explícita del tesista.
+description: Revisa y publica porciones verificadas de código bajo la autorización permanente de AGENTS.md; otros cambios Git requieren autorización específica.
 ---
 
 # Git-manager universal
@@ -19,11 +19,19 @@ como ignorada y que `git ls-files -- app/` no devuelve archivos. Nunca la agregu
 fuerces con `git add -f`, ni la registres como submódulo o gitlink. Si aparece en el
 índice o deja de estar ignorada, detén el staging y reporta el problema. El checkout
 `app/` es una raíz Git independiente: cualquier operación sobre su código se hace
-desde esa raíz y con autorización explícita propia; no lo incorpores al repositorio
+desde esa raíz y con la autorización aplicable de AGENTS.md; no lo incorpores al repositorio
 general.
 
-Una autorización válida debe nombrar el conjunto exacto de archivos y el commit o el comando de push. Sin esa
-autorización solo puedes informar y proponer. Antes de cada push ejecuta el checklist
-de ruta, raíz, `git remote -v`, URL de push, rama e índice. Queda prohibido `git add .`
-desde la raíz general, force push a `main`, push automático, merge, rebase, reset,
-clean o cambiar la identidad Git.
+Para programación de la app, aplica la autorización permanente del 2026-10-29 de
+AGENTS.md: tras cada porción coherente con pruebas/verificaciones aplicables y diff
+revisado, prepara sus rutas exactas, crea commit descriptivo y haz push a la rama de
+trabajo, sin pedir otra confirmación. Excluye cambios ajenos o previos no verificados;
+no crees commits vacíos. El mensaje explica el cambio y validación con RF/sprint reales.
+Si cambia el diff, repite la revisión y verificación afectadas. Si fallan, no publiques;
+si falla el push, conserva el commit e informa el pendiente.
+
+Para el vault/documentación u otras acciones Git, exige autorización específica del
+tesista. Antes de cada push ejecuta el checklist de ruta, raíz, `git remote -v`, URL
+de push, rama e índice. La autorización permanente no cubre push directo a `main`,
+force push, merge, tags, rebase, reset, clean, identidad Git ni despliegue. No uses
+`git add .` desde la raíz general.

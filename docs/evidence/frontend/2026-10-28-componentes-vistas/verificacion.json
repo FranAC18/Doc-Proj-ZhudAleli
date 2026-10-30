@@ -1,0 +1,602 @@
+{
+  "captures": [
+    {
+      "screen": "login",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login-error",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login-error",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login-error",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login-error",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "login-error",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "inicio",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "inicio",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "inicio",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "inicio",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "inicio",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-vacio",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-vacio",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-vacio",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-vacio",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-vacio",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-error",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-error",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-error",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-error",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-error",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar-error",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar-error",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar-error",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar-error",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "verificar-error",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-verificado",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-verificado",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-verificado",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-verificado",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contactos-verificado",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena-error",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena-error",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena-error",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena-error",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "contrasena-error",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "estado",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "estado",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "estado",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "estado",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "estado",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "sin-conexion",
+      "width": 360,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "sin-conexion",
+      "width": 375,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "sin-conexion",
+      "width": 768,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "sin-conexion",
+      "width": 1280,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    },
+    {
+      "screen": "sin-conexion",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": false,
+      "headings": 1,
+      "duplicateIds": [],
+      "unresolvedDescriptions": []
+    }
+  ],
+  "flows": [
+    "anonymous denied",
+    "login and password toggle",
+    "email issued locally, invalid code retained, verified successfully, messages once",
+    "password changed successfully",
+    "first access still requires password change",
+    "zoom 200%, long content, focus and logout",
+    "PWA v13, public assets only, offline fallback and retry",
+    "sending feedback, double-submit prevention and persisted pageshow restoration"
+  ],
+  "errors": [],
+  "fieldStyles": {
+    "border": "rgb(155, 129, 119)",
+    "background": "rgb(255, 253, 250)",
+    "color": "rgb(31, 20, 34)"
+  },
+  "pwa": {
+    "names": [
+      "zhud-aleli-public-shell-v13"
+    ],
+    "urls": [
+      "/static/pwa/offline.html",
+      "/static/manifest.json",
+      "/static/pwa/pwa-register.js",
+      "/static/compartido/password-toggle.js",
+      "/static/compartido/form-feedback.js",
+      "/static/compartido/base.css",
+      "/static/compartido/formularios.css",
+      "/static/compartido/adornos-formulario.css",
+      "/static/accounts/login/login.css",
+      "/static/accounts/contactos/contactos.css",
+      "/static/portal/inicio/inicio.css",
+      "/static/accounts/login/imagenes/login-hero-2.png",
+      "/static/brand/zhud-aleli-wordmark.png",
+      "/static/brand/zhud-aleli-emblem-white.png",
+      "/static/brand/zhud-aleli-wordmark-white.png",
+      "/static/brand/favicon-32.png",
+      "/static/vendor/bootstrap/bootstrap.min.css",
+      "/static/vendor/bootstrap/bootstrap.bundle.min.js",
+      "/static/pwa/icons/icon-192.png",
+      "/static/pwa/icons/icon-512.png",
+      "/static/pwa/icons/apple-touch-icon.png"
+    ]
+  },
+  "limits": "Real WSGI and PostgreSQL with fictional users; mail locmem; no external delivery or organization acceptance.",
+  "envio": {
+    "requests": 1,
+    "busy": {
+      "disabled": true,
+      "text": "Ingresando…",
+      "busy": "true"
+    },
+    "restored": {
+      "disabled": false,
+      "text": "Ingresar",
+      "busy": null
+    }
+  }
+}

@@ -76,6 +76,12 @@
           "label": "Cierre parcial de S1 v1.2",
           "url": "/fuentes/seguimiento/cierre_sprint_1_y_vistos_buenos_v1.2_2026-10-21.md",
           "note": "Evidencia histórica del cierre administrativo parcial."
+        },
+        {
+          "group": "Diseño",
+          "label": "Criterios de diseño v1.1 · UI-01 a UI-08",
+          "url": "/fuentes/diseno/criterios_diseno_v1.1_2026-10-28.md",
+          "note": "Reglas solicitadas por el tesista; cumplimiento de pantallas pendiente."
         }
       ],
       "planningInputs": {
@@ -223,6 +229,30 @@
           "label": "Aceptación del acceso multicanal",
           "url": "/evidencias/requirements/2026-10-28-aceptacion-acceso-multicanal.md",
           "note": "Evidencia de decisión del tesista; no acredita entrega de funciones."
+        },
+        {
+          "group": "Diseño",
+          "label": "Criterios de diseño v1.1 · UI-01 a UI-08",
+          "url": "/fuentes/diseno/criterios_diseno_v1.1_2026-10-28.md",
+          "note": "Reglas solicitadas por el tesista; cumplimiento de pantallas pendiente."
+        },
+        {
+          "group": "Evidencia tecnica",
+          "label": "SVG y adornos reutilizables del login",
+          "url": "/evidencias/frontend/2026-10-28-adornos-login/resumen.md",
+          "note": "Extraccion local verificada: 18 pruebas y 20 parejas de capturas identicas; no completa SB-S2-02."
+        },
+        {
+          "group": "Evidencia tecnica",
+          "label": "Componentes aplicados a las vistas actuales",
+          "url": "/evidencias/frontend/2026-10-28-componentes-vistas/resumen.md",
+          "note": "31 pruebas; 60 capturas y flujos reales con datos ficticios. No completa historias ni cambia su avance."
+        },
+        {
+          "group": "Evidencia tecnica",
+          "label": "Notificaciones: movimiento suave, radios y ausencia de scroll horizontal",
+          "url": "/evidencias/frontend/2026-10-28-notificaciones/direcciones.md",
+          "note": "Escritorio entra y sale por la derecha; móvil entra desde arriba y sale hacia arriba. 640 ms, sin scroll horizontal; radio compartido de 12 px, overlay, Escape e inert. Conserva 3 s y movimiento reducido. No completa SB-S2-02."
         }
       ]
     },

@@ -43,6 +43,18 @@ archivos internos no son intercambiables automáticamente. La fuente canónica d
 `docs/bitacora/checkpoints/`. Obsidian visualiza ese estado persistido y no depende del
 historial privado de ningún modelo.
 
+## Recuperación de memoria
+
+La continuidad se recupera con `docs/context/context-index.md` y el estado breve en
+`docs/bitacora/ESTADO-ACTIVO.md`. Antes de escribir se consulta el archivo indicado
+por `scope_file`. Los requisitos y decisiones conservan sus fuentes canónicas; un
+resumen nunca las sustituye. El historial se consulta por tarea o duda concreta.
+
+Obsidian muestra y enlaza estos archivos; esta política no configura búsqueda semántica
+ni inyección automática de todo el vault en la IA. El laboratorio `tools/agent-lab/`
+es independiente. La memoria privada de cada host sigue siendo contexto auxiliar.
+Reutiliza lecturas vigentes dentro del chat y recupera solo lo necesario al retomarlo.
+
 ## Tipos de notas
 
 - `session`: resumen de una sesión de trabajo.
@@ -82,7 +94,8 @@ historial privado de ningún modelo.
 
 ## Cierre de sesión
 
-Al cerrar una sesión, el agente debe intentar registrar:
+Al cerrar una sesión con trabajo relevante, el agente debe intentar registrar en una
+nota o checkpoint (un mismo registro puede cumplir ambas funciones):
 
 1. Objetivo.
 2. Trabajo realizado.
@@ -125,10 +138,17 @@ dependen de ella.
 
 ## Cadencia de registro
 
-- Inicio de una tarea: registrar `planned` o `in-progress`.
+- Inicio de una tarea: reutilizar el estado operativo si ya representa la tarea;
+  actualizarlo cuando cambie, sin crear una nota por cada mensaje o comando.
 - Cambio importante o pausa: crear un `checkpoint`.
 - Bloqueo: crear un `checkpoint` con `blocked` y la dependencia.
-- Fin de sesión: crear un resumen de sesión.
+- Fin de sesión: registrar resultado, evidencia, pendientes y siguiente acción; enlazar
+  el checkpoint de la tarea si ya los contiene, sin crear un resumen duplicado.
+- Estado activo: conservar solo el resultado vigente, pendientes y siguiente acción con
+  enlaces; llevar el relato histórico a checkpoints identificando origen y reemplazo.
+- Cambios de RF, criterios, prioridades o estado: conservar la sincronización exigida
+  por AGENTS.md. Un ajuste de contexto no declara avance funcional ni exige nuevas
+  ediciones académicas de documentos cuyo contenido no cambia.
 - Fin de sprint: el tesista decide cuándo cerrar o reabrir el periodo. Basta actualizar el
   registro operativo existente con fecha, resultado y pendientes para dar continuidad; el
   apunte no es precondición. No se requiere acta, revisión previa completa ni aprobación

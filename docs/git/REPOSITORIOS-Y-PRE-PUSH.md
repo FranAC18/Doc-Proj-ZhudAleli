@@ -50,6 +50,20 @@ arrastre y el commit usa el sprint de ejecución acordado; la matriz conserva el
 planificado y agrega la entrega real. El `S1` histórico de SPEC-001 corresponde
 al S2 del calendario actual. No se cambia retrospectivamente el cierre.
 
+## Autorización permanente para programación — 2026-10-29
+
+Por solicitud expresa del tesista, tras cada porción coherente de programación de la app
+con pruebas/verificaciones aplicables correctas y diff revisado, hacer commit descriptivo
+y push a su rama de trabajo de `FranAC18/App-zhudaleli`, sin otra confirmación. Registrar
+qué se hizo y su validación en el mensaje, con RF y sprint reales. Preparar solo las
+rutas de la tarea; excluir cambios ajenos o previos no verificados y no crear commits vacíos.
+Si cambia el diff, revisar y verificar lo afectado antes de publicarlo. Si falla una
+verificación, no publicar; si falla el push, conservar el commit local e informar el pendiente.
+
+La autorización se limita a programación de la app. No cubre Git del vault/documentación,
+push directo a `main`, force push, merge, tags, rebase, reset, clean, identidad ni despliegue.
+Una instrucción puntual del tesista puede suspenderla. Mantener las comprobaciones siguientes.
+
 ## Checklist obligatorio antes de cada push de código
 
 1. Identificar la ruta actual y la raíz real con `Get-Location` y
@@ -65,8 +79,9 @@ al S2 del calendario actual. No se cambia retrospectivamente el cierre.
    del repositorio general. Consultarlos allí; no copiarlos a la app.
 6. Revisar el diff y las verificaciones proporcionales ejecutadas. Un commit de trabajo
    parcial puede existir, pero no se presenta como funcionalidad terminada.
-7. Confirmar la acción Git autorizada por el tesista, el conjunto exacto de archivos y
-   la rama de destino. Si el diff cambió desde la autorización, volver a revisar.
+7. Comprobar que la publicación está cubierta por la autorización permanente de programación
+   o una autorización específica del tesista; confirmar las rutas exactas y la rama de
+   destino. Si el diff cambió, volver a revisar y verificar lo afectado antes de publicar.
 
 Nunca ejecutar `git add .` desde la raíz general ni force push a `main`. Usar staging
 explícito por rutas después de revisar el destino. Un `.gitignore` no impide `git add -f`.

@@ -1,0 +1,49 @@
+{
+  "fecha_local": "2026-10-29",
+  "tipo": "verificacion_documental",
+  "archivos_verificados": 15,
+  "controles": {
+    "15_casos_DAT_definidos": true,
+    "sin_tabla_activa_deuda_externa": true,
+    "sin_deuda_externa_en_ER": true,
+    "cobro_entrega_y_salida_explicitos": true,
+    "acopio_obligatorio_secado": true,
+    "receta_estandar_con_indice_parcial": true,
+    "superadmin_denegado_venta": true,
+    "superadmin_denegado_cobro": true,
+    "cuentas_distintas_por_feria_presentacion": true,
+    "rendicion_interna_conservada": true,
+    "bloqueo_padre_existente": true,
+    "sin_reembolso_automatico": true,
+    "siete_respuestas_registradas": true,
+    "redondeo_decimal_definido": true
+  },
+  "errores": [],
+  "limite": "No prueba modelos, migraciones ni concurrencia PostgreSQL; DAT son casos futuros.",
+  "sha256": {
+    "docs/architecture/proposals/2026-10-29-decisiones-pendientes-diseno-datos.md": "29d3023981b40f851170e49126eb8726f57ba32b10720fd76b98dadb4293c9b2",
+    "docs/architecture/proposals/2026-10-29-diseno-integral-base-datos.md": "10da15c0c343c01c075c1065d6ea29eee8b076275b26179c3100c32bc2b9bba4",
+    "docs/architecture/proposals/2026-10-29-identidad-cargos-encargos.md": "a678043c73fe1ee02b0206a05fe78aed11b063f69a7d0a9b496c6b927718331b",
+    "docs/architecture/proposals/2026-10-29-mapa-conceptual-modulos-y-dependencias.md": "a11f1f9bba10e1f5be5ad7c311ad0830943ece86742f595715e2d7685e45fde9",
+    "docs/architecture/proposals/2026-10-29-revision-simplicidad-y-contexto-organizacional.md": "33f256df6ae2f48e67d6712bb20c739735e49091c0343ee1d1b1bbdbc2d1fa36",
+    "docs/requirements/proposals/2026-10-29-enmienda-datos-sin-credito-y-administracion.md": "ff5129b2d8f6b7993ac6adeffef47b35512d56a9a99ea41c18776e8599edf8cb",
+    "specs/002-superadministracion/spec.md": "232c83417caef36a8cd8363062f2a77e949ec964245aa5f3c44f481282b9cd21",
+    "docs/context/feature-index.md": "f3fe4736419141f6b68a7bffd9a4f01856cc47ab045bdbb3c9ff89141a728080",
+    "documentacion/README.md": "b30b78b9e0eb2bf4134ed8fdc9ce096bd93673d7b360af5c1c9a7e52780b78b1",
+    "documentacion/control_de_cambios/registro_v5.4_2026-10-29.md": "48623bdac7554a10fc3c4c57cedd23909905a15a8498d19d1839aa7acdb2e96b",
+    "documentacion/pila_producto/pila_producto_v2.1_2026-10-29.md": "42ecce24f86d41069c43b5aeec4a090c42e2bababff80c17da0d0571626bf37e",
+    "documentacion/requisitos/requisitos_generales_v2.4_2026-10-29.md": "62f694a02fd213012f197b97f30b67beeaea3ad6c46da751f5409e4948ad03d7",
+    "documentacion/sprints/sprint_backlog_v1.7_2026-10-29.md": "fb94a0fafea950a83af6bc9de3c24445b7d36a5b8fa2a74e5ac606eae2fadabe",
+    "documentacion/historias/tecnicas/historias_tecnicas_v2.0_2026-10-29.md": "2af2252a00029e30665f9db9dc23e78166fa407ffa39af9bc1c5766b40b9fdd1",
+    "documentacion/historias/usuario/historias_usuario_v2.9_2026-10-29.md": "44b1f6d18867f56329c305e5660fa29436e32c3cefab87b8b23754cd7757a493"
+  },
+  "ejemplos_aritmeticos": {
+    "redondeo_1_005": "1.01",
+    "fondo_10_00_igualitario_por_id_centavos": {
+      "3": 334,
+      "5": 333,
+      "8": 333
+    }
+  },
+  "whitespace_propuestas": "git diff --no-index --check contra snapshots: correcto"
+}

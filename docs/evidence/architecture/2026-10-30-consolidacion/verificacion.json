@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-30",
+  "scope": "documentacion y sincronizacion local; sin codigo de producto",
+  "archivos_verificados": 9,
+  "enlaces_locales": 24,
+  "enlaces_rotos": [],
+  "reglas": 18,
+  "casos_definidos_no_ejecutados": 20,
+  "gestor": {
+    "rf": 19,
+    "hu": 19,
+    "ht": 1,
+    "notas_tareas": 7,
+    "persistencia_exacta_verificada": true,
+    "documentos_http_200": 6,
+    "estados_fechas_prioridades_conservados": true,
+    "criteriaDone_conservados": true,
+    "discrepancia_preexistente_SB_S1_03": "dashboard done / seguimiento en_curso"
+  },
+  "git_diff_check": 0,
+  "sha256": {
+    "documentacion\\arquitectura\\diseno_base_datos_v2.0_2026-10-30.md": "9898e8d87974600341f7ffccfef6e018f0466a20b83b6339c9beafa04e0544af",
+    "documentacion\\requisitos\\requisitos_generales_v2.5_2026-10-30.md": "f069c24aea928c28dff63859c2973cb28f4c7bc4db758919a1771754c53d31ac",
+    "documentacion\\historias\\usuario\\historias_usuario_v3.0_2026-10-30.md": "f4b39630092f2714b6a8d1b5e5df8c62542ff748104b86fa68e6d3e33fd39e51",
+    "documentacion\\historias\\tecnicas\\historias_tecnicas_v2.1_2026-10-30.md": "cd0fb4357394d2a92404eb8d89944649ff5e3019177bb43390663190b153495e",
+    "documentacion\\pila_producto\\pila_producto_v2.2_2026-10-30.md": "92869aad305d88f63f19c178cd33398ecb7cd4bd77c0781e9a7770f5837333f4",
+    "documentacion\\sprints\\sprint_backlog_v1.8_2026-10-30.md": "b9623a2adced538179135e0d1ae8da789fe826da95693a5bb6d99f73cb3f8fdf",
+    "documentacion\\control_de_cambios\\registro_v5.8_2026-10-30.md": "7dacd19f61ffc01981591a27f09945d1640dc0f75c79bc816a48330dc1035ceb",
+    "docs\\requirements\\proposals\\2026-10-30-consolidacion-reglas-diseno-datos.md": "ba51e000ca88f75e098174090e03669a8e929b15e37fb85cf31779fa35484294",
+    "docs\\bitacora\\checkpoints\\2026-10-30-consolidacion-datos.md": "2d5adb4f1d62838de02264512502e6c4f18f16e0d18e9f00942abfc556e6dfe3",
+    "docs/architecture/proposals/2026-10-29-diseno-integral-base-datos.md": "45ca1524cee786c39a0e570a24c141b59483019afddeb9a52b52230dc17d7476",
+    "docs/architecture/proposals/2026-10-29-decisiones-pendientes-diseno-datos.md": "844dcde47ceac7fa6803d3244d334a6435ead02e327fa4093ba2f41ddaa5ed38",
+    "docs/architecture/proposals/2026-10-29-identidad-cargos-encargos.md": "4ccc33eac08377ca88219fca1f0bf0a55ea6f62b2d078edbb65addb13caceba7",
+    "docs/architecture/proposals/2026-10-29-mapa-conceptual-modulos-y-dependencias.md": "e2312eae99e4619a3fb7a920cddf86db0c78c8a628af3624c933565ed9ecf05b",
+    "docs/architecture/proposals/2026-10-29-revision-simplicidad-y-contexto-organizacional.md": "67d70536fbcf42910dd00bc59218ea65e0903d7a0763a0082168544c25df7727",
+    "docs/requirements/proposals/2026-10-29-enmienda-datos-sin-credito-y-administracion.md": "167e6c86e6514741bf66017f473872ce05f1cee01a4de7a5c7ec3865cf7c74dc",
+    "docs/bitacora/ESTADO-ACTIVO.md": "631a8cce432a0d0e0f70dee38ff68d2e67e1698193611fc8793221b0db059803",
+    "docs/context/feature-index.md": "dc37e92ff4728f04a06e374df424930f361d4d3b9987952f7c1484fd25f2da7a",
+    "specs/002-superadministracion/spec.md": "86261a411b6b5f07fecef371edd481596b82845b54274d6d454100dc49ae4d1d",
+    "documentacion/README.md": "07191f2a6ecdf63f08ca562b2fef05de8cccd9a21cf7934c289223b33b7487b0"
+  },
+  "publicacion": "pendiente",
+  "migraciones": "no realizadas",
+  "referencias_historicas_marcadas": [
+    "docs/architecture/proposals/2026-10-29-diseno-integral-base-datos.md",
+    "docs/architecture/proposals/2026-10-29-decisiones-pendientes-diseno-datos.md",
+    "docs/architecture/proposals/2026-10-29-identidad-cargos-encargos.md",
+    "docs/architecture/proposals/2026-10-29-mapa-conceptual-modulos-y-dependencias.md",
+    "docs/architecture/proposals/2026-10-29-revision-simplicidad-y-contexto-organizacional.md",
+    "docs/requirements/proposals/2026-10-29-enmienda-datos-sin-credito-y-administracion.md"
+  ]
+}
