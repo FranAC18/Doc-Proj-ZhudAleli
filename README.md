@@ -1,7 +1,7 @@
 ---
 titulo: Índice de documentación final de Zhud Alelí
-version: "5.13"
-fecha: 2026-10-31
+version: "5.14"
+fecha: 2026-11-01
 autor: Tesista
 estado: preparado-para-revision-academica
 publicacion: parcialmente-publicada
@@ -22,6 +22,23 @@ La [base de diseño v2.2](arquitectura/diseno_base_datos_v2.2_2026-10-30.md) y e
 La revisión conserva las reglas de ventas, custodia, cierres, devoluciones y reparto de la base v2.0. Las ediciones previas v1.0, adendas v1.1/v1.2 y base v2.0 se preservan como antecedentes. La cuenta organizacional Superadmin se modela separada de los permisos técnicos Django.
 
 Ediciones sucesoras: [requisitos 2.8](requisitos/requisitos_generales_v2.8_2026-10-31.md), [HU 3.3](historias/usuario/historias_usuario_v3.3_2026-10-31.md), [HT 2.4](historias/tecnicas/historias_tecnicas_v2.4_2026-10-31.md), [pila 2.5](pila_producto/pila_producto_v2.5_2026-10-31.md) y [backlog 2.1](sprints/sprint_backlog_v2.1_2026-10-31.md). Registran el avance parcial de SB-S2-03 y el inicio anticipado de SB-S3-01 sin cerrar tareas ni cambiar sus criterios. [Control 5.13](control_de_cambios/registro_v5.13_2026-10-31.md). El modelo integral no se considera implementado por completo.
+
+## Regla de ferias aprobada por el tesista — 2026-11-01
+
+El tesista aprobó el alcance de negocio: productos de lotes de fábrica como modo ordinario; una opción de la Superadministradora habilita o deshabilita juntas el acopio individual y la venta individual; y únicamente la ganancia neta se divide por igual entre las encargadas de la feria. La fórmula es **total recaudado - valor base correspondiente a las cantidades vendidas - gastos de feria**. No se divide el total recaudado ni se asigna la ganancia según titular individual.
+
+La regla está aprobada por el tesista y se publica para revisión docente. La validación organizacional directa sigue pendiente; por eso CAT-REQ-001 v1.3 continúa como línea base, P-07 no se cierra y no se declara implementación. Los detalles sobre configuración global o por feria, cantidad de lotes, saldos no positivos, centavos, encargadas ante cambios y destino del precio base descontado siguen por especificar. El paquete no altera estados ni compromisos de S5.
+
+| Edición local | Estado |
+|---|---|
+| [Requisitos v2.9](requisitos/requisitos_generales_v2.9_2026-11-01.md) | Regla de feria aprobada por el tesista; validación organizacional pendiente. |
+| [HU v3.4](historias/usuario/historias_usuario_v3.4_2026-11-01.md) | Criterios de feria aceptados por el tesista; validación organizacional pendiente. |
+| [HT v2.5](historias/tecnicas/historias_tecnicas_v2.5_2026-11-01.md) | Dirección de negocio aprobada; diseño físico e implementación pendientes. |
+| [Pila v2.6](pila_producto/pila_producto_v2.6_2026-11-01.md) | Sin cambios de IDs, orden, prioridad ni estimaciones. |
+| [Backlog v2.2](sprints/sprint_backlog_v2.2_2026-11-01.md) | S5 futuro; sin compromiso nuevo ni cambio de estado. |
+| [Control 5.14](control_de_cambios/registro_v5.14_2026-11-01.md) | Paquete publicado para revisión documental. |
+
+La aprobación se atribuye al tesista, no a la organización ni a la directora. La discrepancia con la línea base y la evidencia de aprobación se conservan en el vault interno bajo el corte 2026-11-01.
 
 ## Adendas locales de datos — 2026-10-29
 
@@ -205,3 +222,4 @@ Cada publicación requiere revisión y confirmación del tesista.
 | 5.10 | 2026-10-30 | Actualiza diseño lógico/ER con seis socias con cuenta, cuatro roles combinables y Superadmin externa; contrasta el padrón reportado con PostgreSQL de desarrollo. |
 | 5.12 | 2026-10-30 | Aplica integridad de accounts y corrige ER/base v2.2 por módulo; 44 pruebas, migración y commit/push de código; sincroniza evidencia parcial conservando aprobaciones y pendientes. |
 | 5.13 | 2026-10-31 | Registra el avance parcial de membresías y actividades, 19 tablas/22 migraciones y 68 pruebas; sincroniza requisitos, historias, pila y backlog sin cerrar tareas ni publicar esta edición. |
+| 5.14 | 2026-11-01 | Publica el paquete de ferias aprobado por el tesista para revisión docente. La validación organizacional sigue pendiente; CAT-REQ-001 se conserva como línea base y S5 no recibe un compromiso nuevo. |
