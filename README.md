@@ -1,7 +1,7 @@
 ---
 titulo: Índice de documentación final de Zhud Alelí
-version: "5.10"
-fecha: 2026-10-30
+version: "5.13"
+fecha: 2026-10-31
 autor: Tesista
 estado: preparado-para-revision-academica
 publicacion: parcialmente-publicada
@@ -9,13 +9,19 @@ publicacion: parcialmente-publicada
 
 # Documentación final de Zhud Alelí
 
-## Diseño de base de datos — revisión vigente 2026-10-30
+## Implementación parcial de membresías y planificación — 2026-10-31
 
-La [base de diseño v2.1](arquitectura/diseno_base_datos_v2.1_2026-10-30.md) y el [ER integral v2.1](arquitectura/modelo_er_integral_v2.1_2026-10-30.md) son las referencias vigentes. El ER incorpora el padrón reportado: seis socias con cuenta, cuatro roles de negocio combinables y una cuenta Superadmin externa. No fija el padrón actual como límite del esquema. En PostgreSQL de desarrollo se encontraron 13 tablas, pero solo una cuenta y ninguna tabla de dominio; las demás entidades siguen siendo propuestas.
+El commit [c9f2d6a3e0f0fa474485546075eda55e8d729592](https://github.com/FranAC18/App-zhudaleli/commit/c9f2d6a3e0f0fa474485546075eda55e8d729592), publicado en `feature/RF-PLA-001-actividades`, inicia operaciones de membresía para cuentas existentes y actividades con responsables/participantes. Pasaron 68 pruebas PostgreSQL y las verificaciones de Django, Ruff y migraciones. `SB-S2-03` y `SB-S3-01` permanecen parciales. El desarrollo tiene 19 tablas base, 22 migraciones, tres cargos de catálogo y cero designaciones activas. No se cargaron personas reales.
+
+La autorización indicada por el tesista comprende Presidenta, Tesorera y Secretaria para administrar membresías y crear/editar actividades si su designación está vigente. No equivale a validación organizacional directa. No hay PR, merge, tag, despliegue, publicación académica ni Git del vault para este corte.
+
+## Diseño de base de datos — revisión vigente 2026-10-31
+
+La [base de diseño v2.2](arquitectura/diseno_base_datos_v2.2_2026-10-30.md) y el [ER integral v2.2](arquitectura/modelo_er_integral_v2.2_2026-10-30.md) son las referencias vigentes. Corrigen normalización, cardinalidades, origen de faltas, variantes, custodia/propiedad, cobros, anticipos y capturas. Conservan seis socias con cuenta, roles combinables y Superadmin externa sin topes artificiales. Las ediciones v2.1 se preservan. En `zhud_aleli_dev` hay 19 tablas base y 22 migraciones aplicadas: autenticación/acceso, identidad y cargos, membresías, actividades y participantes. Las tablas de asistencia, producción, inventario, ventas, rendiciones y reportes del ER integral siguen pendientes de implementación.
 
 La revisión conserva las reglas de ventas, custodia, cierres, devoluciones y reparto de la base v2.0. Las ediciones previas v1.0, adendas v1.1/v1.2 y base v2.0 se preservan como antecedentes. La cuenta organizacional Superadmin se modela separada de los permisos técnicos Django.
 
-Las ediciones afectadas de requisitos 2.5, HU 3.0, HT 2.1, pila 2.2 y backlog 1.8 se conservan. Índice y control 5.10 incorporan esta precisión de identidad. No acredita migraciones, padrón cargado, pruebas de producto ni validación organizacional nueva.
+Ediciones sucesoras: [requisitos 2.8](requisitos/requisitos_generales_v2.8_2026-10-31.md), [HU 3.3](historias/usuario/historias_usuario_v3.3_2026-10-31.md), [HT 2.4](historias/tecnicas/historias_tecnicas_v2.4_2026-10-31.md), [pila 2.5](pila_producto/pila_producto_v2.5_2026-10-31.md) y [backlog 2.1](sprints/sprint_backlog_v2.1_2026-10-31.md). Registran el avance parcial de SB-S2-03 y el inicio anticipado de SB-S3-01 sin cerrar tareas ni cambiar sus criterios. [Control 5.13](control_de_cambios/registro_v5.13_2026-10-31.md). El modelo integral no se considera implementado por completo.
 
 ## Adendas locales de datos — 2026-10-29
 
@@ -197,3 +203,5 @@ Cada publicación requiere revisión y confirmación del tesista.
 | 5.7 | 2026-10-30 | Registra ocho decisiones expresas en adenda v1.2 y su precedencia; [control v5.7](control_de_cambios/registro_v5.7_2026-10-30.md). |
 
 | 5.10 | 2026-10-30 | Actualiza diseño lógico/ER con seis socias con cuenta, cuatro roles combinables y Superadmin externa; contrasta el padrón reportado con PostgreSQL de desarrollo. |
+| 5.12 | 2026-10-30 | Aplica integridad de accounts y corrige ER/base v2.2 por módulo; 44 pruebas, migración y commit/push de código; sincroniza evidencia parcial conservando aprobaciones y pendientes. |
+| 5.13 | 2026-10-31 | Registra el avance parcial de membresías y actividades, 19 tablas/22 migraciones y 68 pruebas; sincroniza requisitos, historias, pila y backlog sin cerrar tareas ni publicar esta edición. |
